@@ -193,41 +193,45 @@ def summarize_video(
 
 # ---- HTML 生成 ---------------------------------------------------------
 
-_SENTIMENT_ICON = {"bullish": "📈", "bearish": "📉", "neutral": "➡️"}
-_IMPORTANCE_COLOR = {5: "#f59e0b", 4: "#3b82f6", 3: "#10b981", 2: "#64748b", 1: "#334155"}
-
-
-def _stars(n: int) -> str:
-    return "★" * max(1, min(5, n)) + "☆" * (5 - max(1, min(5, n)))
+_SENT_LABEL = {"bullish": "▲ Bullish", "bearish": "▼ Bearish", "neutral": "● Neutral"}
+_IMP_BAR    = lambda n: "▮" * n + "▯" * (5 - n)
 
 
 def _render_card(r: dict) -> str:
-    a = r.get("analysis", {})
-    importance = int(a.get("importance", 1))
+    a          = r.get("analysis", {})
+    importance = max(1, min(5, int(a.get("importance", 1))))
     sentiment  = a.get("sentiment", "neutral")
     tickers    = a.get("tickers", [])
     topics     = a.get("topics", [])
     key_points = a.get("key_points", [])
-    color      = _IMPORTANCE_COLOR.get(importance, "#334155")
-    icon       = _SENTIMENT_ICON.get(sentiment, "➡️")
+    pub_date   = r.get("published", "")[:10]
 
-    ticker_html = "".join(f'<span class="ticker">{t}</span>' for t in tickers)
-    topic_html  = "".join(f'<span class="topic">{t}</span>'  for t in topics)
-    points_html = "".join(f"<li>{p}</li>" for p in key_points)
-    pub_date    = r.get("published", "")[:10]
+    sent_label   = _SENT_LABEL.get(sentiment, sentiment)
+    imp_bar      = _IMP_BAR(importance)
+    ticker_html  = "".join(f'<span class="ticker">{t}</span>' for t in tickers)
+    topic_html   = "".join(f'<span class="topic">{t}</span>'  for t in topics)
+    points_html  = "".join(f"<li>{p}</li>" for p in key_points)
+    points_block = f'<ul class="points">{points_html}</ul>' if points_html else ""
+    tags_block   = f'<div class="tags">{ticker_html}{topic_html}</div>' if (tickers or topics) else ""
 
-    return f"""
-    <article class="card" style="border-left-color:{color}">
-      <div class="card-header">
-        <span class="channel">{r['channel_name']}</span>
-        <span class="meta">{icon} <span class="stars">{_stars(importance)}</span></span>
-      </div>
-      <h3><a href="{r['url']}" target="_blank" rel="noopener">{r['title']}</a></h3>
-      <div class="tags">{ticker_html}{topic_html}</div>
-      <p class="summary">{a.get('summary_ja', '')}</p>
-      {"<ul class='points'>" + points_html + "</ul>" if points_html else ""}
-      <time class="pub-date">{pub_date}</time>
-    </article>"""
+    return f"""<article class="card imp-{importance} sent-{sentiment}"
+  data-sentiment="{sentiment}" data-importance="{importance}">
+  <div class="card-top">
+    <span class="channel-name">{r['channel_name']}</span>
+    <div class="badges">
+      <span class="badge-sent {sentiment}">{sent_label}</span>
+      <span class="badge-imp">{imp_bar}</span>
+    </div>
+  </div>
+  <h3><a href="{r['url']}" target="_blank" rel="noopener">{r['title']}</a></h3>
+  {tags_block}
+  <p class="summary">{a.get('summary_ja', '')}</p>
+  {points_block}
+  <div class="card-footer">
+    <time>{pub_date}</time>
+    <a class="watch-btn" href="{r['url']}" target="_blank" rel="noopener">Watch ↗</a>
+  </div>
+</article>"""
 
 
 def generate_html(results: list[dict], date_str: str) -> str:
@@ -236,75 +240,412 @@ def generate_html(results: list[dict], date_str: str) -> str:
         key=lambda x: int(x.get("analysis", {}).get("importance", 1)),
         reverse=True,
     )
-    cards = "".join(_render_card(r) for r in results_sorted)
-    if not cards:
-        cards = '<p class="empty">本日の新着動画はありません。</p>'
 
-    now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
+    n_bullish = sum(1 for r in results if r.get("analysis", {}).get("sentiment") == "bullish")
+    n_bearish = sum(1 for r in results if r.get("analysis", {}).get("sentiment") == "bearish")
+    n_neutral = len(results) - n_bullish - n_bearish
+    now_jst   = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
+
+    cards = "\n".join(_render_card(r) for r in results_sorted)
+    if not cards:
+        cards = '<div class="empty"><p>新着動画はありません</p></div>'
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>投資YouTube日次ダイジェスト {date_str}</title>
+  <title>Investment Digest — {date_str}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    body {{
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-      background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 24px 16px 48px;
+    :root {{
+      --bg:        #04040a;
+      --bg2:       #0c0c18;
+      --surface:   rgba(255,255,255,0.04);
+      --surface2:  rgba(255,255,255,0.07);
+      --border:    rgba(255,255,255,0.08);
+      --text:      #e8eaf0;
+      --muted:     #6b7280;
+      --bullish:   #10b981;
+      --bearish:   #ef4444;
+      --neutral:   #6366f1;
+      --gold:      #f59e0b;
+      --blue:      #3b82f6;
+      --ticker-bg: #001a0a;
+      --ticker-fg: #00ff88;
     }}
-    header {{ text-align: center; margin-bottom: 32px; }}
-    header h1 {{ font-size: clamp(1.4rem, 4vw, 2rem); color: #38bdf8; margin-bottom: 6px; }}
-    header p  {{ color: #94a3b8; font-size: 0.9rem; }}
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+
+    html {{ scroll-behavior: smooth; }}
+
+    body {{
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(16,185,129,0.06) 0%, transparent 50%);
+    }}
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {{ width: 6px; }}
+    ::-webkit-scrollbar-track {{ background: var(--bg); }}
+    ::-webkit-scrollbar-thumb {{ background: #2d2d4e; border-radius: 3px; }}
+
+    /* ── Header ── */
+    header {{
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(4,4,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(16px, 4vw, 48px);
+    }}
+    .header-inner {{
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; gap: 16px;
+    }}
+    .logo {{
+      display: flex; align-items: center; gap: 10px;
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
+      white-space: nowrap;
+    }}
+    .logo-icon {{
+      width: 32px; height: 32px; border-radius: 8px;
+      background: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }}
+    .header-meta {{
+      display: flex; align-items: center; gap: 20px;
+      font-size: 0.78rem; color: var(--muted);
+    }}
+    .stat-pill {{
+      display: flex; align-items: center; gap: 5px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 0.75rem;
+    }}
+    .stat-pill .dot {{ width: 6px; height: 6px; border-radius: 50%; }}
+    .dot-bullish {{ background: var(--bullish); box-shadow: 0 0 6px var(--bullish); }}
+    .dot-bearish {{ background: var(--bearish); box-shadow: 0 0 6px var(--bearish); }}
+    .dot-neutral {{ background: var(--neutral); box-shadow: 0 0 6px var(--neutral); }}
+
+    /* ── Hero ── */
+    .hero {{
+      text-align: center;
+      padding: clamp(40px, 6vw, 80px) 16px clamp(24px, 4vw, 48px);
+    }}
+    .hero-date {{
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--neutral);
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);
+      border-radius: 20px; padding: 4px 14px; margin-bottom: 20px;
+    }}
+    .hero h1 {{
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #34d399 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 16px;
+    }}
+    .hero-sub {{
+      font-size: 0.9rem; color: var(--muted);
+    }}
+    .hero-stats {{
+      display: flex; justify-content: center; gap: clamp(16px,3vw,40px);
+      margin-top: 28px; flex-wrap: wrap;
+    }}
+    .h-stat {{ text-align: center; }}
+    .h-stat-num {{
+      font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700;
+      letter-spacing: -0.04em; line-height: 1;
+    }}
+    .h-stat-num.c-total  {{ color: #fff; }}
+    .h-stat-num.c-bull   {{ color: var(--bullish); }}
+    .h-stat-num.c-bear   {{ color: var(--bearish); }}
+    .h-stat-num.c-neut   {{ color: var(--neutral); }}
+    .h-stat-label {{ font-size: 0.72rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }}
+
+    /* ── Filters ── */
+    .filters {{
+      max-width: 1440px; margin: 0 auto 28px;
+      padding: 0 clamp(16px,4vw,48px);
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    }}
+    .filter-label {{ font-size: 0.72rem; color: var(--muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.08em; }}
+    .filter-btn {{
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--muted); border-radius: 20px; padding: 6px 16px;
+      font-size: 0.78rem; font-family: 'Inter', sans-serif; cursor: pointer;
+      transition: all 0.18s ease;
+    }}
+    .filter-btn:hover {{ background: var(--surface2); color: var(--text); border-color: rgba(255,255,255,0.16); }}
+    .filter-btn.active {{ color: var(--text); border-color: rgba(255,255,255,0.3); background: var(--surface2); }}
+    .filter-btn.f-bullish.active {{ border-color: var(--bullish); color: var(--bullish); background: rgba(16,185,129,0.1); }}
+    .filter-btn.f-bearish.active {{ border-color: var(--bearish); color: var(--bearish); background: rgba(239,68,68,0.1); }}
+    .filter-btn.f-neutral.active {{ border-color: var(--neutral); color: var(--neutral); background: rgba(99,102,241,0.1); }}
+    .filter-divider {{ width: 1px; height: 20px; background: var(--border); margin: 0 4px; }}
+
+    /* ── Grid ── */
+    .grid-wrap {{ max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px,4vw,48px) 80px; }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px; max-width: 1400px; margin: 0 auto;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 16px;
     }}
+    #no-results {{
+      display: none; text-align: center; color: var(--muted);
+      padding: 80px 20px; grid-column: 1/-1; font-size: 1rem;
+    }}
+    .empty {{ text-align: center; color: var(--muted); padding: 80px 20px; font-size: 1rem; }}
+
+    /* ── Cards ── */
     .card {{
-      background: #1e293b; border-radius: 12px; padding: 18px 20px;
-      border-left: 4px solid #475569;
-      transition: box-shadow 0.2s, transform 0.2s;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px 22px;
+      position: relative; overflow: hidden;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      animation: fadeUp 0.4s ease both;
     }}
-    .card:hover {{ box-shadow: 0 4px 24px rgba(0,0,0,0.4); transform: translateY(-2px); }}
-    .card-header {{
+    .card::before {{
+      content: ''; position: absolute; inset: 0;
+      border-radius: inherit; opacity: 0;
+      transition: opacity 0.22s ease;
+      pointer-events: none;
+    }}
+    .card:hover {{ transform: translateY(-4px); }}
+
+    /* Importance glow */
+    .card.imp-5 {{ border-color: rgba(245,158,11,0.3); }}
+    .card.imp-5:hover {{ box-shadow: 0 0 32px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.6); }}
+    .card.imp-4 {{ border-color: rgba(59,130,246,0.25); }}
+    .card.imp-4:hover {{ box-shadow: 0 0 24px rgba(59,130,246,0.18); border-color: rgba(59,130,246,0.5); }}
+    .card.imp-3:hover {{ box-shadow: 0 0 16px rgba(255,255,255,0.05); }}
+
+    /* Importance top bar */
+    .card.imp-5::after {{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#f59e0b,#fbbf24); border-radius:16px 16px 0 0; }}
+    .card.imp-4::after {{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#3b82f6,#60a5fa); border-radius:16px 16px 0 0; }}
+
+    .card-top {{
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 8px; margin-bottom: 12px;
+    }}
+    .channel-name {{
+      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted);
+    }}
+    .badges {{ display: flex; align-items: center; gap: 6px; flex-shrink: 0; }}
+
+    .badge-sent {{
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
+      border-radius: 20px; padding: 2px 9px; border: 1px solid;
+    }}
+    .badge-sent.bullish {{ color: var(--bullish); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.1); }}
+    .badge-sent.bearish {{ color: var(--bearish); border-color: rgba(239,68,68,0.4);  background: rgba(239,68,68,0.1); }}
+    .badge-sent.neutral {{ color: var(--neutral); border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.1); }}
+
+    .badge-imp {{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem; color: var(--gold); letter-spacing: 1px;
+    }}
+    .card.imp-4 .badge-imp {{ color: var(--blue); }}
+    .card.imp-3 .badge-imp {{ color: #6b7280; }}
+    .card.imp-2 .badge-imp, .card.imp-1 .badge-imp {{ color: #374151; }}
+
+    h3 {{
+      font-size: 0.95rem; font-weight: 600; line-height: 1.5;
+      margin-bottom: 12px;
+    }}
+    h3 a {{ color: var(--text); text-decoration: none; }}
+    h3 a:hover {{ color: #a5b4fc; }}
+
+    /* Tags */
+    .tags {{ display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }}
+    .ticker {{
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--ticker-bg); color: var(--ticker-fg);
+      border: 1px solid rgba(0,255,136,0.25);
+      padding: 2px 8px; border-radius: 5px; letter-spacing: 0.05em;
+    }}
+    .topic {{
+      font-size: 0.7rem;
+      background: rgba(99,102,241,0.1); color: #a5b4fc;
+      border: 1px solid rgba(99,102,241,0.2);
+      padding: 2px 8px; border-radius: 5px;
+    }}
+
+    /* Summary & points */
+    .summary {{
+      font-size: 0.875rem; line-height: 1.75; color: #9ca3af;
+      margin-bottom: 12px;
+    }}
+    .points {{
+      list-style: none; padding: 0; margin-bottom: 14px;
+    }}
+    .points li {{
+      font-size: 0.82rem; color: #6b7280; line-height: 1.7;
+      padding-left: 16px; position: relative;
+    }}
+    .points li::before {{
+      content: '›'; position: absolute; left: 0; color: #4b5563;
+    }}
+
+    /* Card footer */
+    .card-footer {{
       display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 10px;
+      padding-top: 12px; border-top: 1px solid var(--border);
+      margin-top: 4px;
     }}
-    .channel {{ font-size: 0.72rem; color: #94a3b8; font-weight: 700;
-                text-transform: uppercase; letter-spacing: 0.06em; }}
-    .meta    {{ display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #cbd5e1; }}
-    .stars   {{ color: #f59e0b; font-size: 0.7rem; letter-spacing: -1px; }}
-    h3       {{ font-size: 0.95rem; line-height: 1.5; margin-bottom: 10px; }}
-    h3 a     {{ color: #93c5fd; text-decoration: none; }}
-    h3 a:hover {{ color: #38bdf8; text-decoration: underline; }}
-    .tags    {{ display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }}
-    .ticker  {{
-      background: #1d4ed8; color: #bfdbfe;
-      padding: 2px 7px; border-radius: 4px;
-      font-size: 0.72rem; font-weight: 700; font-family: monospace;
+    .card-footer time {{ font-size: 0.7rem; color: var(--muted); }}
+    .watch-btn {{
+      font-size: 0.72rem; font-weight: 600;
+      color: var(--muted); text-decoration: none;
+      padding: 4px 10px; border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all 0.15s ease;
     }}
-    .topic   {{
-      background: #134e4a; color: #6ee7b7;
-      padding: 2px 7px; border-radius: 4px; font-size: 0.72rem;
+    .watch-btn:hover {{
+      color: var(--text); border-color: rgba(255,255,255,0.2);
+      background: var(--surface2);
     }}
-    .summary {{ color: #cbd5e1; font-size: 0.88rem; line-height: 1.7; margin-bottom: 10px; }}
-    .points  {{ color: #94a3b8; font-size: 0.83rem; padding-left: 18px; line-height: 1.9; margin-bottom: 10px; }}
-    .pub-date {{ display: block; color: #475569; font-size: 0.72rem; }}
-    .empty   {{ text-align: center; color: #64748b; padding: 60px; grid-column: 1/-1; font-size: 1.1rem; }}
-    footer   {{ text-align: center; color: #334155; font-size: 0.78rem; margin-top: 32px; }}
+
+    /* ── Footer ── */
+    footer {{
+      text-align: center; padding: 24px 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--muted);
+    }}
+
+    /* ── Animations ── */
+    @keyframes fadeUp {{
+      from {{ opacity: 0; transform: translateY(16px); }}
+      to   {{ opacity: 1; transform: translateY(0); }}
+    }}
+    .card:nth-child(1)  {{ animation-delay: 0.03s; }}
+    .card:nth-child(2)  {{ animation-delay: 0.06s; }}
+    .card:nth-child(3)  {{ animation-delay: 0.09s; }}
+    .card:nth-child(4)  {{ animation-delay: 0.12s; }}
+    .card:nth-child(5)  {{ animation-delay: 0.15s; }}
+    .card:nth-child(6)  {{ animation-delay: 0.18s; }}
+    .card:nth-child(7)  {{ animation-delay: 0.21s; }}
+    .card:nth-child(8)  {{ animation-delay: 0.24s; }}
+    .card:nth-child(9)  {{ animation-delay: 0.27s; }}
+    .card:nth-child(10) {{ animation-delay: 0.30s; }}
+
+    .card.hidden {{ display: none !important; }}
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {{
+      .header-meta {{ display: none; }}
+      .hero h1 {{ font-size: 1.8rem; }}
+      .grid {{ grid-template-columns: 1fr; }}
+    }}
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1>📊 投資YouTube 日次ダイジェスト</h1>
-    <p>{date_str} &nbsp;|&nbsp; {len(results)} 本の新着動画</p>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">📊</div>
+        Investment Digest
+      </div>
+      <div class="header-meta">
+        <div class="stat-pill"><span class="dot dot-bullish"></span>{n_bullish} Bullish</div>
+        <div class="stat-pill"><span class="dot dot-bearish"></span>{n_bearish} Bearish</div>
+        <div class="stat-pill"><span class="dot dot-neutral"></span>{n_neutral} Neutral</div>
+        <span>{now_jst}</span>
+      </div>
+    </div>
   </header>
-  <div class="grid">
-    {cards}
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-date">{date_str}</div>
+    <h1>Investment<br>YouTube Digest</h1>
+    <p class="hero-sub">米国投資系YouTubeチャンネル 新着動画まとめ</p>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">Total Videos</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">Bullish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">Bearish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">Neutral</div></div>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="filters">
+    <span class="filter-label">Filter</span>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn f-bullish" data-filter="bullish">▲ Bullish</button>
+    <button class="filter-btn f-bearish" data-filter="bearish">▼ Bearish</button>
+    <button class="filter-btn f-neutral" data-filter="neutral">● Neutral</button>
+    <div class="filter-divider"></div>
+    <button class="filter-btn" data-imp="5">★★★★★</button>
+    <button class="filter-btn" data-imp="4">★★★★+</button>
   </div>
-  <footer>最終更新: {now_jst}</footer>
+
+  <!-- Grid -->
+  <div class="grid-wrap">
+    <div class="grid" id="grid">
+      {cards}
+      <div id="no-results">条件に一致する動画がありません</div>
+    </div>
+  </div>
+
+  <footer>
+    Investment Digest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; Powered by Claude AI
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    let activeSentiment = 'all';
+    let activeImp = 0;
+
+    function applyFilters() {{
+      let visible = 0;
+      cards.forEach(c => {{
+        const s = c.dataset.sentiment;
+        const i = parseInt(c.dataset.importance);
+        const matchS = activeSentiment === 'all' || s === activeSentiment;
+        const matchI = activeImp === 0 || i >= activeImp;
+        if (matchS && matchI) {{ c.classList.remove('hidden'); visible++; }}
+        else {{ c.classList.add('hidden'); }}
+      }});
+      document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+    }}
+
+    document.querySelectorAll('[data-filter]').forEach(btn => {{
+      btn.addEventListener('click', () => {{
+        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeSentiment = btn.dataset.filter;
+        applyFilters();
+      }});
+    }});
+
+    document.querySelectorAll('[data-imp]').forEach(btn => {{
+      btn.addEventListener('click', () => {{
+        const val = parseInt(btn.dataset.imp);
+        if (activeImp === val) {{
+          activeImp = 0;
+          btn.classList.remove('active');
+        }} else {{
+          document.querySelectorAll('[data-imp]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeImp = val;
+        }}
+        applyFilters();
+      }});
+    }});
+  </script>
+
 </body>
 </html>"""
 
