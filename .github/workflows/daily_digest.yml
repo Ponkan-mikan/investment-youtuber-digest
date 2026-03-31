@@ -35,4 +35,5 @@ jobs:
           git add docs/ data/channels.json
           # 変更がある場合のみコミット
           git diff --staged --quiet || git commit -m "digest: $(date +'%Y-%m-%d') update"
+          git pull --rebase origin main
           git push
