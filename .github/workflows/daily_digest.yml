@@ -1,11 +1,8 @@
 name: Daily Investment YouTube Digest
 
 on:
-  schedule:
-    # 毎朝 8:00 JST に実行（UTC では 23:00 = 前日）
-    - cron: '0 23 * * *'
   workflow_dispatch:
-    # GitHub の Actions 画面から手動実行も可能
+    # GitHub の Actions 画面から手動実行のみ
 
 jobs:
   generate-digest:
