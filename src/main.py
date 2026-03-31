@@ -151,7 +151,10 @@ def get_transcript(video_id: str) -> str | None:
         # youtube-transcript-api v1.x: インスタンスメソッドに変更
         ytt = YouTubeTranscriptApi()
         transcript = ytt.fetch(video_id, languages=["en", "en-US", "en-GB"])
-        text = " ".join(s.get("text", "") for s in transcript)
+        text = " ".join(
+            (s.text if hasattr(s, "text") else s.get("text", ""))
+            for s in transcript
+        )
         return text[:TRANSCRIPT_MAX_CHARS]
     except (NoTranscriptFound, TranscriptsDisabled):
         return None
