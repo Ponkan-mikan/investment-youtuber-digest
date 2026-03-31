@@ -1,0 +1,23 @@
+[
+  {"name": "Financial Education",                 "handle": "FinancialEducation",       "channel_id": null},
+  {"name": "Everything Money",                     "handle": "EverythingMoney",           "channel_id": null},
+  {"name": "Sven Carlin",                          "handle": "SvenCarlin",                "channel_id": null},
+  {"name": "Brian Stoffel",                        "handle": "BrianStoffel",              "channel_id": null},
+  {"name": "Couch Investor",                       "handle": "CouchInvestor",             "channel_id": null},
+  {"name": "Chris Sain",                           "handle": "ChrisSain",                 "channel_id": null},
+  {"name": "Business with Brian",                  "handle": "BusinesswithBrian",         "channel_id": null},
+  {"name": "Asymmetric Investing",                 "handle": "AsymmetricInvesting",       "channel_id": null},
+  {"name": "Felix & Friends",                      "handle": "FelixFriends",              "channel_id": null},
+  {"name": "Daniel Pronk",                         "handle": "DanielPronk",               "channel_id": null},
+  {"name": "Parkev's Picks",                       "handle": "ParkevsPicks",              "channel_id": null},
+  {"name": "Jerry Romine",                         "handle": "JerryRomine",               "channel_id": null},
+  {"name": "Ticker Symbol: YOU",                   "handle": "TickerSymbolYOU",           "channel_id": null},
+  {"name": "The Patient Investor",                 "handle": "ThePatientInvestor",        "channel_id": null},
+  {"name": "Stealth Wealth Investing",             "handle": "StealthWealthInvesting",    "channel_id": null},
+  {"name": "Investing Diva",                       "handle": "InvestingDiva",             "channel_id": null},
+  {"name": "Adriconomics",                         "handle": "Adriconomics",              "channel_id": null},
+  {"name": "Antonio Linares",                      "handle": "alc_magic",                 "channel_id": null},
+  {"name": "Rick Orford",                          "handle": "RickOrford",                "channel_id": null},
+  {"name": "Wolf of Dubai",                        "handle": "wolfofdubai",               "channel_id": null},
+  {"name": "Christian Darnton - Investing",        "handle": "ChristianDarnton1",         "channel_id": null}
+]

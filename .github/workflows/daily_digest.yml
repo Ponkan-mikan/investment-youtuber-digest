@@ -1,0 +1,41 @@
+name: Daily Investment YouTube Digest
+
+on:
+  schedule:
+    # 毎朝 8:00 JST に実行（UTC では 23:00 = 前日）
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+    # GitHub の Actions 画面から手動実行も可能
+
+jobs:
+  generate-digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # docs/ への push に必要
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate daily digest
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python src/main.py
+
+      - name: Commit and push updated digest
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/ data/channels.json
+          # 変更がある場合のみコミット
+          git diff --staged --quiet || git commit -m "digest: $(date +'%Y-%m-%d') update"
+          git push
