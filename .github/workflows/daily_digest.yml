@@ -8,13 +8,11 @@ jobs:
   generate-digest:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # docs/ への push に必要
+      contents: write  # gh-pages ブランチへの push に必要
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -30,16 +28,11 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python src/main.py
 
-      - name: Commit and push updated digest
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # コミット前にリモートの最新を取得して同期
-          git fetch origin main
-          git rebase origin/main
-          git add docs/
-          # 変更がある場合のみコミット・プッシュ
-          if ! git diff --staged --quiet; then
-            git commit -m "digest: $(date +'%Y-%m-%d') update"
-            git push
-          fi
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          publish_branch: gh-pages
+          keep_files: true
+          commit_message: "digest: ${{ github.run_id }} update"
