@@ -243,7 +243,6 @@ def summarize_video(
 # ---- HTML 生成 ---------------------------------------------------------
 
 _SENT_LABEL = {"bullish": "▲ Bullish", "bearish": "▼ Bearish", "neutral": "● Neutral"}
-_IMP_BAR    = lambda n: "▮" * n + "▯" * (5 - n)
 
 
 def _render_card(r: dict) -> str:
@@ -255,25 +254,31 @@ def _render_card(r: dict) -> str:
     key_points = a.get("key_points", [])
     pub_date   = format_pub_datetime(r.get("published", ""))
 
-    sent_label   = _SENT_LABEL.get(sentiment, sentiment)
-    imp_bar      = _IMP_BAR(importance)
-    ticker_html  = "".join(f'<span class="ticker">{t}</span>' for t in tickers)
-    topic_html   = "".join(f'<span class="topic">{t}</span>'  for t in topics)
-    points_html  = "".join(f"<li>{p}</li>" for p in key_points)
-    points_block = f'<ul class="points">{points_html}</ul>' if points_html else ""
-    tags_block   = f'<div class="tags">{ticker_html}{topic_html}</div>' if (tickers or topics) else ""
+    sent_label  = _SENT_LABEL.get(sentiment, sentiment)
+    imp_pct     = importance * 20
+    ticker_html = "".join(f'<span class="ticker">{t}</span>' for t in tickers)
+    topic_html  = "".join(f'<span class="topic">{t}</span>'  for t in topics)
+    tags_block  = f'<div class="tags">{ticker_html}{topic_html}</div>' if (tickers or topics) else ""
 
-    return f"""<article class="card imp-{importance} sent-{sentiment}"
-  data-sentiment="{sentiment}" data-importance="{importance}">
+    if key_points:
+        items = "".join(f"<li>{p}</li>" for p in key_points)
+        points_block = (
+            f'<details class="points-details">'
+            f'<summary>Key Points <span class="points-count">{len(key_points)}</span></summary>'
+            f'<ul class="points">{items}</ul>'
+            f'</details>'
+        )
+    else:
+        points_block = ""
+
+    return f"""<article class="card sent-{sentiment} imp-{importance}" data-sentiment="{sentiment}" data-importance="{importance}">
   <div class="card-top">
     <span class="channel-name">{r['channel_name']}</span>
-    <div class="badges">
-      <span class="badge-sent {sentiment}">{sent_label}</span>
-      <span class="badge-imp">{imp_bar}</span>
-    </div>
+    <span class="badge-sent {sentiment}">{sent_label}</span>
   </div>
   <h3><a href="{r['url']}" target="_blank" rel="noopener">{r['title']}</a></h3>
   {tags_block}
+  <div class="imp-track"><div class="imp-fill" style="width:{imp_pct}%"></div></div>
   <p class="summary">{a.get('summary_ja', '')}</p>
   {points_block}
   <div class="card-footer">
@@ -299,6 +304,13 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     if not cards:
         cards = '<div class="empty"><p>新着動画はありません</p></div>'
 
+    nav_links = (
+        "<a href='../index.html' class='nav-link'>← Latest</a>"
+        "<a href='index.html' class='nav-link'>All Archives</a>"
+        if is_archive else
+        "<a href='archive/index.html' class='nav-link'>Archive →</a>"
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -306,138 +318,159 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Investment Digest — {date_str}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg:        #04040a;
-      --bg2:       #0c0c18;
-      --surface:   rgba(255,255,255,0.04);
-      --surface2:  rgba(255,255,255,0.07);
-      --border:    rgba(255,255,255,0.08);
-      --text:      #e8eaf0;
-      --muted:     #6b7280;
-      --bullish:   #10b981;
-      --bearish:   #ef4444;
-      --neutral:   #6366f1;
-      --gold:      #f59e0b;
-      --blue:      #3b82f6;
-      --ticker-bg: #001a0a;
-      --ticker-fg: #00ff88;
+      --bg:       #0a0a0f;
+      --bg-card:  #12121a;
+      --bg-hdr:   rgba(10,10,15,0.92);
+      --surface:  rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.07);
+      --border:   rgba(255,255,255,0.06);
+      --text:     #e8e8f0;
+      --muted:    #8888a8;
+      --bullish:  #00d4aa;
+      --bearish:  #ff4757;
+      --neutral:  #6c7293;
+      --gold:     #f0b429;
+      --blue:     #4f8ef7;
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-
     html {{ scroll-behavior: smooth; }}
-
     body {{
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
+      font-family: 'Inter', 'Noto Sans JP', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(16,185,129,0.06) 0%, transparent 50%);
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(0,212,170,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 85% 95%, rgba(79,142,247,0.05) 0%, transparent 55%);
     }}
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar {{ width: 6px; }}
+    ::-webkit-scrollbar {{ width: 5px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
-    ::-webkit-scrollbar-thumb {{ background: #2d2d4e; border-radius: 3px; }}
+    ::-webkit-scrollbar-thumb {{ background: #2a2a3e; border-radius: 3px; }}
 
     /* ── Header ── */
     header {{
       position: sticky; top: 0; z-index: 100;
-      background: rgba(4,4,10,0.85);
-      backdrop-filter: blur(20px);
+      background: var(--bg-hdr); backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
-      padding: 0 clamp(16px, 4vw, 48px);
+      padding: 0 clamp(16px,4vw,48px);
+      transition: background 200ms ease;
     }}
+    header.scrolled {{ background: rgba(10,10,15,0.98); }}
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
       height: 64px; gap: 16px;
+      transition: height 200ms ease;
     }}
-    .logo {{
-      display: flex; align-items: center; gap: 10px;
-      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
-      white-space: nowrap;
+    header.scrolled .header-inner {{ height: 52px; }}
+
+    /* Rotating orbit logo */
+    .logo {{ display: flex; align-items: center; gap: 10px; white-space: nowrap; }}
+    .logo-orbit {{
+      width: 34px; height: 34px; border-radius: 10px;
+      position: relative; overflow: hidden; flex-shrink: 0;
     }}
-    .logo-icon {{
-      width: 32px; height: 32px; border-radius: 8px;
-      background: linear-gradient(135deg, #6366f1 0%, #10b981 100%);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
+    .logo-orbit::before {{
+      content: '';
+      position: absolute; inset: -40%;
+      background: conic-gradient(from 0deg, #00d4aa, #6366f1, #ff4757, #00d4aa);
+      animation: orbit 4s linear infinite;
     }}
+    .logo-inner {{
+      position: absolute; inset: 2px; background: #1a1a2e;
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-size: 0.58rem; font-weight: 800;
+      color: #e8e8f0; letter-spacing: 0.04em; z-index: 1;
+    }}
+    @keyframes orbit {{ to {{ transform: rotate(360deg); }} }}
+    .logo-text {{
+      font-size: 1rem; font-weight: 700; letter-spacing: -0.02em;
+    }}
+
     .header-meta {{
-      display: flex; align-items: center; gap: 20px;
-      font-size: 0.78rem; color: var(--muted);
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.75rem; color: var(--muted); flex-wrap: nowrap;
     }}
     .stat-pill {{
       display: flex; align-items: center; gap: 5px;
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 4px 12px;
-      font-size: 0.75rem;
+      border-radius: 20px; padding: 4px 11px; font-size: 0.73rem;
     }}
-    .stat-pill .dot {{ width: 6px; height: 6px; border-radius: 50%; }}
-    .dot-bullish {{ background: var(--bullish); box-shadow: 0 0 6px var(--bullish); }}
-    .dot-bearish {{ background: var(--bearish); box-shadow: 0 0 6px var(--bearish); }}
-    .dot-neutral {{ background: var(--neutral); box-shadow: 0 0 6px var(--neutral); }}
+    .dot {{ width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }}
+    .dot-bull {{ background: var(--bullish); box-shadow: 0 0 7px var(--bullish); }}
+    .dot-bear {{ background: var(--bearish); box-shadow: 0 0 7px var(--bearish); }}
+    .dot-neut {{ background: var(--neutral); box-shadow: 0 0 6px var(--neutral); }}
+    .nav-link {{
+      font-size: 0.75rem; font-weight: 500; color: var(--muted);
+      text-decoration: none; padding: 5px 12px;
+      border: 1px solid var(--border); border-radius: 20px;
+      transition: all 200ms ease;
+    }}
+    .nav-link:hover {{ color: var(--text); border-color: rgba(255,255,255,0.18); background: var(--surface); }}
 
     /* ── Hero ── */
     .hero {{
       text-align: center;
-      padding: clamp(40px, 6vw, 80px) 16px clamp(24px, 4vw, 48px);
+      padding: clamp(48px,7vw,96px) 16px clamp(28px,4vw,52px);
     }}
     .hero-date {{
-      display: inline-block;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--neutral);
-      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.25);
-      border-radius: 20px; padding: 4px 14px; margin-bottom: 20px;
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--bullish); opacity: 0.8;
+      background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 20px; padding: 4px 14px; margin-bottom: 22px;
     }}
     .hero h1 {{
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
-      background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #34d399 100%);
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.08;
+      background: linear-gradient(135deg, #fff 0%, #a8c5ff 45%, #00d4aa 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 16px;
+      background-clip: text; margin-bottom: 14px;
     }}
-    .hero-sub {{
-      font-size: 0.9rem; color: var(--muted);
-    }}
+    .hero-sub {{ font-size: 0.88rem; color: var(--muted); opacity: 0.7; }}
     .hero-stats {{
-      display: flex; justify-content: center; gap: clamp(16px,3vw,40px);
-      margin-top: 28px; flex-wrap: wrap;
+      display: flex; justify-content: center; gap: clamp(20px,4vw,56px);
+      margin-top: 32px; flex-wrap: wrap;
     }}
     .h-stat {{ text-align: center; }}
     .h-stat-num {{
-      font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700;
+      font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 700;
       letter-spacing: -0.04em; line-height: 1;
     }}
-    .h-stat-num.c-total  {{ color: #fff; }}
-    .h-stat-num.c-bull   {{ color: var(--bullish); }}
-    .h-stat-num.c-bear   {{ color: var(--bearish); }}
-    .h-stat-num.c-neut   {{ color: var(--neutral); }}
-    .h-stat-label {{ font-size: 0.72rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }}
+    .h-stat-num.c-total {{ color: #fff; }}
+    .h-stat-num.c-bull  {{ color: var(--bullish); text-shadow: 0 0 24px rgba(0,212,170,0.4); }}
+    .h-stat-num.c-bear  {{ color: var(--bearish);  text-shadow: 0 0 24px rgba(255,71,87,0.4); }}
+    .h-stat-num.c-neut  {{ color: var(--neutral);  text-shadow: 0 0 20px rgba(108,114,147,0.35); }}
+    .h-stat-label {{ font-size: 0.68rem; color: var(--muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 0.09em; }}
 
     /* ── Filters ── */
     .filters {{
       max-width: 1440px; margin: 0 auto 28px;
       padding: 0 clamp(16px,4vw,48px);
-      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
     }}
-    .filter-label {{ font-size: 0.72rem; color: var(--muted); margin-right: 4px; text-transform: uppercase; letter-spacing: 0.08em; }}
+    .filter-segment {{
+      display: flex; background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 999px; padding: 3px; gap: 2px;
+    }}
     .filter-btn {{
-      background: var(--surface); border: 1px solid var(--border);
-      color: var(--muted); border-radius: 20px; padding: 6px 16px;
-      font-size: 0.78rem; font-family: 'Inter', sans-serif; cursor: pointer;
-      transition: all 0.18s ease;
+      background: transparent; border: none; color: var(--muted);
+      border-radius: 999px; padding: 6px 16px;
+      font-size: 0.77rem; font-family: 'Inter', sans-serif; cursor: pointer;
+      transition: all 200ms ease; white-space: nowrap;
     }}
-    .filter-btn:hover {{ background: var(--surface2); color: var(--text); border-color: rgba(255,255,255,0.16); }}
-    .filter-btn.active {{ color: var(--text); border-color: rgba(255,255,255,0.3); background: var(--surface2); }}
-    .filter-btn.f-bullish.active {{ border-color: var(--bullish); color: var(--bullish); background: rgba(16,185,129,0.1); }}
-    .filter-btn.f-bearish.active {{ border-color: var(--bearish); color: var(--bearish); background: rgba(239,68,68,0.1); }}
-    .filter-btn.f-neutral.active {{ border-color: var(--neutral); color: var(--neutral); background: rgba(99,102,241,0.1); }}
-    .filter-divider {{ width: 1px; height: 20px; background: var(--border); margin: 0 4px; }}
+    .filter-btn:hover {{ color: var(--text); transform: scale(1.02); }}
+    .filter-btn.active {{
+      color: var(--text); background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+    }}
+    .filter-btn.f-bull.active {{ color: var(--bullish); background: rgba(0,212,170,0.12); }}
+    .filter-btn.f-bear.active {{ color: var(--bearish); background: rgba(255,71,87,0.12); }}
+    .filter-btn.f-neut.active {{ color: var(--neutral); background: rgba(108,114,147,0.14); }}
+    .filter-divider {{ width: 1px; height: 22px; background: rgba(255,255,255,0.08); margin: 0 2px; }}
 
     /* ── Grid ── */
     .grid-wrap {{ max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px,4vw,48px) 80px; }}
@@ -446,211 +479,196 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 16px;
     }}
-    #no-results {{
-      display: none; text-align: center; color: var(--muted);
-      padding: 80px 20px; grid-column: 1/-1; font-size: 1rem;
-    }}
-    .empty {{ text-align: center; color: var(--muted); padding: 80px 20px; font-size: 1rem; }}
+    #no-results {{ display: none; text-align: center; color: var(--muted); padding: 80px 20px; grid-column: 1/-1; }}
+    .empty {{ text-align: center; color: var(--muted); padding: 80px 20px; }}
 
     /* ── Cards ── */
     .card {{
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--bg-card); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px 22px;
       position: relative; overflow: hidden;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-      animation: fadeUp 0.4s ease both;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 400ms ease, transform 400ms ease,
+                  box-shadow 200ms ease, border-color 200ms ease;
     }}
-    .card::before {{
-      content: ''; position: absolute; inset: 0;
-      border-radius: inherit; opacity: 0;
-      transition: opacity 0.22s ease;
-      pointer-events: none;
-    }}
-    .card:hover {{ transform: translateY(-4px); }}
+    .card.visible {{ opacity: 1; transform: translateY(0); }}
+    .card.hidden  {{ display: none !important; }}
+    .card:hover   {{ transform: translateY(-3px); }}
 
-    /* Importance glow */
-    .card.imp-5 {{ border-color: rgba(245,158,11,0.3); }}
-    .card.imp-5:hover {{ box-shadow: 0 0 32px rgba(245,158,11,0.2); border-color: rgba(245,158,11,0.6); }}
-    .card.imp-4 {{ border-color: rgba(59,130,246,0.25); }}
-    .card.imp-4:hover {{ box-shadow: 0 0 24px rgba(59,130,246,0.18); border-color: rgba(59,130,246,0.5); }}
-    .card.imp-3:hover {{ box-shadow: 0 0 16px rgba(255,255,255,0.05); }}
-
-    /* Importance top bar */
-    .card.imp-5::after {{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#f59e0b,#fbbf24); border-radius:16px 16px 0 0; }}
-    .card.imp-4::after {{ content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,#3b82f6,#60a5fa); border-radius:16px 16px 0 0; }}
+    /* Left sentiment sidebar */
+    .card.sent-bullish {{ box-shadow: inset 4px 0 0 var(--bullish); }}
+    .card.sent-bearish {{ box-shadow: inset 4px 0 0 var(--bearish); }}
+    .card.sent-neutral {{ box-shadow: inset 4px 0 0 var(--neutral); }}
+    .card.sent-bullish:hover {{ box-shadow: inset 4px 0 0 var(--bullish), 0 8px 32px rgba(0,212,170,0.1); border-color: rgba(0,212,170,0.22); }}
+    .card.sent-bearish:hover {{ box-shadow: inset 4px 0 0 var(--bearish), 0 8px 32px rgba(255,71,87,0.1);  border-color: rgba(255,71,87,0.22); }}
+    .card.sent-neutral:hover {{ box-shadow: inset 4px 0 0 var(--neutral), 0 8px 24px rgba(108,114,147,0.08); border-color: rgba(108,114,147,0.2); }}
 
     .card-top {{
-      display: flex; justify-content: space-between; align-items: flex-start;
-      gap: 8px; margin-bottom: 12px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 8px; margin-bottom: 10px;
     }}
     .channel-name {{
-      font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.1em; color: var(--muted);
     }}
-    .badges {{ display: flex; align-items: center; gap: 6px; flex-shrink: 0; }}
-
     .badge-sent {{
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
-      border-radius: 20px; padding: 2px 9px; border: 1px solid;
+      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.03em;
+      border-radius: 20px; padding: 2px 9px; border: 1px solid; flex-shrink: 0;
     }}
-    .badge-sent.bullish {{ color: var(--bullish); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.1); }}
-    .badge-sent.bearish {{ color: var(--bearish); border-color: rgba(239,68,68,0.4);  background: rgba(239,68,68,0.1); }}
-    .badge-sent.neutral {{ color: var(--neutral); border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.1); }}
+    .badge-sent.bullish {{ color: var(--bullish); border-color: rgba(0,212,170,0.35); background: rgba(0,212,170,0.08); }}
+    .badge-sent.bearish {{ color: var(--bearish); border-color: rgba(255,71,87,0.35);  background: rgba(255,71,87,0.08); }}
+    .badge-sent.neutral {{ color: var(--neutral); border-color: rgba(108,114,147,0.35); background: rgba(108,114,147,0.08); }}
 
-    .badge-imp {{
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem; color: var(--gold); letter-spacing: 1px;
-    }}
-    .card.imp-4 .badge-imp {{ color: var(--blue); }}
-    .card.imp-3 .badge-imp {{ color: #6b7280; }}
-    .card.imp-2 .badge-imp, .card.imp-1 .badge-imp {{ color: #374151; }}
-
-    h3 {{
-      font-size: 0.95rem; font-weight: 600; line-height: 1.5;
-      margin-bottom: 12px;
-    }}
+    h3 {{ font-size: 0.93rem; font-weight: 600; line-height: 1.52; margin-bottom: 10px; }}
     h3 a {{ color: var(--text); text-decoration: none; }}
-    h3 a:hover {{ color: #a5b4fc; }}
+    h3 a:hover {{ color: #a8c5ff; }}
 
     /* Tags */
-    .tags {{ display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }}
+    .tags {{ display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }}
     .ticker {{
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem; font-weight: 700;
-      background: var(--ticker-bg); color: var(--ticker-fg);
-      border: 1px solid rgba(0,255,136,0.25);
-      padding: 2px 8px; border-radius: 5px; letter-spacing: 0.05em;
+      font-size: 0.72rem; font-weight: 700;
+      background: rgba(0,212,170,0.07); color: var(--bullish);
+      border: 1px solid rgba(0,212,170,0.2);
+      padding: 2px 8px; border-radius: 5px; letter-spacing: 0.06em;
     }}
     .topic {{
       font-size: 0.7rem;
-      background: rgba(99,102,241,0.1); color: #a5b4fc;
-      border: 1px solid rgba(99,102,241,0.2);
+      background: rgba(108,114,147,0.1); color: #a0a8c8;
+      border: 1px solid rgba(108,114,147,0.2);
       padding: 2px 8px; border-radius: 5px;
     }}
 
-    /* Summary & points */
+    /* Importance progress bar */
+    .imp-track {{
+      height: 3px; background: rgba(255,255,255,0.05);
+      border-radius: 2px; margin: 6px 0 14px; overflow: hidden;
+    }}
+    .imp-fill {{
+      height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, var(--neutral), #a0a8c8);
+      transition: width 600ms ease;
+    }}
+    .card.imp-5 .imp-fill {{ background: linear-gradient(90deg, var(--gold), #fbbf24); }}
+    .card.imp-4 .imp-fill {{ background: linear-gradient(90deg, var(--blue), #7eb3ff); }}
+    .card.imp-3 .imp-fill {{ background: linear-gradient(90deg, #5a5f7a, #7a80a0); }}
+
+    /* Summary */
     .summary {{
-      font-size: 0.875rem; line-height: 1.75; color: #9ca3af;
-      margin-bottom: 12px;
+      font-size: 0.868rem; line-height: 1.82; color: #9090b0;
+      margin-bottom: 10px;
     }}
-    .points {{
-      list-style: none; padding: 0; margin-bottom: 14px;
+
+    /* Key points accordion */
+    .points-details {{ margin-bottom: 10px; }}
+    .points-details > summary {{
+      font-size: 0.74rem; font-weight: 600; color: var(--muted);
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      padding: 3px 0; list-style: none; user-select: none;
+      transition: color 200ms;
     }}
+    .points-details > summary::-webkit-details-marker {{ display: none; }}
+    .points-details > summary::before {{
+      content: '›'; font-size: 1.1rem; line-height: 1;
+      display: inline-block; transition: transform 200ms ease;
+    }}
+    .points-details[open] > summary::before {{ transform: rotate(90deg); }}
+    .points-details > summary:hover {{ color: var(--text); }}
+    .points-count {{
+      background: rgba(255,255,255,0.07); border-radius: 4px;
+      padding: 1px 6px; font-size: 0.65rem;
+    }}
+    .points {{ list-style: none; padding: 8px 0 0; }}
     .points li {{
-      font-size: 0.82rem; color: #6b7280; line-height: 1.7;
-      padding-left: 16px; position: relative;
+      font-size: 0.82rem; color: var(--muted); line-height: 1.8;
+      padding-left: 14px; position: relative; margin-bottom: 2px;
     }}
     .points li::before {{
-      content: '›'; position: absolute; left: 0; color: #4b5563;
+      content: ''; position: absolute; left: 0; top: 0.68em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--neutral);
     }}
+    .card.sent-bullish .points li::before {{ background: var(--bullish); opacity: 0.7; }}
+    .card.sent-bearish .points li::before {{ background: var(--bearish); opacity: 0.7; }}
 
     /* Card footer */
     .card-footer {{
       display: flex; justify-content: space-between; align-items: center;
-      padding-top: 12px; border-top: 1px solid var(--border);
-      margin-top: 4px;
+      padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 8px;
     }}
-    .card-footer time {{ font-size: 0.7rem; color: var(--muted); }}
+    .card-footer time {{ font-size: 0.68rem; color: var(--muted); }}
     .watch-btn {{
-      font-size: 0.72rem; font-weight: 600;
-      color: var(--muted); text-decoration: none;
-      padding: 4px 10px; border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: all 0.15s ease;
+      font-size: 0.71rem; font-weight: 600; color: var(--muted);
+      text-decoration: none; padding: 5px 13px; border-radius: 8px;
+      border: 1px solid var(--border); background: transparent;
+      transition: all 200ms ease;
     }}
     .watch-btn:hover {{
-      color: var(--text); border-color: rgba(255,255,255,0.2);
-      background: var(--surface2);
+      color: #0a0a0f; background: var(--bullish); border-color: var(--bullish);
     }}
 
     /* ── Footer ── */
     footer {{
       text-align: center; padding: 24px 16px;
       border-top: 1px solid var(--border);
-      font-size: 0.75rem; color: var(--muted);
+      font-size: 0.73rem; color: var(--muted);
     }}
-
-    /* ── Animations ── */
-    @keyframes fadeUp {{
-      from {{ opacity: 0; transform: translateY(16px); }}
-      to   {{ opacity: 1; transform: translateY(0); }}
-    }}
-    .card:nth-child(1)  {{ animation-delay: 0.03s; }}
-    .card:nth-child(2)  {{ animation-delay: 0.06s; }}
-    .card:nth-child(3)  {{ animation-delay: 0.09s; }}
-    .card:nth-child(4)  {{ animation-delay: 0.12s; }}
-    .card:nth-child(5)  {{ animation-delay: 0.15s; }}
-    .card:nth-child(6)  {{ animation-delay: 0.18s; }}
-    .card:nth-child(7)  {{ animation-delay: 0.21s; }}
-    .card:nth-child(8)  {{ animation-delay: 0.24s; }}
-    .card:nth-child(9)  {{ animation-delay: 0.27s; }}
-    .card:nth-child(10) {{ animation-delay: 0.30s; }}
-
-    .card.hidden {{ display: none !important; }}
-
-    /* ── Nav links ── */
-    .nav-link {{
-      font-size: 0.78rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; padding: 5px 12px;
-      border: 1px solid var(--border); border-radius: 20px;
-      transition: all 0.15s ease;
-    }}
-    .nav-link:hover {{ color: var(--text); border-color: rgba(255,255,255,0.2); background: var(--surface2); }}
 
     /* ── Responsive ── */
-    @media (max-width: 600px) {{
-      .header-meta {{ display: none; }}
-      .hero h1 {{ font-size: 1.8rem; }}
+    @media (max-width: 640px) {{
+      .header-meta .stat-pill {{ display: none; }}
+      .hero h1 {{ font-size: 2rem; }}
       .grid {{ grid-template-columns: 1fr; }}
+      .filters {{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }}
+      .filters::-webkit-scrollbar {{ display: none; }}
     }}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
+  <header id="hdr">
     <div class="header-inner">
       <div class="logo">
-        <div class="logo-icon">📊</div>
-        Investment Digest
+        <div class="logo-orbit"><span class="logo-inner">ID</span></div>
+        <span class="logo-text">Investment Digest</span>
       </div>
       <div class="header-meta">
-        <div class="stat-pill"><span class="dot dot-bullish"></span>{n_bullish} Bullish</div>
-        <div class="stat-pill"><span class="dot dot-bearish"></span>{n_bearish} Bearish</div>
-        <div class="stat-pill"><span class="dot dot-neutral"></span>{n_neutral} Neutral</div>
-        <span>{now_jst}</span>
-        {"<a href='../index.html' class='nav-link'>← Latest</a><a href='index.html' class='nav-link'>All Archives</a>" if is_archive else "<a href='archive/index.html' class='nav-link'>Archive →</a>"}
+        <div class="stat-pill"><span class="dot dot-bull"></span>{n_bullish} Bullish</div>
+        <div class="stat-pill"><span class="dot dot-bear"></span>{n_bearish} Bearish</div>
+        <div class="stat-pill"><span class="dot dot-neut"></span>{n_neutral} Neutral</div>
+        <span style="opacity:0.5">{now_jst}</span>
+        {nav_links}
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-date">{date_str}</div>
     <h1>Investment<br>YouTube Digest</h1>
     <p class="hero-sub">米国投資系YouTubeチャンネル 新着動画まとめ</p>
     <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">Total Videos</div></div>
+      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">Total</div></div>
       <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">Bullish</div></div>
       <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">Bearish</div></div>
       <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">Neutral</div></div>
     </div>
   </section>
 
-  <!-- Filters -->
   <div class="filters">
-    <span class="filter-label">Filter</span>
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn f-bullish" data-filter="bullish">▲ Bullish</button>
-    <button class="filter-btn f-bearish" data-filter="bearish">▼ Bearish</button>
-    <button class="filter-btn f-neutral" data-filter="neutral">● Neutral</button>
+    <div class="filter-segment">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn f-bull" data-filter="bullish">▲ Bullish</button>
+      <button class="filter-btn f-bear" data-filter="bearish">▼ Bearish</button>
+      <button class="filter-btn f-neut" data-filter="neutral">● Neutral</button>
+    </div>
     <div class="filter-divider"></div>
-    <button class="filter-btn" data-imp="5">★★★★★</button>
-    <button class="filter-btn" data-imp="4">★★★★+</button>
+    <div class="filter-segment">
+      <button class="filter-btn" data-imp="5">Top Picks</button>
+      <button class="filter-btn" data-imp="4">Important+</button>
+    </div>
   </div>
 
-  <!-- Grid -->
   <div class="grid-wrap">
     <div class="grid" id="grid">
       {cards}
@@ -658,22 +676,39 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     </div>
   </div>
 
-  <footer>
-    Investment Digest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; Powered by Claude AI
-  </footer>
+  <footer>Investment Digest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; Powered by Claude AI</footer>
 
   <script>
-    const cards = document.querySelectorAll('.card');
+    // Sticky header shrink
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => {{
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }}, {{ passive: true }});
+
+    // IntersectionObserver card fade-in
+    const observer = new IntersectionObserver((entries) => {{
+      entries.forEach(entry => {{
+        if (entry.isIntersecting) {{
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }}
+      }});
+    }}, {{ threshold: 0.08 }});
+    document.querySelectorAll('.card').forEach((c, i) => {{
+      c.style.transitionDelay = Math.min(i * 40, 320) + 'ms';
+      observer.observe(c);
+    }});
+
+    // Filters
     let activeSentiment = 'all';
     let activeImp = 0;
+    const allCards = document.querySelectorAll('.card');
 
     function applyFilters() {{
       let visible = 0;
-      cards.forEach(c => {{
-        const s = c.dataset.sentiment;
-        const i = parseInt(c.dataset.importance);
-        const matchS = activeSentiment === 'all' || s === activeSentiment;
-        const matchI = activeImp === 0 || i >= activeImp;
+      allCards.forEach(c => {{
+        const matchS = activeSentiment === 'all' || c.dataset.sentiment === activeSentiment;
+        const matchI = activeImp === 0 || parseInt(c.dataset.importance) >= activeImp;
         if (matchS && matchI) {{ c.classList.remove('hidden'); visible++; }}
         else {{ c.classList.add('hidden'); }}
       }});
@@ -682,7 +717,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 
     document.querySelectorAll('[data-filter]').forEach(btn => {{
       btn.addEventListener('click', () => {{
-        document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSentiment = btn.dataset.filter;
         applyFilters();
@@ -693,12 +728,10 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       btn.addEventListener('click', () => {{
         const val = parseInt(btn.dataset.imp);
         if (activeImp === val) {{
-          activeImp = 0;
-          btn.classList.remove('active');
+          activeImp = 0; btn.classList.remove('active');
         }} else {{
-          document.querySelectorAll('[data-imp]').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          activeImp = val;
+          btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active'); activeImp = val;
         }}
         applyFilters();
       }});
@@ -731,18 +764,22 @@ def generate_archive_index_html(dates: list[str]) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archive — Investment Digest</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {{
+      --bg: #0a0a0f; --bg-card: #12121a; --border: rgba(255,255,255,0.07);
+      --bullish: #00d4aa; --text: #e8e8f0; --muted: #8888a8;
+    }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      font-family: 'Inter', sans-serif;
-      background: #04040a; color: #e8eaf0; min-height: 100vh;
-      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12) 0%, transparent 60%);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,212,170,0.06) 0%, transparent 60%);
     }}
     header {{
       position: sticky; top: 0; z-index: 100;
-      background: rgba(4,4,10,0.85); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
       padding: 0 clamp(16px,4vw,48px);
     }}
     .header-inner {{
@@ -750,47 +787,59 @@ def generate_archive_index_html(dates: list[str]) -> str:
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
     }}
-    .logo {{ display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; }}
-    .logo-icon {{ width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center;font-size:1rem; }}
+    .logo {{ display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; }}
+    .logo-orbit {{
+      position: relative; width: 32px; height: 32px; flex-shrink: 0;
+    }}
+    .logo-orbit::before {{
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(var(--bullish) 0deg, transparent 120deg, rgba(0,212,170,0.3) 240deg, var(--bullish) 360deg);
+      animation: orbit 3s linear infinite;
+    }}
+    .logo-orbit::after {{
+      content: ''; position: absolute; inset: 3px; border-radius: 50%;
+      background: var(--bg-card);
+    }}
+    @keyframes orbit {{ to {{ transform: rotate(360deg); }} }}
     .nav-link {{
-      font-size: 0.78rem; font-weight: 500; color: #6b7280;
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
       text-decoration: none; padding: 5px 12px;
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+      border: 1px solid var(--border); border-radius: 20px;
       transition: all 0.15s ease;
     }}
-    .nav-link:hover {{ color: #e8eaf0; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }}
+    .nav-link:hover {{ color: var(--text); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }}
     main {{ max-width: 800px; margin: 0 auto; padding: clamp(40px,6vw,80px) clamp(16px,4vw,48px) 80px; }}
     h1 {{
-      font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #34d399 100%);
+      font-size: clamp(1.8rem,4vw,2.4rem); font-weight: 700; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, #80ffe8 60%, var(--bullish) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; margin-bottom: 8px;
     }}
-    .subtitle {{ color: #6b7280; font-size: 0.9rem; margin-bottom: 40px; }}
-    .archive-list {{ display: flex; flex-direction: column; gap: 8px; }}
+    .subtitle {{ color: var(--muted); font-size: 0.88rem; margin-bottom: 40px; }}
+    .archive-list {{ display: flex; flex-direction: column; gap: 6px; }}
     .archive-row {{
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px; padding: 16px 20px; text-decoration: none;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 20px; text-decoration: none;
       transition: all 0.18s ease;
     }}
     .archive-row:hover {{
-      background: rgba(255,255,255,0.07); border-color: rgba(99,102,241,0.4);
+      background: rgba(0,212,170,0.05); border-color: rgba(0,212,170,0.3);
       transform: translateX(4px);
     }}
     .arc-date {{
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem; font-weight: 600; color: #e8eaf0;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
     }}
-    .arc-arrow {{ color: #6366f1; font-size: 1.1rem; }}
-    .arc-empty {{ color: #6b7280; text-align: center; padding: 40px; }}
-    footer {{ text-align: center; padding: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; color: #374151; }}
+    .arc-arrow {{ color: var(--bullish); font-size: 1rem; }}
+    .arc-empty {{ color: var(--muted); text-align: center; padding: 40px; }}
+    footer {{ text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); margin-top: 40px; }}
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><div class="logo-icon">📊</div>Investment Digest</div>
+      <a href="../index.html" class="logo"><div class="logo-orbit"></div>Investment Digest</a>
       <a href="../index.html" class="nav-link">← Latest</a>
     </div>
   </header>
