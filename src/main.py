@@ -146,8 +146,8 @@ def format_pub_datetime(iso_str: str) -> str:
 # ---- トランスクリプト ---------------------------------------------------
 
 def get_transcript(video_id: str) -> str | None:
-    """YouTube動画の英語字幕を取得する。v0.x / v1.x 両対応。失敗時は None を返す。"""
-    # --- v1.x: インスタンスメソッド方式 ---
+    """YouTube動画の英語字幕を取得する。失敗時は None を返す。"""
+    # --- v1.x: 言語指定あり ---
     try:
         ytt = YouTubeTranscriptApi()
         transcript = ytt.fetch(video_id, languages=["en", "en-US", "en-GB"])
@@ -157,8 +157,8 @@ def get_transcript(video_id: str) -> str | None:
         )
         if text.strip():
             return text[:TRANSCRIPT_MAX_CHARS]
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"  [WARN] transcript tier1 失敗 {video_id}: {type(e).__name__}: {e}")
 
     # --- v1.x: 言語指定なし ---
     try:
@@ -170,19 +170,8 @@ def get_transcript(video_id: str) -> str | None:
         )
         if text.strip():
             return text[:TRANSCRIPT_MAX_CHARS]
-    except Exception:
-        pass
-
-    # --- v0.x フォールバック: クラスメソッド方式 ---
-    try:
-        segments = YouTubeTranscriptApi.get_transcript(
-            video_id, languages=["en", "en-US", "en-GB"]
-        )
-        text = " ".join(s.get("text", "") for s in segments)
-        if text.strip():
-            return text[:TRANSCRIPT_MAX_CHARS]
     except Exception as e:
-        print(f"  [WARN] トランスクリプト取得失敗 {video_id}: {e}")
+        print(f"  [WARN] transcript tier2 失敗 {video_id}: {type(e).__name__}: {e}")
 
     return None
 
