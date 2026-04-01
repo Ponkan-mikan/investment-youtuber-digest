@@ -1,0 +1,1063 @@
+{
+  "date": "2026-04-01",
+  "results": [
+    {
+      "channel_name": "Everything Money",
+      "video_id": "-Y4wnJ0o1Ns",
+      "title": "MAJOR NEWS is Happening in the Stock Market Right Now",
+      "url": "https://www.youtube.com/watch?v=-Y4wnJ0o1Ns",
+      "published": "2026-03-31T21:19:02+00:00",
+      "analysis": {
+        "summary_ja": "動画は株式市場の最新ニュースと決算報告を扱う番組で、リアルタイムの市場分析を提供しています。ただし、トランスクリプトが提供されていないため、具体的な内容の詳細は不明です。概要欄ではドルコスト平均法などの投資基礎知識の学習教材が紹介されています。",
+        "tickers": [],
+        "key_points": [
+          "Everything Money は投資助言業者ではなく、提供される情報は投資アドバイスではないことを明記している",
+          "ドルコスト平均法に関するガイドの提供など、初心者向けの投資教育を重視している",
+          "個人投資家は動画視聴前に自身の投資目的や財務状況を理解する必要がある",
+          "複数の投資分野（株式、不動産）に関する基礎知識コンテンツを提供している"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "市場見通し",
+          "決算分析",
+          "投資戦略"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Everything Money",
+      "video_id": "1zODcyyi4iM",
+      "title": "The Stock Market is Flashing Red as Stocks Fall Fast",
+      "url": "https://www.youtube.com/watch?v=1zODcyyi4iM",
+      "published": "2026-03-30T20:44:58+00:00",
+      "analysis": {
+        "summary_ja": "株式市場が急落しており、投資家がより大きな問題への進行を懸念している状況を扱っている。動画ではこの市場下落の背景と今後の見通しについて議論しており、個人投資家にとって現在の市場環境を理解する上で重要な内容となっている。",
+        "tickers": [],
+        "key_points": [
+          "株式市場が急速に下落しており、警戒信号が点灯している状態",
+          "投資家は単なる調整ではなく、より深刻な問題への突入を懸念",
+          "現在の市場環境は慎重な投資判断が必要な局面",
+          "Everything Moneyは投資アドバイザーではないため、視聴者は独自の調査が必須"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "市場見通し",
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "K7Wuf7IRqrA",
+      "title": "These 2 Stocks Will Make Me A Billionaire by 2028! NASDAQ: RXRX, LON: POLB!",
+      "url": "https://www.youtube.com/watch?v=K7Wuf7IRqrA",
+      "published": "2026-04-01T12:01:31+00:00",
+      "analysis": {
+        "summary_ja": "このYouTube動画は、RXRX（Nasdaq）とPOLB（ロンドン取引所）の2つの株式が2028年までに投資家を億万長者にする可能性があると主張しています。投資家向けの株式市場研究プラットフォームや無料バリュー投資コースへの登録を促しており、バリュー投資手法を用いた独立した株式分析を提供しています。動画投稿者は自身の投資経験と見解を共有していますが、投資アドバイスではなく、視聴者は必ず自身で調査を行うよう警告しています。",
+        "tickers": [
+          "RXRX",
+          "POLB"
+        ],
+        "key_points": [
+          "提示されている2銘柄（RXRXとPOLB）に対して楽観的なポジションを示唆",
+          "バリュー投資アプローチに基づいた株式分析の提供",
+          "投資に際しては資本リスクが存在することを明記",
+          "投稿者は正式な投資アドバイザーではなく、自己研究・デューディリジェンスの実施を推奨",
+          "有料研究プラットフォームと無料教育コースの両方を提供"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "バリュー投資"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "3tfEjfdr2lg",
+      "title": "Microsoft Stock Getting Cheap(er)!",
+      "url": "https://www.youtube.com/watch?v=3tfEjfdr2lg",
+      "published": "2026-03-31T12:00:04+00:00",
+      "analysis": {
+        "summary_ja": "本動画はMicrosoft株式がより割安になっているという投資機会を扱っています。著者のSven Carlinは、バリュー投資アプローチに基づいた同社の株価分析を提供し、個人投資家向けの研究プラットフォームや投資教育コースを紹介しています。",
+        "tickers": [
+          "MSFT"
+        ],
+        "key_points": [
+          "Microsoft株が割安な評価水準にあると提示",
+          "バリュー投資の手法に基づいた本質的価値の計算方法を推奨",
+          "投資家は自身で十分なリサーチとデューデリジェンスを実施する必要性を強調",
+          "個別銘柄分析の際にはセクターリスクとリターンの分析が重要",
+          "長期的な投資判断にはマインドセットと会計知識の習得が必須"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "バリュー投資"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "VnaxZPRXhTE",
+      "title": "Gold Bugs Disappeared... Time to Buy Gold?",
+      "url": "https://www.youtube.com/watch?v=VnaxZPRXhTE",
+      "published": "2026-03-30T18:00:31+00:00",
+      "analysis": {
+        "summary_ja": "金（ゴールド）への投資家の関心が低下している現状を分析し、金購入の検討タイミングについて考察する動画。バリュー投資アプローチに基づいた資産クラス分析の一環として、金を含む複数資産の投資機会を評価。投資家は現在の市場心理と資産評価を理解することが重要。",
+        "tickers": [],
+        "key_points": [
+          "ゴールド投資家の関心が低下している局面は、逆張り投資の検討機会となる可能性がある",
+          "バリュー投資に基づいた系統的な資産クラス分析が重要",
+          "2026年の資産配分戦略には複数の資産クラスの評価が必要",
+          "市場心理（ゴールドバグの離脱）と実際の価値評価のギャップを認識すること",
+          "本動画はシリーズの一部であり、2026年資産クラス分析プレイリストと組み合わせて検討すべき"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "マクロ経済",
+          "資産配分",
+          "市場心理分析"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Brian Stoffel",
+      "video_id": "sKq-xty7pns",
+      "title": "FULL TRANSPARENCY: 15 Moves, 4 Themes, 1 Strategic Shift. All of My Q1 Moves",
+      "url": "https://www.youtube.com/watch?v=sKq-xty7pns",
+      "published": "2026-04-01T11:00:56+00:00",
+      "analysis": {
+        "summary_ja": "YouTuberのBrian FeroldiとBrian Stoffelが、Q1（第1四半期）のポートフォリオの全ての変更内容を15の具体的な施策として紹介している。ダブルダウン、新規ポジション追加、バリュエーション調整、そしてエージェンティックAIへのシフトという4つのテーマと1つの戦略的転換を軸に、ポートフォリオ全体の再配分を実施している。",
+        "tickers": [],
+        "key_points": [
+          "Q1で15個のポートフォリオ変更を実施し、4つの主要テーマに基づいて再構成",
+          "エージェンティックAI（Agentic AI）への戦略的シフトが重要な焦点",
+          "ダブルダウン（既存保有銘柄への追加投資）による集中度の強化",
+          "バリュエーション調整による既存ポジションの最適化",
+          "AI駆動型リバランシングにより、ポートフォリオの効率性を向上"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "ポートフォリオ管理",
+          "AI・テクノロジー投資"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Couch Investor",
+      "video_id": "FxFelRMc4zw",
+      "title": "Wie schlimm kann dieser Crash noch werden?",
+      "url": "https://www.youtube.com/watch?v=FxFelRMc4zw",
+      "published": "2026-04-01T14:00:23+00:00",
+      "analysis": {
+        "summary_ja": "市場の急落局面においてMicrosoftやMetaなどの大型テック銘柄が下落している状況を分析し、歴史的市場データから学べることを解説する。市場タイミング予測の危険性と、長期投資における忍耐強さの重要性を強調し、現在の投資戦略について考察している。",
+        "tickers": [
+          "MSFT",
+          "META"
+        ],
+        "key_points": [
+          "優良企業（Microsoft、Meta等）でも市場下落時に大幅に下落する可能性がある",
+          "歴史的データから市場の一時的な下落は正常な現象であることが分かる",
+          "市場タイミングの予測は困難であり、最高の日を逃すリスクが存在する",
+          "長期投資における忍耐力と冷静さが成功の鍵となる",
+          "現在のテック企業の評価水準を適切に判断することが重要"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "市場見通し",
+          "投資戦略",
+          "個別銘柄分析",
+          "マクロ経済"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Couch Investor",
+      "video_id": "OxHFOEi_n9Q",
+      "title": "Mein Depot wurde diese Woche richtig zerlegt – das ist passiert",
+      "url": "https://www.youtube.com/watch?v=OxHFOEi_n9Q",
+      "published": "2026-03-31T14:00:20+00:00",
+      "analysis": {
+        "summary_ja": "このポートフォリオ更新動画では、投資家が今週のポートフォリオが大きく下落した状況を報告しています。Meta、Google等の大型テック企業やUber、Rubrik、SoFiなどの個別銘柄の分析を行い、市場データと投資家の心理行動について解説しており、新たな買い建て決定についても言及しています。",
+        "tickers": [
+          "META",
+          "GOOGL",
+          "UBER",
+          "RBK",
+          "SOFI"
+        ],
+        "key_points": [
+          "ポートフォリオの大幅な下落局面での投資判断と対応方法を実例で紹介",
+          "テック・金融・新興市場セクターの複数企業の個別分析を実施",
+          "市場下落局面における投資家の行動心理と歴史的データに基づく戦略的考察",
+          "個人の投資状況に応じたカスタマイズされたアプローチの重要性を強調",
+          "複数セクターにわたるポートフォリオの買い建て機会の検討"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "ポートフォリオ管理",
+          "投資戦略",
+          "市場心理",
+          "マクロ経済"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Business with Brian",
+      "video_id": "tAuXaSMUMCA",
+      "title": "Forget Oil. AI Just Got Cut Off at the Knees",
+      "url": "https://www.youtube.com/watch?v=tAuXaSMUMCA",
+      "published": "2026-04-01T13:30:44+00:00",
+      "analysis": {
+        "summary_ja": "ホルムズ海峡を通過するLNG、ヘリウム、硫黄、銅などの重要な供給ラインが同時に断絶され、半導体製造に深刻な影響が出ている。メモリチップ価格が前年比130%上昇し、HBM需要も急増している中、この供給危機は1973年のオイルショックより大きいと指摘。半導体関連企業への投資機会を提示している。",
+        "tickers": [
+          "ASML",
+          "LRCX",
+          "MU"
+        ],
+        "key_points": [
+          "ホルムズ海峡経由の6つの重要供給ライン（LNG、ヘリウム、硫黄、銅、希ガス、石油化学製品）が同時に断絶",
+          "メモリチップ価格が前年比130%上昇し、HBM製造コストは標準チップの4倍",
+          "Stargate縮小による需要減は48時間でMetaが吸収",
+          "半導体製造装置メーカー（ASMLやLam Research）が投資対象",
+          "国内ヘリウム調達能力を持つメモリメーカーが韓国競合より有利"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "供給チェーン分析",
+          "半導体産業見通し",
+          "個別銘柄分析",
+          "投資戦略",
+          "マクロ経済"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "XiPJn3-G954",
+      "title": "My Top Stock to Buy in April",
+      "url": "https://www.youtube.com/watch?v=XiPJn3-G954",
+      "published": "2026-04-01T04:21:19+00:00",
+      "analysis": {
+        "summary_ja": "4月の投資機会を紹介する動画。株式市場の調整局面により成長株が魅力的な評価額で利用可能になったと指摘。Zillow（不動産プラットフォーム）を特に推奨銘柄として、ビジネスモデルの進化、財務指標、バリュエーションを分析している。",
+        "tickers": [
+          "ZG"
+        ],
+        "key_points": [
+          "Zillowはアグリゲーター企業からプラットフォーム企業へのビジネスモデル転換が進行中",
+          "ホームツアーなどのリッチメディア機能がプラットフォームの成長を加速させている",
+          "レンタルプラットフォーム事業の成長が注目される",
+          "市場調整により成長株が相対的に魅力的なバリュエーションで購入可能",
+          "AIへの懸念がある中でもバリュエーション面から投資機会が存在する"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "バリュエーション分析",
+          "市場見通し"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "eIy28uG-pUM",
+      "title": "4 Stocks to Sell Today",
+      "url": "https://www.youtube.com/watch?v=eIy28uG-pUM",
+      "published": "2026-03-31T14:14:40+00:00",
+      "analysis": {
+        "summary_ja": "2026年のNASDAQが調整局面入りし、S&P 500も同様の危機が迫っている。イラン戦争と インフレ上昇による経済的不確実性が市場を圧迫している中、4つの過度に評価された銘柄（Walmart、Costco、Tesla、Coca-Cola）の売却を検討すべき時期であると主張している。セクターローテーションの観点から個別銘柄の評価を分析している。",
+        "tickers": [
+          "WMT",
+          "COST",
+          "TSLA",
+          "KO"
+        ],
+        "key_points": [
+          "NASDAQは調整局面、S&P 500も同様の危機が迫っている状況",
+          "Walmartは評価が拡大し過ぎており売却対象",
+          "Costcoはマルチプル拡大リスクを抱えている",
+          "Teslaは基本ファンダメンタルズと市場の期待値に乖離がある",
+          "Coca-Colaはディフェンシブプレミアムに過度な価格がついている"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "nb5VW5yBiKU",
+      "title": "Asymmetric Investing AMA",
+      "url": "https://www.youtube.com/watch?v=nb5VW5yBiKU",
+      "published": "2026-03-31T04:50:40+00:00",
+      "analysis": {
+        "summary_ja": "市場が変動する中でのAMA（Ask Me Anything）セッション。Asymmetric Investingは実証済みのフレームワークと一貫性のある分析に基づいており、購読者向けにポートフォリオパフォーマンスと投資ツールを提供している。視聴者からの質問に応じた市場トピックの議論を予定している。",
+        "tickers": [
+          "NVDA"
+        ],
+        "key_points": [
+          "Asymmetric Investingは実証済みのフレームワークに基づいた分析を提供している",
+          "ポートフォリオのパフォーマンスが市場平均を上回っている可能性がある",
+          "個人投資家向けに複数の投資ツール（AutoPilot、Pelosi Tracker）を提供",
+          "投資助言ではなく情報提供が主体であり、自己責任での調査が必須",
+          "NVIDIAを含む複数の銘柄について言及される見込み"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "個別銘柄分析"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "lA2IliDhmEg",
+      "title": "Shocking Hims & Hers GLP-1 News",
+      "url": "https://www.youtube.com/watch?v=lA2IliDhmEg",
+      "published": "2026-03-30T14:52:59+00:00",
+      "analysis": {
+        "summary_ja": "Hims & HersがWegovy（GLP-1肥満治療薬）のピル型とペン型の提供を開始した。この動きはNovo Nordiskとの関係改善、FDA規制リスク低減、複合医薬品への依存度低下につながる可能性がある。2026年に向けた重要な成長機会であり、肥満治療市場の拡大を背景に同社の株価上昇ポテンシャルが注視されている。",
+        "tickers": [
+          "HIMS",
+          "NVO"
+        ],
+        "key_points": [
+          "Hims & HersがWegovy正規品（ピル・ペン型）の提供開始は、複合医薬品リスクを低減しNovo Nordiskとの関係を改善",
+          "GLP-1肥満治療市場の急速な成長により、メンバーシップ拡大と収益性向上の大きなポテンシャルがある",
+          "新たなメンバーシップ料金体系により、1ユーザーあたりの収益化（ARPUアップサイド）が期待できる",
+          "現在の株価は大きな動きを見せていないが、長期的には大幅な成長余地が存在する可能性",
+          "2026年に向けた肥満治療市場拡大がバイオテック投資の主要なテーマとなる見通し"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Felix & Friends",
+      "video_id": "QB0-q6UVZIA",
+      "title": "Last Big Wealth Opportunity Before You Retire",
+      "url": "https://www.youtube.com/watch?v=QB0-q6UVZIA",
+      "published": "2026-04-01T13:05:16+00:00",
+      "analysis": {
+        "summary_ja": "動画はウォール街の市場暴落時の利益戦略について解説し、出演者フェリックスが個人の百万ドル実験を通じた独自の投資アプローチを紹介している。3層構造のフレームワーク（強制売却・ファンダメンタルズ・イノベーション）と、市場の割安局面を識別する「ショッピングモール類比」などの投資戦略が提示される。個人投資家が従来の金融システムの外で金銭的自由を目指すためのアプローチが示唆されている。",
+        "tickers": [],
+        "key_points": [
+          "市場暴落時の利益機会を狙う3層フレームワーク（強制売却、ファンダメンタルズ、イノベーション）",
+          "割安な市場局面（セール）と割高な局面（グランドオープニング）を識別する重要性",
+          "個人投資家が制度的な制約から脱却して市場に参入する戦略",
+          "従来の金融システムに頼らない独立的な投資アプローチ",
+          "退職前の最後の大きな資産構築機会への警告と機会提示"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "個人投資術"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Daniel Pronk",
+      "video_id": "KSZpO67FVsc",
+      "title": "Meta Stock is Crashing - Why I'm Buying More",
+      "url": "https://www.youtube.com/watch?v=KSZpO67FVsc",
+      "published": "2026-03-31T20:08:19+00:00",
+      "analysis": {
+        "summary_ja": "Meta株が下落している中、投資家がなぜ買い増しするのかについて論じた動画。Meta が直面している訴訟問題や、タバコ産業との類似性、企業が講じている対策、強気論文、そしてバリュエーション分析を通じて、同社の投資機会を検討している。",
+        "tickers": [
+          "META"
+        ],
+        "key_points": [
+          "Meta が複数の訴訟に直面しており、企業の長期的なリスク要因となる可能性がある",
+          "タバコ産業との類似性が言及されており、規制リスクが投資判断の重要な要素",
+          "企業が講じている経営改善策や対策について分析されている",
+          "DCF（割引キャッシュフロー）分析を用いたバリュエーション評価が行われている",
+          "現在の株価下落は長期投資家にとって買い場となる可能性を示唆"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "バリュエーション分析",
+          "リスク評価",
+          "投資戦略"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "LewiKrVPm1g",
+      "title": "Great News for Alphabet Stock Investors | GOOG Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=LewiKrVPm1g",
+      "published": "2026-04-01T13:45:01+00:00",
+      "analysis": {
+        "summary_ja": "Alphabetの小規模セグメント事業が好調であり、投資家の期待を高めているという内容の動画。具体的な財務データや分析内容は概要欄には記載されていないため、詳細な評価は動画本編の視聴が必要。",
+        "tickers": [
+          "GOOG"
+        ],
+        "key_points": [
+          "Alphabetの小規模セグメント事業が堅調に推移している",
+          "動画制作者は6段階の投資評価フレームワークを提唱しており、系統的な投資判断を推奨",
+          "複数の関連リソース（書籍、財務分析ツールFiscal.ai）が紹介されている"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "FcsdeRkD-OU",
+      "title": "Huge News for Rivian Stock Investors!",
+      "url": "https://www.youtube.com/watch?v=FcsdeRkD-OU",
+      "published": "2026-04-01T12:45:03+00:00",
+      "analysis": {
+        "summary_ja": "Rivianが低価格モデルを発売し、売上増加が期待されている。動画では投資フレームワークの紹介やMotley Foolのスポンサー情報が含まれている。ただしトランスクリプトが提供されていないため、詳細な投資見通しは確認できない。",
+        "tickers": [
+          "RIVN"
+        ],
+        "key_points": [
+          "Rivianが低価格モデルを新たに発売",
+          "低価格モデルによる販売台数増加への期待",
+          "動画内容の詳細はトランスクリプト欠落のため不明確"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "ALzU9Najh6A",
+      "title": "Should You Buy Uber Stock on the Dip? | UBER Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=ALzU9Najh6A",
+      "published": "2026-04-01T11:45:00+00:00",
+      "analysis": {
+        "summary_ja": "Uber株が2026年に10%以上下落している中での買い場評価に関する分析動画。視聴者向けにメンバーシップやスポンサー製品の紹介を行い、投資家向けの6段階投資フレームワークと分析ツールの利用を推奨している。",
+        "tickers": [
+          "UBER"
+        ],
+        "key_points": [
+          "Uber株が2026年に10%以上の下落を記録",
+          "下落時の買い場評価が動画の主要テーマ",
+          "信頼できるデータソースとして Fiscal.ai を推奨",
+          "投資判断には体系的なフレームワークが必要"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "i8sidbHgIV8",
+      "title": "Is The Tractor Supply Company an Undervalued Dividend Stock to Buy? | TSCO Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=i8sidbHgIV8",
+      "published": "2026-03-31T14:45:08+00:00",
+      "analysis": {
+        "summary_ja": "Tractor Supply Company（TSCO）が割安配当株として投資に値するかを分析した動画。同社がマクロ経済の逆風に対応できる良好なポジションにあることを主張している。具体的な財務データやバリュエーション分析は概要欄に記載されていない。",
+        "tickers": [
+          "TSCO"
+        ],
+        "key_points": [
+          "Tractor Supply Companyがマクロ経済の逆風に対応できるポジションにある",
+          "配当株としての投資適性を検討する価値がある",
+          "動画の詳細な分析内容は概要欄には記載されておらず、動画本編で展開される"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "配当株投資"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "-ugd5WRrBdE",
+      "title": "Should You Buy Ulta Stock on the Dip?",
+      "url": "https://www.youtube.com/watch?v=-ugd5WRrBdE",
+      "published": "2026-03-31T13:45:01+00:00",
+      "analysis": {
+        "summary_ja": "Ulta Beauty（ウルタ・ビューティ）の株価が2026年に10%以上下落していることを受け、個人投資家の間で買い場であるかどうかについて検討する動画。投資判断には、同動画制作者の6ステップ投資フレームワークを活用した企業分析が推奨されている。",
+        "tickers": [
+          "ULTA"
+        ],
+        "key_points": [
+          "Ulta Beautyの株価が10%以上下落し、買い場かどうかが検討されている",
+          "個人投資家向けの6ステップ投資フレームワークを活用した企業分析の重要性",
+          "過去のMotley Fool Stock Advisorの運用実績は12/30/2025時点でS&P500を大きく上回っている（983% vs 195%）",
+          "投資判断には信頼できるデータソースと体系的なリサーチプロセスが必要"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "MsHSkMM6TqI",
+      "title": "Stoneco Stock Analysis: Buy or Sell?",
+      "url": "https://www.youtube.com/watch?v=MsHSkMM6TqI",
+      "published": "2026-03-31T12:45:02+00:00",
+      "analysis": {
+        "summary_ja": "Stone Co.（ブラジル拠点の企業）の株式が買いか売りかを分析する動画。ブラジル経済がアメリカより高い成長率を示すことが期待されている点が強調されている。動画制作者が開発した6段階の投資フレームワークに基づいた分析が行われている。",
+        "tickers": [
+          "STNE"
+        ],
+        "key_points": [
+          "ブラジル経済は米国経済より高い成長率が期待されている",
+          "Stone Co.はブラジルを主要市場とする企業",
+          "投資判断には体系的なフレームワーク（6段階の投資評価枠組み）の活用を推奨",
+          "投資には常にリスクが伴うことへの警告と個別投資結果の変動性について言及"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "w4BQv38vQOQ",
+      "title": "Is Snap Stock an Undervalued Stock to Buy or a Value Trap to Avoid?",
+      "url": "https://www.youtube.com/watch?v=w4BQv38vQOQ",
+      "published": "2026-03-31T11:45:05+00:00",
+      "analysis": {
+        "summary_ja": "本動画はSnap Inc.の株価が大きく下落している中で、同銘柄が割安株なのか、それとも価値の罠なのかを検討している。視聴者は動画内で提示される分析フレームワークを通じて、投資判断に必要な情報を得ることができる。ただし、提供されたのは概要欄のみであり、詳細な分析内容は確認できない。",
+        "tickers": [
+          "SNAP"
+        ],
+        "key_points": [
+          "Snap Inc.の株価が大幅に下落している",
+          "割安株か価値の罠かの判断が投資判断の鍵",
+          "6ステップの投資評価フレームワークが紹介されている",
+          "Fiscal.aiなどのデータソースを活用した定量分析が重要",
+          "個人投資家は確固とした投資戦略なしに市場に参入すべきではない"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "バリュー投資"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "_4x-tMr38D0",
+      "title": "You Won't Believe My Shocking Palantir Stock Price Prediction for 2026 | PLTR Stock Prediction",
+      "url": "https://www.youtube.com/watch?v=_4x-tMr38D0",
+      "published": "2026-03-31T11:00:48+00:00",
+      "analysis": {
+        "summary_ja": "Palantir株（PLTR）が2026年初頭にブロードマーケットインデックスをアンダーパフォームしている状況で、YouTubeクリエイターが同銘柄に対する価格予想を提示する動画。投資家向けの6ステップフレームワークと関連ツール・リソースの紹介が含まれている。",
+        "tickers": [
+          "PLTR"
+        ],
+        "key_points": [
+          "Palantir株が2026年初頭にブロードマーケットインデックスをアンダーパフォームしている",
+          "クリエイターは大学教授とCFAの資格を持つ投資フレームワークを提供している",
+          "割引キャッシュフロー（DCF）評価法を用いた分析と株式推奨スプレッドシートへのアクセスが利用可能",
+          "投資研究の主要なデータソースとしてFiscal.aiを使用している"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "n45iOVo9rzY",
+      "title": "I Informed Investors I Thought Tesla Stock Was Overvalued: What Do I Think Now?",
+      "url": "https://www.youtube.com/watch?v=n45iOVo9rzY",
+      "published": "2026-03-30T14:45:07+00:00",
+      "analysis": {
+        "summary_ja": "テスラ株が2026年に20%未満の下落に留まっており、マクロ経済の逆風にも関わらず堅調に推移していることについての分析。動画制作者が以前テスラ株を過大評価と指摘していたが、現在の見方を更新する内容となっている。",
+        "tickers": [
+          "TSLA"
+        ],
+        "key_points": [
+          "テスラ株は2026年に20%未満の下落に留まっており、市場全体の逆風の中で比較的底堅い",
+          "動画制作者の過去の見方（テスラ株は過大評価）に対する現在の評価を再検討している",
+          "マクロ経済の悪化が世界市場に影響を与えている環境下での銘柄分析"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Ticker Symbol: YOU",
+      "video_id": "SpSq39DDHyE",
+      "title": "The End of Computing As We Know It",
+      "url": "https://www.youtube.com/watch?v=SpSq39DDHyE",
+      "published": "2026-03-31T19:04:28+00:00",
+      "analysis": {
+        "summary_ja": "このビデオは、コンピューティング技術の根本的な変化と新しい計算方式について解説しています。AIモデルへのアクセス方法の革新や、今後の技術トレンドに関する見通しが提示されており、テクノロジー業界の投資家向けの内容です。",
+        "tickers": [],
+        "key_points": [
+          "コンピューティングパラダイムの大きな転換期が到来していることを示唆",
+          "複数のAIモデルへの統一的アクセスプラットフォーム（Mammouth）の登場",
+          "AI/テクノロジー関連の業界構造変化への注視が必要",
+          "タイムスタンプから技術の仕組みと今後の見通しが体系的に説明されている"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "市場見通し",
+          "テクノロジー・トレンド",
+          "AI・機械学習"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "s2-3WbhSsRU",
+      "title": "The Hidden Number Rocket Lab Investors Can’t Ignore",
+      "url": "https://www.youtube.com/watch?v=s2-3WbhSsRU",
+      "published": "2026-03-31T20:00:23+00:00",
+      "analysis": {
+        "summary_ja": "Rocket Labの株価上昇の背景にあるSpaceX IPOのヒプに惑わされず、同社の主力プロジェクトである「Neutron」ロケットの開発タイムラインという隠れた重要指標に注目すべきであることを主張している。実行リスクとバリュエーション妥当性の関係を分析し、長期的な投資判断の決定要因を探る。",
+        "tickers": [
+          "RKLB"
+        ],
+        "key_points": [
+          "Neutron開発プロジェクトのタイムライン達成可否が株価の実質的な上昇基盤となる",
+          "SpaceX IPO関連の過度な期待感がRocket Labの評価を歪める可能性がある",
+          "開発スケジュール遅延時のバリュエーション防衛が困難になるリスク",
+          "現在のバリュエーション水準が実行リスクを適切に反映しているかが検証ポイント",
+          "宇宙産業・防衛関連企業としての長期成長機会の評価"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "成長株分析",
+          "バリュエーション評価",
+          "市場見通し"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "xUsGpA5-5FQ",
+      "title": "The AI Lease Story That Could Reprice Applied Digital",
+      "url": "https://www.youtube.com/watch?v=xUsGpA5-5FQ",
+      "published": "2026-03-31T18:00:42+00:00",
+      "analysis": {
+        "summary_ja": "Applied Digitalは大型リース契約と急速な収益成長により投資家の注目を集めているAIインフラ企業である。本動画では同社の強気材料となるリース案件と容量拡大計画を検証しつつ、顧客集中リスク、ファイナンス圧力、完璧な経営実行が必要になる実行リスクなどの懸念点を分析している。現在の株価水準ではほぼ完璧な経営を織り込んでおり、リスク・リワードのバランスが重要な局面にあることを指摘している。",
+        "tickers": [
+          "APLD"
+        ],
+        "key_points": [
+          "Applied Digitalの最近の収益急増を牽引しているリース契約の内容と規模",
+          "強気ケースを支える主要なリース案件の詳細",
+          "顧客集中とファイナンス圧力による実行リスク",
+          "現在の株価評価がほぼ完璧な経営実行を前提としており、エラーの余地がない",
+          "バリュエーションと実行リスクを考慮したリスク・リワード分析"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "jiuO9hv_pBY",
+      "title": "MASSIVE NEWS: Invest in SpaceX Pre-IPO Today With This ETF",
+      "url": "https://www.youtube.com/watch?v=jiuO9hv_pBY",
+      "published": "2026-03-31T12:01:22+00:00",
+      "analysis": {
+        "summary_ja": "新しいNASA ETFを通じてSpaceXのプレIPO投資機会を紹介する動画。SpaceXとStarlinkへのエクスポージャーを得られる仕組み、IPO前のタイミングの重要性、ETFの手数料とValuation、およびポートフォリオの残り90%の構成について解説している。",
+        "tickers": [
+          "NASA"
+        ],
+        "key_points": [
+          "NASA ETFはSpaceXへの直接的なプレIPO投資機会を提供する希少な手段",
+          "IPO前のタイミングが重要であり、将来の株価上昇可能性が存在する",
+          "StarLinkの組み込みがこの投資テーゼに付加価値をもたらす",
+          "ETFの手数料とSpaceXの現在のValuation（評価額）が投資判断の重要な考慮要素",
+          "ポートフォリオの約90%が他の宇宙関連企業で構成される多角化されたリスク"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "ETF投資",
+          "プレIPO投資",
+          "投資戦略",
+          "成長セクター分析"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "gKZqz-JxEuI",
+      "title": "Super Micro Crashed 47% — Here's Why the AI Rollout Could Still Save the Stock",
+      "url": "https://www.youtube.com/watch?v=gKZqz-JxEuI",
+      "published": "2026-03-30T20:00:21+00:00",
+      "analysis": {
+        "summary_ja": "Super Microが47%の株価下落に直面する中、逮捕事件とGTC発表、割安な株価評価が同社の信頼性テストになっていることを分析。割安な評価倍数だけでは株価上昇を意味しないこと、信頼の喪失がいかに株価倍数に影響するかを説明。強気・弱気両論を整理し、現在の売却が恐怖なのか機会なのか判断することが重要であると指摘している。",
+        "tickers": [
+          "SMCI",
+          "NVDA"
+        ],
+        "key_points": [
+          "逮捕事件がSuper Microの物語全体を変える重大な信頼危機をもたらしている",
+          "GTC発表でAIインフラストラクチャの本当のアップサイド可能性が明らかになった",
+          "割安な評価倍数は必ずしも株が過小評価されていることを意味しない",
+          "企業への信頼度の喪失は株価倍数、アナリスト格付け、下値リスクに直接影響する",
+          "現在の売却圧力は恐怖、好機、またはトレンドなのかの判断が投資判断の鍵"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "リスク評価",
+          "評価倍数分析"
+        ],
+        "importance": 5
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "cC8xBVfZi9Q",
+      "title": "Massive News for Nebius Stock Investors: The $4 Billion Move That Changes Everything",
+      "url": "https://www.youtube.com/watch?v=cC8xBVfZi9Q",
+      "published": "2026-03-30T18:00:34+00:00",
+      "analysis": {
+        "summary_ja": "Nebiusが40億ドルの転換社債を調達し、MetaとNvidiaとの大型契約がAIインフラ需要の拡大を示唆している。動画では転換社債の構造、経営陣の実行力、希薄化と債務リスクを詳細に分析し、成長の可能性と隠れたリスクの両面を検討している。",
+        "tickers": [
+          "NEBU"
+        ],
+        "key_points": [
+          "40億ドルの転換社債調達により、資本構造と希薄化リスクを検討する必要がある",
+          "MetaとNvidiaとの大型契約がAIインフラ需要の強さを示すが、それを実際の収益に転換できるか不確実",
+          "経営陣がこの巨額の資金調達に見合うAI容量を実際に提供できるかが重要な判断基準",
+          "転換社債の構造が株主にとってのリスクと機会を変える可能性がある",
+          "需要側の強さと供給側の実行力のギャップを評価することが投資判断の鍵"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "AIインフラストラクチャー",
+          "ファイナンス分析"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "7tIIX-FYeHE",
+      "title": "How Early Tesla Investors Turned Pennies Into Property 🏠💰",
+      "url": "https://www.youtube.com/shorts/7tIIX-FYeHE",
+      "published": "2026-04-01T13:47:45+00:00",
+      "analysis": {
+        "summary_ja": "テスラの初期投資家が株価上昇により大きな資産を築いた事例を紹介する動画。主流市場が注目する前に機会を見つけた投資家の成功事例を通じて、長期的ビジョンとリスク管理の重要性を解説している。ただし市場は不確実性を伴うため、個人の十分な調査が必須であることを強調している。",
+        "tickers": [
+          "TSLA"
+        ],
+        "key_points": [
+          "市場が注目する前に優れた企業を識別することが大きなリターンをもたらす可能性がある",
+          "早期の強気な確信（early conviction）が長期的な資産形成につながる",
+          "すべての取引には重大なリスクが伴うため、個人の十分な調査が必須である",
+          "成功事例から学ぶことは有益だが、過去のパフォーマンスが将来の結果を保証しない",
+          "リスク管理と長期ビジョンのバランスが重要"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "WovKSMvIQgA",
+      "title": "Is the market panicking? Here is exactly what the VIX is telling you.",
+      "url": "https://www.youtube.com/shorts/WovKSMvIQgA",
+      "published": "2026-04-01T02:10:44+00:00",
+      "analysis": {
+        "summary_ja": "VIX指数は市場心理を示す重要な恐怖指数であり、今後1ヶ月の市場変動性を反映している。VIXが上昇すると不確実性が高まり、低下するとボラティリティが落ち着いていることを示す。投資家はこの指標を監視することで、感情的な取引と戦略的な意思決定を区別し、市場動向をより客観的に把握できる。ただし市場予測は不確実なため、VIXは複数のツールの一つとして活用すべき。",
+        "tickers": [],
+        "key_points": [
+          "VIX指数は市場心理と将来のボラティリティを測定する重要な指標",
+          "VIX上昇は市場の不確実性と恐怖心が高まっていることを示唆",
+          "VIX低下は市場の落ち着きと相対的な安定性を示唆",
+          "市場動向の判断に際して感情的取引ではなく戦略的思考が重要",
+          "VIXは単独予測ツールではなく、複数指標の一つとして活用すべき"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "テクニカル分析"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "3MKhjwirbfM",
+      "title": "Did COVID predict the next market crash? 📉",
+      "url": "https://www.youtube.com/shorts/3MKhjwirbfM",
+      "published": "2026-03-31T23:09:32+00:00",
+      "analysis": {
+        "summary_ja": "本動画は、COVID-19パンデミックが金融市場にどのような影響を与え、それが将来の市場変動を予測する手がかりとなるかを分析しています。パンデミック期間中の市場の混乱パターンを検証することで、大規模な社会的混乱が市場動向に与える影響メカニズムを理解し、投資家の意思決定に役立てることができるという内容です。",
+        "tickers": [],
+        "key_points": [
+          "グローバルイベント（パンデミックなど）は市場の隠れたボラティリティメカニズムを露出させる",
+          "歴史的パターン分析により、将来の市場変動をより正確に予測できる可能性がある",
+          "大規模な社会的混乱は予測可能なマーケットムーブメントパターンを生み出す傾向がある",
+          "投資判断には自己責任による十分なデューデリジェンスが必須である",
+          "金融教育と市場の固有リスク理解が投資成功の前提条件である"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "マクロ経済",
+          "市場見通し",
+          "投資戦略",
+          "市場ボラティリティ分析"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "P2JAfOxjcoU",
+      "title": "$BMNR TOM LEE says the UNBELIEVABLE: 95% DONE",
+      "url": "https://www.youtube.com/watch?v=P2JAfOxjcoU",
+      "published": "2026-03-31T22:01:37+00:00",
+      "analysis": {
+        "summary_ja": "Tom Leeがビットマイン（BMNR）について言及している動画。概要欄では自動売買ソフトウェアの宣伝が中心で、トランスクリプト不在のため詳細な分析内容は不明。投資判断に必要な具体的な根拠や分析内容が提供されていない。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "トランスクリプト情報がないため、具体的な投資根拠の確認ができない",
+          "概要欄は自動売買ソフトウェアのマーケティングが主体",
+          "免責事項により、利益保証なし",
+          "信頼性の検証にはトランスクリプト内容の確認が必須"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 1
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "b-7vNXc9gcs",
+      "title": "Is this the secret to consistent market gains?",
+      "url": "https://www.youtube.com/shorts/b-7vNXc9gcs",
+      "published": "2026-03-31T14:40:39+00:00",
+      "analysis": {
+        "summary_ja": "特定の投資戦略が歴史的に一貫して正のリターンを生み出してきたことを分析した動画。2008年の金融危機を唯一の例外として、この戦略は市場の一時的な底値をしばしば識別できることが示されている。ただし過去のパフォーマンスが将来の結果を保証しないこと、そしてどの戦略にもボラティリティリスクが伴うことを強調している。",
+        "tickers": [],
+        "key_points": [
+          "特定の投資戦略は歴史的に2008年金融危機を除き一貫したプラスのリターンを記録",
+          "この戦略は長期的な失敗ではなく、市場の一時的な底値を特定する傾向がある",
+          "過去のパフォーマンスは将来の結果を保証しない",
+          "いかなる投資戦略にもボラティリティとリスクが存在する",
+          "投資を行う前に徹底的なリサーチと明確なリスク理解が不可欠"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "マクロ経済"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "GjxQpx72hN4",
+      "title": "Master Your Portfolio: The 80/20 Investing Strategy Revealed",
+      "url": "https://www.youtube.com/shorts/GjxQpx72hN4",
+      "published": "2026-03-31T12:13:37+00:00",
+      "analysis": {
+        "summary_ja": "本動画は、資本を長期保有と短期トレードに80:20で分割する投資戦略を提唱している。市場の変動性に対応しながら、突発的な機会を活かすバランス型アプローチを紹介。長期資産で安定性を確保しつつ、一部を機動的に運用することでリターン向上を目指す戦略である。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "80:20戦略により資本配分を明確に区分し、安定性と機動性のバランスを取る",
+          "長期保有で富を構築しながら、短期トレードで突発的な機会（地政学的イベント、ショートスクイーズなど）をキャッチする",
+          "市場ボラティリティをリスク要因ではなく機会として捉える視点",
+          "すべてのトレーディングにはリスクが伴い、自動的なアドバイスではなく個人的な調査が必要",
+          "80%の安定資産が基盤となることで、20%の積極的ポジションがもたらすリスクを許容できる"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "ポートフォリオ管理",
+          "リスク管理"
+        ],
+        "importance": 3
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "0BrsJvZd9Gw",
+      "title": "Is the market flashing a massive buy signal right now? 📉📈",
+      "url": "https://www.youtube.com/shorts/0BrsJvZd9Gw",
+      "published": "2026-03-31T00:45:45+00:00",
+      "analysis": {
+        "summary_ja": "S&P 500が24ヶ月ぶりに売られ過ぎ水準に達し、VIX指数が35に達するなど市場が大きな変動を見せている。地政学的不安定性の中での現在のボラティリティは、経験豊富な投資家にとって買い場のシグナルとなる可能性がある。技術的指標を理解することで、現在の不確実な金融環境をより適切に判断できるようになる。",
+        "tickers": [],
+        "key_points": [
+          "S&P 500が24ヶ月ぶりの売られ過ぎ水準に到達している",
+          "VIX指数が35に達することは歴史的に転機を示す重要なシグナル",
+          "地政学的緊張下でのボラティリティは買い場の機会となる可能性がある",
+          "技術的指標の理解が市場判断の精度向上に重要",
+          "投資判断前に自身による綿密なリサーチが必須"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "市場見通し",
+          "投資戦略",
+          "マクロ経済"
+        ],
+        "importance": 4
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "_elqzEMcuWk",
+      "title": "Tired of market stress? Let the experts handle your trades. 📈",
+      "url": "https://www.youtube.com/shorts/_elqzEMcuWk",
+      "published": "2026-03-30T20:48:51+00:00",
+      "analysis": {
+        "summary_ja": "本動画は、市場のボラティリティに対処するため自動売買システムの利用を推奨している。専門的なソフトウェアに取引実行と監視を委譲することで、ストレスを軽減しながら受動的な資産形成が可能だと主張している。弱気相場でも一貫した成果を上げているとされ、体系的なアプローチの有効性を示唆している。",
+        "tickers": [],
+        "key_points": [
+          "自動売買システムの利用により、市場監視と売買判断のストレスを軽減できる",
+          "専門的なソフトウェアは弱気相場でも一貫性のあるパフォーマンスを維持している可能性がある",
+          "システマティックなアプローチが個人投資家のポートフォリオ戦略に欠けている要素かもしれない",
+          "受動的な資産形成を目指す投資家は専門コンサルテーションの利用を検討する価値がある"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "自動売買・テクノロジー"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "iTzRExllu-c",
+      "title": "$BMNR with its BIGGEST Buy of $ETH 2026",
+      "url": "https://www.youtube.com/watch?v=iTzRExllu-c",
+      "published": "2026-03-30T20:40:21+00:00",
+      "analysis": {
+        "summary_ja": "Bitcoin Mining関連銘柄BMNRのETH（イーサリアム）への大型買収について言及した動画。プロトレーダーの取引をコピーできるAutoPliot™ソフトウェアの宣伝が中心となっており、$10k以上の資金がある個人投資家向けの自動取引ツール紹介である。",
+        "tickers": [
+          "BMNR",
+          "ETH"
+        ],
+        "key_points": [
+          "BMNRが仮想通貨関連（特にETH）への大型買収を実施",
+          "プロトレーダーの取引を自動コピー可能なAutoPliot™ソフトウェアの提供",
+          "最低資金$10,000以上が必要な自動取引システム",
+          "このコンテンツは宣伝色が強く、具体的な投資根拠の説明に欠ける",
+          "免責事項で利益保証がないことを明示"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "仮想通貨",
+          "投資戦略"
+        ],
+        "importance": 2
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "4mUC23kD7yU",
+      "title": "Is a Market Rally Imminent? The Geopolitical Connection You Need to See.",
+      "url": "https://www.youtube.com/shorts/4mUC23kD7yU",
+      "published": "2026-03-30T18:04:50+00:00",
+      "analysis": {
+        "summary_ja": "地政学的紛争はしばしば市場下落のシグナルと見なされるが、歴史的には異なるパターンを示している。S&P 500は紛争後に急落後、数ヶ月の持続的な強気ラリーを経験する傾向がある。現在のBitcoinとEthereumの堅調なパフォーマンスと組み合わせると、市場の大きな転換点が近い可能性がある。",
+        "tickers": [],
+        "key_points": [
+          "地政学的紛争は市場底値の形成シグナルとなる可能性がある",
+          "歴史的には主要紛争後、S&P 500は強力なラリーを展開する傾向",
+          "現在のBitcoinとEthereumの堅調さは市場転換を示唆している可能性",
+          "グローバルイベントが価格変動に与える影響を理解することが重要",
+          "現在の市場変動は買い機会になる可能性がある"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "市場見通し",
+          "マクロ経済",
+          "投資戦略",
+          "暗号資産"
+        ],
+        "importance": 3
+      }
+    }
+  ]
+}
