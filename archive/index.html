@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Archive — Investment Digest</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0a0a0f; --bg-card: #12121a; --border: rgba(255,255,255,0.07);
+      --bullish: #00d4aa; --text: #e8e8f0; --muted: #8888a8;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: #04040a; color: #e8eaf0; min-height: 100vh;
-      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99,102,241,0.12) 0%, transparent 60%);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--bg); color: var(--text); min-height: 100vh;
+      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,212,170,0.06) 0%, transparent 60%);
     }
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(4,4,10,0.85); backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
       padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
@@ -24,55 +28,67 @@
       display: flex; align-items: center; justify-content: space-between;
       height: 64px;
     }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; }
-    .logo-icon { width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#6366f1,#10b981);display:flex;align-items:center;justify-content:center;font-size:1rem; }
+    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; }
+    .logo-orbit {
+      position: relative; width: 32px; height: 32px; flex-shrink: 0;
+    }
+    .logo-orbit::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(var(--bullish) 0deg, transparent 120deg, rgba(0,212,170,0.3) 240deg, var(--bullish) 360deg);
+      animation: orbit 3s linear infinite;
+    }
+    .logo-orbit::after {
+      content: ''; position: absolute; inset: 3px; border-radius: 50%;
+      background: var(--bg-card);
+    }
+    @keyframes orbit { to { transform: rotate(360deg); } }
     .nav-link {
-      font-size: 0.78rem; font-weight: 500; color: #6b7280;
+      font-size: 0.78rem; font-weight: 500; color: var(--muted);
       text-decoration: none; padding: 5px 12px;
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+      border: 1px solid var(--border); border-radius: 20px;
       transition: all 0.15s ease;
     }
-    .nav-link:hover { color: #e8eaf0; border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.07); }
+    .nav-link:hover { color: var(--text); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
     main { max-width: 800px; margin: 0 auto; padding: clamp(40px,6vw,80px) clamp(16px,4vw,48px) 80px; }
     h1 {
-      font-size: clamp(1.8rem,4vw,2.6rem); font-weight: 700; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #34d399 100%);
+      font-size: clamp(1.8rem,4vw,2.4rem); font-weight: 700; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, #80ffe8 60%, var(--bullish) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text; margin-bottom: 8px;
     }
-    .subtitle { color: #6b7280; font-size: 0.9rem; margin-bottom: 40px; }
-    .archive-list { display: flex; flex-direction: column; gap: 8px; }
+    .subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 40px; }
+    .archive-list { display: flex; flex-direction: column; gap: 6px; }
     .archive-row {
       display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px; padding: 16px 20px; text-decoration: none;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 20px; text-decoration: none;
       transition: all 0.18s ease;
     }
     .archive-row:hover {
-      background: rgba(255,255,255,0.07); border-color: rgba(99,102,241,0.4);
+      background: rgba(0,212,170,0.05); border-color: rgba(0,212,170,0.3);
       transform: translateX(4px);
     }
     .arc-date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem; font-weight: 600; color: #e8eaf0;
+      font-size: 0.95rem; font-weight: 600; color: var(--text);
     }
-    .arc-arrow { color: #6366f1; font-size: 1.1rem; }
-    .arc-empty { color: #6b7280; text-align: center; padding: 40px; }
-    footer { text-align: center; padding: 24px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.75rem; color: #374151; }
+    .arc-arrow { color: var(--bullish); font-size: 1rem; }
+    .arc-empty { color: var(--muted); text-align: center; padding: 40px; }
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); margin-top: 40px; }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><div class="logo-icon">📊</div>Investment Digest</div>
+      <a href="../index.html" class="logo"><div class="logo-orbit"></div>Investment Digest</a>
       <a href="../index.html" class="nav-link">← Latest</a>
     </div>
   </header>
   <main>
     <h1>Archive</h1>
     <p class="subtitle">過去の投資YouTube日次ダイジェスト一覧 — 1 件</p>
-    <div class="archive-list"><a class="archive-row" href="2026-04-01.html"><span class="arc-date">2026-04-01</span><span class="arc-arrow">→</span></a></div>
+    <div class="archive-list"><a class="archive-row" href="2026-04-02.html"><span class="arc-date">2026-04-02</span><span class="arc-arrow">→</span></a></div>
   </main>
-  <footer>Investment Digest · 2026-04-01 23:58 JST</footer>
+  <footer>Investment Digest · 2026-04-02 14:43 JST</footer>
 </body>
 </html>
