@@ -11,7 +11,6 @@ from pathlib import Path
 
 import feedparser
 import requests
-from youtube_transcript_api import YouTubeTranscriptApi, NoTranscriptFound, TranscriptsDisabled
 import anthropic
 
 # ---- 定数 ----------------------------------------------------------------
@@ -22,9 +21,6 @@ DOCS_DIR = BASE_DIR / "docs"
 
 # 何時間以内の動画を対象にするか（デフォルト48h = 投稿漏れを防ぐため少し余裕を持たせる）
 LOOKBACK_HOURS = 48
-
-# トランスクリプトの最大文字数（Claude APIのコンテキスト節約のため）
-TRANSCRIPT_MAX_CHARS = 8000
 
 # ---- チャンネルID解決 ---------------------------------------------------
 
@@ -145,37 +141,6 @@ def format_pub_datetime(iso_str: str) -> str:
 
 # ---- トランスクリプト ---------------------------------------------------
 
-def get_transcript(video_id: str) -> str | None:
-    """YouTube動画の英語字幕を取得する。失敗時は None を返す。"""
-    # --- v1.x: 言語指定あり ---
-    try:
-        ytt = YouTubeTranscriptApi()
-        transcript = ytt.fetch(video_id, languages=["en", "en-US", "en-GB"])
-        text = " ".join(
-            s.text if hasattr(s, "text") else str(s.get("text", ""))
-            for s in transcript
-        )
-        if text.strip():
-            return text[:TRANSCRIPT_MAX_CHARS]
-    except Exception as e:
-        print(f"  [WARN] transcript tier1 失敗 {video_id}: {type(e).__name__}: {e}")
-
-    # --- v1.x: 言語指定なし ---
-    try:
-        ytt = YouTubeTranscriptApi()
-        transcript = ytt.fetch(video_id)
-        text = " ".join(
-            s.text if hasattr(s, "text") else str(s.get("text", ""))
-            for s in transcript
-        )
-        if text.strip():
-            return text[:TRANSCRIPT_MAX_CHARS]
-    except Exception as e:
-        print(f"  [WARN] transcript tier2 失敗 {video_id}: {type(e).__name__}: {e}")
-
-    return None
-
-
 # ---- Claude API 要約 ---------------------------------------------------
 
 SUMMARY_PROMPT_TEMPLATE = """\
@@ -185,8 +150,6 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 概要欄:
 {description}
-
-{transcript_section}
 
 以下のJSON形式のみで回答してください（説明文は不要）:
 {{
@@ -203,18 +166,11 @@ def summarize_video(
     client: anthropic.Anthropic,
     title: str,
     description: str,
-    transcript: str | None,
 ) -> dict:
     """Claude API を使って動画の投資情報を要約する。"""
-    transcript_section = (
-        f"トランスクリプト（冒頭 {TRANSCRIPT_MAX_CHARS} 文字）:\n{transcript}"
-        if transcript
-        else "（トランスクリプトなし）"
-    )
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
-        transcript_section=transcript_section,
     )
     msg = client.messages.create(
         model="claude-haiku-4-5-20251001",
@@ -961,18 +917,11 @@ def main() -> None:
                 continue
             print(f"  処理中: {video['title'][:60]}...")
 
-            transcript = get_transcript(video["video_id"])
-            if transcript:
-                print(f"  トランスクリプト取得: {len(transcript)} 文字")
-            else:
-                print("  トランスクリプト: なし（タイトル+概要欄のみで要約）")
-
             try:
                 analysis = summarize_video(
                     client,
                     video["title"],
                     video["description"],
-                    transcript,
                 )
             except Exception as e:
                 print(f"  [ERROR] 要約失敗: {e}")
