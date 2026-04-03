@@ -242,7 +242,7 @@ def summarize_video(
 
 # ---- HTML 生成 ---------------------------------------------------------
 
-_SENT_LABEL = {"bullish": "▲ Bullish", "bearish": "▼ Bearish", "neutral": "● Neutral"}
+_SENT_LABEL = {"bullish": "▲ bullish", "bearish": "▼ bearish", "neutral": "● neutral"}
 
 
 def _render_card(r: dict) -> str:
@@ -264,7 +264,7 @@ def _render_card(r: dict) -> str:
         items = "".join(f"<li>{p}</li>" for p in key_points)
         points_block = (
             f'<details class="points-details">'
-            f'<summary>Key Points <span class="points-count">{len(key_points)}</span></summary>'
+            f'<summary>key points <span class="points-count">{len(key_points)}</span></summary>'
             f'<ul class="points">{items}</ul>'
             f'</details>'
         )
@@ -283,7 +283,7 @@ def _render_card(r: dict) -> str:
   {points_block}
   <div class="card-footer">
     <time>{pub_date}</time>
-    <a class="watch-btn" href="{r['url']}" target="_blank" rel="noopener">Watch ↗</a>
+    <a class="watch-btn" href="{r['url']}" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>"""
 
@@ -302,323 +302,259 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 
     cards = "\n".join(_render_card(r) for r in results_sorted)
     if not cards:
-        cards = '<div class="empty"><p>新着動画はありません</p></div>'
+        cards = '<div class="empty"><p>// 新着動画はありません</p></div>'
 
-    nav_links = (
-        "<a href='../index.html' class='nav-link'>← Latest</a>"
-        "<a href='index.html' class='nav-link'>All Archives</a>"
-        if is_archive else
-        "<a href='archive/index.html' class='nav-link'>Archive →</a>"
-    )
+    root_path    = "../" if is_archive else ""
+    favicon_href = "../favicon.svg" if is_archive else "favicon.svg"
+    if is_archive:
+        nav_links = ("<a href='index.html' class='nav-link'>all archives</a>"
+                     "<a href='../index.html' class='nav-link'>← latest</a>")
+    else:
+        nav_links = "<a href='archive/index.html' class='nav-link'>archive →</a>"
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Investment Digest — {date_str}</title>
+  <title>alphadigest — {date_str}</title>
+  <link rel="icon" type="image/svg+xml" href="{favicon_href}">
+  <meta property="og:title" content="alphadigest">
+  <meta property="og:description" content="top investment voices, distilled.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg:       #0a0a0f;
-      --bg-card:  #12121a;
-      --bg-hdr:   rgba(10,10,15,0.92);
-      --surface:  rgba(255,255,255,0.04);
-      --surface2: rgba(255,255,255,0.07);
-      --border:   rgba(255,255,255,0.06);
-      --text:     #e8e8f0;
-      --muted:    #8888a8;
-      --bullish:  #00d4aa;
-      --bearish:  #ff4757;
-      --neutral:  #6c7293;
-      --gold:     #f0b429;
-      --blue:     #4f8ef7;
+      --bg:      #08080c;
+      --surface: #0c0c10;
+      --border:  #1a1a1e;
+      --brand:   #00ff88;
+      --text:    #ffffff;
+      --muted:   rgba(255,255,255,0.5);
+      --dim:     rgba(255,255,255,0.3);
+      --red:     #ff4444;
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
     html {{ scroll-behavior: smooth; }}
     body {{
-      font-family: 'Inter', 'Noto Sans JP', -apple-system, sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      background-image:
-        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(0,212,170,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 35% at 85% 95%, rgba(79,142,247,0.05) 0%, transparent 55%);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
     }}
-    ::-webkit-scrollbar {{ width: 5px; }}
+    ::-webkit-scrollbar {{ width: 4px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
-    ::-webkit-scrollbar-thumb {{ background: #2a2a3e; border-radius: 3px; }}
+    ::-webkit-scrollbar-thumb {{ background: var(--border); }}
 
-    /* ── Header ── */
+    /* header */
     header {{
       position: sticky; top: 0; z-index: 100;
-      background: var(--bg-hdr); backdrop-filter: blur(24px);
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 clamp(16px,4vw,48px);
-      transition: background 200ms ease;
     }}
-    header.scrolled {{ background: rgba(10,10,15,0.98); }}
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px; gap: 16px;
-      transition: height 200ms ease;
+      height: 52px; gap: 12px;
     }}
-    header.scrolled .header-inner {{ height: 52px; }}
-
-    /* Rotating orbit logo */
-    .logo {{ display: flex; align-items: center; gap: 10px; white-space: nowrap; }}
-    .logo-orbit {{
-      width: 34px; height: 34px; border-radius: 10px;
-      position: relative; overflow: hidden; flex-shrink: 0;
+    .ad-logo {{
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
     }}
-    .logo-orbit::before {{
-      content: '';
-      position: absolute; inset: -40%;
-      background: conic-gradient(from 0deg, #00d4aa, #6366f1, #ff4757, #00d4aa);
-      animation: orbit 4s linear infinite;
+    .ad-logo__cursor {{
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
     }}
-    .logo-inner {{
-      position: absolute; inset: 2px; background: #1a1a2e;
-      border-radius: 8px; display: flex; align-items: center;
-      justify-content: center; font-size: 0.58rem; font-weight: 800;
-      color: #e8e8f0; letter-spacing: 0.04em; z-index: 1;
-    }}
-    @keyframes orbit {{ to {{ transform: rotate(360deg); }} }}
-    .logo-text {{
-      font-size: 1rem; font-weight: 700; letter-spacing: -0.02em;
-    }}
-
-    .header-meta {{
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.75rem; color: var(--muted); flex-wrap: nowrap;
-    }}
+    .ad-logo__alpha {{ color: var(--brand); font-weight: 700; }}
+    .ad-logo__digest {{ color: var(--text); font-weight: 400; opacity: 0.5; }}
+    @keyframes blink {{ 50% {{ opacity: 0; }} }}
+    .nav-pills {{ display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }}
     .stat-pill {{
-      display: flex; align-items: center; gap: 5px;
+      font-size: 0.65rem; color: var(--muted);
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 20px; padding: 4px 11px; font-size: 0.73rem;
+      padding: 3px 10px; border-radius: 2px;
+      display: flex; align-items: center; gap: 5px;
     }}
-    .dot {{ width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }}
-    .dot-bull {{ background: var(--bullish); box-shadow: 0 0 7px var(--bullish); }}
-    .dot-bear {{ background: var(--bearish); box-shadow: 0 0 7px var(--bearish); }}
-    .dot-neut {{ background: var(--neutral); box-shadow: 0 0 6px var(--neutral); }}
+    .dot {{ width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }}
+    .dot-bull {{ background: var(--brand); }}
+    .dot-bear {{ background: var(--red); }}
+    .dot-neut {{ background: var(--muted); }}
+    nav {{ display: flex; align-items: center; gap: 4px; flex-shrink: 0; }}
     .nav-link {{
-      font-size: 0.75rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; padding: 5px 12px;
-      border: 1px solid var(--border); border-radius: 20px;
-      transition: all 200ms ease;
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
     }}
-    .nav-link:hover {{ color: var(--text); border-color: rgba(255,255,255,0.18); background: var(--surface); }}
+    .nav-link:hover {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
 
-    /* ── Hero ── */
+    /* hero */
     .hero {{
       text-align: center;
-      padding: clamp(48px,7vw,96px) 16px clamp(28px,4vw,52px);
+      padding: clamp(52px,7vw,88px) 16px clamp(28px,4vw,48px);
     }}
-    .hero-date {{
-      display: inline-block; font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--bullish); opacity: 0.8;
-      background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.2);
-      border-radius: 20px; padding: 4px 14px; margin-bottom: 22px;
+    .hero-prompt {{
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin-bottom: 22px;
+    }}
+    .prompt-symbol {{ color: var(--brand); opacity: 0.7; }}
+    .prompt-date {{
+      color: var(--brand); font-weight: 700;
+      border: 1px solid rgba(0,255,136,0.25); padding: 2px 10px;
+      border-radius: 2px; font-size: 0.82rem;
     }}
     .hero h1 {{
-      font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 700;
-      letter-spacing: -0.03em; line-height: 1.08;
-      background: linear-gradient(135deg, #fff 0%, #a8c5ff 45%, #00d4aa 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 14px;
+      font-size: clamp(2rem,5vw,3rem); font-weight: 700;
+      letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px;
     }}
-    .hero-sub {{ font-size: 0.88rem; color: var(--muted); opacity: 0.7; }}
+    .hero h1 .green {{ color: var(--brand); }}
+    .hero-tagline {{
+      font-size: 0.68rem; color: var(--dim); letter-spacing: 2px; margin-bottom: 40px;
+    }}
     .hero-stats {{
-      display: flex; justify-content: center; gap: clamp(20px,4vw,56px);
-      margin-top: 32px; flex-wrap: wrap;
+      display: flex; justify-content: center; gap: clamp(24px,5vw,72px); flex-wrap: wrap;
     }}
     .h-stat {{ text-align: center; }}
-    .h-stat-num {{
-      font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 700;
-      letter-spacing: -0.04em; line-height: 1;
-    }}
-    .h-stat-num.c-total {{ color: #fff; }}
-    .h-stat-num.c-bull  {{ color: var(--bullish); text-shadow: 0 0 24px rgba(0,212,170,0.4); }}
-    .h-stat-num.c-bear  {{ color: var(--bearish);  text-shadow: 0 0 24px rgba(255,71,87,0.4); }}
-    .h-stat-num.c-neut  {{ color: var(--neutral);  text-shadow: 0 0 20px rgba(108,114,147,0.35); }}
-    .h-stat-label {{ font-size: 0.68rem; color: var(--muted); margin-top: 5px; text-transform: uppercase; letter-spacing: 0.09em; }}
+    .h-stat-num {{ font-size: clamp(1.6rem,3.5vw,2.2rem); font-weight: 700; line-height: 1; }}
+    .h-stat-num.c-total {{ color: var(--text); }}
+    .h-stat-num.c-bull  {{ color: var(--brand); }}
+    .h-stat-num.c-bear  {{ color: var(--red); }}
+    .h-stat-num.c-neut  {{ color: var(--muted); }}
+    .h-stat-label {{ font-size: 0.6rem; color: var(--dim); margin-top: 6px; letter-spacing: 0.12em; }}
 
-    /* ── Filters ── */
+    /* filters */
     .filters {{
-      max-width: 1440px; margin: 0 auto 28px;
+      max-width: 1440px; margin: 0 auto 20px;
       padding: 0 clamp(16px,4vw,48px);
-      display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
     }}
     .filter-segment {{
-      display: flex; background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 999px; padding: 3px; gap: 2px;
+      display: flex; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 2px; padding: 2px; gap: 2px;
     }}
     .filter-btn {{
       background: transparent; border: none; color: var(--muted);
-      border-radius: 999px; padding: 6px 16px;
-      font-size: 0.77rem; font-family: 'Inter', sans-serif; cursor: pointer;
-      transition: all 200ms ease; white-space: nowrap;
+      border-radius: 2px; padding: 5px 14px;
+      font-size: 0.7rem; font-family: inherit; cursor: pointer;
+      transition: all 150ms ease; white-space: nowrap;
     }}
-    .filter-btn:hover {{ color: var(--text); transform: scale(1.02); }}
-    .filter-btn.active {{
-      color: var(--text); background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(8px);
-    }}
-    .filter-btn.f-bull.active {{ color: var(--bullish); background: rgba(0,212,170,0.12); }}
-    .filter-btn.f-bear.active {{ color: var(--bearish); background: rgba(255,71,87,0.12); }}
-    .filter-btn.f-neut.active {{ color: var(--neutral); background: rgba(108,114,147,0.14); }}
-    .filter-divider {{ width: 1px; height: 22px; background: rgba(255,255,255,0.08); margin: 0 2px; }}
+    .filter-btn:hover {{ color: var(--text); }}
+    .filter-btn.active {{ color: var(--bg); background: var(--text); }}
+    .filter-btn.f-bull.active {{ color: var(--bg); background: var(--brand); }}
+    .filter-btn.f-bear.active {{ color: var(--text); background: var(--red); }}
+    .filter-btn.f-neut.active {{ color: var(--bg); background: rgba(255,255,255,0.5); }}
 
-    /* ── Grid ── */
+    /* grid */
     .grid-wrap {{ max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px,4vw,48px) 80px; }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 16px;
+      gap: 10px;
     }}
-    #no-results {{ display: none; text-align: center; color: var(--muted); padding: 80px 20px; grid-column: 1/-1; }}
-    .empty {{ text-align: center; color: var(--muted); padding: 80px 20px; }}
+    #no-results {{ display: none; text-align: center; color: var(--dim); padding: 80px 20px; grid-column: 1/-1; font-size: 0.78rem; }}
+    .empty {{ text-align: center; color: var(--dim); padding: 80px 20px; font-size: 0.78rem; }}
 
-    /* ── Cards ── */
+    /* cards */
     .card {{
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 20px 22px;
-      position: relative; overflow: hidden;
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 400ms ease, transform 400ms ease,
-                  box-shadow 200ms ease, border-color 200ms ease;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 18px 20px; position: relative;
+      opacity: 0; transform: translateY(14px);
+      transition: opacity 350ms ease, transform 350ms ease, border-color 150ms ease;
     }}
     .card.visible {{ opacity: 1; transform: translateY(0); }}
     .card.hidden  {{ display: none !important; }}
-    .card:hover   {{ transform: translateY(-3px); }}
-
-    /* Left sentiment sidebar */
-    .card.sent-bullish {{ box-shadow: inset 4px 0 0 var(--bullish); }}
-    .card.sent-bearish {{ box-shadow: inset 4px 0 0 var(--bearish); }}
-    .card.sent-neutral {{ box-shadow: inset 4px 0 0 var(--neutral); }}
-    .card.sent-bullish:hover {{ box-shadow: inset 4px 0 0 var(--bullish), 0 8px 32px rgba(0,212,170,0.1); border-color: rgba(0,212,170,0.22); }}
-    .card.sent-bearish:hover {{ box-shadow: inset 4px 0 0 var(--bearish), 0 8px 32px rgba(255,71,87,0.1);  border-color: rgba(255,71,87,0.22); }}
-    .card.sent-neutral:hover {{ box-shadow: inset 4px 0 0 var(--neutral), 0 8px 24px rgba(108,114,147,0.08); border-color: rgba(108,114,147,0.2); }}
+    .card:hover   {{ transform: translateY(-2px); }}
+    .card.sent-bullish {{ border-left: 2px solid var(--brand); }}
+    .card.sent-bearish {{ border-left: 2px solid var(--red); }}
+    .card.sent-neutral {{ border-left: 2px solid rgba(255,255,255,0.12); }}
+    .card.sent-bullish:hover {{ border-color: rgba(0,255,136,0.25); border-left-color: var(--brand); }}
+    .card.sent-bearish:hover {{ border-color: rgba(255,68,68,0.25); border-left-color: var(--red); }}
 
     .card-top {{
       display: flex; justify-content: space-between; align-items: center;
-      gap: 8px; margin-bottom: 10px;
+      gap: 8px; margin-bottom: 8px;
     }}
     .channel-name {{
-      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--muted);
+      font-size: 0.63rem; font-weight: 500; color: var(--brand);
+      opacity: 0.65; letter-spacing: 0.03em;
     }}
+    .channel-name::before {{ content: '// '; opacity: 0.7; }}
     .badge-sent {{
-      font-size: 0.67rem; font-weight: 600; letter-spacing: 0.03em;
-      border-radius: 20px; padding: 2px 9px; border: 1px solid; flex-shrink: 0;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 2px 8px; border-radius: 2px; border: 1px solid; flex-shrink: 0;
     }}
-    .badge-sent.bullish {{ color: var(--bullish); border-color: rgba(0,212,170,0.35); background: rgba(0,212,170,0.08); }}
-    .badge-sent.bearish {{ color: var(--bearish); border-color: rgba(255,71,87,0.35);  background: rgba(255,71,87,0.08); }}
-    .badge-sent.neutral {{ color: var(--neutral); border-color: rgba(108,114,147,0.35); background: rgba(108,114,147,0.08); }}
+    .badge-sent.bullish {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
+    .badge-sent.bearish {{ color: var(--red);   border-color: rgba(255,68,68,0.3); }}
+    .badge-sent.neutral {{ color: var(--muted); border-color: var(--border); }}
 
-    h3 {{ font-size: 0.93rem; font-weight: 600; line-height: 1.52; margin-bottom: 10px; }}
+    h3 {{ font-size: 0.87rem; font-weight: 700; line-height: 1.55; margin-bottom: 10px; }}
     h3 a {{ color: var(--text); text-decoration: none; }}
-    h3 a:hover {{ color: #a8c5ff; }}
+    h3 a:hover {{ color: var(--brand); }}
 
-    /* Tags */
-    .tags {{ display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }}
+    .tags {{ display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }}
     .ticker {{
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem; font-weight: 700;
-      background: rgba(0,212,170,0.07); color: var(--bullish);
-      border: 1px solid rgba(0,212,170,0.2);
-      padding: 2px 8px; border-radius: 5px; letter-spacing: 0.06em;
+      font-size: 0.65rem; font-weight: 700; color: var(--brand);
+      border: 1px solid rgba(0,255,136,0.25); padding: 1px 7px; border-radius: 2px;
     }}
     .topic {{
-      font-size: 0.7rem;
-      background: rgba(108,114,147,0.1); color: #a0a8c8;
-      border: 1px solid rgba(108,114,147,0.2);
-      padding: 2px 8px; border-radius: 5px;
+      font-size: 0.63rem; color: var(--muted);
+      border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px;
     }}
 
-    /* Importance progress bar */
     .imp-track {{
-      height: 3px; background: rgba(255,255,255,0.05);
-      border-radius: 2px; margin: 6px 0 14px; overflow: hidden;
+      height: 2px; background: var(--border); border-radius: 1px;
+      margin: 4px 0 12px; overflow: hidden;
     }}
-    .imp-fill {{
-      height: 100%; border-radius: 2px;
-      background: linear-gradient(90deg, var(--neutral), #a0a8c8);
-      transition: width 600ms ease;
-    }}
-    .card.imp-5 .imp-fill {{ background: linear-gradient(90deg, var(--gold), #fbbf24); }}
-    .card.imp-4 .imp-fill {{ background: linear-gradient(90deg, var(--blue), #7eb3ff); }}
-    .card.imp-3 .imp-fill {{ background: linear-gradient(90deg, #5a5f7a, #7a80a0); }}
+    .imp-fill {{ height: 100%; border-radius: 1px; background: rgba(255,255,255,0.2); transition: width 500ms ease; }}
+    .card.imp-5 .imp-fill {{ background: var(--brand); }}
+    .card.imp-4 .imp-fill {{ background: rgba(0,255,136,0.5); }}
+    .card.imp-3 .imp-fill {{ background: rgba(255,255,255,0.3); }}
 
-    /* Summary */
-    .summary {{
-      font-size: 0.868rem; line-height: 1.82; color: #9090b0;
-      margin-bottom: 10px;
-    }}
+    .summary {{ font-size: 0.81rem; line-height: 1.82; color: var(--muted); margin-bottom: 10px; }}
 
-    /* Key points accordion */
     .points-details {{ margin-bottom: 10px; }}
     .points-details > summary {{
-      font-size: 0.74rem; font-weight: 600; color: var(--muted);
-      cursor: pointer; display: flex; align-items: center; gap: 6px;
-      padding: 3px 0; list-style: none; user-select: none;
-      transition: color 200ms;
+      font-size: 0.68rem; color: var(--dim); cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      padding: 3px 0; list-style: none; user-select: none; transition: color 150ms;
     }}
     .points-details > summary::-webkit-details-marker {{ display: none; }}
     .points-details > summary::before {{
-      content: '›'; font-size: 1.1rem; line-height: 1;
-      display: inline-block; transition: transform 200ms ease;
+      content: '›'; font-size: 1rem; display: inline-block; transition: transform 150ms ease;
     }}
     .points-details[open] > summary::before {{ transform: rotate(90deg); }}
-    .points-details > summary:hover {{ color: var(--text); }}
+    .points-details > summary:hover {{ color: var(--muted); }}
     .points-count {{
-      background: rgba(255,255,255,0.07); border-radius: 4px;
-      padding: 1px 6px; font-size: 0.65rem;
+      background: var(--border); padding: 0 5px; font-size: 0.6rem; border-radius: 2px;
     }}
-    .points {{ list-style: none; padding: 8px 0 0; }}
+    .points {{ list-style: none; padding: 6px 0 0; }}
     .points li {{
-      font-size: 0.82rem; color: var(--muted); line-height: 1.8;
-      padding-left: 14px; position: relative; margin-bottom: 2px;
+      font-size: 0.77rem; color: var(--muted); line-height: 1.75;
+      padding-left: 16px; position: relative; margin-bottom: 2px;
     }}
-    .points li::before {{
-      content: ''; position: absolute; left: 0; top: 0.68em;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--neutral);
-    }}
-    .card.sent-bullish .points li::before {{ background: var(--bullish); opacity: 0.7; }}
-    .card.sent-bearish .points li::before {{ background: var(--bearish); opacity: 0.7; }}
+    .points li::before {{ content: '>'; position: absolute; left: 0; color: var(--dim); }}
 
-    /* Card footer */
     .card-footer {{
       display: flex; justify-content: space-between; align-items: center;
-      padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.05);
-      margin-top: 8px;
+      padding-top: 10px; border-top: 1px solid var(--border); margin-top: 8px;
     }}
-    .card-footer time {{ font-size: 0.68rem; color: var(--muted); }}
+    .card-footer time {{ font-size: 0.62rem; color: var(--dim); }}
     .watch-btn {{
-      font-size: 0.71rem; font-weight: 600; color: var(--muted);
-      text-decoration: none; padding: 5px 13px; border-radius: 8px;
-      border: 1px solid var(--border); background: transparent;
-      transition: all 200ms ease;
+      font-size: 0.66rem; font-weight: 700; color: var(--muted);
+      text-decoration: none; padding: 4px 12px;
+      border: 1px solid var(--border); border-radius: 2px;
+      transition: all 150ms ease; font-family: inherit;
     }}
-    .watch-btn:hover {{
-      color: #0a0a0f; background: var(--bullish); border-color: var(--bullish);
-    }}
+    .watch-btn:hover {{ color: var(--bg); background: var(--brand); border-color: var(--brand); }}
 
-    /* ── Footer ── */
     footer {{
-      text-align: center; padding: 24px 16px;
-      border-top: 1px solid var(--border);
-      font-size: 0.73rem; color: var(--muted);
+      text-align: center; padding: 20px 16px;
+      border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim);
     }}
 
-    /* ── Responsive ── */
     @media (max-width: 640px) {{
-      .header-meta .stat-pill {{ display: none; }}
-      .hero h1 {{ font-size: 2rem; }}
+      .nav-pills {{ display: none; }}
+      .hero h1 {{ font-size: 1.7rem; }}
       .grid {{ grid-template-columns: 1fr; }}
       .filters {{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }}
       .filters::-webkit-scrollbar {{ display: none; }}
@@ -627,64 +563,64 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 </head>
 <body>
 
-  <header id="hdr">
+  <header>
     <div class="header-inner">
-      <div class="logo">
-        <div class="logo-orbit"><span class="logo-inner">ID</span></div>
-        <span class="logo-text">Investment Digest</span>
+      <a href="{root_path}index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <div class="nav-pills">
+        <div class="stat-pill"><span class="dot dot-bull"></span>{n_bullish} bullish</div>
+        <div class="stat-pill"><span class="dot dot-bear"></span>{n_bearish} bearish</div>
+        <div class="stat-pill"><span class="dot dot-neut"></span>{n_neutral} neutral</div>
       </div>
-      <div class="header-meta">
-        <div class="stat-pill"><span class="dot dot-bull"></span>{n_bullish} Bullish</div>
-        <div class="stat-pill"><span class="dot dot-bear"></span>{n_bearish} Bearish</div>
-        <div class="stat-pill"><span class="dot dot-neut"></span>{n_neutral} Neutral</div>
-        <span style="opacity:0.5">{now_jst}</span>
+      <nav>
+        <a href="{root_path}channels.html" class="nav-link">channels</a>
         {nav_links}
-      </div>
+      </nav>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-date">{date_str}</div>
-    <h1>Investment<br>YouTube Digest</h1>
-    <p class="hero-sub">米国投資系YouTubeチャンネル 新着動画まとめ</p>
+    <div class="hero-prompt">
+      <span class="prompt-symbol">></span>
+      <span>digest</span>
+      <span class="prompt-date">{date_str}</span>
+    </div>
+    <h1><span class="green">alpha</span>digest</h1>
+    <p class="hero-tagline">// top investment voices, distilled</p>
     <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">Total</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">Bullish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">Bearish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">Neutral</div></div>
+      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">total</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">bullish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">bearish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">neutral</div></div>
     </div>
   </section>
 
   <div class="filters">
     <div class="filter-segment">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn f-bull" data-filter="bullish">▲ Bullish</button>
-      <button class="filter-btn f-bear" data-filter="bearish">▼ Bearish</button>
-      <button class="filter-btn f-neut" data-filter="neutral">● Neutral</button>
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn f-bull" data-filter="bullish">▲ bullish</button>
+      <button class="filter-btn f-bear" data-filter="bearish">▼ bearish</button>
+      <button class="filter-btn f-neut" data-filter="neutral">● neutral</button>
     </div>
-    <div class="filter-divider"></div>
     <div class="filter-segment">
-      <button class="filter-btn" data-imp="5">Top Picks</button>
-      <button class="filter-btn" data-imp="4">Important+</button>
+      <button class="filter-btn" data-imp="5">top picks</button>
+      <button class="filter-btn" data-imp="4">important+</button>
     </div>
   </div>
 
   <div class="grid-wrap">
     <div class="grid" id="grid">
       {cards}
-      <div id="no-results">条件に一致する動画がありません</div>
+      <div id="no-results">// no results matching filters</div>
     </div>
   </div>
 
-  <footer>Investment Digest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; Powered by Claude AI</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by claude ai</footer>
 
   <script>
-    // Sticky header shrink
-    const hdr = document.getElementById('hdr');
-    window.addEventListener('scroll', () => {{
-      hdr.classList.toggle('scrolled', window.scrollY > 60);
-    }}, {{ passive: true }});
-
     // IntersectionObserver card fade-in
     const observer = new IntersectionObserver((entries) => {{
       entries.forEach(entry => {{
@@ -693,9 +629,9 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
           observer.unobserve(entry.target);
         }}
       }});
-    }}, {{ threshold: 0.08 }});
+    }}, {{ threshold: 0.06 }});
     document.querySelectorAll('.card').forEach((c, i) => {{
-      c.style.transitionDelay = Math.min(i * 40, 320) + 'ms';
+      c.style.transitionDelay = Math.min(i * 35, 280) + 'ms';
       observer.observe(c);
     }});
 
@@ -749,106 +685,239 @@ def generate_archive_index_html(dates: list[str]) -> str:
     now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     rows = "".join(
         f'<a class="archive-row" href="{d}.html">'
+        f'<span class="arc-idx">{str(i+1).zfill(2)}</span>'
         f'<span class="arc-date">{d}</span>'
         f'<span class="arc-arrow">→</span>'
         f'</a>'
-        for d in dates
+        for i, d in enumerate(dates)
     )
     if not rows:
-        rows = '<p class="arc-empty">アーカイブはまだありません。</p>'
+        rows = '<p class="arc-empty">// アーカイブはまだありません</p>'
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive — Investment Digest</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>archive — alphadigest</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg: #0a0a0f; --bg-card: #12121a; --border: rgba(255,255,255,0.07);
-      --bullish: #00d4aa; --text: #e8e8f0; --muted: #8888a8;
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
     body {{
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,212,170,0.06) 0%, transparent 60%);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
     }}
+    ::-webkit-scrollbar {{ width: 4px; }}
+    ::-webkit-scrollbar-track {{ background: var(--bg); }}
+    ::-webkit-scrollbar-thumb {{ background: var(--border); }}
     header {{
       position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 clamp(16px,4vw,48px);
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }}
     .header-inner {{
-      max-width: 800px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
     }}
-    .logo {{ display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; }}
-    .logo-orbit {{
-      position: relative; width: 32px; height: 32px; flex-shrink: 0;
+    .ad-logo {{
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
     }}
-    .logo-orbit::before {{
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(var(--bullish) 0deg, transparent 120deg, rgba(0,212,170,0.3) 240deg, var(--bullish) 360deg);
-      animation: orbit 3s linear infinite;
+    .ad-logo__cursor {{
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
     }}
-    .logo-orbit::after {{
-      content: ''; position: absolute; inset: 3px; border-radius: 50%;
-      background: var(--bg-card);
-    }}
-    @keyframes orbit {{ to {{ transform: rotate(360deg); }} }}
+    .ad-logo__alpha {{ color: var(--brand); font-weight: 700; }}
+    .ad-logo__digest {{ color: var(--text); font-weight: 400; opacity: 0.5; }}
+    @keyframes blink {{ 50% {{ opacity: 0; }} }}
+    nav {{ display: flex; gap: 4px; }}
     .nav-link {{
-      font-size: 0.78rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; padding: 5px 12px;
-      border: 1px solid var(--border); border-radius: 20px;
-      transition: all 0.15s ease;
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
     }}
-    .nav-link:hover {{ color: var(--text); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }}
-    main {{ max-width: 800px; margin: 0 auto; padding: clamp(40px,6vw,80px) clamp(16px,4vw,48px) 80px; }}
-    h1 {{
-      font-size: clamp(1.8rem,4vw,2.4rem); font-weight: 700; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, #80ffe8 60%, var(--bullish) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 8px;
+    .nav-link:hover {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
+    main {{ max-width: 720px; margin: 0 auto; padding: clamp(40px,6vw,72px) clamp(16px,4vw,48px) 80px; }}
+    .page-prompt {{
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
     }}
-    .subtitle {{ color: var(--muted); font-size: 0.88rem; margin-bottom: 40px; }}
-    .archive-list {{ display: flex; flex-direction: column; gap: 6px; }}
+    .prompt-symbol {{ color: var(--brand); opacity: 0.7; }}
+    h1 {{ font-size: clamp(1.6rem,4vw,2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }}
+    h1 .green {{ color: var(--brand); }}
+    .subtitle {{ color: var(--dim); font-size: 0.72rem; margin-bottom: 32px; }}
+    .archive-list {{ display: flex; flex-direction: column; gap: 4px; }}
     .archive-row {{
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 14px 20px; text-decoration: none;
-      transition: all 0.18s ease;
+      display: flex; align-items: center; gap: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 12px 16px; text-decoration: none;
+      transition: all 150ms ease;
     }}
-    .archive-row:hover {{
-      background: rgba(0,212,170,0.05); border-color: rgba(0,212,170,0.3);
-      transform: translateX(4px);
-    }}
-    .arc-date {{
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.95rem; font-weight: 600; color: var(--text);
-    }}
-    .arc-arrow {{ color: var(--bullish); font-size: 1rem; }}
-    .arc-empty {{ color: var(--muted); text-align: center; padding: 40px; }}
-    footer {{ text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); margin-top: 40px; }}
+    .archive-row:hover {{ border-color: rgba(0,255,136,0.25); transform: translateX(4px); }}
+    .arc-idx {{ font-size: 0.6rem; color: var(--dim); min-width: 22px; }}
+    .arc-date {{ font-size: 0.9rem; font-weight: 700; color: var(--text); flex: 1; }}
+    .arc-arrow {{ color: var(--brand); font-size: 0.85rem; opacity: 0.7; }}
+    .arc-empty {{ color: var(--dim); text-align: center; padding: 40px; font-size: 0.78rem; }}
+    footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a href="../index.html" class="logo"><div class="logo-orbit"></div>Investment Digest</a>
-      <a href="../index.html" class="nav-link">← Latest</a>
+      <a href="../index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href="../index.html" class="nav-link">← latest</a>
+      </nav>
     </div>
   </header>
   <main>
-    <h1>Archive</h1>
-    <p class="subtitle">過去の投資YouTube日次ダイジェスト一覧 — {len(dates)} 件</p>
+    <div class="page-prompt">
+      <span class="prompt-symbol">></span>
+      <span>archive</span>
+      <span style="color:var(--dim)">{len(dates)} digests</span>
+    </div>
+    <h1><span class="green">alpha</span>digest archive</h1>
+    <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
     <div class="archive-list">{rows}</div>
   </main>
-  <footer>Investment Digest · {now_jst}</footer>
+  <footer>// alphadigest · {now_jst}</footer>
+</body>
+</html>"""
+
+
+# ---- チャンネル一覧ページ -----------------------------------------------
+
+def generate_channels_html(channels: list[dict]) -> str:
+    """監視対象チャンネル一覧ページを生成する。"""
+    now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
+    rows = "".join(
+        f'<a class="channel-row" href="https://youtube.com/@{ch["handle"]}" target="_blank" rel="noopener">'
+        f'<span class="ch-idx">{str(i+1).zfill(2)}</span>'
+        f'<span class="ch-name">{ch["name"]}</span>'
+        f'<span class="ch-handle">@{ch["handle"]}</span>'
+        f'<span class="ch-arrow">↗</span>'
+        f'</a>'
+        for i, ch in enumerate(channels)
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>channels — alphadigest</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
+    }}
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+    }}
+    ::-webkit-scrollbar {{ width: 4px; }}
+    ::-webkit-scrollbar-track {{ background: var(--bg); }}
+    ::-webkit-scrollbar-thumb {{ background: var(--border); }}
+    header {{
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
+    }}
+    .header-inner {{
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
+    }}
+    .ad-logo {{
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+    }}
+    .ad-logo__cursor {{
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
+    }}
+    .ad-logo__alpha {{ color: var(--brand); font-weight: 700; }}
+    .ad-logo__digest {{ color: var(--text); font-weight: 400; opacity: 0.5; }}
+    @keyframes blink {{ 50% {{ opacity: 0; }} }}
+    nav {{ display: flex; gap: 4px; }}
+    .nav-link {{
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
+    }}
+    .nav-link:hover {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
+    main {{ max-width: 720px; margin: 0 auto; padding: clamp(40px,6vw,72px) clamp(16px,4vw,48px) 80px; }}
+    .page-prompt {{
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
+    }}
+    .prompt-symbol {{ color: var(--brand); opacity: 0.7; }}
+    h1 {{ font-size: clamp(1.6rem,4vw,2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }}
+    h1 .green {{ color: var(--brand); }}
+    .subtitle {{ color: var(--dim); font-size: 0.72rem; margin-bottom: 32px; }}
+    .channel-list {{ display: flex; flex-direction: column; gap: 4px; }}
+    .channel-row {{
+      display: flex; align-items: center; gap: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 2px solid rgba(0,255,136,0.12);
+      border-radius: 2px; padding: 12px 16px; text-decoration: none;
+      transition: all 150ms ease;
+    }}
+    .channel-row:hover {{
+      border-color: rgba(0,255,136,0.2); border-left-color: var(--brand);
+      transform: translateX(4px);
+    }}
+    .ch-idx {{ font-size: 0.6rem; color: var(--dim); min-width: 20px; flex-shrink: 0; }}
+    .ch-name {{ font-size: 0.88rem; font-weight: 700; color: var(--text); flex: 1; }}
+    .ch-handle {{ font-size: 0.67rem; color: var(--muted); flex-shrink: 0; }}
+    .ch-arrow {{ color: var(--brand); font-size: 0.78rem; opacity: 0.6; flex-shrink: 0; }}
+    @media (max-width: 480px) {{
+      .ch-handle {{ display: none; }}
+    }}
+    footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="archive/index.html" class="nav-link">archive</a>
+        <a href="index.html" class="nav-link">← latest</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="page-prompt">
+      <span class="prompt-symbol">></span>
+      <span>channels</span>
+      <span style="color:var(--dim)">{len(channels)} tracked</span>
+    </div>
+    <h1><span class="green">tracked</span> channels</h1>
+    <p class="subtitle">// 監視対象の米国投資系YouTubeチャンネル一覧</p>
+    <div class="channel-list">{rows}</div>
+  </main>
+  <footer>// alphadigest · {now_jst}</footer>
 </body>
 </html>"""
 
@@ -944,6 +1013,10 @@ def main() -> None:
     )
     with open(archive_dir / "index.html", "w", encoding="utf-8") as f:
         f.write(generate_archive_index_html(all_dates))
+
+    # チャンネルページを生成
+    with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
+        f.write(generate_channels_html(channels))
 
     # メインページ (index.html) を更新
     with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
