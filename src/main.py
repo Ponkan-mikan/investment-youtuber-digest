@@ -129,6 +129,21 @@ def is_short(video: dict) -> bool:
     return False
 
 
+# ---- 言語フィルタ -------------------------------------------------------
+
+_DE_CHARS = re.compile(r'[äöüÄÖÜß]')
+_DE_WORDS = re.compile(
+    r'\b(und|nicht|auch|auf|wird|werden|Aktien|Börse|Markt|Depot|Dividende|Rendite)\b'
+)
+
+def is_german(video: dict) -> bool:
+    """タイトル・概要欄がドイツ語コンテンツかどうかを判定する。"""
+    text = f"{video['title']} {video['description'][:300]}"
+    if _DE_CHARS.search(text):
+        return True
+    return len(_DE_WORDS.findall(text)) >= 2
+
+
 # ---- 日時フォーマット ---------------------------------------------------
 
 def format_pub_datetime(iso_str: str) -> str:
@@ -914,6 +929,9 @@ def main() -> None:
         for video in videos:
             if is_short(video):
                 print(f"  [SKIP] ショート動画をスキップ: {video['title'][:50]}")
+                continue
+            if ch.get("lang") == "en" and is_german(video):
+                print(f"  [SKIP] ドイツ語コンテンツをスキップ: {video['title'][:50]}")
                 continue
             print(f"  処理中: {video['title'][:60]}...")
 
