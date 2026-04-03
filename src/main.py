@@ -216,7 +216,7 @@ def summarize_video(
 _SENT_LABEL = {"bullish": "▲ bullish", "bearish": "▼ bearish", "neutral": "● neutral"}
 
 
-def _render_card(r: dict) -> str:
+def _render_card(r: dict, root_path: str = "") -> str:
     a          = r.get("analysis", {})
     importance = max(1, min(5, int(a.get("importance", 1))))
     sentiment  = a.get("sentiment", "neutral")
@@ -227,7 +227,10 @@ def _render_card(r: dict) -> str:
 
     sent_label  = _SENT_LABEL.get(sentiment, sentiment)
     imp_pct     = importance * 20
-    ticker_html = "".join(f'<span class="ticker">{t}</span>' for t in tickers)
+    ticker_html = "".join(
+        f'<a class="ticker" href="{root_path}ticker/{t}.html">{t}</a>'
+        for t in tickers
+    )
     topic_html  = "".join(f'<span class="topic">{t}</span>'  for t in topics)
     tags_block  = f'<div class="tags">{ticker_html}{topic_html}</div>' if (tickers or topics) else ""
 
@@ -271,10 +274,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     n_neutral = len(results) - n_bullish - n_bearish
     now_jst   = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
 
-    cards = "\n".join(_render_card(r) for r in results_sorted)
-    if not cards:
-        cards = '<div class="empty"><p>// 新着動画はありません</p></div>'
-
     root_path    = "../" if is_archive else ""
     favicon_href = "../favicon.svg" if is_archive else "favicon.svg"
     if is_archive:
@@ -282,6 +281,10 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
                      "<a href='../index.html' class='nav-link'>← latest</a>")
     else:
         nav_links = "<a href='archive/index.html' class='nav-link'>archive →</a>"
+
+    cards = "\n".join(_render_card(r, root_path) for r in results_sorted)
+    if not cards:
+        cards = '<div class="empty"><p>// 新着動画はありません</p></div>'
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -893,6 +896,251 @@ def generate_channels_html(channels: list[dict]) -> str:
 </html>"""
 
 
+# ---- ティッカーページ ---------------------------------------------------
+
+def generate_ticker_page(ticker: str, mentions: list[dict]) -> str:
+    """ティッカーシンボル別ダッシュボードページを生成する。"""
+    now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
+    mention_rows = "".join(
+        f'<a class="mention-row" href="../{m["page_path"]}" >'
+        f'<span class="m-date">{m["date"]}</span>'
+        f'<span class="m-channel">{m["channel_name"]}</span>'
+        f'<span class="m-title">{m["title"]}</span>'
+        f'<span class="m-arrow">↗</span>'
+        f'</a>'
+        for m in mentions
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{ticker} — alphadigest</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {{
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
+    }}
+    *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    body {{
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+    }}
+    ::-webkit-scrollbar {{ width: 4px; }}
+    ::-webkit-scrollbar-track {{ background: var(--bg); }}
+    ::-webkit-scrollbar-thumb {{ background: var(--border); }}
+    header {{
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
+    }}
+    .header-inner {{
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
+    }}
+    .ad-logo {{
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+    }}
+    .ad-logo__cursor {{
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
+    }}
+    .ad-logo__alpha {{ color: var(--brand); font-weight: 700; }}
+    .ad-logo__digest {{ color: var(--text); font-weight: 400; opacity: 0.5; }}
+    @keyframes blink {{ 50% {{ opacity: 0; }} }}
+    nav {{ display: flex; gap: 4px; }}
+    .nav-link {{
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
+    }}
+    .nav-link:hover {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
+    main {{ max-width: 960px; margin: 0 auto; padding: clamp(32px,5vw,64px) clamp(16px,4vw,48px) 80px; }}
+    .page-prompt {{
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    }}
+    .prompt-symbol {{ color: var(--brand); opacity: 0.7; }}
+    .ticker-hero {{
+      display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;
+    }}
+    h1 {{
+      font-size: clamp(2rem,5vw,3rem); font-weight: 700;
+      letter-spacing: -0.04em; color: var(--brand);
+    }}
+    .mention-count {{
+      font-size: 0.72rem; color: var(--dim);
+      border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px;
+    }}
+    /* TradingView widgets layout */
+    .widgets-grid {{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 10px;
+      margin-bottom: 32px;
+    }}
+    .widget-box {{
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden;
+    }}
+    .widget-box.span2 {{ grid-column: 1 / -1; }}
+    .widget-label {{
+      font-size: 0.6rem; color: var(--dim); letter-spacing: 0.1em;
+      padding: 8px 12px 4px; border-bottom: 1px solid var(--border);
+    }}
+    @media (max-width: 640px) {{
+      .widgets-grid {{ grid-template-columns: 1fr; }}
+      .widget-box.span2 {{ grid-column: 1; }}
+    }}
+    /* Mention history */
+    .section-title {{
+      font-size: 0.68rem; color: var(--dim); letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }}
+    .mention-list {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 40px; }}
+    .mention-row {{
+      display: grid;
+      grid-template-columns: 96px 160px 1fr 20px;
+      align-items: center; gap: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 2px solid rgba(0,255,136,0.2);
+      border-radius: 2px; padding: 10px 14px;
+      text-decoration: none; transition: all 150ms ease;
+    }}
+    .mention-row:hover {{ border-left-color: var(--brand); transform: translateX(3px); }}
+    .m-date {{ font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }}
+    .m-channel {{ font-size: 0.65rem; color: var(--brand); opacity: 0.7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+    .m-title {{ font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+    .m-arrow {{ color: var(--brand); font-size: 0.72rem; opacity: 0.6; }}
+    .no-mentions {{ color: var(--dim); font-size: 0.78rem; padding: 20px 0; }}
+    @media (max-width: 640px) {{
+      .mention-row {{ grid-template-columns: 80px 1fr 16px; }}
+      .m-channel {{ display: none; }}
+    }}
+    footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="../index.html" class="nav-link">← latest</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="page-prompt">
+      <span class="prompt-symbol">></span>
+      <span>ticker</span>
+      <span style="color:var(--brand);font-weight:700">{ticker}</span>
+    </div>
+    <div class="ticker-hero">
+      <h1>{ticker}</h1>
+      <span class="mention-count">{len(mentions)} mentions in archive</span>
+    </div>
+
+    <div class="widgets-grid">
+      <!-- Symbol Info: 価格・時価総額・PER等 -->
+      <div class="widget-box span2">
+        <div class="widget-label">// market overview</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+          {{
+            "symbol": "{ticker}",
+            "width": "100%",
+            "locale": "en",
+            "colorTheme": "dark",
+            "isTransparent": true
+          }}
+          </script>
+        </div>
+      </div>
+      <!-- Chart -->
+      <div class="widget-box span2">
+        <div class="widget-label">// price chart</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {{
+            "symbol": "{ticker}",
+            "width": "100%",
+            "height": 420,
+            "interval": "D",
+            "timezone": "America/New_York",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "#0c0c10",
+            "gridColor": "rgba(255,255,255,0.04)",
+            "hide_side_toolbar": false,
+            "allow_symbol_change": false,
+            "save_image": false,
+            "calendar": false
+          }}
+          </script>
+        </div>
+      </div>
+      <!-- Technical Analysis -->
+      <div class="widget-box">
+        <div class="widget-label">// analyst rating</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+          {{
+            "symbol": "{ticker}",
+            "width": "100%",
+            "height": 400,
+            "interval": "1W",
+            "locale": "en",
+            "colorTheme": "dark",
+            "isTransparent": true
+          }}
+          </script>
+        </div>
+      </div>
+      <!-- Financials -->
+      <div class="widget-box">
+        <div class="widget-label">// financials</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+          {{
+            "symbol": "{ticker}",
+            "width": "100%",
+            "height": 400,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "locale": "en"
+          }}
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-title">// mention history ({len(mentions)} videos)</p>
+    <div class="mention-list">
+      {mention_rows if mention_rows else '<p class="no-mentions">// no mentions found in archive</p>'}
+    </div>
+  </main>
+  <footer>// alphadigest · {now_jst}</footer>
+</body>
+</html>"""
+
+
 # ---- メイン ------------------------------------------------------------
 
 def main() -> None:
@@ -992,6 +1240,36 @@ def main() -> None:
     # latest.json（後方互換）
     with open(DOCS_DIR / "latest.json", "w", encoding="utf-8") as f:
         json.dump({"date": today, "results": all_results}, f, ensure_ascii=False, indent=2)
+
+    # ティッカーページ生成: 全アーカイブJSONを走査してティッカー別に集計
+    ticker_mentions: dict[str, list[dict]] = {}
+    for json_path in sorted(archive_dir.glob("*.json")):
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        date = data.get("date", json_path.stem)
+        for result in data.get("results", []):
+            tickers = result.get("analysis", {}).get("tickers", [])
+            for t in tickers:
+                t = t.upper().strip()
+                if not t:
+                    continue
+                ticker_mentions.setdefault(t, []).append({
+                    "date":         date,
+                    "channel_name": result.get("channel_name", ""),
+                    "title":        result.get("title", ""),
+                    "url":          result.get("url", ""),
+                    "page_path":    f"archive/{date}.html",
+                })
+
+    ticker_dir = DOCS_DIR / "ticker"
+    ticker_dir.mkdir(exist_ok=True)
+    for ticker, mentions in ticker_mentions.items():
+        mentions_sorted = sorted(mentions, key=lambda x: x["date"], reverse=True)
+        with open(ticker_dir / f"{ticker}.html", "w", encoding="utf-8") as f:
+            f.write(generate_ticker_page(ticker, mentions_sorted))
+    print(f"  Tickers: {len(ticker_mentions)} ページ生成")
 
     print(f"\n✓ 完了: {len(all_results)} 本の動画を処理しました。")
     print(f"  HTML:    {DOCS_DIR / 'index.html'}")
