@@ -484,7 +484,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     .card.imp-4 .imp-fill {{ background: rgba(0,255,136,0.5); }}
     .card.imp-3 .imp-fill {{ background: rgba(255,255,255,0.3); }}
 
-    .summary {{ font-size: 0.81rem; line-height: 1.82; color: var(--muted); margin-bottom: 10px; }}
+    .summary {{ font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }}
 
     .points-details {{ margin-bottom: 10px; }}
     .points-details > summary {{
