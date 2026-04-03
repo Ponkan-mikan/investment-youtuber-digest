@@ -2,7 +2,9 @@ name: Daily Investment YouTube Digest
 
 on:
   workflow_dispatch:
-    # GitHub の Actions 画面から手動実行のみ
+    # GitHub の Actions 画面から手動実行
+  schedule:
+    - cron: '0 22 * * *'  # 毎日 JST 07:00 (UTC 22:00) に自動実行
 
 jobs:
   generate-digest:
@@ -11,6 +13,15 @@ jobs:
       contents: write  # gh-pages ブランチへの push に必要
 
     steps:
+      - name: Check schedule expiry (auto-stop after 2026-05-03)
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          EXPIRY="2026-05-04"
+          if [[ "$TODAY" > "$EXPIRY" ]]; then
+            echo "Schedule expired ($TODAY > $EXPIRY). Skipping."
+            exit 0
+          fi
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
