@@ -94,21 +94,26 @@
     .mention-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 40px; }
     .mention-row {
       display: grid;
-      grid-template-columns: 96px 160px 1fr 20px;
-      align-items: center; gap: 12px;
+      grid-template-columns: 96px 148px 72px 60px 1fr 20px;
+      align-items: center; gap: 10px;
       background: var(--surface); border: 1px solid var(--border);
-      border-left: 2px solid rgba(0,255,136,0.2);
+      border-left: 2px solid rgba(0,255,136,0.15);
       border-radius: 2px; padding: 10px 14px;
       text-decoration: none; transition: all 150ms ease;
     }
     .mention-row:hover { border-left-color: var(--brand); transform: translateX(3px); }
-    .m-date { font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }
+    .m-date    { font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }
     .m-channel { font-size: 0.65rem; color: var(--brand); opacity: 0.7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .m-title { font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .m-arrow { color: var(--brand); font-size: 0.72rem; opacity: 0.6; }
+    .m-price   { font-size: 0.72rem; color: var(--muted); font-weight: 700; text-align: right; }
+    .m-pct     { font-size: 0.72rem; font-weight: 700; text-align: right; }
+    .m-pct-up  { color: var(--brand); }
+    .m-pct-dn  { color: #ff4444; }
+    .m-pct-na  { color: var(--dim); }
+    .m-title   { font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .m-arrow   { color: var(--brand); font-size: 0.72rem; opacity: 0.6; }
     .no-mentions { color: var(--dim); font-size: 0.78rem; padding: 20px 0; }
     @media (max-width: 640px) {
-      .mention-row { grid-template-columns: 80px 1fr 16px; }
+      .mention-row { grid-template-columns: 80px 60px 48px 1fr 16px; }
       .m-channel { display: none; }
     }
     footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }
@@ -220,9 +225,9 @@
 
     <p class="section-title">// mention history (1 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-03.html" ><span class="m-date">2026-04-03</span><span class="m-channel">Rick Orford</span><span class="m-title">My Shocking Prediction for CoreWeave After the Insider Sale</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-04-03.html"><span class="m-date">2026-04-03</span><span class="m-channel">Rick Orford</span><span class="m-price">$108.82</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">My Shocking Prediction for CoreWeave After the Insider Sale</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// alphadigest · 2026-04-03 23:23 JST</footer>
+  <footer>// alphadigest · 2026-04-03 23:47 JST</footer>
 </body>
 </html>
