@@ -3,92 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archive — Investment Digest</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>archive — alphadigest</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0f; --bg-card: #12121a; --border: rgba(255,255,255,0.07);
-      --bullish: #00d4aa; --text: #e8e8f0; --muted: #8888a8;
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: var(--bg); color: var(--text); min-height: 100vh;
-      background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0,212,170,0.06) 0%, transparent 60%);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
     }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); }
     header {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,15,0.85); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 clamp(16px,4vw,48px);
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
-      max-width: 800px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
+      max-width: 720px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
     }
-    .logo { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 700; color: var(--text); text-decoration: none; }
-    .logo-orbit {
-      position: relative; width: 32px; height: 32px; flex-shrink: 0;
+    .ad-logo {
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
     }
-    .logo-orbit::before {
-      content: ''; position: absolute; inset: 0; border-radius: 50%;
-      background: conic-gradient(var(--bullish) 0deg, transparent 120deg, rgba(0,212,170,0.3) 240deg, var(--bullish) 360deg);
-      animation: orbit 3s linear infinite;
+    .ad-logo__cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
     }
-    .logo-orbit::after {
-      content: ''; position: absolute; inset: 3px; border-radius: 50%;
-      background: var(--bg-card);
-    }
-    @keyframes orbit { to { transform: rotate(360deg); } }
+    .ad-logo__alpha { color: var(--brand); font-weight: 700; }
+    .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
+    @keyframes blink { 50% { opacity: 0; } }
+    nav { display: flex; gap: 4px; }
     .nav-link {
-      font-size: 0.78rem; font-weight: 500; color: var(--muted);
-      text-decoration: none; padding: 5px 12px;
-      border: 1px solid var(--border); border-radius: 20px;
-      transition: all 0.15s ease;
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
     }
-    .nav-link:hover { color: var(--text); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
-    main { max-width: 800px; margin: 0 auto; padding: clamp(40px,6vw,80px) clamp(16px,4vw,48px) 80px; }
-    h1 {
-      font-size: clamp(1.8rem,4vw,2.4rem); font-weight: 700; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #fff 0%, #80ffe8 60%, var(--bullish) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text; margin-bottom: 8px;
+    .nav-link:hover { color: var(--brand); border-color: rgba(0,255,136,0.3); }
+    main { max-width: 720px; margin: 0 auto; padding: clamp(40px,6vw,72px) clamp(16px,4vw,48px) 80px; }
+    .page-prompt {
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 20px;
     }
-    .subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 40px; }
-    .archive-list { display: flex; flex-direction: column; gap: 6px; }
+    .prompt-symbol { color: var(--brand); opacity: 0.7; }
+    h1 { font-size: clamp(1.6rem,4vw,2rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
+    h1 .green { color: var(--brand); }
+    .subtitle { color: var(--dim); font-size: 0.72rem; margin-bottom: 32px; }
+    .archive-list { display: flex; flex-direction: column; gap: 4px; }
     .archive-row {
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 10px; padding: 14px 20px; text-decoration: none;
-      transition: all 0.18s ease;
+      display: flex; align-items: center; gap: 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 12px 16px; text-decoration: none;
+      transition: all 150ms ease;
     }
-    .archive-row:hover {
-      background: rgba(0,212,170,0.05); border-color: rgba(0,212,170,0.3);
-      transform: translateX(4px);
-    }
-    .arc-date {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.95rem; font-weight: 600; color: var(--text);
-    }
-    .arc-arrow { color: var(--bullish); font-size: 1rem; }
-    .arc-empty { color: var(--muted); text-align: center; padding: 40px; }
-    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 0.72rem; color: var(--muted); margin-top: 40px; }
+    .archive-row:hover { border-color: rgba(0,255,136,0.25); transform: translateX(4px); }
+    .arc-idx { font-size: 0.6rem; color: var(--dim); min-width: 22px; }
+    .arc-date { font-size: 0.9rem; font-weight: 700; color: var(--text); flex: 1; }
+    .arc-arrow { color: var(--brand); font-size: 0.85rem; opacity: 0.7; }
+    .arc-empty { color: var(--dim); text-align: center; padding: 40px; font-size: 0.78rem; }
+    footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }
   </style>
 </head>
 <body>
   <header>
     <div class="header-inner">
-      <a href="../index.html" class="logo"><div class="logo-orbit"></div>Investment Digest</a>
-      <a href="../index.html" class="nav-link">← Latest</a>
+      <a href="../index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href="../index.html" class="nav-link">← latest</a>
+      </nav>
     </div>
   </header>
   <main>
-    <h1>Archive</h1>
-    <p class="subtitle">過去の投資YouTube日次ダイジェスト一覧 — 1 件</p>
-    <div class="archive-list"><a class="archive-row" href="2026-04-03.html"><span class="arc-date">2026-04-03</span><span class="arc-arrow">→</span></a></div>
+    <div class="page-prompt">
+      <span class="prompt-symbol">></span>
+      <span>archive</span>
+      <span style="color:var(--dim)">1 digests</span>
+    </div>
+    <h1><span class="green">alpha</span>digest archive</h1>
+    <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
+    <div class="archive-list"><a class="archive-row" href="2026-04-03.html"><span class="arc-idx">01</span><span class="arc-date">2026-04-03</span><span class="arc-arrow">→</span></a></div>
   </main>
-  <footer>Investment Digest · 2026-04-03 14:13 JST</footer>
+  <footer>// alphadigest · 2026-04-03 20:21 JST</footer>
 </body>
 </html>
