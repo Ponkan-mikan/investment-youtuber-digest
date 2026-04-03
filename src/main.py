@@ -11,6 +11,7 @@ from pathlib import Path
 
 import feedparser
 import requests
+import yfinance as yf
 import anthropic
 
 # ---- 定数 ----------------------------------------------------------------
@@ -154,7 +155,32 @@ def format_pub_datetime(iso_str: str) -> str:
         return iso_str[:10]
 
 
-# ---- トランスクリプト ---------------------------------------------------
+# ---- 株価取得 -----------------------------------------------------------
+
+def get_price_on_date(ticker: str, date_str: str) -> float | None:
+    """指定日の終値を取得する（市場休日の場合は直近の終値）。"""
+    try:
+        dt = datetime.strptime(date_str, "%Y-%m-%d")
+        start = (dt - timedelta(days=5)).strftime("%Y-%m-%d")
+        end   = (dt + timedelta(days=1)).strftime("%Y-%m-%d")
+        hist = yf.Ticker(ticker).history(start=start, end=end)
+        if hist.empty:
+            return None
+        return round(float(hist["Close"].iloc[-1]), 2)
+    except Exception:
+        return None
+
+
+def get_current_price(ticker: str) -> float | None:
+    """現在の株価（最新終値）を取得する。"""
+    try:
+        hist = yf.Ticker(ticker).history(period="2d")
+        if hist.empty:
+            return None
+        return round(float(hist["Close"].iloc[-1]), 2)
+    except Exception:
+        return None
+
 
 # ---- Claude API 要約 ---------------------------------------------------
 
@@ -898,13 +924,25 @@ def generate_channels_html(channels: list[dict]) -> str:
 
 # ---- ティッカーページ ---------------------------------------------------
 
-def generate_ticker_page(ticker: str, mentions: list[dict]) -> str:
+def _pct_html(price_on_date: float | None, current_price: float | None) -> str:
+    """言及時株価→現在株価の騰落率HTMLを返す。"""
+    if not price_on_date or not current_price:
+        return '<span class="m-pct m-pct-na">—</span>'
+    pct = (current_price - price_on_date) / price_on_date * 100
+    sign = "+" if pct >= 0 else ""
+    cls = "m-pct-up" if pct >= 0 else "m-pct-dn"
+    return f'<span class="m-pct {cls}">{sign}{pct:.1f}%</span>'
+
+
+def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float | None = None) -> str:
     """ティッカーシンボル別ダッシュボードページを生成する。"""
     now_jst = datetime.now(JST).strftime("%Y-%m-%d %H:%M JST")
     mention_rows = "".join(
-        f'<a class="mention-row" href="../{m["page_path"]}" >'
+        f'<a class="mention-row" href="../{m["page_path"]}">'
         f'<span class="m-date">{m["date"]}</span>'
         f'<span class="m-channel">{m["channel_name"]}</span>'
+        f'<span class="m-price">${m["price_on_date"]:.2f}</span>'
+        f'{_pct_html(m["price_on_date"], current_price)}'
         f'<span class="m-title">{m["title"]}</span>'
         f'<span class="m-arrow">↗</span>'
         f'</a>'
@@ -1007,21 +1045,26 @@ def generate_ticker_page(ticker: str, mentions: list[dict]) -> str:
     .mention-list {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 40px; }}
     .mention-row {{
       display: grid;
-      grid-template-columns: 96px 160px 1fr 20px;
-      align-items: center; gap: 12px;
+      grid-template-columns: 96px 148px 72px 60px 1fr 20px;
+      align-items: center; gap: 10px;
       background: var(--surface); border: 1px solid var(--border);
-      border-left: 2px solid rgba(0,255,136,0.2);
+      border-left: 2px solid rgba(0,255,136,0.15);
       border-radius: 2px; padding: 10px 14px;
       text-decoration: none; transition: all 150ms ease;
     }}
     .mention-row:hover {{ border-left-color: var(--brand); transform: translateX(3px); }}
-    .m-date {{ font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }}
+    .m-date    {{ font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }}
     .m-channel {{ font-size: 0.65rem; color: var(--brand); opacity: 0.7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
-    .m-title {{ font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
-    .m-arrow {{ color: var(--brand); font-size: 0.72rem; opacity: 0.6; }}
+    .m-price   {{ font-size: 0.72rem; color: var(--muted); font-weight: 700; text-align: right; }}
+    .m-pct     {{ font-size: 0.72rem; font-weight: 700; text-align: right; }}
+    .m-pct-up  {{ color: var(--brand); }}
+    .m-pct-dn  {{ color: #ff4444; }}
+    .m-pct-na  {{ color: var(--dim); }}
+    .m-title   {{ font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }}
+    .m-arrow   {{ color: var(--brand); font-size: 0.72rem; opacity: 0.6; }}
     .no-mentions {{ color: var(--dim); font-size: 0.78rem; padding: 20px 0; }}
     @media (max-width: 640px) {{
-      .mention-row {{ grid-template-columns: 80px 1fr 16px; }}
+      .mention-row {{ grid-template-columns: 80px 60px 48px 1fr 16px; }}
       .m-channel {{ display: none; }}
     }}
     footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
@@ -1206,7 +1249,25 @@ def main() -> None:
                 "analysis":     analysis,
             })
 
-            time.sleep(0.5)  # Claude API レート制限対策
+            time.sleep(0.3)  # Claude API レート制限対策
+
+    # 当日言及されたティッカーの株価スナップショットを取得
+    print("\n株価スナップショットを取得中...")
+    all_tickers = set()
+    for r in all_results:
+        for t in r.get("analysis", {}).get("tickers", []):
+            all_tickers.add(t.upper().strip())
+
+    price_snapshot: dict[str, float | None] = {}
+    for t in sorted(all_tickers):
+        price = get_price_on_date(t, today)
+        price_snapshot[t] = price
+        print(f"  {t}: {price}")
+        time.sleep(0.2)
+
+    # price_snapshot を各 result に付与
+    for r in all_results:
+        r["price_snapshot"] = price_snapshot
 
     # 3. HTML & JSON を生成・保存
     DOCS_DIR.mkdir(exist_ok=True)
@@ -1261,14 +1322,17 @@ def main() -> None:
                     "title":        result.get("title", ""),
                     "url":          result.get("url", ""),
                     "page_path":    f"archive/{date}.html",
+                    "price_on_date": result.get("price_snapshot", {}).get(t),
                 })
 
+    # 各ティッカーの現在株価を取得してページ生成
     ticker_dir = DOCS_DIR / "ticker"
     ticker_dir.mkdir(exist_ok=True)
     for ticker, mentions in ticker_mentions.items():
         mentions_sorted = sorted(mentions, key=lambda x: x["date"], reverse=True)
+        current_price = get_current_price(ticker)
         with open(ticker_dir / f"{ticker}.html", "w", encoding="utf-8") as f:
-            f.write(generate_ticker_page(ticker, mentions_sorted))
+            f.write(generate_ticker_page(ticker, mentions_sorted, current_price))
     print(f"  Tickers: {len(ticker_mentions)} ページ生成")
 
     print(f"\n✓ 完了: {len(all_results)} 本の動画を処理しました。")
