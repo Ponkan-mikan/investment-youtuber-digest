@@ -941,7 +941,7 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
         f'<a class="mention-row" href="../{m["page_path"]}">'
         f'<span class="m-date">{m["date"]}</span>'
         f'<span class="m-channel">{m["channel_name"]}</span>'
-        f'<span class="m-price">${m["price_on_date"]:.2f}</span>'
+        f'<span class="m-price">{"$%.2f" % m["price_on_date"] if m["price_on_date"] else "—"}</span>'
         f'{_pct_html(m["price_on_date"], current_price)}'
         f'<span class="m-title">{m["title"]}</span>'
         f'<span class="m-arrow">↗</span>'
