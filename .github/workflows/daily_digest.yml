@@ -25,6 +25,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Checkout gh-pages branch for archive preservation
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages-current
+
+      - name: Restore archive and ticker directories
+        run: |
+          mkdir -p docs/archive docs/ticker
+          if [ -d gh-pages-current/archive ]; then
+            rsync -a gh-pages-current/archive/ docs/archive/
+          fi
+          if [ -d gh-pages-current/ticker ]; then
+            rsync -a gh-pages-current/ticker/ docs/ticker/
+          fi
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
@@ -38,25 +54,6 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python src/main.py
-
-      - name: Checkout gh-pages branch for archive preservation
-        uses: actions/checkout@v4
-        with:
-          ref: gh-pages
-          path: gh-pages-current
-
-      - name: Restore archive and ticker directories
-        run: |
-          if [ -d gh-pages-current/archive ]; then
-            cp -r gh-pages-current/archive docs/archive-old
-            rsync -a --ignore-existing docs/archive-old/ docs/archive/
-            rm -rf docs/archive-old
-          fi
-          if [ -d gh-pages-current/ticker ]; then
-            cp -r gh-pages-current/ticker docs/ticker-old
-            rsync -a --ignore-existing docs/ticker-old/ docs/ticker/
-            rm -rf docs/ticker-old
-          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
