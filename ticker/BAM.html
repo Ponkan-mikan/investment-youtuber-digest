@@ -13,9 +13,10 @@
       --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
     body {
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -142,7 +143,7 @@
     </div>
     <div class="ticker-hero">
       <h1>BAM</h1>
-      <span class="mention-count">1 mentions in archive</span>
+      <span class="mention-count">2 mentions in archive</span>
     </div>
 
     <div class="widgets-grid">
@@ -225,12 +226,12 @@
       </div>
     </div>
 
-    <p class="section-title">// mention history (1 videos)</p>
+    <p class="section-title">// mention history (2 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-08.html"><span class="m-date">2026-04-08</span><span class="m-channel">Daniel Pronk</span><span class="m-price">$45.15</span><span class="m-pct m-pct-dn">-0.2%</span><span class="m-title">I Just Bought $7,000 of This New Stock - What I'm Buying Now</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-04-09.html"><span class="m-date">2026-04-09</span><span class="m-channel">Daniel Pronk</span><span class="m-price">$45.26</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">I Just Bought $7,000 of This New Stock - What I'm Buying Now</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-08.html"><span class="m-date">2026-04-08</span><span class="m-channel">Daniel Pronk</span><span class="m-price">$45.15</span><span class="m-pct m-pct-up">+0.2%</span><span class="m-title">I Just Bought $7,000 of This New Stock - What I'm Buying Now</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// alphadigest · 2026-04-08 23:50 JST</footer>
+  <footer>// alphadigest · 2026-04-09 07:52 JST</footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');
