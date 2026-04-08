@@ -245,9 +245,15 @@
       .filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
       .filters::-webkit-scrollbar { display: none; }
     }
+    /* bg canvas */
+    #bgCanvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <header>
     <div class="header-inner">
@@ -257,9 +263,9 @@
         <span class="ad-logo__digest">digest</span>
       </a>
       <div class="nav-pills">
-        <div class="stat-pill"><span class="dot dot-bull"></span>15 bullish</div>
-        <div class="stat-pill"><span class="dot dot-bear"></span>4 bearish</div>
-        <div class="stat-pill"><span class="dot dot-neut"></span>13 neutral</div>
+        <div class="stat-pill"><span class="dot dot-bull"></span>14 bullish</div>
+        <div class="stat-pill"><span class="dot dot-bear"></span>0 bearish</div>
+        <div class="stat-pill"><span class="dot dot-neut"></span>14 neutral</div>
       </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
@@ -277,10 +283,10 @@
     <h1><span class="green">alpha</span>digest</h1>
     <p class="hero-tagline">// top investment voices, distilled</p>
     <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num c-total">32</div><div class="h-stat-label">total</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bull">15</div><div class="h-stat-label">bullish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bear">4</div><div class="h-stat-label">bearish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-neut">13</div><div class="h-stat-label">neutral</div></div>
+      <div class="h-stat"><div class="h-stat-num c-total">28</div><div class="h-stat-label">total</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bull">14</div><div class="h-stat-label">bullish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bear">0</div><div class="h-stat-label">bearish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-neut">14</div><div class="h-stat-label">neutral</div></div>
     </div>
   </section>
 
@@ -304,44 +310,44 @@
     <span class="channel-name">Rick Orford</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/shorts/j_qW9fNWMGs" target="_blank" rel="noopener">Palantir's Exceptional 82% Gross Margin: What It Means  #palantir #pltr</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">決算分析</span><span class="topic">市場見通し</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=L96T71_PNTk" target="_blank" rel="noopener">Microsoft’s $625 Billion Backlog Could Change Everything for This Selloff</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MSFT.html">MSFT</a><span class="topic">個別銘柄分析</span><span class="topic">AI・テクノロジー投資</span><span class="topic">決算分析</span><span class="topic">バリュエーション</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:100%"></div></div>
-  <p class="summary">Palantirの82%という高い売上総利益率が上昇しており、企業の効率性を示唆している。4億4,800万ドルの契約から2億4,700万ドルの利益を生み出す可能性があり、海軍ロジスティクス分野で10億ドル以上への拡大が見込まれる重要な転機となる。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>売上総利益率82%という極めて高い水準で、ビジネスの効率性と利益性の強さを示唆</li><li>4億4,800万ドルの政府契約から55%（2億4,700万ドル）の利益率が期待できる</li><li>海軍ロジスティクス事業の拡大ポテンシャルが10億ドル以上の契約規模へ成長する可能性</li><li>政府・防衛セクターでの大型契約獲得がPalantirの成長エンジンを強化</li><li>スケーリングに伴う利益率向上が継続するシグナル</li></ul></details>
+  <p class="summary">Microsoftは625億ドルの巨大バックログを抱えており、市場は過度に悲観的に評価している可能性がある。同社のAI投資支出は警告信号ではなく、むしろビジネス機会を示唆しており、Azure成長率とOpenAIとのパートナーシップが重要な要素となる。現在の売却局面はリセットの機会と捉えられ、支出と需要のギャップから投資機会が生まれる可能性がある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>625億ドルのバックログが企業の実際の需要と成長ポテンシャルを示唆している</li><li>Azure成長率がAI採用の実態を反映する重要な指標</li><li>OpenAIパートナーシップは最大の強みであり同時に最大のリスク要因</li><li>市場は支出に対して報酬が来るのが遅いと懸念しているが、実態は異なる可能性がある</li><li>株価の売却局面は長期投資家にとってポジション構築の機会かもしれない</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-07 02:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/shorts/j_qW9fNWMGs" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 03:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=L96T71_PNTk" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral imp-4" data-sentiment="neutral" data-importance="4">
+  <div class="card-top">
+    <span class="channel-name">Brian Stoffel</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=u-lrh69rpws" target="_blank" rel="noopener">Is Intel A Broken STOCK or a Broken COMPANY? (Deep Dive)</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/INTC.html">INTC</a><span class="topic">個別銘柄分析</span><span class="topic">決算分析</span><span class="topic">投資戦略</span></div>
+  <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
+  <p class="summary">本動画はIntelの事業モデル、競争優位性、成長可能性、重要な経営指標を深掘り分析する。Intelが単なる株価下落銘柄なのか、それとも根本的な企業問題を抱えているのかを検証する内容。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Intelの収益源と事業構造の理解が投資判断の基礎となる</li><li>競争優位性（経済堀）の強度がIntelの長期成長性を左右する</li><li>持続的な成長可能性の有無が買い判断の判断材料</li><li>企業としての根本的な問題か一時的な株価下落かの区別が重要</li><li>経営指標の詳細分析により銘柄の本質的価値を評価する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-04-08 14:01 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=u-lrh69rpws" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-4" data-sentiment="bullish" data-importance="4">
   <div class="card-top">
-    <span class="channel-name">Sven Carlin</span>
+    <span class="channel-name">Brian Stoffel</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/shorts/KyzyC8z3ba4" target="_blank" rel="noopener">Lumber Stocks - Wayerhaeuser WY, Rayonier RYN - Dividend Inflation Protection Stocks!</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/WY.html">WY</a><a class="ticker" href="../ticker/RYN.html">RYN</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">配当投資</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=tZ-BP1lD8-w" target="_blank" rel="noopener">Falling Knife or Millionaire-Maker: 4 Crashing Stocks I've Invested TONS of Money Into</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MELI.html">MELI</a><a class="ticker" href="../ticker/SE.html">SE</a><a class="ticker" href="../ticker/TMDX.html">TMDX</a><a class="ticker" href="../ticker/DUOL.html">DUOL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">本動画は、インフレーション対策としての配当株である木材関連銘柄のWayerhaeuser（WY）とRayonier（RYN）について分析しています。これらの企業は安定した配当利回りを提供し、インフレ環境下での資産保護に役立つ可能性があります。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>WayerhaeuserとRayonierはインフレ対策としての配当株として機能する</li><li>木材セクターは経済サイクルに連動し、インフレ時に価値が上昇する傾向</li><li>安定した配当利回りにより、インフレによる購買力低下に対抗</li><li>不動産投資信託（REIT）構造により、利益の大部分を配当として還元</li><li>長期的な資産保護とインカムジェネレーションの両立が可能</li></ul></details>
+  <p class="summary">本動画では、株価が大きく下落した4つの銘柄（Mercado Libre、Sea Limited、Transmedics、Duolingo）への投資戦略を紹介しています。講師は「モート（競争優位性）」の概念を基に、下落した優良企業への投資機会を分析し、長期保有の観点から各企業のビジネスモデルと成長可能性を評価しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>モート（経済的堀）を持つ企業は長期的な競争優位性により株価下落時の買い機会となる可能性がある</li><li>Mercado Liberoはラテンアメリカのeコマース・決済市場で強固なポジションを保有</li><li>Sea Limitedはデジタルエコノミー関連の複数事業セグメント展開により多角化リスク低減</li><li>Transmedicsは臓器移植技術の革新的ソリューション提供で成長市場に参入</li><li>下落銘柄への投資は企業の本質的価値判断が重要であり、単なる株価下落の追いかけは危険</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-08 03:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/shorts/KyzyC8z3ba4" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bullish imp-4" data-sentiment="bullish" data-importance="4">
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=5j6VGWPZwwI" target="_blank" rel="noopener">Should You Buy Plug Power Stock Today?</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/PLUG.html">PLUG</a><span class="topic">個別銘柄分析</span><span class="topic">成長セクター分析</span><span class="topic">投資戦略</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">Plug Power株がデータセンターからの電力需要の増加により勢いを得ており、購入を検討する価値があるかを分析する動画。投資判断のためのフレームワークを提供し、同社の成長可能性とリスク要因を評価する内容となっている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>Plug Powerはデータセンターからの電力需要増加の恩恵を受けている</li><li>データセンターセクターの急速な成長がプラグパワーの主要な成長ドライバー</li><li>6段階の投資フレームワークを用いた系統的な銘柄分析が重要</li><li>リスク管理とポートフォリオ構築戦略の必要性</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-07 23:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=5j6VGWPZwwI" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-08 02:08 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=tZ-BP1lD8-w" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-neutral imp-4" data-sentiment="neutral" data-importance="4">
@@ -350,43 +356,28 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=MFwopuHD2YI" target="_blank" rel="noopener">Should Investors Buy Micron Stock Instead of Taiwan Semiconductor Stock? | MU Stock Analysis | TSM</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/TSM.html">TSM</a><span class="topic">個別銘柄分析</span><span class="topic">業界比較分析</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/TSM.html">TSM</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">本動画はマイクロン・テクノロジー（MU）とTSMC（TSM）という世界トップクラスの半導体製造企業2社を比較し、個人投資家にとってどちらがより良い投資対象かを分析しています。両社の経営体質や成長性、投資価値を検討して優劣を判定するものと考えられます。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>マイクロン（MU）とTSMC（TSM）は世界最高クラスの半導体製造企業であるが、投資対象としての優位性は異なる</li><li>動画は両社の財務状況、競争力、成長性を比較検討している</li><li>半導体業界の関心が高い時期における銘柄選択の判断材料を提供</li><li>単一の銘柄ではなく、複数銘柄を比較分析する投資判断アプローチを示唆</li></ul></details>
+  <p class="summary">マイクロン（MU）とTSMC（TSM）という世界有数の半導体製造企業2社を比較し、投資家にとってどちらが優れた投資対象かを分析した動画。両社の事業特性や財務状況を検討し、投資判断の参考になる情報を提供している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>マイクロン（MU）とTSMC（TSM）の比較分析により、投資家が銘柄選択する際の判断基準を提供</li><li>世界有数の半導体製造企業の業績・事業特性を評価対象としている</li><li>投資判断には体系的なフレームワークが必要であることを強調</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 20:45 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=MFwopuHD2YI" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral imp-4" data-sentiment="neutral" data-importance="4">
+<article class="card sent-bullish imp-4" data-sentiment="bullish" data-importance="4">
   <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="channel-name">Antonio Linares</span>
+    <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=fPcMHsCYDdM" target="_blank" rel="noopener">Best Semiconductor Stock to Buy: Micron Stock or ASML Stock?</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/ASML.html">ASML</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">半導体セクター</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=uiTMqqro4Ps" target="_blank" rel="noopener">the investor who called palantir at $7 is now buying peptides</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">投資戦略</span><span class="topic">産業分析</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">MicronとASMLという2つの主要半導体企業を比較し、個人投資家にとってどちらがより優れた投資対象かを検証する動画。著者の6ステップ投資フレームワークを活用して両社を分析し、投資判断の参考情報を提供している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>MicronとASMLはともに優良企業だが、投資価値は異なる可能性がある</li><li>個人投資家向けの体系的な投資判断フレームワーク（6ステップ）を紹介</li><li>半導体産業における両社の役割と競争力の比較が重要</li><li>動画制作者は大学教授およびCFA（認定金融アナリスト）の資格保有者</li><li>過去のMotley Fool Stock Advisorの実績は983%のリターン（S&P 500は195%）</li></ul></details>
+  <p class="summary">動画は、ペプチド産業の急速な成長と医療への革新的な応用について述べている。タンパク質の折り畳みと機能が健康を決定し、AIと組み合わせたデジタルプロテオムツインにより、個別化されたペプチド治療が疾病の根本的な治療を可能にすると主張している。診断費用とペプチド製造コストがゼロに向かう中、この産業は指数関数的な成長を遂げるとしている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ペプチド産業はプロテオミクスの理解に基づく次の大きなトレンド</li><li>AI×デジタルプロテオムツインにより個別化治療が実現化</li><li>診断コストと製造コストの急速な低下により産業規模が拡大</li><li>タンパク質機能による疾病治療は従来医薬より副作用が少ない可能性</li><li>Palanitirのような企業がこの分野で優位性を持つ可能性</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-06 21:15 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=fPcMHsCYDdM" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral imp-4" data-sentiment="neutral" data-importance="4">
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=0nKHUI2Q_a8" target="_blank" rel="noopener">Best Stock to Buy: Nvidia Stock or AMD Stock? | NVDA STock Analysis | AMD STock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/NVDA.html">NVDA</a><a class="ticker" href="../ticker/AMD.html">AMD</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">半導体セクター</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">NvidiaとAMDという世界有数の半導体企業の2銘柄を比較し、個人投資家にとってどちらがより優れた投資対象かを分析する動画。両社の株式分析を通じて、投資判断のための情報を提供している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>NvidiaとAMDは世界トップレベルの半導体企業であり、AI市場の成長により注目度が高い</li><li>両銘柄の比較分析により、投資家は自身のポートフォリオに適した選択ができる</li><li>動画内で6ステップの投資フレームワークが紹介され、銘柄評価の体系的なアプローチを学べる</li><li>Motley Foolなどの専門的な投資情報源が活用されている</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-06 19:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=0nKHUI2Q_a8" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 23:12 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=uiTMqqro4Ps" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-4" data-sentiment="bullish" data-importance="4">
@@ -395,25 +386,25 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=F8AE6XQ0pxA" target="_blank" rel="noopener">Marvell Could Explode as TSMC’s AI Bottleneck Changes Everything</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MRVL.html">MRVL</a><a class="ticker" href="../ticker/AVGO.html">AVGO</a><a class="ticker" href="../ticker/TSM.html">TSM</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><span class="topic">個別銘柄分析</span><span class="topic">半導体業界</span><span class="topic">AI関連銘柄</span><span class="topic">市場見通し</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/MRVL.html">MRVL</a><a class="ticker" href="../ticker/TSMC.html">TSMC</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><a class="ticker" href="../ticker/AVGO.html">AVGO</a><span class="topic">個別銘柄分析</span><span class="topic">半導体業界動向</span><span class="topic">成長株投資</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">Marvellはカスタムシリコン設計を通じてハイパースケーラーと協業しており、TSMCの製造容量逼迫により企業の交渉力が強化される可能性がある。同社は約15億ドルの売上成長を実現しており、AIチップ市場においてGPUよりもカスタムシリコンの重要性が高まっている。ただし、Broadcomとの競争とカスタマー集中リスクが存在する。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>TSMC製造容量の逼迫がMarvellのカスタムシリコンビジネスへの需要を高める可能性</li><li>ハイパースケーラーとのデザイン受注実績が約15億ドルの売上成長を駆動</li><li>カスタムAIシリコンがGPUよりも重要性を増す傾向</li><li>Broadcomとの競争関係が継続的なプレッシャー要因</li><li>顧客集中とエグゼキューション実現のリスクが存在</li></ul></details>
+  <p class="summary">Marvellは単なるAI関連銘柄ではなく、TSMCの生産能力逼迫により、ハイパースケーラー向けのカスタムシリコン設計で重要な立場を獲得している。同社の設計受注がハイパースケーラーとの関係を深め、実収益成長につながっており、15億ドル規模の立ち上げを期待できる。ただし実行リスクと顧客集中リスクは存在する。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>TSMCの生産能力逼迫により、カスタムAIチップ設計を行うMarvellの交渉力が向上している</li><li>ハイパースケーラーからの設計受注（design wins）が実際の収益成長に直結する約15億ドル規模の事業機会がある</li><li>カスタムシリコンはGPUと同等かそれ以上に重要であり、過小評価されている可能性がある</li><li>Broadcomがネットワーク・インフラ分野で競争相手として存在し、Marvellの成長を制限する可能性がある</li><li>顧客集中とシナジー実行のリスクがあり、ポジティブシナリオは保証されていない</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 05:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=F8AE6XQ0pxA" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bearish imp-4" data-sentiment="bearish" data-importance="4">
+<article class="card sent-neutral imp-4" data-sentiment="neutral" data-importance="4">
   <div class="card-top">
     <span class="channel-name">Rick Orford</span>
-    <span class="badge-sent bearish">▼ bearish</span>
+    <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=0FklUIjbCrA" target="_blank" rel="noopener">Rocket Lab’s 85th Mission Could Be the Start of Something Bigger</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/RKLB.html">RKLB</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">オプション取引</span><span class="topic">企業評価</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/RKLB.html">RKLB</a><span class="topic">個別銘柄分析</span><span class="topic">成長株評価</span><span class="topic">オプション市場分析</span><span class="topic">宇宙産業</span><span class="topic">バリュエーション分析</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">Rocket Labが85回目のミッションを成功させた一方で、動画では企業の実行力、オプション市場が示唆する大きな値動きの予期、そしてNeutronロケット開発の遅延がもたらす長期的影響を分析。現在の株価評価では強い事業実績でも必ずしも買いとはならない可能性があると指摘している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Rocket Labの85回目ミッション成功は事業実行力の信頼性を示すが、それだけでは投資判断の十分な根拠にならない</li><li>オプション市場が大きな株価変動を予想している可能性がある</li><li>Neutron開発の遅延が長期的な成長ストーリーに悪影響を与える可能性がある</li><li>現在の株価評価水準では、強い事業成績だけでは株式を購入しにくい状況である</li><li>成長期待が高い企業では、良い事業成績でさえ株価上昇につながらないことがある</li></ul></details>
+  <p class="summary">Rocket Labが85番目のミッションを完了し、事業の実行能力が確認されたが、現在の株価評価では成長ストーリーだけでは十分でない可能性がある。オプション市場は大きな価格変動を予想しており、Neutronロケットの遅延が長期的な強気シナリオを複雑にする可能性がある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Rocket Labの85番目ミッション成功は事業実行能力を証明するが、高い期待値を背景に株価上昇要因としては不十分</li><li>オプション市場データが大きな価格変動を示唆しており、トレーダーが相場の大きな動きを警戒している</li><li>Neutronロケット開発の遅延が成長ストーリーの信頼性に影響を及ぼす可能性</li><li>現在の株価評価水準では成長性だけでなく、事業的マイルストーンの達成が重要</li><li>継続的な実行成功でも高い市場期待値では株価が必ずしも上昇しないリスク</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 03:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=0FklUIjbCrA" target="_blank" rel="noopener">watch ↗</a>
@@ -425,10 +416,10 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/shorts/LW-kVD3FnWw" target="_blank" rel="noopener">Palantir's Silent Navy Contract: A Game-Changer? #palantir #pltr</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">防衛関連ビジネス</span><span class="topic">政府契約</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">防衛・政府契約</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">Palantirが米海軍との大型契約を獲得し、Ship OSというプラットフォームを海軍作戦に統合する。4億4,800万ドルの資金背景により、造船業やサプライチェーン管理における革新的なソリューションとなる可能性がある。AIハイプを超えた実質的なプラットフォームレベルの展開である。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Palantirが米海軍と大型契約を獲得し、Ship OSを海軍作戦に統合</li><li>4億4,800万ドルの政府資金による大型プロジェクト</li><li>防衛技術セクターにおける実質的なプラットフォーム展開</li><li>造船業およびサプライチェーン管理への応用可能性</li><li>AI関連企業としての実績と収益多角化を示す動き</li></ul></details>
+  <p class="summary">Palantirが米海軍との大型契約を獲得し、Ship OSプラットフォームを海軍作戦に統合している。4億4,800万ドルの資金が投じられ、造船・サプライチェーン分野での重大な転換点となる可能性がある。AIハイプを超えた実質的なプラットフォームレベルの展開である。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Palantirが米海軍向けShip OSプラットフォームの大型契約を獲得</li><li>4億4,800万ドルの政府契約により、防衛セクターでの実質的な導入が確定</li><li>プラットフォームレベルの統合により、継続的な収益源と顧客ロックインの可能性が高い</li><li>造船・防衛産業のサプライチェーン最適化に対するソリューション</li><li>AIハイプを超えた実践的なビジネス成果の実績</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 02:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/shorts/LW-kVD3FnWw" target="_blank" rel="noopener">watch ↗</a>
@@ -440,10 +431,10 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=IsHrFCaKMrI" target="_blank" rel="noopener">AMD’s $100B Meta AI Deal Could Change the Stock Story in 2026</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/AMD.html">AMD</a><a class="ticker" href="../ticker/META.html">META</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><a class="ticker" href="../ticker/TSMC.html">TSMC</a><span class="topic">個別銘柄分析</span><span class="topic">テクノロジー業界</span><span class="topic">AI関連投資</span><span class="topic">バリュエーション分析</span><span class="topic">機関投資家の動向</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/AMD.html">AMD</a><a class="ticker" href="../ticker/META.html">META</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><a class="ticker" href="../ticker/TSM.html">TSM</a><span class="topic">個別銘柄分析</span><span class="topic">業界分析（半導体・AI）</span><span class="topic">テクノロジー企業</span><span class="topic">バリュエーション評価</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">AMDがMetaとの100億ドル規模のAIインフラストラクチャ契約を獲得したが、同時にCathie Woodが株式を売却している。動画ではこの契約の意義、Woodの売却の背景、AMDの企業価値評価、そして現在のAIグロース銘柄としての位置付けを分析している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>MetaとのAIインフラ契約はAMDの事業拡大の重要なシグナルだが、既に株価に織り込まれている可能性がある</li><li>Cathie Woodによる売却は企業価値よりもポートフォリオ管理とリスク調整の判断を反映している可能性が高い</li><li>AMDの現在の評価が既にAIグロース材料をどの程度反映しているかが投資判断の焦点</li><li>データセンターおよびAI関連チップの需要拡大はAMDの長期的な成長ドライバーである</li><li>企業の実績メトリクスと株価評価のバランスを検証することが重要</li></ul></details>
+  <p class="summary">AMDがMetaとの100億ドル規模のAIインフラ契約を獲得した一方で、Cathie Woodが株式を売却している状況を分析。AMDの最新業績、バリュエーション、長期的な成長性について、強気派と弱気派の議論を検討する動画。AIチップ需要の伸びとすでに織り込まれた上値のバランスを評価。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Meta との大型AI契約はAMDのデータセンター事業における重要な成長ドライバーとなる可能性がある</li><li>Cathie Woodの売却はAMDそのものの悪化ではなく、変動相場での リスク管理の可能性もある</li><li>AMDの現在のバリュエーション水準で、AI成長ストーリーがどの程度織り込まれているかが重要な判断基準</li><li>NVDAやTSMとの競争環境におけるAMDの競争力と市場シェア獲得能力を注視する必要がある</li><li>2026年以降の収益成長率とEPS改善がAMD株の上値を正当化するかが鍵</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 05:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=IsHrFCaKMrI" target="_blank" rel="noopener">watch ↗</a>
@@ -454,14 +445,14 @@
     <span class="channel-name">Rick Orford</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=L96T71_PNTk" target="_blank" rel="noopener">Microsoft’s $625 Billion Backlog Could Change Everything for This Selloff</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MSFT.html">MSFT</a><span class="topic">個別銘柄分析</span><span class="topic">決算分析</span><span class="topic">AI技術トレンド</span></div>
+  <h3><a href="https://www.youtube.com/shorts/j_qW9fNWMGs" target="_blank" rel="noopener">Palantir's Exceptional 82% Gross Margin: What It Means  #palantir #pltr</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">決算分析</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">Microsoftが625億ドルの巨大なバックログを抱えており、市場はこれを警告信号として捉えているが、実は強気材料となる可能性がある。Azure成長率とOpenAIパートナーシップの意味を分析し、AI採用が確実に進む中で、市場が利益回収のスピードに懐疑的である点が重要。現在の株価下落は事業の強さをリセットする機会になり得る。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>625億ドルのバックログは市場が過小評価している可能性が高い</li><li>Azure成長率が実際のAI需要を示す重要な指標</li><li>OpenAIパートナーシップは最大の強みであると同時に最大のリスク</li><li>現在の株価水準は実質価値より割安である可能性</li><li>AI採用加速が確認される中で市場が利益化を懐疑的に見ている</li></ul></details>
+  <p class="summary">Palantirの総利益率が82%に達し、同社の成長に伴う効率性の向上を示している。4億4,800万ドルの契約から2億4,700万ドルの利益が期待でき、海上物流分野では10億ドル以上への拡大可能性があり、大きな転機となる可能性がある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>総利益率82%という高い水準は、スケール拡大時の収益性を示唆している</li><li>4億4,800万ドルの契約から得られる利益見込みが2億4,700万ドルと高い利益率</li><li>海上物流分野での契約拡大によって、1,000万ドル以上の市場規模へのアクセス可能性</li><li>企業が成長と同時に効率性を向上させているビジネスモデルの強さ</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-07 03:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=L96T71_PNTk" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 02:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/shorts/j_qW9fNWMGs" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-4" data-sentiment="bullish" data-importance="4">
@@ -470,10 +461,10 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/shorts/oa7ZORlfTow" target="_blank" rel="noopener">White House eVTOL Pilot: Air Taxis Take Flight! #achr #archeraviation</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/ACHR.html">ACHR</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">成長セクター</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/ACHR.html">ACHR</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:80%"></div></div>
-  <p class="summary">ホワイトハウスが支援するeVTOL（電動垂直離着陸機）のパイロットプログラムが開始され、空中タクシーの実現に向けた大きな一歩となった。このプログラムは規制課題の解決、新型航空機の導入、および信頼構築を目指している。米国が航空産業の次の段階で競争力を維持することが目標とされている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ホワイトハウス主導のeVTOLパイロットプログラムが規制環境の整備を推進</li><li>Archer Aviation（ACHR）など関連企業の事業化が現実に近づく</li><li>空中タクシー市場の商用化に向けた政府支援が強化される可能性</li><li>米国の航空技術産業における競争力維持と産業成長の機会</li><li>新興モビリティ産業への投資機会の拡大</li></ul></details>
+  <p class="summary">ホワイトハウスが支援するeVTOL（電動垂直離着陸機）のパイロットプログラムが進行中。規制課題の解決と新型航空機の導入を通じて、エアタクシーの実用化と商業化を目指している。米国が航空産業の次世代領域で競争力を維持するための重要なステップとなる。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>eVTOL産業が実装段階へ移行し、規制環境が整備されつつある</li><li>Archer Aviation（ACHR）がホワイトハウスパイロットプログラムに参加</li><li>エアタクシー事業の実現にはまだ規制課題の解決が必要</li><li>成功すれば急速な市場拡大と米国の技術リーダーシップ確立が期待できる</li><li>政府支援と民間企業の協力による産業育成の動き</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 01:01 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/shorts/oa7ZORlfTow" target="_blank" rel="noopener">watch ↗</a>
@@ -485,10 +476,10 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=OO1nwWdWd5o" target="_blank" rel="noopener">The Stock Market was Flashing Red Again... Then it Flipped</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/NKE.html">NKE</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">マクロ経済</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/NKE.html">NKE</a><span class="topic">個別銘柄分析</span><span class="topic">マクロ経済</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">株式市場が急速に変動しており、赤信号が点灯した後に反転する動きを見せている。ポールが本日の主要な金融ニュースを分析し、特にNike株の動きと個人投資家への影響について解説している。市場の混乱を理解しようとする投資家向けの動画である。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>株式市場が急速に変動しており、投資家は市場の動きを注視する必要がある</li><li>Nike株の動きが個人投資家にとって重要な指標となる可能性がある</li><li>市場の赤信号と反転の動きの意味を理解することが重要</li><li>個別銘柄の値動きを通じてマクロ経済のシグナルを読み取ることができる</li></ul></details>
+  <p class="summary">株式市場が急速に変動しており、Nikeを含む主要銘柄の動きを分析する動画。市場が警告信号を示した後に反転したことについて、個人投資家向けにポール氏が重要なニュースを解説。原則的投資アプローチの重要性を強調している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>株式市場は現在、急速な変動局面にあり、日々の値動きの監視が重要</li><li>Nikeなどの大型銘柄の動きは個人投資家にも直結する影響がある</li><li>市場が警告信号を示すことがあるが、その後の反転も起こりうる</li><li>原則的投資（Principle Driven Investing）の実践が投資判断の基礎となる</li><li>市場の混乱期こそ、基本的な投資原則に立ち返る必要がある</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 05:19 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=OO1nwWdWd5o" target="_blank" rel="noopener">watch ↗</a>
@@ -500,10 +491,10 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=wogi8elkRMQ" target="_blank" rel="noopener">What Should Value Investors Do Right Now? (Live Q&A) | Paul Reacts to the Stock Market</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">個別銘柄分析</span><span class="topic">バリュー投資</span><span class="topic">市場見通し</span></div>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span><span class="topic">バリュー投資</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">バリュー投資家向けのライブQ&Aセッション。現在の市場動向をリアルタイム分析し、実際の銘柄を検討して過小評価されている可能性のある企業を特定する。視聴者から株式リクエストを受け付けながら、初心者から経験者まで学べる実践的な投資分析を提供。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>バリュー投資の視点から現在の市場機会を検討する重要性</li><li>実際の銘柄分析をリアルタイムで行うことで、理論ではなく実践的な投資判断を学べる</li><li>視聴者参加型のライブ分析により、多様な銘柄に対する考察プロセスを学習できる</li><li>個人投資家は投資アドバイザーの意見ではなく、自身の調査に基づいた独立した投資判断を行うべき</li><li>投資判断前に法務、財務、税務、会計、投資専門家のアドバイスを検討することの重要性</li></ul></details>
+  <p class="summary">バリュー投資家向けのライブQ&Aセッション。現在の株式市場の状況をリアルタイム分析し、実際の銘柄を検討して過小評価されている可能性のある企業を特定する。視聴者からの株式リクエストに応じた分析も実施し、初心者から経験者まで投資教育を提供する。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>バリュー投資の観点から現在の市場機会を実時間で分析</li><li>実際の銘柄をベースにした具体的な投資分析であり、理論的な解説ではない</li><li>視聴者が関心のある銘柄について対話形式で検討可能</li><li>過小評価（ミスプライス）されている銘柄の発掘に焦点</li><li>投資初心者から経験者まで対応した教育的なアプローチ</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 07:06 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=wogi8elkRMQ" target="_blank" rel="noopener">watch ↗</a>
@@ -514,14 +505,29 @@
     <span class="channel-name">Sven Carlin</span>
     <span class="badge-sent neutral">● neutral</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=jkZ1oQd3XPU" target="_blank" rel="noopener">Where Did Normal Investing Go? Fat Tony Style!!!</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">バリュー投資</span><span class="topic">市場環境分析</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=XrYBgWQGDQc" target="_blank" rel="noopener">JPM's Fundamental Guide To Markets Q2 2026 (no wars, just what matters)</a></h3>
+  <div class="tags"><span class="topic">投資戦略</span><span class="topic">マクロ経済</span><span class="topic">市場見通し</span><span class="topic">バリュー投資</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">通常の投資アプローチが消え、ポジショニング重視の投資環境になっている現状を指摘する動画。バリュー投資の重要性と、提供する株式分析プラットフォーム及び投資教育コースを紹介している。個人投資家が独立した分析と戦略的なバリュー投資アプローチを取ることの必要性を強調している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>現在の市場では『ポジショニング』重視の投資が主流になり、本来の正常な投資アプローチが失われている</li><li>バリュー投資による独立した株式分析が重要</li><li>事業と業界のリスク・リターン分析が必要</li><li>本質的価値（イントリンシック・バリュー）の計算スキルが不可欠</li><li>投資家は自分自身の調査とデューデリジェンスを優先すべき</li></ul></details>
+  <p class="summary">JPMorgan提供の2026年第2四半期の市場ファンダメンタルズガイド。動画制作者Sven Carlinが、戦争などの政治的な話題ではなく市場の本質的な要素に焦点を当てた投資分析を提供。バリュー投資アプローチと個別銘柄分析に基づいた投資戦略を提示。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>バリュー投資の基礎と思考法の重要性が強調されている</li><li>市場分析には政治的ノイズではなくファンダメンタルズに焦点を当てるべき</li><li>個別銘柄の内在価値計算が投資判断の中心</li><li>2026年のアセットクラス別見通しを複数視点で検討</li><li>長期的な投資スキル向上とリサーチプラットフォームの活用を推奨</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-07 21:01 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=jkZ1oQd3XPU" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-08 21:01 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=XrYBgWQGDQc" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
+  <div class="card-top">
+    <span class="channel-name">Sven Carlin</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/shorts/KyzyC8z3ba4" target="_blank" rel="noopener">Lumber Stocks - Wayerhaeuser WY, Rayonier RYN - Dividend Inflation Protection Stocks!</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/WY.html">WY</a><a class="ticker" href="../ticker/RYN.html">RYN</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">インフレ対策</span></div>
+  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
+  <p class="summary">木材株（ウェイヤーハウザーとレイオニア）がインフレヘッジ投資としての価値を持つことを紹介しています。これらの企業は安定した配当を提供しながら、インフレ環境での資産価値保全手段として機能することが説明されています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ウェイヤーハウザー（WY）とレイオニア（RYN）はインフレ対抗力のある配当株</li><li>木材セクターは有形資産に基づく事業で、インフレ環境での価値保全が期待できる</li><li>安定した配当利回りを提供しながらインフレヘッジの役割を果たす</li><li>REITセクターの不動産株式としての特性を活用した投資戦略</li><li>商品価格変動に応じた収益性の可能性がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-04-08 03:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/shorts/KyzyC8z3ba4" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-neutral imp-3" data-sentiment="neutral" data-importance="3">
@@ -529,29 +535,14 @@
     <span class="channel-name">Sven Carlin</span>
     <span class="badge-sent neutral">● neutral</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=30y5RDy-i3E" target="_blank" rel="noopener">Should Sven Sell His Soul And Manage a Fund or ETF?</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">バリュー投資</span><span class="topic">ファンド・ETF運用</span><span class="topic">投資教育</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=jkZ1oQd3XPU" target="_blank" rel="noopener">Where Did Normal Investing Go? Fat Tony Style!!!</a></h3>
+  <div class="tags"><span class="topic">投資戦略</span><span class="topic">バリュー投資</span><span class="topic">市場見通し</span><span class="topic">投資心理学</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">本動画はSvenが独立系株式アナリストとしての活動を続けるか、ファンドまたはETF運用を行うべきかについて検討するものです。個人投資家向けに、バリュー投資プラットフォーム、無料コース、著書など複数のリソースを提供する同氏が、キャリア選択について考察しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>独立系バリュー投資家としての専門知識を活用した株式分析プラットフォームの提供</li><li>7年間のパフォーマンス実績に基づいた信頼性の構築</li><li>ピーター・リンチの株式カテゴリーなど実践的な投資分析フレームワークの提供</li><li>資産クラス別の2026年見通し提示による包括的な市場分析</li><li>個人投資家が独立して学べる無料コースと有料研究プラットフォームの2層構造</li></ul></details>
+  <p class="summary">動画は「通常の投資」が消えつつある現代の投資環境について議論しており、ポジショニング中心の投資アプローチが主流化していることを指摘している。Fat Tony スタイルの投資哲学を通じて、個人投資家が実践すべき真の価値投資アプローチを提唱している。視聴者に対して、本来の投資原理に立ち戻り、ビジネス分析と戦略的なバリュー投資の重要性を強調している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>現代投資において『ポジショニング』が優先され、ファンダメンタル分析に基づく通常の投資が軽視されている</li><li>個人投資家は戦略的なバリュー投資とビジネス分析スキルの習得が必要</li><li>心理面と会計知識を含む包括的な投資教育が重要</li><li>Peter Lynchなどの古典的投資手法の再評価が必要</li><li>2026年の資産クラスに関する段階的な検討が推奨されている</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-06 23:23 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=30y5RDy-i3E" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
-  <div class="card-top">
-    <span class="channel-name">Brian Stoffel</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=tZ-BP1lD8-w" target="_blank" rel="noopener">Falling Knife or Millionaire-Maker: 4 Crashing Stocks I've Invested TONS of Money Into</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MELI.html">MELI</a><a class="ticker" href="../ticker/SE.html">SE</a><a class="ticker" href="../ticker/TMDX.html">TMDX</a><a class="ticker" href="../ticker/DUOL.html">DUOL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">長期投資</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">著名な投資家Brian FeroldiとBrian Stoffelが、株価が急落している4銘柄（Mercado Libre、Sea Limited、Transmedics、Duolingo）に大きく投資した理由と投資哲学を解説する動画。各企業の競争優位性（モート）や成長ポテンシャル、ビジネスモデル転換を分析しながら、長期保有の投資戦略について講説している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>モート（競争優位性）の概念が企業価値評価の中心。長期的な企業分析の重要性</li><li>株価下落は優良企業への買い増し機会になり得る。安値での質の高い企業への投資</li><li>複数の成長段階にある企業への分散投資で、長期的なポートフォリオの構築</li><li>ビジネスモデル転換期における企業の可能性を評価する視点</li><li>自分自身で十分なリサーチを行い、個別の投資判断が必要</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-08 02:08 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=tZ-BP1lD8-w" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 21:01 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=jkZ1oQd3XPU" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
@@ -560,43 +551,13 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=sQItK-fEG6c" target="_blank" rel="noopener">10 Incredible Stocks to Buy On The Dip</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/NVDA.html">NVDA</a><span class="topic">市場見通し</span><span class="topic">投資戦略</span><span class="topic">個別銘柄分析</span><span class="topic">マクロ経済</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/NVDA.html">NVDA</a><span class="topic">投資戦略</span><span class="topic">市場見通し</span><span class="topic">マクロ経済</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">2026年初頭の株式市場調整局面において、Nasdaqが調整局面入りしている状況を分析している。経済不確実性やインフレの上昇が市場下落の主要因とされており、動画では市場下落時の買い場の判断方法と、推奨される10銘柄のウォッチリストについて解説している。ドルコスト平均法による投資アプローチが有効であることが強調されている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>市場調整局面（Nasdaq correction）は経済不確実性とインフレ上昇が主要因</li><li>市場下落時の買い場を判断するための非対称投資フレームワークが存在する</li><li>ドルコスト平均法による継続的な投資が市場下落時に有効である</li><li>動画では具体的な10銘柄のウォッチリストが提示されている</li><li>複数の投資ツール・サービスの活用が推奨されている</li></ul></details>
+  <p class="summary">2026年初頭の株式市場調整局面において、Nasdaqが調整局面入りしている。経済不確実性やインフレ上昇が背景にあり、動画ではこうした下げ相場で購入すべき10銘柄を推奨している。ドルコスト平均法による段階的な投資アプローチを強調している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Nasdaqが調整局面（correction territory）に入っている重要な局面である</li><li>経済不確実性、イラン関連リスク、インフレ上昇が相場下落の主要因</li><li>下げ相場での買付機会を活用する非対称投資戦略を推奨</li><li>ドルコスト平均法による段階的投資が有効であると主張</li><li>複数の銘柄を組み合わせたウォッチリスト形式での投資検討を提示</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 20:15 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=sQItK-fEG6c" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bearish imp-3" data-sentiment="bearish" data-importance="3">
-  <div class="card-top">
-    <span class="channel-name">Felix & Friends</span>
-    <span class="badge-sent bearish">▼ bearish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=gUKbQ4iM-G4" target="_blank" rel="noopener">They Crashed Gold on Purpose… Here’s The Real Plan</a></h3>
-  <div class="tags"><span class="topic">市場見通し</span><span class="topic">投資戦略</span><span class="topic">マクロ経済</span><span class="topic">コモディティ分析</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">金価格の20%急落の背景にある市場操作の実態を探る動画。ホスト・フェリックスが投資銀行員および企業弁護士としての経験を踏まえ、ウォール街の利益構造と一般投資家との利益相反を解説。市場クラッシュから利益を得るための戦略と市場の現実について考察している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>金価格の急落は戦争時という異例の状況で発生しており、市場操作の可能性が示唆されている</li><li>ウォール街と個人投資家の利益構造は根本的に対立する可能性がある</li><li>市場クラッシュは機関投資家にとって利益機会である一方、一般投資家には損失機会になりやすい</li><li>著者の100万ドル実験を通じた個人的なトレード戦略と市場の不透明性に関する指摘</li><li>金属（コモディティ）市場の動向は地政学的リスク（戦争）の影響を受ける</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-07 22:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=gUKbQ4iM-G4" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bearish imp-3" data-sentiment="bearish" data-importance="3">
-  <div class="card-top">
-    <span class="channel-name">Felix & Friends</span>
-    <span class="badge-sent bearish">▼ bearish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=9GYZxosZzfM" target="_blank" rel="noopener">The Iran Economic Shock is Coming. How to Protect Yourself</a></h3>
-  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">市場見通し</span><span class="topic">投資戦略</span><span class="topic">リスク管理</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">イラン経済危機が迫っており、個人投資家はこれに対する準備が必要であることを説明する動画。ホストのフェリックスが市場クラッシュで利益を得るためのウォールストリートのルールを共有し、政府が一つの危機を別の危機で解決しようとするクレジットカード問題について言及している。投資家が金融市場を透明性を持ってナビゲートするための教育的コンテンツを提供している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>イラン経済ショックが来る可能性があり、事前の準備が重要</li><li>市場クラッシュ時に利益を得るためのウォールストリート的アプローチを学べる</li><li>政府が一つの経済危機を別の手段で解決しようとする傾向を理解する必要がある</li><li>個人投資家は従来の金融システムの雑音から距離を置き、独立した判断が必要</li><li>過去のパフォーマンスは将来の成功を保証しないことを認識すること</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-06 22:18 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=9GYZxosZzfM" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
@@ -604,29 +565,14 @@
     <span class="channel-name">Daniel Pronk</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=jJGhMVirSXw" target="_blank" rel="noopener">4 Stocks I'm Buying As The Market Crashes</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/MA.html">MA</a><a class="ticker" href="../ticker/MSFT.html">MSFT</a><a class="ticker" href="../ticker/BAM.html">BAM</a><a class="ticker" href="../ticker/MELI.html">MELI</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=jJGhMVirSXw" target="_blank" rel="noopener">I Just Bought $7,000 of This New Stock - What I'm Buying Now</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MA.html">MA</a><a class="ticker" href="../ticker/MSFT.html">MSFT</a><a class="ticker" href="../ticker/BAM.html">BAM</a><a class="ticker" href="../ticker/MELI.html">MELI</a><span class="topic">個別銘柄分析</span><span class="topic">ポートフォリオ構成</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">市場の下落局面において、YouTuber Daniel Pronkが買い場と判断している4つの銘柄（MA、MSFT、BAM、MELI）を紹介する動画。各銘柄の投資論拠を詳しく解説し、市場下落時の投資機会について考察している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>市場下落局面を買い機会として捉え、4銘柄の買い推奨を提示</li><li>Mastercard（MA）、Microsoft（MSFT）、Brookfield Asset Management（BAM）、Mercado Libre（MELI）という多様なセクターの企業を選定</li><li>各銘柄について10分以上の詳細な分析を実施</li><li>投資家は自身でリサーチを行い、自分が失っても問題のない資金のみで投資すべき</li><li>動画作成者は金銭管理サービスの提供や有償ポートフォリオアクセスを提供</li></ul></details>
+  <p class="summary">投資ユーチューバーが$7,000を投じた新規購入銘柄と現在のポートフォリオ構成について解説する動画。Mastercard、Microsoft、Brookfield Asset Management、Mercado Libreの4銘柄について詳細な投資理由と分析が提示されている。個人投資家向けの具体的な銘柄選定プロセスを紹介している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>動画制作者が実際に$7,000を投じた具体的な銘柄が提示されており、個人投資家の銘柄選定参考になる</li><li>4つの異なるセクター・成長段階の銘柄を保有することでポートフォリオの多様化を実践</li><li>各銘柄について10分以上の詳細分析が提供されており、投資判断の根拠を確認できる</li><li>動画制作者は投資アドバイザーではなく、視聴者自身の調査を強調している</li><li>Patreonやメンバーシップで追加コンテンツ（詳細ポートフォリオなど）へのアクセス提供</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 07:32 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=jJGhMVirSXw" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=1qzPeOJL_n8" target="_blank" rel="noopener">Should You Buy Bloom Energy Stock Today?</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/BE.html">BE</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">Bloom Energy株について購入すべきかを検討する動画。同社はデータセンター需要の増加から最大の恩恵を受ける企業の一つとして位置付けられている。個人投資家向けに投資判断のフレームワークと分析情報を提供している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>Bloom Energyはデータセンター需要の増加による恩恵を受ける企業</li><li>動画制作者は大学教授とCFA資格保有者による6段階の投資フレームワークを提唱</li><li>データセンター関連銘柄への投資機会が存在する可能性</li><li>過去のMotley Fool Stock Advisorの実績は983%のリターン（S&P 500は195%）だが過去実績は将来を保証しない</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-07 21:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=1qzPeOJL_n8" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-neutral imp-3" data-sentiment="neutral" data-importance="3">
@@ -634,44 +580,59 @@
     <span class="channel-name">Parkev's Picks</span>
     <span class="badge-sent neutral">● neutral</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=sdS7sEaDz1o" target="_blank" rel="noopener">Zoom Stock Analysis: Buy or Sell?</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/ZM.html">ZM</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=L6bQquuinmo" target="_blank" rel="noopener">Better Datacenter Stock: CoreWeave Stock or Nebius Stock?</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">セクター比較分析</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">本動画はZoom株の投資判断を扱う個別銘柄分析です。パンデミック中に急成長したZoomがその後どのような変化を遂げたかを分析し、買いか売りかの判断を提供します。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>Zoomはパンデミック期間に大きく成長したが、その後の状況変化を分析する必要がある</li><li>投資判断には6ステップの投資フレームワークが有効である</li><li>個別銘柄分析にはFiscal.aiなどのデータソースが重要</li><li>過去のパフォーマンスは将来の結果を保証しないため慎重な判断が必要</li></ul></details>
+  <p class="summary">本動画はCoreWeaveとNebiusという2つの急成長データセンター企業の株式を比較分析するもの。どちらが投資対象として優れているかを検討し、個人投資家向けに投資判断の参考情報を提供している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>CoreWeaveとNebiusはともに世界で最も急速に成長している企業</li><li>データセンター関連銘柄の比較分析により、セクター内での投資選別が重要</li><li>動画では6段階の投資フレームワークを用いた銘柄評価アプローチを推奨</li><li>Fiscal.aiなどのツールを活用した定量的な財務分析が投資判断に有効</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-06 22:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=sdS7sEaDz1o" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-08 22:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=L6bQquuinmo" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bearish imp-3" data-sentiment="bearish" data-importance="3">
+<article class="card sent-neutral imp-3" data-sentiment="neutral" data-importance="3">
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bearish">▼ bearish</span>
+    <span class="badge-sent neutral">● neutral</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=g0H95s0ZKGc" target="_blank" rel="noopener">Should Investors Buy UPS Stock Today?</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/UPS.html">UPS</a><span class="topic">個別銘柄分析</span><span class="topic">マクロ経済</span><span class="topic">投資戦略</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=LTSjFJ8TL4M" target="_blank" rel="noopener">Best Stocks to Buy: ServiceNow Stock vs. Snowflake Stock</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/NOW.html">NOW</a><a class="ticker" href="../ticker/SNOW.html">SNOW</a><span class="topic">個別銘柄分析</span><span class="topic">成長株投資</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">本動画はUPS株への投資判断を検討するもので、マクロ経済の逆風がこの資本集約的なビジネスに増加していることが焦点となっている。投資家向けの6ステップ投資フレームワークと、Fiscal.aiなどのデータソースを活用した分析手法が紹介されている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>マクロ経済の逆風がUPSなどの資本集約的ビジネスに影響を与えている</li><li>UPSは資本集約的なビジネスモデルであり、経済サイクルの影響を受けやすい</li><li>投資判断には体系的なフレームワークを使用することが推奨されている</li><li>配当や成長性など複数の観点からの企業分析が必要</li></ul></details>
+  <p class="summary">ServiceNowとSnowflakeの2つの成長株を比較し、現在の株価水準でどちらが購入に適しているかを検討する動画。投資家向けに両銘柄の投資価値を分析し、意思決定の参考となる情報を提供している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ServiceNowとSnowflakeという2つの高成長クラウド企業の投資比較が主題</li><li>動画作成者は大学教授かつCFA資格保有者による6段階の投資フレームワークを提供</li><li>Motley Foolが提供する情報によると、同サービスの過去成績はS&P500を大幅に上回っている（983% vs 195%）</li><li>個人投資家が銘柄選定時に適切な分析フレームワークを持つことの重要性を強調</li><li>Fiscal.aiなどのデータソースを活用した投資リサーチアプローチを推奨</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-06 21:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=g0H95s0ZKGc" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-08 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=LTSjFJ8TL4M" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-3" data-sentiment="bullish" data-importance="3">
   <div class="card-top">
-    <span class="channel-name">Antonio Linares</span>
+    <span class="channel-name">Parkev's Picks</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=uiTMqqro4Ps" target="_blank" rel="noopener">the investor who called palantir at $7 is now buying peptides</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">投資戦略</span><span class="topic">市場見通し</span><span class="topic">個別銘柄分析</span><span class="topic">セクター分析</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=5j6VGWPZwwI" target="_blank" rel="noopener">Should You Buy Plug Power Stock Today?</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/PLUG.html">PLUG</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">動画はペプチド産業の急成長トレンドを取り上げ、タンパク質の折りたたみと相互作用が全ての生理機能を制御する仕組みを説明しています。AIとデジタルプロテオムツインの発展により、個人化されたペプチド治療が疾病を根本的に治療できるようになると主張しており、診断とペプチド治療のコスト低下により大きな市場機会が生まれると予想しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ペプチド・プロテオミクス分野は初期段階の成長産業であり、大きな投資機会となる可能性</li><li>AI技術とデジタル診断の進化により、治療費用が指数関数的に低下するフライホイール効果を期待</li><li>個人化医療・精密医療の実現により、副作用のない革新的な治療法が可能になる見込み</li><li>タンパク質と遺伝子コードの相互作用理解が医療の根本的なパラダイムシフトを生む</li><li>診断技術とペプチド療法のコスト低下が採用加速のドライバーとなる</li></ul></details>
+  <p class="summary">Plug Power株がデータセンターからの電力需要の増加により勢いを得ている。動画では同社の投資価値について検討している。投資家向けに著者の6段階投資フレームワークや関連リソースも紹介されている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>Plug Powerはデータセンターからの電力需要増加の恩恵を受けている</li><li>著者は大学教授兼CFA資格者による6段階の投資評価フレームワークを提供している</li><li>Motley Foolとのスポンサーシップがあり、S&P 500比でのリターン比較が提示されている</li><li>投資判断には堅実な戦略とリスク管理が重要</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-07 23:12 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=uiTMqqro4Ps" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 23:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=5j6VGWPZwwI" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral imp-3" data-sentiment="neutral" data-importance="3">
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=1qzPeOJL_n8" target="_blank" rel="noopener">Should You Buy Bloom Energy Stock Today?</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/BE.html">BE</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
+  <p class="summary">Bloom Energy株が投資対象として適切かを検討する動画。同社はデータセンター需要の増加から大きな恩恵を受ける企業として位置づけられている。個人投資家向けに投資判断フレームワークを提供し、慎重な分析に基づいた投資決定を推奨している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Bloom Energyはデータセンター需要の増加から主要な受益企業である</li><li>投資判断には6段階のフレームワークを活用して企業評価を行うべき</li><li>過去のパフォーマンス実績が将来の成果を保証するわけではないため注意が必要</li><li>データセンター関連銘柄はAI・クラウド需要拡大に関連した成長セクター</li><li>投資にはリスク管理と適切な戦略が必須</li></ul></details>
+  <div class="card-footer">
+    <time>2026-04-07 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=1qzPeOJL_n8" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-neutral imp-3" data-sentiment="neutral" data-importance="3">
@@ -680,10 +641,10 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/shorts/xiNbY46v49U" target="_blank" rel="noopener">Archer Stock Valuation: Is it a Buy Now? #achr #archeraviation</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/ACHR.html">ACHR</a><span class="topic">個別銘柄分析</span><span class="topic">企業評価・バリュエーション</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/ACHR.html">ACHR</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:60%"></div></div>
-  <p class="summary">Archer Aviation（ACHR）の株価が1株6ドル、時価総額39億ドルで取引されており、簿価の2倍の評価となっている。この高い評価倍率は、現在の資産価値ではなく、将来的にエアタクシー事業が商業的に成功するという投資家の期待を反映している。動画ではこの企業のバリュエーションが適切であるかどうかを検討し、現在が買い時かどうかを分析している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>時価総額39億ドルに対し、簿価の2倍のプレミアム評価となっている</li><li>投資家の期待は現在の資産ではなく、将来のエアタクシー事業の商業化成功に基づいている</li><li>評価が簿価の2倍という水準は、事業化実現のリスクを含めた適切性の検討が必要</li><li>航空宇宙・エアモビリティという成長見込み産業への投資判断が重要</li></ul></details>
+  <p class="summary">Archer Aviation（ACHR）の株価は1株6ドル、時価総額39億ドルで、帳簿価額の2倍で取引されている。これは現在の資産価値ではなく、将来のエアタクシー事業の商業化成功に対する投資家の期待を反映している。本動画ではこの企業の評価妥当性について検討している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>現在の株価は帳簿価額の2倍で取引されており、将来成長への期待が大きく織り込まれている</li><li>エアタクシービジネスの商業化成功が株価上昇の必須条件となっている</li><li>39億ドルの時価総額は初期段階の航空宇宙企業としては高い評価水準である</li><li>現在の資産ベースではなく、将来事業の実現性が投資判断の重要なポイント</li></ul></details>
   <div class="card-footer">
     <time>2026-04-08 01:01 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/shorts/xiNbY46v49U" target="_blank" rel="noopener">watch ↗</a>
@@ -695,13 +656,28 @@
     <span class="badge-sent neutral">● neutral</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=YFGoTHTG8Z8" target="_blank" rel="noopener">Stock Market is Moving On This News Right Now</a></h3>
-  <div class="tags"><span class="topic">投資教育</span><span class="topic">市場ニュース</span><span class="topic">投資戦略</span></div>
+  <div class="tags"><span class="topic">投資戦略</span><span class="topic">市場見通し</span><span class="topic">金融教育</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
-  <p class="summary">本動画は株式市場の最新ニュースと市場分析を提供するコンテンツです。ただし、概要欄には具体的なニュース内容や銘柄情報が記載されておらず、Everything Moneyコミュニティへの登録促進と免責事項が中心となっています。投資初心者向けの学習リソースへのリンクが提供されています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>Everything Moneyは投資アドバイザーではなく、提供される情報は投資助言ではないことを明記</li><li>投資判断前に個人の調査が必須であることを強調</li><li>プリンシプル駆動型投資、株式取引、不動産投資の基礎学習コンテンツが用意されている</li><li>リアルタイムの市場洞察を提供することを謳っているが、具体的なニュースや銘柄分析は概要欄に記載なし</li></ul></details>
+  <p class="summary">このビデオは終場での最新の金融ニュースと株式市場分析をリアルタイムで提供するコンテンツです。個人投資家向けに現在のビジネストレンドと重要なマネーティップスに焦点を当てており、原則に基づいた投資アプローチの教育と啓発を目的としています。具体的なニュースの詳細は概要欄には記載されていません。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>このチャンネルは投資アドバイザーではなく、SEC登録もされていないため、提供されるコンテンツは投資助言ではない</li><li>動画の内容は視聴者の個別の投資目的や財務状況に合わせたものではない</li><li>投資判断を下す前に自身で十分なリサーチを行う必要がある</li><li>原則に基づいた投資の基礎学習を重視している</li><li>リアルタイムの市場インサイトと現在のビジネストレンド分析を提供</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 07:08 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=YFGoTHTG8Z8" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral imp-2" data-sentiment="neutral" data-importance="2">
+  <div class="card-top">
+    <span class="channel-name">Felix & Friends</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=gUKbQ4iM-G4" target="_blank" rel="noopener">They Crashed Gold on Purpose… Here’s The Real Plan</a></h3>
+  <div class="tags"><span class="topic">市場構造と機関投資家の役割</span><span class="topic">貴金属（金）の価格変動分析</span><span class="topic">投資戦略（市場クラッシュ時の対応）</span><span class="topic">マクロ経済</span></div>
+  <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
+  <p class="summary">金価格の20%下落を題材に、市場の構造的な動きと機関投資家による意図的な操作の可能性を探る動画。ホスト Felix Prehn が、市場の現実や個人投資家がウォール街のプロと対等に利益を得るための戦略について考察。金融市場における透明性と個人投資家の権利化を強調している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li>金価格の大幅下落（20%）が戦争期間中に発生した背景と市場構造の関係性に注目</li><li>機関投資家の市場操作の可能性と個人投資家が認識すべきウォール街のルール</li><li>市場クラッシュ時における利益獲得機会の存在と戦略的アプローチ</li><li>個人投資家が従来の金融システムのノイズから脱却し独立的に判断することの重要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-04-07 22:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=gUKbQ4iM-G4" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-2" data-sentiment="bullish" data-importance="2">
@@ -710,43 +686,13 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=Xguvua8LkEg" target="_blank" rel="noopener">This Stock Could 50X Your Money</a></h3>
-  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">セクター分析（宇宙産業）</span></div>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">投資戦略</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
-  <p class="summary">宇宙関連企業、特にSpaceXのIPO待機の中で、50倍のリターンが期待できる株式について解説する動画。投資家向けに6ステップの投資フレームワークを提供し、メンバーシップや関連ツールの利用を促進している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>宇宙関連セクターの成長機会に注目</li><li>SpaceXのIPO上場が市場変動要因となる可能性</li><li>6ステップの投資フレームワークを活用した系統的な投資判断の重要性</li><li>過去のMotley Fool Stock Advisorの実績（S&P 500対比で5倍超）は将来成績を保証しない</li><li>投資判断には信頼できるデータソースと専門的な分析が必要</li></ul></details>
+  <p class="summary">宇宙産業関連企業、特にSpaceXのIPO上場予定を背景に急速に成長している宇宙企業への投資機会を紹介する動画。50倍のリターンを期待できる可能性のある銘柄を取り上げています。投資判断の基礎となる6ステップの投資フレームワークを活用した分析を提示しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>宇宙関連企業がSpaceXのIPO上場予定を背景に注目度が上昇している</li><li>動画提供者は大学教授兼CFA資格保有者による6ステップの投資フレームワークを開発・推奨</li><li>過去のMotley Fool Stock Advisor実績は983%だが、過去のパフォーマンスは将来の成果を保証しない</li><li>投資にはリスク管理と堅牢な戦略が不可欠であることが強調されている</li><li>複数の有料サービス（会員制、書籍、投資調査ツール）の宣伝が含まれている</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 22:45 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=Xguvua8LkEg" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral imp-2" data-sentiment="neutral" data-importance="2">
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=bGKiPN7Vwg0" target="_blank" rel="noopener">This Unstoppable Stock is up 902% in 1 Year: Should You Buy?</a></h3>
-  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">リスク管理</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
-  <p class="summary">1年間で902%上昇した急成長企業の株式について、その購入判断を検討する動画。投資判断のためのフレームワークと、パフォーマンス実績に基づいた投資アプローチを紹介している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>1年間で902%の急騰銘柄の詳細な分析内容は概要欄では未記載</li><li>過去のパフォーマンス（Motley Fool Stock Advisorで983%の利益）は将来の結果を保証しない</li><li>大幅な上昇銘柄への投資には慎重な判断と確実なフレームワークが必要</li><li>著者が提唱する6ステップの投資フレームワークは大学教授兼CFAによる設計</li><li>個別銘柄投資には固い投資戦略と適切なリスク管理が重要</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-07 01:15 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=bGKiPN7Vwg0" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral imp-2" data-sentiment="neutral" data-importance="2">
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=fIDJIHFHS0w" target="_blank" rel="noopener">Huge News for Oracle Stock Investors</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/ORCL.html">ORCL</a><span class="topic">個別銘柄分析</span><span class="topic">マクロ経済</span></div>
-  <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
-  <p class="summary">動画はOracleの株価に関する重要なニュースを扱っており、同社がマクロ経済の変化に対応するための戦略的なポジショニングを進めていることが紹介されています。ただし、概要欄には具体的な内容の詳細が記載されていません。</p>
-  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>Oracleがマクロ経済の動向に合わせた経営戦略を実行中</li><li>動画内容の詳細は概要欄に記載されていないため、実際の動画視聴が必要</li><li>Motley Foolのスポンサー情報が含まれているため、信頼性評価時は注意が必要</li></ul></details>
-  <div class="card-footer">
-    <time>2026-04-06 23:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=fIDJIHFHS0w" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-2" data-sentiment="bullish" data-importance="2">
@@ -754,14 +700,14 @@
     <span class="channel-name">Parkev's Picks</span>
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=Ogl-Dbwo9Fc" target="_blank" rel="noopener">This Stock Could 100X Your Money</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">リスク管理</span><span class="topic">ポートフォリオ構築</span></div>
+  <h3><a href="https://www.youtube.com/watch?v=bGKiPN7Vwg0" target="_blank" rel="noopener">This Unstoppable Stock is up 902% in 1 Year: Should You Buy?</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">リスク管理</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:40%"></div></div>
-  <p class="summary">このYouTube動画は、100倍のリターン可能性を持つ企業についての投資情報を提供しています。動画制作者は、大学教授とCFA認定者による6段階の投資フレームワークを紹介し、個人投資家が情報に基づいた投資判断を下すための戦略的アプローチを説明しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>6段階の投資フレームワーク（大学教授とCFA認定者による開発）を活用した体系的な投資判断プロセス</li><li>Motley Foolのアドバイスパフォーマンスは983%だが、過去実績が将来を保証しない点に注意</li><li>すべての投資にはリスクが伴い、個別の成果は異なる可能性がある</li><li>リスク管理とポートフォリオ構築の重要性</li><li>Fiscal.aiなどの信頼できるデータソースの活用</li></ul></details>
+  <p class="summary">1年で902%上昇した好調な銘柄について、その購入価値を検討する動画。動画制作者は大学教授とCFA資格保有者による6ステップの投資フレームワークを紹介している。Motley Foolのスポンサーシップにより、983%のリターン実績を紹介している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>過去1年で902%の上昇を記録した銘柄が対象だが、具体的なティッカーシンボルは概要欄に記載されていない</li><li>Motley Fool Stock Advisorのリターンは983%（S&P 500は195%）だが、過去実績は将来を保証しないという免責事項がある</li><li>投資判断には信頼できるフレームワークが必要であり、感情的な判断は避けるべき</li><li>大幅な上昇銘柄への投資は高いリスクを伴う可能性があるため、慎重な検討が必要</li><li>Fiscal.aiなどの信頼できるデータソースを活用した調査が重要</li></ul></details>
   <div class="card-footer">
-    <time>2026-04-06 20:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=Ogl-Dbwo9Fc" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-04-07 01:15 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=bGKiPN7Vwg0" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
 <article class="card sent-bullish imp-1" data-sentiment="bullish" data-importance="1">
@@ -770,10 +716,10 @@
     <span class="badge-sent bullish">▲ bullish</span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=K5Vyk6jDQGQ" target="_blank" rel="noopener">Biggest $BMNR DEADLINE: TONIGHT 8PM EST</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/BMNR.html">BMNR</a><span class="topic">投資戦略</span><span class="topic">個別銘柄分析</span></div>
+  <div class="tags"><a class="ticker" href="../ticker/BMNR.html">BMNR</a><span class="topic">投資戦略</span><span class="topic">自動売買システム</span></div>
   <div class="imp-track"><div class="imp-fill" style="width:20%"></div></div>
-  <p class="summary">本動画は、$BMNRという銘柄に関する緊急な期限（本日午後8時EST）を告知するもの。AutoPilot™ソフトウェアを使用した自動売買システムの利用を促進し、$10k以上の資金があれば手間をかけずにトレードできると主張している。プロトレーダーのコピートレード機能を提供することをアピールしている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>本動画はプロモーション的性質が強く、具体的な銘柄分析や根拠は提示されていない</li><li>自動売買ソフトの売却が主目的の可能性が高い</li><li>『TONIGHT 8PM EST』という人工的な緊急性を演出し、視聴者の冷静な判断を妨げる手法</li><li>免責事項にて『利益や株価上昇は保証されない』と明記されている</li><li>最低資金要件$10k+を設定することで、特定の投資家層をターゲットにしている</li></ul></details>
+  <p class="summary">本動画は、自動売買ソフト「AutoPilot™」を使用して、9時～17時の勤務をしながら100万ドルの利益を目指すという内容です。$10,000以上の資金がある投資家向けに、プロトレーダーの取引をコピーできるサービスを宣伝しており、BMNRという銘柄に関するデッドラインを強調しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>自動売買ソフトの販売・プロモーション動画である</li><li>最低資金要件は$10,000以上</li><li>「TONIGHT 8PM EST」という緊急性を強調したマーケティング手法を使用</li><li>免責事項で利益保証がないことを明記している</li><li>プロトレーダーのシグナルコピーを主要な機能として提示</li></ul></details>
   <div class="card-footer">
     <time>2026-04-07 22:26 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=K5Vyk6jDQGQ" target="_blank" rel="noopener">watch ↗</a>
@@ -783,7 +729,7 @@
     </div>
   </div>
 
-  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-08 07:48 JST &nbsp;·&nbsp; powered by claude ai</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-08 23:50 JST &nbsp;·&nbsp; powered by claude ai</footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -837,6 +783,86 @@
         applyFilters();
       });
     });
+
+    // bg canvas
+    (function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const TICKERS = ["NKE", "WY", "RYN", "INTC", "MELI", "SE", "TMDX", "DUOL", "NVDA", "MA", "MSFT", "BAM", "NOW", "SNOW", "PLUG", "BE", "MU", "TSM", "PLTR", "MRVL", "TSMC", "AVGO", "RKLB", "ACHR", "AMD", "META", "BMNR"];
+  const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
+
+  // 4x4 Bayer ordered dither
+  const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  function dither(x, y) { return (BAYER[y & 3][x & 3] / 16) - 0.5; }
+
+  // 1/f pink noise
+  function pinkNoise() {
+    const b = [0,0,0,0,0,0,0];
+    return { next() {
+      const w = (Math.random() - 0.5) * 2;
+      b[0]=0.99886*b[0]+w*0.0555; b[1]=0.99332*b[1]+w*0.0751;
+      b[2]=0.96900*b[2]+w*0.1539; b[3]=0.86650*b[3]+w*0.3105;
+      b[4]=0.55000*b[4]+w*0.5330; b[5]=-0.7616*b[5]-w*0.0169;
+      const v = b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362;
+      b[6] = w * 0.1159;
+      return v * 0.11;
+    }};
+  }
+
+  const G = 10;
+  const noise = pinkNoise();
+  let W = 0, H = 0, phase = 0, last = performance.now();
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  function frame(ts) {
+    const dt = Math.min(0.05, (ts - last) / 1000);
+    last = ts;
+    phase += (Math.PI * 2 / 10) * dt;
+
+    const fv = noise.next();
+    const ampScale = 1 + fv * 0.18;
+    const intOff   = fv * 0.045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "bold 7px 'JetBrains Mono',monospace";
+    ctx.textBaseline = 'top';
+
+    const cols = Math.ceil(W / G);
+    const rows = Math.ceil(H / G);
+    const cy   = rows * 0.58;
+    const base = rows / 4;
+    const amp  = base * ampScale;
+    const freq = 0.036;
+    const sp2  = phase * 0.86;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const w1   = Math.sin(x * freq + phase) * amp;
+        const w2   = Math.cos(x * freq * 0.5 - sp2) * (base * 0.42 * ampScale);
+        const dist = Math.abs(y - (cy + w1 + w2));
+        let   int  = Math.max(0, 1 - dist / 12);
+        int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
+
+        if (int + dither(x, y) > 0.5) {
+          ctx.fillStyle = 'rgba(0,255,136,0.15)';
+          ctx.fillText(chars[x % chars.length], x * G, y * G);
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
   </script>
 
 </body>
