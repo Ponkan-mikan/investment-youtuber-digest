@@ -430,10 +430,10 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       --red:     #ff4444;
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-    html {{ scroll-behavior: smooth; }}
+    html {{ scroll-behavior: smooth; background: var(--bg); }}
     body {{
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }}
     ::-webkit-scrollbar {{ width: 4px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
@@ -813,9 +813,10 @@ def generate_archive_index_html(dates: list[str]) -> str:
       --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ background: var(--bg); }}
     body {{
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }}
     ::-webkit-scrollbar {{ width: 4px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
@@ -934,9 +935,10 @@ def generate_channels_html(channels: list[dict]) -> str:
       --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ background: var(--bg); }}
     body {{
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }}
     ::-webkit-scrollbar {{ width: 4px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
@@ -1074,9 +1076,10 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
       --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }}
     *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+    html {{ background: var(--bg); }}
     body {{
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }}
     ::-webkit-scrollbar {{ width: 4px; }}
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
