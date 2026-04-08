@@ -288,12 +288,107 @@ def _render_card(r: dict, root_path: str = "") -> str:
 </article>"""
 
 
+def _bg_canvas_js(tickers: list[str]) -> str:
+    """背景キャンバスアニメーション JS（ティッカー文字グリッド波紋版）を生成する。
+    tickers が空の場合は 'ALPHADIGEST' をフォールバックとして使用する。
+    """
+    clean = list(dict.fromkeys(t.upper().strip()[:4] for t in tickers if t.strip()))
+    tickers_json = json.dumps(clean if clean else [])
+    js = r"""(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const TICKERS = __TICKERS__;
+  const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
+
+  // 4x4 Bayer ordered dither
+  const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  function dither(x, y) { return (BAYER[y & 3][x & 3] / 16) - 0.5; }
+
+  // 1/f pink noise
+  function pinkNoise() {
+    const b = [0,0,0,0,0,0,0];
+    return { next() {
+      const w = (Math.random() - 0.5) * 2;
+      b[0]=0.99886*b[0]+w*0.0555; b[1]=0.99332*b[1]+w*0.0751;
+      b[2]=0.96900*b[2]+w*0.1539; b[3]=0.86650*b[3]+w*0.3105;
+      b[4]=0.55000*b[4]+w*0.5330; b[5]=-0.7616*b[5]-w*0.0169;
+      const v = b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362;
+      b[6] = w * 0.1159;
+      return v * 0.11;
+    }};
+  }
+
+  const G = 10;
+  const noise = pinkNoise();
+  let W = 0, H = 0, phase = 0, last = performance.now();
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  function frame(ts) {
+    const dt = Math.min(0.05, (ts - last) / 1000);
+    last = ts;
+    phase += (Math.PI * 2 / 10) * dt;
+
+    const fv = noise.next();
+    const ampScale = 1 + fv * 0.18;
+    const intOff   = fv * 0.045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "bold 7px 'JetBrains Mono',monospace";
+    ctx.textBaseline = 'top';
+
+    const cols = Math.ceil(W / G);
+    const rows = Math.ceil(H / G);
+    const cy   = rows * 0.58;
+    const base = rows / 4;
+    const amp  = base * ampScale;
+    const freq = 0.036;
+    const sp2  = phase * 0.86;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const w1   = Math.sin(x * freq + phase) * amp;
+        const w2   = Math.cos(x * freq * 0.5 - sp2) * (base * 0.42 * ampScale);
+        const dist = Math.abs(y - (cy + w1 + w2));
+        let   int  = Math.max(0, 1 - dist / 12);
+        int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
+
+        if (int + dither(x, y) > 0.5) {
+          ctx.fillStyle = 'rgba(0,255,136,0.15)';
+          ctx.fillText(chars[x % chars.length], x * G, y * G);
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();"""
+    return js.replace('__TICKERS__', tickers_json)
+
+
 def generate_html(results: list[dict], date_str: str, is_archive: bool = False) -> str:
     results_sorted = sorted(
         results,
         key=lambda x: int(x.get("analysis", {}).get("importance", 1)),
         reverse=True,
     )
+
+    # 背景アニメーション用ティッカー収集（重複排除・最大4文字）
+    all_tickers = list(dict.fromkeys(
+        t.upper().strip()[:4]
+        for r in results
+        for t in r.get("analysis", {}).get("tickers", [])
+        if t.strip()
+    ))
 
     n_bullish = sum(1 for r in results if r.get("analysis", {}).get("sentiment") == "bullish")
     n_bearish = sum(1 for r in results if r.get("analysis", {}).get("sentiment") == "bearish")
@@ -559,9 +654,15 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       .filters {{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }}
       .filters::-webkit-scrollbar {{ display: none; }}
     }}
+    /* bg canvas */
+    #bgCanvas {{
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+    }}
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <header>
     <div class="header-inner">
@@ -672,6 +773,9 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
         applyFilters();
       }});
     }});
+
+    // bg canvas
+    {_bg_canvas_js(all_tickers)}
   </script>
 
 </body>
@@ -766,9 +870,11 @@ def generate_archive_index_html(dates: list[str]) -> str:
     .arc-arrow {{ color: var(--brand); font-size: 0.85rem; opacity: 0.7; }}
     .arc-empty {{ color: var(--dim); text-align: center; padding: 40px; font-size: 0.78rem; }}
     footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
+    #bgCanvas {{ position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }}
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <header>
     <div class="header-inner">
       <a href="../index.html" class="ad-logo">
@@ -793,6 +899,7 @@ def generate_archive_index_html(dates: list[str]) -> str:
     <div class="archive-list">{rows}</div>
   </main>
   <footer>// alphadigest · {now_jst}</footer>
+  <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
 
@@ -891,9 +998,11 @@ def generate_channels_html(channels: list[dict]) -> str:
       .ch-handle {{ display: none; }}
     }}
     footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
+    #bgCanvas {{ position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }}
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <header>
     <div class="header-inner">
       <a href="index.html" class="ad-logo">
@@ -918,6 +1027,7 @@ def generate_channels_html(channels: list[dict]) -> str:
     <div class="channel-list">{rows}</div>
   </main>
   <footer>// alphadigest · {now_jst}</footer>
+  <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
 
@@ -1068,9 +1178,11 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
       .m-channel {{ display: none; }}
     }}
     footer {{ text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }}
+    #bgCanvas {{ position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }}
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <header>
     <div class="header-inner">
       <a href="../index.html" class="ad-logo">
@@ -1180,6 +1292,7 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
     </div>
   </main>
   <footer>// alphadigest · {now_jst}</footer>
+  <script>{_bg_canvas_js([ticker])}</script>
 </body>
 </html>"""
 
