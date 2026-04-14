@@ -8,74 +8,14 @@
       "url": "https://www.youtube.com/watch?v=G7IKubmOJys",
       "published": "2026-04-12T20:01:23+00:00",
       "analysis": {
-        "summary_ja": "市場パニック局面での投資機会を分析する動画。SaaS企業の売却、テック企業の評価リセット、マクロ要因（関税、ガス価格、停戦不確実性）を考慮しながら、市場底値のタイミングと恐怖心理ピークを解説。複数のアナリスト予想と個別銘柄の買い機会を提示している。",
-        "tickers": [
-          "SNOW",
-          "INTU",
-          "PLTR",
-          "BBWI",
-          "RH",
-          "CELH",
-          "ELF",
-          "SOFI",
-          "CAKE",
-          "HOOD",
-          "NKE",
-          "FUBO",
-          "EL",
-          "NOW",
-          "AMD"
-        ],
-        "key_points": [
-          "市場心理が恐怖のピークに達しており、投資機会が存在する可能性が高い",
-          "SaaS企業など成長株の評価がリセットされており、割安な買い機会が生まれている",
-          "マクロ要因（関税、ガス価格、地政学的リスク）が市場動向に大きく影響している",
-          "市場底値のタイミングを予測するより、シンプルな投資ルール（KISS Investing Rules）に従うべき",
-          "ポートフォリオ内のマクロ要因と個別銘柄の基礎ファンダメンタルズの両方を考慮する必要がある"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "マクロ経済",
-          "投資戦略",
-          "市場見通し",
-          "テック企業分析"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Everything Money",
@@ -84,59 +24,14 @@
       "url": "https://www.youtube.com/watch?v=w_XIClBbhxs",
       "published": "2026-04-13T20:58:09+00:00",
       "analysis": {
-        "summary_ja": "本動画はS&P500を牽引するオラクル（Oracle）を含む主要銘柄の株価変動と、ターゲット（Target）の包括的な株式分析を提供している。現在の経済状況下で投資家が市場動向を把握するための情報を提供し、原則主導の投資アプローチを推奨している。",
-        "tickers": [
-          "ORCL",
-          "TGT"
-        ],
-        "key_points": [
-          "オラクルがS&P500の主要な値動き銘柄として注目されている",
-          "ターゲットの詳細な株式分析が提供されている",
-          "原則主導投資（Principle Driven Investing）の重要性が強調されている",
-          "投資判断は個人の投資目標、財務状況、ニーズに基づいて行うべき",
-          "チャンネルは投資アドバイザーではなく、情報提供のみを目的としている"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "市場見通し",
-          "投資戦略"
-        ],
-        "importance": 2
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Sven Carlin",
@@ -145,58 +40,14 @@
       "url": "https://www.youtube.com/watch?v=NhzycUC5wrY",
       "published": "2026-04-14T12:00:43+00:00",
       "analysis": {
-        "summary_ja": "Greggs（ロンドン上場：GRG）の株式分析動画。同社は4.26%の高利回りを提供しながら、資本支出の削減により成長を実現している。バリュー投資アプローチに基づいた個別銘柄の詳細分析と投資判断を提示している。",
-        "tickers": [
-          "GRG"
-        ],
-        "key_points": [
-          "Greggs株の配当利回りが4.26%と比較的高い水準",
-          "資本支出（Capex）の削減により効率的な成長を実現",
-          "バリュー投資による企業分析アプローチの実践例",
-          "個人投資家向けの独立した詳細な株式分析を提供",
-          "複数の投資教育リソースと関連コンテンツへのアクセス"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘dh�ana分析",
-          "配当投資",
-          "バリュー投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Sven Carlin",
@@ -205,56 +56,14 @@
       "url": "https://www.youtube.com/shorts/LzMbGEWhXrM",
       "published": "2026-04-14T06:00:26+00:00",
       "analysis": {
-        "summary_ja": "本動画は、持続不可能な債務水準についての警告が投資家に無視されている現状を指摘しています。講者は価値投資アプローチに基づいた株式分析プラットフォームと無料の投資教育コースを提供し、個人投資家がより洗練された投資判断ができるようサポートしています。マクロ経済的な懸念がある中でも、適切なファンダメンタル分析と銘柄選択が重要であることを強調しています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "債務水準の持続不可能性が市場参加者に十分認識されていない懸念",
-          "ファンダメンタル分析に基づく価値投資アプローチの重要性",
-          "個人投資家が独立した株式分析と戦略的ポートフォリオ構築を学ぶべき",
-          "マクロ経済リスク環境下での銘柄選別能力の必要性",
-          "感情に左右されない投資判断と自己研究・デューデリジェンスの重要性"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "マクロ経済",
-          "投資戦略",
-          "ポートフォリオ管理"
-        ],
-        "importance": 4
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Sven Carlin",
@@ -263,56 +72,14 @@
       "url": "https://www.youtube.com/shorts/zUevRNjPuDY",
       "published": "2026-04-13T20:00:45+00:00",
       "analysis": {
-        "summary_ja": "ハイパーインフレーションをテーマにした動画。著者のSven Carlinが株式市場研究プラットフォームと価値投資アプローチを紹介しており、個人投資家向けの株式分析ツールと無料の価値投資コースを提供している。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "価値投資（Value Investing）に基づいた投資アプローチの重要性",
-          "本質的価値（Intrinsic Value）の計算方法の習得が必要",
-          "株式市場研究プラットフォームを用いた事業・セクターリスク分析",
-          "ハイパーインフレーション環境下での投資戦略の検討",
-          "自己研究と十分なデューデリジェンスの実施が必須"
-        ],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "投資戦略",
-          "マクロ経済",
-          "市場見通し"
-        ],
-        "importance": 2
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Sven Carlin",
@@ -321,57 +88,14 @@
       "url": "https://www.youtube.com/watch?v=nJzpXh8HRmc",
       "published": "2026-04-13T13:13:41+00:00",
       "analysis": {
-        "summary_ja": "トランプ政権の復帰が投資市場に与える影響について、インフレと금利を中心に分析する動画。バリュー投資アプローチに基づいた市場分析と投資戦略を提示し、ファンダメンタルズ分析の重要性を強調している。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "トランプ政権の政策変化がインフレと金利に与える潜在的な影響を考慮する必要がある",
-          "バリュー投資の原則（企業の本質的価値評価）に基づいた投資アプローチが推奨される",
-          "マクロ経済環境の変化に応じた資産配置の見直しが重要",
-          "政治的変動を含むリスク管理とポートフォリオ構築の必要性",
-          "ファンダメンタルズ分析と長期投資視点の維持が成功の鍵"
-        ],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "マクロ経済",
-          "投資戦略",
-          "市場見通し",
-          "政策分析"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Brian Stoffel",
@@ -380,58 +104,14 @@
       "url": "https://www.youtube.com/watch?v=H-30tD7eDKE",
       "published": "2026-04-13T12:28:25+00:00",
       "analysis": {
-        "summary_ja": "TSMCの事業成長性、高い利益率、資本集約性を冷静に評価し、規模・技術力・エコシステムロックインによる競争優位性を分析する。地政学的リスクとアリゾナ・日本への地理的分散化の進捗を投資判断の割引要因として検討する。",
-        "tickers": [
-          "TSM"
-        ],
-        "key_points": [
-          "TSMCは高い収益成長率と巨大なマージンを持つ事業基盤を有している",
-          "規模、技術専門知識、エコシステムロックインが競合他社の参入を阻止する強固なモート（競争優位性）を形成",
-          "地政学的リスク（米中関係など）が投資リスク要因として存在",
-          "アリゾナと日本での地理的分散化により地政学的リスクを軽減中",
-          "現在の株価水準が高成長性を既に織り込んでいるかどうかが買いの判断基準"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘colloquy分析",
-          "地政学リスク",
-          "投資判断"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Felix & Friends",
@@ -440,57 +120,14 @@
       "url": "https://www.youtube.com/watch?v=YE1hxjLFxy0",
       "published": "2026-04-13T13:00:06+00:00",
       "analysis": {
-        "summary_ja": "金（ゴールド）の本質的な性質と投資としての位置付けについて探討する動画。ホストのフェリックス・プレーンが、従来の投資アプローチとの対比を通じて、金の真の役割と市場における戦略的な活用方法について個人投資家向けに解説しています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "金は従来的な意味での「投資」ではなく、別の性質を持つ資産である",
-          "メンターから学ぶルールや市場原則の重要性",
-          "個人投資家が従来の金融システムの外で財務的自由を目指すアプローチ",
-          "百万ドルの実験を通じた実践的なトレーディング戦略の検証",
-          "金融市場をナビゲートする際の透明性と教育の必要性"
-        ],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "投資戦略",
-          "商品（コモディティ）分析",
-          "マクロ経済",
-          "資産配分"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Daniel Pronk",
@@ -499,61 +136,14 @@
       "url": "https://www.youtube.com/watch?v=79-99DvYn88",
       "published": "2026-04-12T16:00:59+00:00",
       "analysis": {
-        "summary_ja": "本動画では、YouTuber Daniel Pronkが2026年にAmazonとMetaに投資する理由を詳しく説明しています。Amazonの株主書簡のハイライト、MetaのAI展開、Claude AIに関する注意点、およびWarren Buffettの投資哲学について言及されています。",
-        "tickers": [
-          "AMZN",
-          "META",
-          "PLTR"
-        ],
-        "key_points": [
-          "Amazonの株主書簡から投資判断の重要なシグナルを抽出",
-          "MetaのAI技術開発と事業展開の進捗を評価",
-          "Claude AIの台頭に対する投資家の認識の過度さへの警告",
-          "Warren Buffettの投資原則に基づいた買い判断の検討",
-          "長期的な企業ファンダメンタルズ分析に基づいた銘柄選定"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "AI・テクノロジートレンド",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -562,58 +152,14 @@
       "url": "https://www.youtube.com/watch?v=fhGTBtxD-xM",
       "published": "2026-04-14T12:45:10+00:00",
       "analysis": {
-        "summary_ja": "台湾セミコンダクター（TSM）株に関する重大なニュースを取り扱う動画。世界最高の製造企業の一つであるTSMの投資機会について分析。著者の6段階投資フレームワークを活用した銘柄評価アプローチを紹介。",
-        "tickers": [
-          "TSM"
-        ],
-        "key_points": [
-          "TSMは世界有数の製造企業として位置づけられている",
-          "著者が開発した6段階投資フレームワークがTSMの評価に適用されている可能性",
-          "The Motley Foolのスポンサーシップを含む専門的な投資リサーチアプローチ",
-          "Fiscal.aiなどのデータツールを活用した詳細な財務分析",
-          "個人投資家向けの体系的な投資意思決定方法論の提供"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略",
-          "決算分析"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -622,56 +168,14 @@
       "url": "https://www.youtube.com/watch?v=e6wDM1Md53c",
       "published": "2026-04-14T11:45:04+00:00",
       "analysis": {
-        "summary_ja": "本動画は半導体株のダウングレード推奨に関する内容です。以前買い推奨していた同銘柄が大きく上昇した後、投資判断を引き下げるという投資戦略の転換を示しています。動画では著者の6段階投資フレームワークに基づいた分析手法が紹介されています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "以前の買い推奨銘柄が値上がりした後にダウングレードしている点から、利益確定や業績悪化の可能性が考えられる",
-          "著者は大学教授兼CFA資格保有者で、6段階の投資評価フレームワークを開発している",
-          "投資判断には Fiscal.ai などのデータソースを活用した定量的分析が重要",
-          "個人投資家は確立された投資戦略なしに市場参入すべきではないという明確なメッセージ",
-          "半導体セクターが注目されている投資テーマであることが示唆される"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略",
-          "セクター分析"
-        ],
-        "importance": 3
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -680,57 +184,14 @@
       "url": "https://www.youtube.com/watch?v=EO2vWQwk_Qo",
       "published": "2026-04-14T10:15:00+00:00",
       "analysis": {
-        "summary_ja": "AMDが優れた財務成績を報告したにもかかわらず、株価が下落するという一見矛盾した現象に焦点を当てた動画。投資家がAMD株を買うべきかどうかについて、クレジットカード（CFA）を持つアナリストの6段階投資フレームワークに基づいて分析。株価と企業業績のギャップについての投資判断を提供。",
-        "tickers": [
-          "AMD"
-        ],
-        "key_points": [
-          "優れた財務成績を報告しても株価が下落することがある",
-          "投資判断には感情的な反応ではなく体系的なフレームワークが必要",
-          "アナリストは6段階の投資判断フレームワークを使用",
-          "過去のモトリーフール推奨銘柄は約5倍のパフォーマンスを達成（S&P 500比）"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "投資戦略"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -739,56 +200,14 @@
       "url": "https://www.youtube.com/watch?v=hdOAznjKRh4",
       "published": "2026-04-13T17:15:08+00:00",
       "analysis": {
-        "summary_ja": "Arista Networks（ANET）の株式分析動画。データセンター需要の恩恵を受け続けている同社について、買いか売りかの判断を提供する。動画作成者は独自の6段階投資評価フレームワークを使用して分析を行っている。",
-        "tickers": [
-          "ANET"
-        ],
-        "key_points": [
-          "Arista Networksはデータセンター需要の継続的な恩恵を受けている",
-          "投資判断には体系的な評価フレームワークの活用が重要",
-          "個人投資家は信頼性の高い情報源とツール（Fiscal.aiなど）を活用すべき",
-          "過去のパフォーマンスは将来の結果を保証しない"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "テクノロジーセクター"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -797,55 +216,14 @@
       "url": "https://www.youtube.com/watch?v=QWp2An2uvh0",
       "published": "2026-04-13T15:45:03+00:00",
       "analysis": {
-        "summary_ja": "Oscar Health（OSCR）株の投資判断について分析した動画。投資家がヘルスケア業界に対して悲観的な見方を弱めつつあり、OSCR株が注目を集めている。個人投資家向けの投資フレームワークと分析ツールの紹介も含まれている。",
-        "tickers": [
-          "OSCR"
-        ],
-        "key_points": [
-          "Oscar Health株が投資家の関心を集めており、業界に対する悲観的センチメントが緩和している",
-          "ヘルスケア・保険セクターの動向が重要な投資判断材料となっている",
-          "個人投資家向けの6段階投資フレームワークの紹介により、銘柄分析の体系的アプローチを推奨"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "ヘルスケア業界"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -854,57 +232,14 @@
       "url": "https://www.youtube.com/watch?v=nnU1Rn9w8wQ",
       "published": "2026-04-13T12:45:07+00:00",
       "analysis": {
-        "summary_ja": "本動画はAmazonの野心的な計画が投資家に将来性をもたらしているかを検討するもの。動画内ではAmazonが発表した戦略的な取り組みについて分析し、個人投資家にとって世代的な買い機会となる可能性を探究している。投資判断のための6段階フレームワークを活用した分析が提示されている。",
-        "tickers": [
-          "AMZN"
-        ],
-        "key_points": [
-          "Amazonの野心的な経営計画が市場で肯定的に受け止められている",
-          "投資判断には信頼できるデータソース（Fiscal.ai等）の活用が重要",
-          "個人投資家向けの体系的な6段階投資フレームワークの活用",
-          "動画作成者はCFA資格を持つ大学教授による検証済みの投資手法を提唱",
-          "Motley Fool Stock Advisorの過去リターン（983%）は参考情報だが、過去実績は将来を保証しない"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -913,56 +248,14 @@
       "url": "https://www.youtube.com/watch?v=9ayABwaBbEk",
       "published": "2026-04-13T11:45:01+00:00",
       "analysis": {
-        "summary_ja": "本動画はペロトン（Peloton）株が下落時に買い増しすべきかを検討するもの。パンデミック期間の経営判断からの回復途上にある同社の投資機会を分析している。",
-        "tickers": [
-          "PTON"
-        ],
-        "key_points": [
-          "ペロトン株はパンデミック期の経営判断から回復途上にある",
-          "下落局面での買い増し機会の判断が主要テーマ",
-          "動画作成者は6段階の投資評価フレームワークを推奨している",
-          "Fiscal.aiなどのデータソースを活用した調査が重要"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘coll�分析",
-          "投資戦略"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -971,56 +264,14 @@
       "url": "https://www.youtube.com/watch?v=kr9snQXliDg",
       "published": "2026-04-13T10:45:05+00:00",
       "analysis": {
-        "summary_ja": "SoFiは構造的な追い風の恩恵を受けているものの、近期的な圧力が企業に影響を与えている。動画ではSoFi株を現在の下落時に買うべきかについて検討している。長期的な成長ポテンシャルと短期的な課題のバランスを分析し、投資判断のための枠組みを提供している。",
-        "tickers": [
-          "SOFI"
-        ],
-        "key_points": [
-          "SoFiは構造的な追い風（長期的な産業トレンド）から恩恵を受けている",
-          "近期的な圧力が株価を押し下げている",
-          "下落時の買い場かどうかの判断には長期・短期視点の両立が必要",
-          "投資判断には6段階の投資フレームワークを活用することが推奨されている"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Parkev's Picks",
@@ -1029,56 +280,14 @@
       "url": "https://www.youtube.com/watch?v=7Sd0yqHqXcQ",
       "published": "2026-04-12T15:45:00+00:00",
       "analysis": {
-        "summary_ja": "動画はドルジェネラル（DG）株が景気後退局面でどのような投資機会を提供するかを検討しています。景気悪化時に同社がより多くの顧客を惹きつける特性を分析し、個人投資家向けの投資判断情報を提供しています。",
-        "tickers": [
-          "DG"
-        ],
-        "key_points": [
-          "ドルジェネラルは景気後退などの経済的困難期に顧客数が増加する傾向がある",
-          "景気悪化局面での防御銘柄としての性質を持つ",
-          "小売セクターの中でも比較的安定したビジネスモデル"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "マクロ経済",
-          "投資戦略"
-        ],
-        "importance": 3
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Rick Orford",
@@ -1087,59 +296,14 @@
       "url": "https://www.youtube.com/watch?v=ok001Eckp2I",
       "published": "2026-04-13T20:00:38+00:00",
       "analysis": {
-        "summary_ja": "IRENはビットコイン採掘企業からAIインフラ企業への転換を進めており、Wall Streetはこの変化を過小評価している可能性がある。Microsoftなどの大型顧客と資本支援を背景に、AIクラウド事業の成長により企業価値が大きく上昇する可能性がある一方で、実行リスクが存在する。",
-        "tickers": [
-          "IREN"
-        ],
-        "key_points": [
-          "IRENは従来のビットコイン採掘ビジネスからAIインフラへの事業転換を進行中",
-          "Microsoft等の大手顧客獲得と機関投資家からの資本支援により信頼性が向上",
-          "直近の決算は表面的には弱く見えるが、基礎的な事業転換トレンドは強気",
-          "AI関連収益がスケールすれば、現在の株価評価より大幅に上昇する可能性がある",
-          "事業実行能力の欠如が強気論の最大のリスク要因であり、無視できない"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "成長株投資",
-          "テーマ投資"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Rick Orford",
@@ -1148,58 +312,14 @@
       "url": "https://www.youtube.com/watch?v=lI8C_xvxRFo",
       "published": "2026-04-13T18:00:49+00:00",
       "analysis": {
-        "summary_ja": "AST SpaceMobileは既に大きな株価上昇を達成しているが、現在は実行能力が試されている段階にある。BlueBird 7衛星の打ち上げ遅延は単なる遅延ではなく、同社の経営スケジュール維持能力と市場期待の乖離を示す重要な問題である。本動画では打ち上げ時期のずれが経営戦略全体に与える影響と執行リスクについて分析している。",
-        "tickers": [
-          "ASTS"
-        ],
-        "key_points": [
-          "BlueBird 7の打ち上げ遅延は実行リスクの現れであり、今後のスケジュール維持能力に対する懸念が増している",
-          "衛星打ち上げ時期は単なるイベントではなく、全体のロールアウト計画と投資家期待に直結する重要な要素",
-          "既に大きな株価上昇を遂げた後の段階であり、期待値が極めて高くなっている",
-          "執行リスクの深刻度をどこに見出すかが、今後の投資判断の分岐点となる",
-          "衛星通信業界の成長性はあるが、この銘柄の場合は成長性よりも実行能力が評価のカギになっている"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "高成長株分析",
-          "実行リスク評価"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Rick Orford",
@@ -1208,58 +328,14 @@
       "url": "https://www.youtube.com/watch?v=oGFpDef16VM",
       "published": "2026-04-12T20:00:28+00:00",
       "analysis": {
-        "summary_ja": "Joby Aviationは、ドバイでの進展、ホワイトハウスの支援、FAA認証の最終段階という重要なマイルストーンを達成しているが、株価は依然として高値を下回っている。動画は、FAA認証取得が最大の課題であり、同社が実際に実行能力を持つかどうかが市場の焦点であることを分析する。投資家にとっては、高い成長ポテンシャルと実行リスクのバランスを判断することが重要である。",
-        "tickers": [
-          "JOBY"
-        ],
-        "key_points": [
-          "FAA認証取得が株価上昇の最大のカタリスト。認証完了まで市場は懐疑的",
-          "ドバイでの商用化進展とホワイトハウスの支援により、実行能力への信頼が向上",
-          "株価が依然として高値を下回っているため、市場は'夢物語'よりも実行可能性を重視",
-          "eVTOL（電動垂直離着陸機）産業は長期的に大きな成長ポテンシャルを持つ",
-          "オプション市場データも分析対象。短期的な値動きの可能性を検討する価値あり"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "成長株",
-          "規制動向分析"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Rick Orford",
@@ -1268,61 +344,14 @@
       "url": "https://www.youtube.com/watch?v=ZRsJoVcDsVY",
       "published": "2026-04-12T18:00:29+00:00",
       "analysis": {
-        "summary_ja": "Applied Digital（APLD）はAIインフラストラクチャー関連の注目銘柄だが、株価が大幅に下落し経営幹部による大量売却が発生している。同社の成長ストーリーの実態、増加する債務、顧客集中リスク、割高なバリュエーションなどから、市場が投資判断を見直している背景を分析する動画である。",
-        "tickers": [
-          "APLD",
-          "NVDA"
-        ],
-        "key_points": [
-          "経営幹部による数百万ドル規模のインサイダー売却が発生しており、経営陣の信頼度が問題",
-          "増加する債務と顧客集中リスクが事業の実行リスクを高めている",
-          "バリュエーションは好調なシナリオを多く織り込んでおり、下振れリスクが存在",
-          "AI需要は実在するが、株価下落後もなお割高である可能性",
-          "AIインフラ企業として成長の余地はあるも、複数のリスク要因が無視できない"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "個別銘柄分析",
-          "成長株分析",
-          "リスク評価",
-          "インサイダー取引",
-          "テクノロジー企業"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1331,56 +360,14 @@
       "url": "https://www.youtube.com/shorts/iVBg2QFSMgg",
       "published": "2026-04-14T13:56:38+00:00",
       "analysis": {
-        "summary_ja": "本動画は、非国家的主体によるクリプト市場の崩壊シナリオを段階的に分析しています。デジタルセキュリティ侵害から資産価値下落に至る論理的な進行を検証し、金融インフラの脆弱性とそれを悪用する動機を解説しています。市場変動性がいかに兵器化される可能性があるかについての警告的分析を提示しています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "暗号資産市場は特定の脆弱性ポイント（デジタルセキュリティ）から段階的に崩壊する可能性がある",
-          "非国家的主体による組織的な市場操作リスクが存在し、その進行は予測可能な段階を経る",
-          "金融インフラの脆弱性が顕在化した場合、システミックリスクに発展する危険性がある",
-          "暗号資産への投資では市場インフラのセキュリティ強度を重要な評価要素として考慮すべき",
-          "市場変動性の急激な増加は意図的な攻撃の結果である可能性も検討する必要がある"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "市場見通し",
-          "リスク管理",
-          "暗号資産分析"
-        ],
-        "importance": 4
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1389,58 +376,14 @@
       "url": "https://www.youtube.com/shorts/_kwuClE0Zfs",
       "published": "2026-04-14T03:44:38+00:00",
       "analysis": {
-        "summary_ja": "ビットコインの長期間使用されていないウォレットがセキュリティ上の重大な脅威となっていることを指摘しています。数年間放置されたコインは暗号化技術の進化に対応できず、現代的なセキュリティ基準に更新不可能な状態に置かれています。特に初期段階の非アクティブなウォレットは所有者の介入がないため、進化する暗号資産の脅威に対して極めて脆弱であると警告しています。",
-        "tickers": [
-          "BMNR"
-        ],
-        "key_points": [
-          "長期間使用されないビットコインウォレットは暗号化脅威に対して脆弱である",
-          "古いウォレットはセキュリティ基準をアップデートできない状態が続く",
-          "所有者による継続的な介入がなければ資産が危険にさらされる",
-          "初期段階のビットコインウォレットほどセキュリティリスクが高い傾向",
-          "ビットコイン投資家はウォレットの定期的なメンテナンスが必要"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "暗号資産セキュリティ",
-          "ビットコイン",
-          "リスク管理"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1449,56 +392,14 @@
       "url": "https://www.youtube.com/shorts/E2lk7K49lIU",
       "published": "2026-04-13T23:59:40+00:00",
       "analysis": {
-        "summary_ja": "量子コンピュータの発展が現在のデジタル暗号化システムに対する重大な脅威となる可能性を指摘した動画。SHA-256や楕円曲線暗号などの暗号化標準が量子技術によって突破される危険性があり、非国家主体も量子パワーを活用する可能性がある。個人や企業の資産保護とデジタルセキュリティの将来に対する深刻な課題として取り上げられている。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピュータがSHA-256と楕円曲線暗号などの現在の暗号化標準を無効化する可能性がある",
-          "政府だけでなく非国家主体も量子技術の脅威となり得る",
-          "グローバルな資産を保護する暗号化基盤に対する実存的リスクが存在",
-          "デジタルセキュリティと個人プライバシーの未来は過小評価されている可能性",
-          "サイバーセキュリティ関連企業や暗号化技術産業への投資リスクの認識が必要"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "市場見通し",
-          "マクロ経済",
-          "投資リスク"
-        ],
-        "importance": 4
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1507,58 +408,14 @@
       "url": "https://www.youtube.com/watch?v=0CO0b5AqVmg",
       "published": "2026-04-13T23:17:20+00:00",
       "analysis": {
-        "summary_ja": "BMNRという銘柄が重要なマイルストーンに到達したことを扱う動画。動画主はAutoPlane™ソフトウェアを使用した自動売買システムの宣伝を行い、$10k以上の資金がある投資家向けにハンズフリー取引を提案している。ただし免責事項として投資リスクと利益保証なしが明記されている。",
-        "tickers": [
-          "BMNR"
-        ],
-        "key_points": [
-          "BMNR銘柄が大きなマイルストーンを達成した可能性",
-          "AutoPilot™を使用した自動売買システムの売り込み",
-          "最低$10,000の資金が必要な有料サービス",
-          "動画は情報・教育目的のみで投資助言ではないと免責事項を明記",
-          "個別銘柄への具体的な根拠や分析情報が不明確"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略",
-          "販売・マーケティングコンテンツ"
-        ],
-        "importance": 2
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1567,56 +424,14 @@
       "url": "https://www.youtube.com/shorts/7-4GrPtUY8I",
       "published": "2026-04-13T18:14:39+00:00",
       "analysis": {
-        "summary_ja": "量子コンピュータの脅威がある中、EthereumはBitcoinよりも量子リスクに対して安全性が高い可能性があるという主張。Ethereumはガバナンス構造と活発な開発コミュニティにより、脆弱性への対応やアップグレード実装がBitcoinより迅速に行える利点を持つ。この適応性がEthereumを量子脅威から保護する可能性がある。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピュータはBitcoinとEthereumの両者に脅威をもたらす可能性がある",
-          "Ethereumはガバナンス構造と開発コミュニティが優れており、脆弱性対応が迅速",
-          "Ethereumはアップグレード実装能力がBitcoinより高く、量子リスク対応が容易",
-          "Bitcoin対Ethereumの量子耐性では、Ethereumの適応力が重要な差別化要因",
-          "暗号資産の長期的安全性を評価する際、技術的な進化対応能力が重要"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "市場見通し",
-          "投資戦略"
-        ],
-        "importance": 4
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1625,55 +440,14 @@
       "url": "https://www.youtube.com/shorts/B5N9_Me-NvI",
       "published": "2026-04-13T16:20:11+00:00",
       "analysis": {
-        "summary_ja": "量子コンピュータの急速な発展がビットコインに対する理論的な脅威となっており、ビットコインエコシステムは量子耐性を緊急に強化する必要があります。動画では、将来のサイバー脅威から長期的なネットワークの実行可能性を確保するため、積極的なガバナンスとセキュリティアップグレードの重要性を強調しています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピュータの発展がビットコインの暗号化セキュリティに対する将来的な脅威となる可能性",
-          "ビットコインネットワークが量子攻撃への耐性を確保するための緊急の対応が必要",
-          "セキュリティ面での不確実性がビットコイン長期保有のリスク要因",
-          "プロアクティブなガバナンスとプロトコル改善が量子耐性確保に不可欠",
-          "このセキュリティ課題はブロックチェーン業界全体への潜在的な影響"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "市場見通し",
-          "暗号資産リスク分析"
-        ],
-        "importance": 3
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1682,57 +456,14 @@
       "url": "https://www.youtube.com/shorts/GbCOOotxLjk",
       "published": "2026-04-13T00:25:42+00:00",
       "analysis": {
-        "summary_ja": "Chamath PaliapitiyaとDavid Friedbergは、AGI/ASIの台頭と暗号資産・ソフトウェア株の現在の軌道の間に生じうる矛盾について論じている。量子コンピューティングと高度なAIが予測通りに発展した場合、デジタル経済の大部分のセクターが現在の見方と大きく異なる可能性があると警告している。投資家は、この技術的パラダイムシフトが起こる前に、どの現実に賭けるかを慎重に判断する必要があると強調している。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピューティングとASI/AGIの発展は、暗号資産とソフトウェア株の価値に根本的な影響を与える可能性がある",
-          "現在の投資戦略が技術パラダイムシフトに対応できていない可能性がある",
-          "投資家は、量子コンピューティングの脅威とAI台頭のチャンスのいずれかに賭ける戦略の選択を迫られている",
-          "パラダイムシフトが起こる前の準備・ポジション調整が極めて重要である",
-          "暗号資産と先進AI技術への投資判断は排他的な選択となる可能性がある"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "投資戦略",
-          "市場見通し",
-          "テクノロジートレンド",
-          "リスク管理"
-        ],
-        "importance": 5
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1741,56 +472,14 @@
       "url": "https://www.youtube.com/shorts/CpA2DCah3lg",
       "published": "2026-04-12T23:54:35+00:00",
       "analysis": {
-        "summary_ja": "量子コンピュータが現在の暗号化技術を破壊する可能性について説明する動画。現在のデジタルセキュリティは大きな素数の因数分解の困難性に依存しているが、量子プロセッサはこれを効率的に解くことで、個人データから金融システムまで幅広い保護を無効化できる可能性がある。量子コンピューティング技術の発展がサイバーセキュリティに与える脅威を扱っている。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピュータの発展は現在の暗号化標準を脅かす可能性がある",
-          "金融システムを含む現在の保護インフラが量子技術により破壊される可能性",
-          "この脅威は個人データから金融機関まで広範囲に影響する",
-          "サイバーセキュリティ関連企業や暗号化技術企業への投資機会が生まれる可能性",
-          "量子耐性暗号への移行が急務となる可能性"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "マクロ経済",
-          "市場見通し",
-          "テクノロジー・トレンド"
-        ],
-        "importance": 4
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1799,57 +488,14 @@
       "url": "https://www.youtube.com/watch?v=ubO0oSAibys",
       "published": "2026-04-12T23:26:48+00:00",
       "analysis": {
-        "summary_ja": "このビデオはBMNR銘柄の月曜日の下落について扱っていると思われます。ただし、提供された情報は限定的であり、具体的な分析内容や市場データは概要欄に記載されていません。動画の詳細な内容は実際の映像を視聴する必要があります。",
-        "tickers": [
-          "BMNR"
-        ],
-        "key_points": [
-          "BNMRの株価下落イベント（Crash Monday）に関する情報提供",
-          "動画作成者（Tom Lee）による個別銘柄の市場分析",
-          "投資には常にリスクが伴い、利益や株価上昇は保証されない",
-          "このコンテンツは教育目的であり、金融アドバイスではないと明記されている",
-          "オートパイロット取引ソフトウェアの宣伝が主な目的の可能性"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "市場見通し"
-        ],
-        "importance": 2
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1858,58 +504,14 @@
       "url": "https://www.youtube.com/shorts/TSnIdu0sQB0",
       "published": "2026-04-12T17:43:42+00:00",
       "analysis": {
-        "summary_ja": "この動画は、暗号資産市場における市場操作の仕組みを解説しています。悪質なアクターが意図的に価格を下げるプレッシャーをかけ、低価格での買い戻しを狙うという戦術について、その具体的なメカニズムを掘り下げています。デジタル資産取引の変動性を理解するために、こうした複雑な戦略の知識が重要であることを強調しています。",
-        "tickers": [
-          "BMNR"
-        ],
-        "key_points": [
-          "市場操作者は意図的に価格を下げるプレッシャーをかけて市場を操作する可能性がある",
-          "暗号資産市場では複雑な価格影響戦略が存在し、個人投資家は注意が必要",
-          "低価格での買い戻しを目的とした意図的な価格下落メカニズムが存在する",
-          "暗号資産取引の高い変動性は市場操作による影響を受ける可能性がある",
-          "投資判断の前に独立した調査が不可欠である"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "投資戦略",
-          "市場見通し",
-          "暗号資産"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     },
     {
       "channel_name": "Wolf of Dubai",
@@ -1918,56 +520,14 @@
       "url": "https://www.youtube.com/shorts/6zRtvmmSljI",
       "published": "2026-04-12T14:58:45+00:00",
       "analysis": {
-        "summary_ja": "量子コンピューティングはビットコインとイーサリアムに異なるリスクをもたらす。ビットコインは堅固な構造のため脆弱性が高いが、イーサリアムはコミュニティの活動とプロトコルアップグレード能力により耐性が強い。ただし、アップデート不可能な休止ウォレットが不可逆的な露出を生み出すのが真の危険であり、これは長期的リスクである。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "key_points": [
-          "量子コンピューティングはビットコインよりイーサリアムの方が対応能力が高い",
-          "イーサリアムのプロトコルアップグレード能力が耐性強化につながる",
-          "休止状態のウォレットは量子脅威に対して脆弱で対応不可能",
-          "量子コンピューティング脅威は長期的リスクであり、即座の脅威ではない",
-          "デジタル資産は技術進化に対して免疫を持たない"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "市場見通し",
-          "リスク分析",
-          "投資戦略"
-        ],
-        "importance": 3
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
-      "price_snapshot": {
-        "AMD": 248.88,
-        "AMZN": 245.38,
-        "ANET": 152.47,
-        "APLD": 31.14,
-        "ASTS": 92.19,
-        "BBWI": 18.56,
-        "BMNR": 22.96,
-        "CAKE": 59.97,
-        "CELH": 35.01,
-        "DG": 118.57,
-        "EL": 75.61,
-        "ELF": 68.39,
-        "FUBO": 11.92,
-        "GRG": null,
-        "HOOD": 78.76,
-        "INTU": 373.5,
-        "IREN": 47.25,
-        "JOBY": 8.77,
-        "META": 650.34,
-        "NKE": 43.37,
-        "NOW": 90.04,
-        "NVDA": 192.56,
-        "ORCL": 164.89,
-        "OSCR": 15.41,
-        "PLTR": 137.65,
-        "PTON": 4.82,
-        "RH": 128.88,
-        "SNOW": 136.88,
-        "SOFI": 17.99,
-        "TGT": 118.29,
-        "TSM": 376.04
-      }
+      "price_snapshot": {}
     }
   ]
 }
