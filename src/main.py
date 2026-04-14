@@ -12,7 +12,7 @@ from pathlib import Path
 import feedparser
 import requests
 import yfinance as yf
-import anthropic
+import google.generativeai as genai
 
 # ---- 定数 ----------------------------------------------------------------
 JST = timezone(timedelta(hours=9))
@@ -204,21 +204,17 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 
 def summarize_video(
-    client: anthropic.Anthropic,
+    model: genai.GenerativeModel,
     title: str,
     description: str,
 ) -> dict:
-    """Claude API を使って動画の投資情報を要約する。"""
+    """Gemini API を使って動画の投資情報を要約する。"""
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
     )
-    msg = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=1024,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    text = msg.content[0].text
+    response = model.generate_content(prompt)
+    text = response.text
     # JSON ブロックを抽出
     m = re.search(r"\{[\s\S]*\}", text)
     if m:
@@ -1303,15 +1299,16 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
 # ---- メイン ------------------------------------------------------------
 
 def main() -> None:
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise EnvironmentError(
-            "環境変数 ANTHROPIC_API_KEY が設定されていません。\n"
-            "GitHub Actions の場合: Settings → Secrets → ANTHROPIC_API_KEY を追加してください。\n"
-            "ローカルの場合: export ANTHROPIC_API_KEY=sk-ant-xxxx"
+            "環境変数 GEMINI_API_KEY が設定されていません。\n"
+            "GitHub Actions の場合: Settings → Secrets → GEMINI_API_KEY を追加してください。\n"
+            "ローカルの場合: export GEMINI_API_KEY=AIza..."
         )
 
-    client = anthropic.Anthropic(api_key=api_key)
+    genai.configure(api_key=api_key)
+    client = genai.GenerativeModel("gemini-2.0-flash")
 
     # 1. チャンネルリストの読み込み & チャンネルID解決
     channels = load_channels()
