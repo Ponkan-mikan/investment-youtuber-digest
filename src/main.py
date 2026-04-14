@@ -203,10 +203,15 @@ SUMMARY_PROMPT_TEMPLATE = """\
 }}"""
 
 
-_GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-1.5-flash-latest:generateContent"
-)
+# 試行するモデル名のリスト（先頭から順に試す）
+_GEMINI_MODELS = [
+    "gemini-2.0-flash",
+    "gemini-1.5-flash",
+    "gemini-1.5-flash-001",
+    "gemini-1.5-pro",
+]
+_GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
+_GEMINI_URL = _GEMINI_BASE + _GEMINI_MODELS[0] + ":generateContent"
 
 _GEMINI_SAFETY = [
     {"category": "HARM_CATEGORY_HARASSMENT",        "threshold": "BLOCK_NONE"},
@@ -232,33 +237,44 @@ def summarize_video(
         "safetySettings": _GEMINI_SAFETY,
     }
     resp = None
-    for attempt in range(3):
-        try:
-            resp = requests.post(
-                _GEMINI_URL,
-                params={"key": api_key},
-                json=payload,
-                timeout=30,
-            )
-        except requests.exceptions.RequestException as e:
-            print(f"  [WARN] Gemini リクエスト失敗 (attempt {attempt+1}/3): {e}")
-            if attempt < 2:
-                time.sleep(15)
+    last_error = None
+    for model in _GEMINI_MODELS:
+        url = _GEMINI_BASE + model + ":generateContent"
+        for attempt in range(3):
+            try:
+                resp = requests.post(
+                    url,
+                    params={"key": api_key},
+                    json=payload,
+                    timeout=30,
+                )
+            except requests.exceptions.RequestException as e:
+                print(f"  [WARN] Gemini リクエスト失敗 ({model}, attempt {attempt+1}/3): {e}")
+                last_error = e
+                if attempt < 2:
+                    time.sleep(15)
+                    continue
+                break  # 次のモデルへ
+            if resp.status_code == 404:
+                print(f"  [WARN] モデル {model} は利用不可 (404)。次のモデルを試します...")
+                last_error = f"404 for {model}"
+                resp = None
+                break  # 次のモデルへ
+            if resp.status_code == 429:
+                wait = 30 * (attempt + 1)
+                print(f"  [WARN] Gemini レート制限 (429)。{wait}秒待機...")
+                time.sleep(wait)
                 continue
-            raise
-        if resp.status_code == 429:
-            wait = 30 * (attempt + 1)
-            print(f"  [WARN] Gemini レート制限 (429)。{wait}秒待機...")
-            time.sleep(wait)
-            continue
-        resp.raise_for_status()
-        break
+            resp.raise_for_status()
+            break  # 成功
+        if resp is not None and resp.status_code == 200:
+            print(f"  [INFO] 使用モデル: {model}")
+            break  # 成功したモデルで確定
 
-    if resp is None:
-        raise RuntimeError("Gemini API: レスポンスが取得できませんでした")
+    if resp is None or resp.status_code != 200:
+        raise RuntimeError(f"Gemini API: 全モデルで失敗しました。最後のエラー: {last_error}")
 
     data = resp.json()
-    print(f"  [DEBUG] Gemini response keys: {list(data.keys())}")
     candidates = data.get("candidates", [])
     if not candidates:
         block = data.get("promptFeedback", {}).get("blockReason", "no candidates")
