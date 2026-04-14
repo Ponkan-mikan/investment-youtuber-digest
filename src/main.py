@@ -6,6 +6,7 @@ import json
 import os
 import re
 import time
+import traceback
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -230,13 +231,21 @@ def summarize_video(
         "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
         "safetySettings": _GEMINI_SAFETY,
     }
+    resp = None
     for attempt in range(3):
-        resp = requests.post(
-            _GEMINI_URL,
-            params={"key": api_key},
-            json=payload,
-            timeout=30,
-        )
+        try:
+            resp = requests.post(
+                _GEMINI_URL,
+                params={"key": api_key},
+                json=payload,
+                timeout=30,
+            )
+        except requests.exceptions.RequestException as e:
+            print(f"  [WARN] Gemini リクエスト失敗 (attempt {attempt+1}/3): {e}")
+            if attempt < 2:
+                time.sleep(15)
+                continue
+            raise
         if resp.status_code == 429:
             wait = 30 * (attempt + 1)
             print(f"  [WARN] Gemini レート制限 (429)。{wait}秒待機...")
@@ -245,7 +254,11 @@ def summarize_video(
         resp.raise_for_status()
         break
 
+    if resp is None:
+        raise RuntimeError("Gemini API: レスポンスが取得できませんでした")
+
     data = resp.json()
+    print(f"  [DEBUG] Gemini response keys: {list(data.keys())}")
     candidates = data.get("candidates", [])
     if not candidates:
         block = data.get("promptFeedback", {}).get("blockReason", "no candidates")
@@ -1422,19 +1435,23 @@ def main() -> None:
         r["price_snapshot"] = price_snapshot
 
     # 3. HTML & JSON を生成・保存
+    print("\nHTML/JSON ファイル生成中...")
     DOCS_DIR.mkdir(exist_ok=True)
     archive_dir = DOCS_DIR / "archive"
     archive_dir.mkdir(exist_ok=True)
 
     # アーカイブ: 当日分の HTML / JSON を保存
+    print(f"  アーカイブHTML生成: archive/{today}.html")
     archive_html_path = archive_dir / f"{today}.html"
     with open(archive_html_path, "w", encoding="utf-8") as f:
         f.write(generate_html(all_results, today, is_archive=True))
 
+    print(f"  アーカイブJSON保存: archive/{today}.json")
     with open(archive_dir / f"{today}.json", "w", encoding="utf-8") as f:
         json.dump({"date": today, "results": all_results}, f, ensure_ascii=False, indent=2)
 
     # アーカイブ一覧ページを更新
+    print("  アーカイブ一覧ページ生成中...")
     all_dates = sorted(
         [f.stem for f in archive_dir.glob("*.html") if f.stem != "index"],
         reverse=True,
@@ -1443,18 +1460,22 @@ def main() -> None:
         f.write(generate_archive_index_html(all_dates))
 
     # チャンネルページを生成
+    print("  チャンネルページ生成中...")
     with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
         f.write(generate_channels_html(channels))
 
     # メインページ (index.html) を更新
+    print("  メインページ(index.html)生成中...")
     with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
         f.write(generate_html(all_results, today))
 
     # latest.json（後方互換）
+    print("  latest.json保存中...")
     with open(DOCS_DIR / "latest.json", "w", encoding="utf-8") as f:
         json.dump({"date": today, "results": all_results}, f, ensure_ascii=False, indent=2)
 
     # ティッカーページ生成: 全アーカイブJSONを走査してティッカー別に集計
+    print("  ティッカーページ生成中...")
     ticker_mentions: dict[str, list[dict]] = {}
     for json_path in sorted(archive_dir.glob("*.json")):
         try:
@@ -1493,4 +1514,9 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        print("\n[FATAL] 予期しないエラーが発生しました:")
+        traceback.print_exc()
+        raise
