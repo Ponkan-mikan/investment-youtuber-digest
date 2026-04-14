@@ -228,10 +228,10 @@
 
     <p class="section-title">// mention history (5 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Business with Brian</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.1%</span><span class="m-title">I Got Rich in 2008. This Time It's Bigger</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.1%</span><span class="m-title">Great News for Broadcom Stock Investors! | AVGO Stock Analysis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-12.html"><span class="m-date">2026-04-12</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.1%</span><span class="m-title">Alphabet Delivers Great News for Broadcom Stock Investors!</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-09.html"><span class="m-date">2026-04-09</span><span class="m-channel">Rick Orford</span><span class="m-price">$350.63</span><span class="m-pct m-pct-up">+8.2%</span><span class="m-title">Marvell Could Explode as TSMC’s AI Bottleneck Changes Everything</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-08.html"><span class="m-date">2026-04-08</span><span class="m-channel">Rick Orford</span><span class="m-price">$344.64</span><span class="m-pct m-pct-up">+10.1%</span><span class="m-title">Marvell Could Explode as TSMC’s AI Bottleneck Changes Everything</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Business with Brian</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.0%</span><span class="m-title">I Got Rich in 2008. This Time It's Bigger</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.0%</span><span class="m-title">Great News for Broadcom Stock Investors! | AVGO Stock Analysis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-12.html"><span class="m-date">2026-04-12</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$371.55</span><span class="m-pct m-pct-up">+2.0%</span><span class="m-title">Alphabet Delivers Great News for Broadcom Stock Investors!</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-09.html"><span class="m-date">2026-04-09</span><span class="m-channel">Rick Orford</span><span class="m-price">$350.63</span><span class="m-pct m-pct-up">+8.1%</span><span class="m-title">Marvell Could Explode as TSMC’s AI Bottleneck Changes Everything</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-08.html"><span class="m-date">2026-04-08</span><span class="m-channel">Rick Orford</span><span class="m-price">$344.64</span><span class="m-pct m-pct-up">+10.0%</span><span class="m-title">Marvell Could Explode as TSMC’s AI Bottleneck Changes Everything</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// alphadigest · 2026-04-14 23:19 JST</footer>
+  <footer>// alphadigest · 2026-04-14 23:26 JST</footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');
@@ -260,7 +260,7 @@
     }};
   }
 
-  const G = 16;
+  const G = 13;
   const noise = pinkNoise();
   let W = 0, H = 0, phase = 0, last = performance.now();
 
@@ -281,7 +281,7 @@
     const intOff   = fv * 0.045;
 
     ctx.clearRect(0, 0, W, H);
-    ctx.font = "bold 11px 'JetBrains Mono',monospace";
+    ctx.font = "bold 9px 'JetBrains Mono',monospace";
     ctx.textBaseline = 'top';
 
     const cols = Math.ceil(W / G);
@@ -301,7 +301,7 @@
         int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
 
         if (int + dither(x, y) > 0.5) {
-          ctx.fillStyle = 'rgba(0,255,136,0.30)';
+          ctx.fillStyle = 'rgba(0,255,136,0.22)';
           ctx.fillText(chars[x % chars.length], x * G, y * G);
         }
       }
