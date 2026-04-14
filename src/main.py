@@ -236,11 +236,12 @@ def summarize_video(
         "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
         "safetySettings": _GEMINI_SAFETY,
     }
+    # モデルを順番に試す（404 = 利用不可 → 次のモデルへ、429 = 短時間待機してリトライ）
     resp = None
-    last_error = None
+    used_model = _GEMINI_MODELS[0]
     for model in _GEMINI_MODELS:
         url = _GEMINI_BASE + model + ":generateContent"
-        for attempt in range(3):
+        for attempt in range(2):  # 1モデルにつき最大2回試行
             try:
                 resp = requests.post(
                     url,
@@ -249,30 +250,30 @@ def summarize_video(
                     timeout=30,
                 )
             except requests.exceptions.RequestException as e:
-                print(f"  [WARN] Gemini リクエスト失敗 ({model}, attempt {attempt+1}/3): {e}")
-                last_error = e
-                if attempt < 2:
-                    time.sleep(15)
-                    continue
+                print(f"  [WARN] 接続エラー ({model}): {e}")
                 break  # 次のモデルへ
             if resp.status_code == 404:
-                print(f"  [WARN] モデル {model} は利用不可 (404)。次のモデルを試します...")
-                last_error = f"404 for {model}"
+                print(f"  [WARN] モデル {model} 利用不可 (404) → 次のモデルへ")
                 resp = None
                 break  # 次のモデルへ
             if resp.status_code == 429:
-                wait = 30 * (attempt + 1)
-                print(f"  [WARN] Gemini レート制限 (429)。{wait}秒待機...")
-                time.sleep(wait)
-                continue
+                if attempt == 0:
+                    print(f"  [WARN] レート制限 (429)。10秒待機...")
+                    time.sleep(10)
+                    continue  # 同じモデルで1回だけリトライ
+                else:
+                    print(f"  [WARN] レート制限 (429) 継続 → 次のモデルへ")
+                    resp = None
+                    break
             resp.raise_for_status()
+            used_model = model
             break  # 成功
         if resp is not None and resp.status_code == 200:
-            print(f"  [INFO] 使用モデル: {model}")
+            print(f"  [INFO] 使用モデル: {used_model}")
             break  # 成功したモデルで確定
 
     if resp is None or resp.status_code != 200:
-        raise RuntimeError(f"Gemini API: 全モデルで失敗しました。最後のエラー: {last_error}")
+        raise RuntimeError("Gemini API: 全モデルで失敗しました")
 
     data = resp.json()
     candidates = data.get("candidates", [])
