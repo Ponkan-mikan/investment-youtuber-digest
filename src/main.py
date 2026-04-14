@@ -12,7 +12,6 @@ from pathlib import Path
 import feedparser
 import requests
 import yfinance as yf
-import google.generativeai as genai
 
 # ---- 定数 ----------------------------------------------------------------
 JST = timezone(timedelta(hours=9))
@@ -203,18 +202,33 @@ SUMMARY_PROMPT_TEMPLATE = """\
 }}"""
 
 
+_GEMINI_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/"
+    "gemini-1.5-flash:generateContent"
+)
+
+
 def summarize_video(
-    model: genai.GenerativeModel,
+    api_key: str,
     title: str,
     description: str,
 ) -> dict:
-    """Gemini API を使って動画の投資情報を要約する。"""
+    """Gemini REST API を使って動画の投資情報を要約する。"""
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
     )
-    response = model.generate_content(prompt)
-    text = response.text
+    resp = requests.post(
+        _GEMINI_URL,
+        params={"key": api_key},
+        json={
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
+        },
+        timeout=30,
+    )
+    resp.raise_for_status()
+    text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
     # JSON ブロックを抽出
     m = re.search(r"\{[\s\S]*\}", text)
     if m:
@@ -1307,8 +1321,7 @@ def main() -> None:
             "ローカルの場合: export GEMINI_API_KEY=AIza..."
         )
 
-    genai.configure(api_key=api_key)
-    client = genai.GenerativeModel("gemini-1.5-flash")
+    client = api_key  # REST API キーをそのまま渡す
 
     # 1. チャンネルリストの読み込み & チャンネルID解決
     channels = load_channels()
