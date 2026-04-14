@@ -322,7 +322,7 @@ def _bg_canvas_js(tickers: list[str]) -> str:
     }};
   }
 
-  const G = 10;
+  const G = 16;
   const noise = pinkNoise();
   let W = 0, H = 0, phase = 0, last = performance.now();
 
@@ -343,7 +343,7 @@ def _bg_canvas_js(tickers: list[str]) -> str:
     const intOff   = fv * 0.045;
 
     ctx.clearRect(0, 0, W, H);
-    ctx.font = "bold 7px 'JetBrains Mono',monospace";
+    ctx.font = "bold 11px 'JetBrains Mono',monospace";
     ctx.textBaseline = 'top';
 
     const cols = Math.ceil(W / G);
@@ -363,7 +363,7 @@ def _bg_canvas_js(tickers: list[str]) -> str:
         int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
 
         if (int + dither(x, y) > 0.5) {
-          ctx.fillStyle = 'rgba(0,255,136,0.15)';
+          ctx.fillStyle = 'rgba(0,255,136,0.30)';
           ctx.fillText(chars[x % chars.length], x * G, y * G);
         }
       }
