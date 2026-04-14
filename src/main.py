@@ -207,28 +207,54 @@ _GEMINI_URL = (
     "gemini-1.5-flash:generateContent"
 )
 
+_GEMINI_SAFETY = [
+    {"category": "HARM_CATEGORY_HARASSMENT",        "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_HATE_SPEECH",        "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",  "threshold": "BLOCK_NONE"},
+    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT",  "threshold": "BLOCK_NONE"},
+]
+
 
 def summarize_video(
     api_key: str,
     title: str,
     description: str,
 ) -> dict:
-    """Gemini REST API を使って動画の投資情報を要約する。"""
+    """Gemini REST API を使って動画の投資情報を要約する（リトライ付き）。"""
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
     )
-    resp = requests.post(
-        _GEMINI_URL,
-        params={"key": api_key},
-        json={
-            "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
-        },
-        timeout=30,
-    )
-    resp.raise_for_status()
-    text = resp.json()["candidates"][0]["content"]["parts"][0]["text"]
+    payload = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
+        "safetySettings": _GEMINI_SAFETY,
+    }
+    for attempt in range(3):
+        resp = requests.post(
+            _GEMINI_URL,
+            params={"key": api_key},
+            json=payload,
+            timeout=30,
+        )
+        if resp.status_code == 429:
+            wait = 30 * (attempt + 1)
+            print(f"  [WARN] Gemini レート制限 (429)。{wait}秒待機...")
+            time.sleep(wait)
+            continue
+        resp.raise_for_status()
+        break
+
+    data = resp.json()
+    candidates = data.get("candidates", [])
+    if not candidates:
+        block = data.get("promptFeedback", {}).get("blockReason", "no candidates")
+        raise ValueError(f"Gemini blocked: {block}")
+    candidate = candidates[0]
+    finish = candidate.get("finishReason", "STOP")
+    if finish not in ("STOP", "MAX_TOKENS"):
+        raise ValueError(f"Unexpected finishReason: {finish}")
+    text = candidate["content"]["parts"][0]["text"]
     # JSON ブロックを抽出
     m = re.search(r"\{[\s\S]*\}", text)
     if m:
