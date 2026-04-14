@@ -8,7 +8,7 @@
       "url": "https://www.youtube.com/watch?v=G7IKubmOJys",
       "published": "2026-04-12T20:01:23+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、市場のパニックが転換点にあり、底打ちの兆候が見られるという見解を示しています。",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -56,7 +56,7 @@
       "url": "https://www.youtube.com/shorts/LzMbGEWhXrM",
       "published": "2026-04-14T06:00:26+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は「債務は持続不可能だが、誰も気にしていない」というマクロ経済的なテーマを扱っています。動画",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -104,7 +104,7 @@
       "url": "https://www.youtube.com/watch?v=H-30tD7eDKE",
       "published": "2026-04-13T12:28:25+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、TSMCのビジネスモデルを深く分析します。具体的には、その高い収益成長率、圧倒的な利益",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -130,13 +130,45 @@
       "price_snapshot": {}
     },
     {
-      "channel_name": "Daniel Pronk",
-      "video_id": "79-99DvYn88",
-      "title": "Why I'm Buying AMZN & META in 2026",
-      "url": "https://www.youtube.com/watch?v=79-99DvYn88",
-      "published": "2026-04-12T16:00:59+00:00",
+      "channel_name": "Parkev's Picks",
+      "video_id": "0Uamwbn1a6E",
+      "title": "Why Is Monday.com Stock Crashing, and is it a Buy Right Now?",
+      "url": "https://www.youtube.com/watch?v=0Uamwbn1a6E",
+      "published": "2026-04-14T16:45:01+00:00",
       "analysis": {
         "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
+      },
+      "price_snapshot": {}
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "6roWLUwMzcI",
+      "title": "DraftKings Stock Analysis: Buy or Sell? | #dkng #predictions #stocks #stockmarket #trading #invest",
+      "url": "https://www.youtube.com/shorts/6roWLUwMzcI",
+      "published": "2026-04-14T16:38:13+00:00",
+      "analysis": {
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、DraftKings（ティッカーシンボル: DKNG）の株式について、購入すべきか売却すべきかという観",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
+      },
+      "price_snapshot": {}
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "4YIXzkukRSU",
+      "title": "Why Is Mercado Libre Stock Falling, and is it a Buying Opportunity? | MELI Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=4YIXzkukRSU",
+      "published": "2026-04-14T16:15:00+00:00",
+      "analysis": {
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、Mercado Libre (MELI) の株価下落の理由と、それが買いの機会であるかどうかを分析します",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -168,7 +200,7 @@
       "url": "https://www.youtube.com/watch?v=e6wDM1Md53c",
       "published": "2026-04-14T11:45:04+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、以前「買い」推奨していた特定の半導体株について、株価が大幅に上昇したことを受けて評価",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -200,7 +232,7 @@
       "url": "https://www.youtube.com/watch?v=hdOAznjKRh4",
       "published": "2026-04-13T17:15:08+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画はArista Networks (ANET) の株式分析に焦点を当てており、データセンター需要から同社が",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -232,7 +264,7 @@
       "url": "https://www.youtube.com/watch?v=nnU1Rn9w8wQ",
       "published": "2026-04-13T12:45:07+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画はAmazon株に焦点を当て、その将来性や投資機会について議論しています。Amazonが発表した野心的な計画が",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -248,7 +280,7 @@
       "url": "https://www.youtube.com/watch?v=9ayABwaBbEk",
       "published": "2026-04-13T11:45:01+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"本動画は、パンデミック時の経営判断から回復を試みているPeloton株について、下落局面で購入すべきかどうか",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -264,23 +296,7 @@
       "url": "https://www.youtube.com/watch?v=kr9snQXliDg",
       "published": "2026-04-13T10:45:05+00:00",
       "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
-        "tickers": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [],
-        "importance": 1
-      },
-      "price_snapshot": {}
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "7Sd0yqHqXcQ",
-      "title": "As the Odds of a Recession Increase, Should You Buy Dollar General Stock?",
-      "url": "https://www.youtube.com/watch?v=7Sd0yqHqXcQ",
-      "published": "2026-04-12T15:45:00+00:00",
-      "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
+        "summary_ja": "```json\n{\n  \"summary_ja\": \"この動画は、SoFi株を押し目買いすべきかについて議論しています。SoFiは構造的な追い風から恩恵を受けている一方で、短期的な",
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
@@ -343,6 +359,22 @@
       "title": "The Brutal Truth About Applied Digital Stock",
       "url": "https://www.youtube.com/watch?v=ZRsJoVcDsVY",
       "published": "2026-04-12T18:00:29+00:00",
+      "analysis": {
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
+      },
+      "price_snapshot": {}
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "0hX7KeW4pdE",
+      "title": "Is Bitmain heading to $5,000? Tom Lee’s bold prediction explained.",
+      "url": "https://www.youtube.com/shorts/0hX7KeW4pdE",
+      "published": "2026-04-14T16:36:39+00:00",
       "analysis": {
         "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
