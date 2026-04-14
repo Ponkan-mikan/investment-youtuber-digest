@@ -512,22 +512,6 @@
         "importance": 1
       },
       "price_snapshot": {}
-    },
-    {
-      "channel_name": "Wolf of Dubai",
-      "video_id": "6zRtvmmSljI",
-      "title": "Is Bitcoin or Ethereum more vulnerable to quantum computing threats?",
-      "url": "https://www.youtube.com/shorts/6zRtvmmSljI",
-      "published": "2026-04-12T14:58:45+00:00",
-      "analysis": {
-        "summary_ja": "要約の取得に失敗しました。",
-        "tickers": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [],
-        "importance": 1
-      },
-      "price_snapshot": {}
     }
   ]
 }
