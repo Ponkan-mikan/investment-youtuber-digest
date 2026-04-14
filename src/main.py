@@ -206,9 +206,9 @@ SUMMARY_PROMPT_TEMPLATE = """\
 # 試行するモデル名のリスト（先頭から順に試す）
 _GEMINI_MODELS = [
     "gemini-2.0-flash",
-    "gemini-1.5-flash",
-    "gemini-1.5-flash-001",
-    "gemini-1.5-pro",
+    "gemini-2.0-flash-001",
+    "gemini-2.0-flash-lite",
+    "gemini-2.5-flash",
 ]
 _GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
 _GEMINI_URL = _GEMINI_BASE + _GEMINI_MODELS[0] + ":generateContent"
