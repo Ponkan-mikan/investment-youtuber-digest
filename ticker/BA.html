@@ -143,7 +143,7 @@
     </div>
     <div class="ticker-hero">
       <h1>BA</h1>
-      <span class="mention-count">2 mentions in archive</span>
+      <span class="mention-count">1 mentions in archive</span>
     </div>
 
     <div class="widgets-grid">
@@ -226,12 +226,12 @@
       </div>
     </div>
 
-    <p class="section-title">// mention history (2 videos)</p>
+    <p class="section-title">// mention history (1 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-14.html"><span class="m-date">2026-04-14</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$222.14</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Should Dividend Stock Investors Buy Boeing Stock Today?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$217.63</span><span class="m-pct m-pct-up">+2.1%</span><span class="m-title">Should Dividend Stock Investors Buy Boeing Stock Today?</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-04-13.html"><span class="m-date">2026-04-13</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$217.63</span><span class="m-pct m-pct-up">+2.9%</span><span class="m-title">Should Dividend Stock Investors Buy Boeing Stock Today?</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// alphadigest · 2026-04-14 07:54 JST</footer>
+  <footer>// alphadigest · 2026-04-14 23:19 JST</footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');
@@ -260,7 +260,7 @@
     }};
   }
 
-  const G = 10;
+  const G = 16;
   const noise = pinkNoise();
   let W = 0, H = 0, phase = 0, last = performance.now();
 
@@ -281,7 +281,7 @@
     const intOff   = fv * 0.045;
 
     ctx.clearRect(0, 0, W, H);
-    ctx.font = "bold 7px 'JetBrains Mono',monospace";
+    ctx.font = "bold 11px 'JetBrains Mono',monospace";
     ctx.textBaseline = 'top';
 
     const cols = Math.ceil(W / G);
@@ -301,7 +301,7 @@
         int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
 
         if (int + dither(x, y) > 0.5) {
-          ctx.fillStyle = 'rgba(0,255,136,0.15)';
+          ctx.fillStyle = 'rgba(0,255,136,0.30)';
           ctx.fillText(chars[x % chars.length], x * G, y * G);
         }
       }
