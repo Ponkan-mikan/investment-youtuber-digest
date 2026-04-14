@@ -1308,7 +1308,7 @@ def main() -> None:
         )
 
     genai.configure(api_key=api_key)
-    client = genai.GenerativeModel("gemini-2.0-flash")
+    client = genai.GenerativeModel("gemini-1.5-flash")
 
     # 1. チャンネルリストの読み込み & チャンネルID解決
     channels = load_channels()
@@ -1346,7 +1346,7 @@ def main() -> None:
                     video["description"],
                 )
             except Exception as e:
-                print(f"  [ERROR] 要約失敗: {e}")
+                print(f"  [ERROR] 要約失敗: {type(e).__name__}: {e}")
                 analysis = {
                     "summary_ja": "要約の取得に失敗しました。",
                     "tickers": [], "key_points": [],
@@ -1362,7 +1362,7 @@ def main() -> None:
                 "analysis":     analysis,
             })
 
-            time.sleep(0.3)  # Claude API レート制限対策
+            time.sleep(4.5)  # Gemini 無料枠レート制限対策（15 RPM = 4秒以上）
 
     # 当日言及されたティッカーの株価スナップショットを取得
     print("\n株価スナップショットを取得中...")
