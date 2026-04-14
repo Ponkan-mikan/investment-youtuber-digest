@@ -204,7 +204,7 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 _GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta/models/"
-    "gemini-1.5-flash:generateContent"
+    "gemini-1.5-flash-latest:generateContent"
 )
 
 _GEMINI_SAFETY = [
