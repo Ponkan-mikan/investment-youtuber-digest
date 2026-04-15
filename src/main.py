@@ -192,7 +192,7 @@ SUMMARY_PROMPT_TEMPLATE = """\
 概要欄:
 {description}
 
-以下のJSON形式のみで回答してください（説明文は不要）:
+以下のJSON形式のみで回答してください（マークダウンのコードブロックや説明文は不要。JSONオブジェクトだけを出力）:
 {{
   "summary_ja": "動画の主要な内容を日本語で3〜5文で要約",
   "tickers": ["言及された株式ティッカーシンボル（例: AAPL, NVDA）のリスト。なければ空配列"],
@@ -285,16 +285,26 @@ def summarize_video(
     if finish not in ("STOP", "MAX_TOKENS"):
         raise ValueError(f"Unexpected finishReason: {finish}")
     text = candidate["content"]["parts"][0]["text"]
-    # JSON ブロックを抽出
-    m = re.search(r"\{[\s\S]*\}", text)
+
+    # マークダウンコードブロック（```json ... ``` や ``` ... ```）を除去
+    text_clean = re.sub(r"```(?:json)?\s*", "", text)
+    text_clean = re.sub(r"\s*```", "", text_clean).strip()
+
+    # JSON ブロックを抽出（最初の { から対応する最後の } まで）
+    m = re.search(r"\{[\s\S]*\}", text_clean)
     if m:
         try:
             return json.loads(m.group())
-        except json.JSONDecodeError:
-            pass
-    # パース失敗時のフォールバック
+        except json.JSONDecodeError as e:
+            print(f"  [WARN] JSON パース失敗: {e}")
+            print(f"  [DEBUG] モデル出力先頭200字: {text[:200]!r}")
+
+    # summary_ja だけでも取り出せるか試みる
+    sm = re.search(r'"summary_ja"\s*:\s*"((?:[^"\\]|\\.)*)"', text_clean)
+    summary = sm.group(1) if sm else "要約の解析に失敗しました。"
+    print(f"  [WARN] JSONパース失敗のため部分フォールバック: {summary[:60]}")
     return {
-        "summary_ja": text[:500],
+        "summary_ja": summary,
         "tickers": [],
         "key_points": [],
         "sentiment": "neutral",
