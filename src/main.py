@@ -203,16 +203,8 @@ SUMMARY_PROMPT_TEMPLATE = """\
 }}"""
 
 
-_GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models/"
-_GEMINI_MODEL = "gemini-2.0-flash"
-_GEMINI_URL = _GEMINI_BASE + _GEMINI_MODEL + ":generateContent"
-
-_GEMINI_SAFETY = [
-    {"category": "HARM_CATEGORY_HARASSMENT",        "threshold": "BLOCK_NONE"},
-    {"category": "HARM_CATEGORY_HATE_SPEECH",        "threshold": "BLOCK_NONE"},
-    {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",  "threshold": "BLOCK_NONE"},
-    {"category": "HARM_CATEGORY_DANGEROUS_CONTENT",  "threshold": "BLOCK_NONE"},
-]
+_GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+_GROQ_MODEL = "llama-3.3-70b-versatile"
 
 
 def summarize_video(
@@ -220,30 +212,30 @@ def summarize_video(
     title: str,
     description: str,
 ) -> dict:
-    """Gemini REST API を使って動画の投資情報を要約する（リトライ付き）。"""
+    """Groq API（Llama 3.3 70B）を使って動画の投資情報を要約する。"""
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
     )
-    payload = {
-        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"maxOutputTokens": 1024, "temperature": 0.2},
-        "safetySettings": _GEMINI_SAFETY,
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
     }
-    # gemini-2.0-flash で最大3回リトライ（429 = レート制限時は待機）
+    payload = {
+        "model": _GROQ_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 1024,
+        "temperature": 0.2,
+    }
+    # 最大3回リトライ（429 = レート制限時は待機）
     resp = None
     for attempt in range(3):
         try:
-            resp = requests.post(
-                _GEMINI_URL,
-                params={"key": api_key},
-                json=payload,
-                timeout=30,
-            )
+            resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=30)
         except requests.exceptions.RequestException as e:
-            raise RuntimeError(f"Gemini API 接続エラー: {e}")
+            raise RuntimeError(f"Groq API 接続エラー: {e}")
         if resp.status_code == 429:
-            wait = 20 * (attempt + 1)  # 20s, 40s, 60s
+            wait = 20 * (attempt + 1)
             print(f"  [WARN] レート制限 (429)。{wait}秒待機... (attempt {attempt+1}/3)")
             time.sleep(wait)
             continue
@@ -251,33 +243,15 @@ def summarize_video(
         break
 
     if resp is None or resp.status_code != 200:
-        raise RuntimeError(f"Gemini API: {resp.status_code if resp else 'no response'}")
+        raise RuntimeError(f"Groq API: {resp.status_code if resp else 'no response'}")
 
-    data = resp.json()
-    candidates = data.get("candidates", [])
-    if not candidates:
-        block = data.get("promptFeedback", {}).get("blockReason", "no candidates")
-        raise ValueError(f"Gemini blocked: {block}")
-    candidate = candidates[0]
-    finish = candidate.get("finishReason", "STOP")
-    if finish not in ("STOP", "MAX_TOKENS"):
-        raise ValueError(f"Unexpected finishReason: {finish}")
-    # thinking モデル（gemini-2.5系）は parts[0] が思考内容、parts[-1] が実際の回答
-    # thought=True のパートをスキップして最後のテキストパートを使う
-    parts = candidate["content"].get("parts", [])
-    text = ""
-    for part in reversed(parts):
-        if part.get("text") and not part.get("thought"):
-            text = part["text"]
-            break
-    if not text:
-        text = parts[-1].get("text", "") if parts else ""
+    text = resp.json()["choices"][0]["message"]["content"]
 
-    # マークダウンコードブロック（```json ... ``` や ``` ... ```）を除去
+    # マークダウンコードブロックを除去
     text_clean = re.sub(r"```(?:json)?\s*", "", text)
     text_clean = re.sub(r"\s*```", "", text_clean).strip()
 
-    # JSON ブロックを抽出（最初の { から対応する最後の } まで）
+    # JSON ブロックを抽出
     m = re.search(r"\{[\s\S]*\}", text_clean)
     if m:
         try:
@@ -1366,12 +1340,12 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
 # ---- メイン ------------------------------------------------------------
 
 def main() -> None:
-    api_key = os.environ.get("GEMINI_API_KEY")
+    api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise EnvironmentError(
-            "環境変数 GEMINI_API_KEY が設定されていません。\n"
-            "GitHub Actions の場合: Settings → Secrets → GEMINI_API_KEY を追加してください。\n"
-            "ローカルの場合: export GEMINI_API_KEY=AIza..."
+            "環境変数 GROQ_API_KEY が設定されていません。\n"
+            "GitHub Actions の場合: Settings → Secrets → GROQ_API_KEY を追加してください。\n"
+            "ローカルの場合: export GROQ_API_KEY=gsk_..."
         )
 
     client = api_key  # REST API キーをそのまま渡す
