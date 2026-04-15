@@ -284,7 +284,16 @@ def summarize_video(
     finish = candidate.get("finishReason", "STOP")
     if finish not in ("STOP", "MAX_TOKENS"):
         raise ValueError(f"Unexpected finishReason: {finish}")
-    text = candidate["content"]["parts"][0]["text"]
+    # thinking モデル（gemini-2.5系）は parts[0] が思考内容、parts[-1] が実際の回答
+    # thought=True のパートをスキップして最後のテキストパートを使う
+    parts = candidate["content"].get("parts", [])
+    text = ""
+    for part in reversed(parts):
+        if part.get("text") and not part.get("thought"):
+            text = part["text"]
+            break
+    if not text:
+        text = parts[-1].get("text", "") if parts else ""
 
     # マークダウンコードブロック（```json ... ``` や ``` ... ```）を除去
     text_clean = re.sub(r"```(?:json)?\s*", "", text)
@@ -1441,7 +1450,7 @@ def main() -> None:
                 "analysis":     analysis,
             })
 
-            time.sleep(4.5)  # Gemini 無料枠レート制限対策（15 RPM = 4秒以上）
+            time.sleep(6)  # Gemini 無料枠レート制限対策（15 RPM = 余裕を持って6秒）
 
     # 当日言及されたティッカーの株価スナップショットを取得
     print("\n株価スナップショットを取得中...")
