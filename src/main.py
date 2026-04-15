@@ -476,9 +476,19 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
     ::-webkit-scrollbar-thumb {{ background: var(--border); }}
 
+    /* ticker tape */
+    .tv-ticker-wrap {{
+      position: sticky; top: 0; z-index: 101;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
+    }}
+    .tv-ticker-wrap .tradingview-widget-container,
+    .tv-ticker-wrap .tradingview-widget-container__widget {{ height: 46px !important; }}
+
     /* header */
     header {{
-      position: sticky; top: 0; z-index: 100;
+      position: sticky; top: 46px; z-index: 100;
       background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 clamp(16px,4vw,48px);
@@ -701,6 +711,31 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 <body>
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
+  <!-- TradingView Ticker Tape -->
+  <div class="tv-ticker-wrap">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {{
+        "symbols": [
+          {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
+          {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
+          {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
+          {{"description": "VIX", "proName": "CBOE:VIX"}},
+          {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
+          {{"description": "Gold", "proName": "TVC:GOLD"}},
+          {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
+        ],
+        "showSymbolLogo": false,
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "colorTheme": "dark",
+        "locale": "en"
+      }}
+      </script>
+    </div>
+  </div>
+
   <header>
     <div class="header-inner">
       <a href="{root_path}index.html" class="ad-logo">
@@ -756,7 +791,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     </div>
   </div>
 
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by claude ai</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -936,7 +971,7 @@ def generate_archive_index_html(dates: list[str]) -> str:
     <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
     <div class="archive-list">{rows}</div>
   </main>
-  <footer>// alphadigest · {now_jst}</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1065,7 +1100,7 @@ def generate_channels_html(channels: list[dict]) -> str:
     <p class="subtitle">// 監視対象の米国投資系YouTubeチャンネル一覧</p>
     <div class="channel-list">{rows}</div>
   </main>
-  <footer>// alphadigest · {now_jst}</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1331,7 +1366,7 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
       {mention_rows if mention_rows else '<p class="no-mentions">// no mentions found in archive</p>'}
     </div>
   </main>
-  <footer>// alphadigest · {now_jst}</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
   <script>{_bg_canvas_js([ticker])}</script>
 </body>
 </html>"""
