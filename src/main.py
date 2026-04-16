@@ -89,7 +89,13 @@ def resolve_channel_ids(channels: list[dict]) -> list[dict]:
 def get_recent_videos(channel_id: str, hours: int = LOOKBACK_HOURS) -> list[dict]:
     """RSS フィードから直近 `hours` 時間以内の動画を取得する。"""
     rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
-    feed = feedparser.parse(rss_url)
+    try:
+        resp = requests.get(rss_url, timeout=20)
+        resp.raise_for_status()
+        feed = feedparser.parse(resp.content)
+    except Exception as e:
+        print(f"  [WARN] RSS取得失敗 (channel_id={channel_id}): {e}")
+        return []
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     results = []
     for entry in feed.entries:
