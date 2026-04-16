@@ -289,7 +289,6 @@ def _render_card(r: dict, root_path: str = "") -> str:
     pub_date   = format_pub_datetime(r.get("published", ""))
 
     sent_label  = _SENT_LABEL.get(sentiment, sentiment)
-    imp_pct     = importance * 20
     ticker_html = "".join(
         f'<a class="ticker" href="{root_path}ticker/{t}.html">{t}</a>'
         for t in tickers
@@ -308,14 +307,13 @@ def _render_card(r: dict, root_path: str = "") -> str:
     else:
         points_block = ""
 
-    return f"""<article class="card sent-{sentiment} imp-{importance}" data-sentiment="{sentiment}" data-importance="{importance}">
+    return f"""<article class="card sent-{sentiment}" data-sentiment="{sentiment}">
   <div class="card-top">
     <span class="channel-name">{r['channel_name']}</span>
     <span class="badge-sent {sentiment}">{sent_label}</span>
   </div>
   <h3><a href="{r['url']}" target="_blank" rel="noopener">{r['title']}</a></h3>
   {tags_block}
-  <div class="imp-track"><div class="imp-fill" style="width:{imp_pct}%"></div></div>
   <p class="summary">{a.get('summary_ja', '')}</p>
   {points_block}
   <div class="card-footer">
@@ -627,16 +625,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px;
     }}
 
-    .imp-track {{
-      height: 2px; background: var(--border); border-radius: 1px;
-      margin: 4px 0 12px; overflow: hidden;
-    }}
-    .imp-fill {{ height: 100%; border-radius: 1px; background: rgba(255,255,255,0.2); transition: width 500ms ease; }}
-    .card.imp-5 .imp-fill {{ background: var(--brand); }}
-    .card.imp-4 .imp-fill {{ background: rgba(0,255,136,0.5); }}
-    .card.imp-3 .imp-fill {{ background: rgba(255,255,255,0.3); }}
-
-    .summary {{ font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }}
+.summary {{ font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }}
 
     .points-details {{ margin-bottom: 10px; }}
     .points-details > summary {{
@@ -755,10 +744,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       <button class="filter-btn f-bear" data-filter="bearish">▼ bearish</button>
       <button class="filter-btn f-neut" data-filter="neutral">● neutral</button>
     </div>
-    <div class="filter-segment">
-      <button class="filter-btn" data-imp="5">top picks</button>
-      <button class="filter-btn" data-imp="4">important+</button>
-    </div>
   </div>
 
   <div class="grid-wrap">
@@ -787,15 +772,13 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 
     // Filters
     let activeSentiment = 'all';
-    let activeImp = 0;
     const allCards = document.querySelectorAll('.card');
 
     function applyFilters() {{
       let visible = 0;
       allCards.forEach(c => {{
         const matchS = activeSentiment === 'all' || c.dataset.sentiment === activeSentiment;
-        const matchI = activeImp === 0 || parseInt(c.dataset.importance) >= activeImp;
-        if (matchS && matchI) {{ c.classList.remove('hidden'); visible++; }}
+        if (matchS) {{ c.classList.remove('hidden'); visible++; }}
         else {{ c.classList.add('hidden'); }}
       }});
       document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
@@ -806,19 +789,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
         btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSentiment = btn.dataset.filter;
-        applyFilters();
-      }});
-    }});
-
-    document.querySelectorAll('[data-imp]').forEach(btn => {{
-      btn.addEventListener('click', () => {{
-        const val = parseInt(btn.dataset.imp);
-        if (activeImp === val) {{
-          activeImp = 0; btn.classList.remove('active');
-        }} else {{
-          btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active'); activeImp = val;
-        }}
         applyFilters();
       }});
     }});
