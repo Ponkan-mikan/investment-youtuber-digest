@@ -1487,7 +1487,7 @@ def main() -> None:
                 "analysis":     analysis,
             })
 
-            time.sleep(6)  # Gemini 無料枠レート制限対策（15 RPM = 余裕を持って6秒）
+            time.sleep(2)  # Groq レート制限対策（30 RPM = 2秒間隔）
 
     # 当日言及されたティッカーの株価スナップショットを取得
     print("\n株価スナップショットを取得中...")
