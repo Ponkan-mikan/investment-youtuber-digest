@@ -2,37 +2,1487 @@
   "date": "2026-04-16",
   "results": [
     {
+      "channel_name": "Everything Money",
+      "video_id": "26PZAJO-vqs",
+      "title": "The Stock Market ERUPTS on HUGE News Today! | All Birds Stock AI",
+      "url": "https://www.youtube.com/watch?v=26PZAJO-vqs",
+      "published": "2026-04-15T20:43:50+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、Bank of AmericaやASMLなどの企業の株価の動きや、米伊間の緊張がインフレに与える影響について議論している。また、All Birds Stock AIに関するニュースも取り上げられている。視聴者は、最新の金融ニュースを通じて投資知識を深めることができる。動画では、専門家の分析や市場の動向についても触れられている。",
+        "tickers": [
+          "BAC",
+          "ASML"
+        ],
+        "key_points": [
+          "Bank of AmericaやASMLなどの企業の株価の動きが市場に与える影響",
+          "米伊間の緊張がインフレに与える影響",
+          "All Birds Stock AIに関するニュース",
+          "市場の動向と投資戦略",
+          "最新の金融ニュースの重要性"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Everything Money",
+      "video_id": "YYrjbwYxh4Y",
+      "title": "Paul Reacts to JPM + JNJ Stock Earnings",
+      "url": "https://www.youtube.com/watch?v=YYrjbwYxh4Y",
+      "published": "2026-04-14T20:24:49+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、JPMorgan ChaseとJohnson & Johnsonの株式の業績について分析しています。また、ビットコインの最近の動向とウォール街の暗い見通しについても触れています。視聴者は、投資の旅に役立つリアルタイムの洞察を得ることができます。",
+        "tickers": [
+          "JPM",
+          "JNJ"
+        ],
+        "key_points": [
+          "JPMorgan ChaseとJohnson & Johnsonの株式の業績分析",
+          "ビットコインの最近の動向とウォール街の見通し",
+          "投資家にとってのリアルタイムの洞察",
+          "ビットコインの暗い見通し",
+          "個別銘柄の分析"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略",
+          "決算分析"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "c4mUAcqTquU",
+      "title": "Interactive Brokers IBKR Broker and Stock Review!",
+      "url": "https://www.youtube.com/watch?v=c4mUAcqTquU",
+      "published": "2026-04-15T12:01:12+00:00",
+      "analysis": {
+        "summary_ja": "Interactive Brokersのレビュー動画で、投資家向けのプラットフォームやサービスについて紹介しています。動画では、投資のリスクや責任について言及し、視聴者が自己責任で投資判断を行う必要性を強調しています。また、動画作成者自身の投資経験や、提供するストックマーケットリサーチプラットフォームについても触れています。",
+        "tickers": [],
+        "key_points": [
+          "投資にはリスクが伴うため、自己責任で投資判断を行う必要がある",
+          "Interactive Brokersのサービスやプラットフォームについて紹介",
+          "ストックマーケットリサーチプラットフォームの提供",
+          "投資家教育の重要性を強調",
+          "動画作成者自身の投資経験や哲学について言及"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "投資プラットフォーム",
+          "投資教育"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "kNKpJWjIZE4",
+      "title": "Can you believe this Market? UP no matter what!",
+      "url": "https://www.youtube.com/shorts/kNKpJWjIZE4",
+      "published": "2026-04-14T18:00:53+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、市場の状況について議論されており、個人投資家向けの投資戦略や分析方法が紹介されている。動画の作者は、自身の投資プラットフォームや無料の投資コースについて言及している。市場の分析や個別銘柄の分析についても触れられている。",
+        "tickers": [],
+        "key_points": [
+          "市場の状況についての分析",
+          "投資戦略や分析方法の紹介",
+          "無料の投資コースの提供",
+          "個別銘柄の分析の重要性",
+          "リスク管理の必要性"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "個別銘柄分析"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "NhzycUC5wrY",
+      "title": "Greggs Stock Analysis LON:GRG 4.26% Yield + Growth on Lower Capex!",
+      "url": "https://www.youtube.com/watch?v=NhzycUC5wrY",
+      "published": "2026-04-14T12:00:43+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、Greggs（LON:GRG）の株式を分析しています。動画では、4.26%の配当利回りと低い資本支出（Capex）での成長について言及しています。また、動画作成者は、自身のストックマーケットリサーチプラットフォームや無料のバリューインベスティングコースについても紹介しています。",
+        "tickers": [
+          "GRG"
+        ],
+        "key_points": [
+          "Greggsの株式は4.26%の配当利回りを提供している",
+          "低い資本支出（Capex）での成長が見込まれる",
+          "動画作成者は、ストックマーケットリサーチプラットフォームを提供している",
+          "無料のバリューインベスティングコースが利用可能",
+          "投資判断の際には、自身の研究とデューデリジェンスを行う必要がある"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "配当投資"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Brian Stoffel",
+      "video_id": "H-30tD7eDKE",
+      "title": "TSMC: Is It Too Late to Buy the High-Growth Monopoly? (Deep Dive Analysis)",
+      "url": "https://www.youtube.com/watch?v=H-30tD7eDKE",
+      "published": "2026-04-15T04:56:13+00:00",
+      "analysis": {
+        "summary_ja": "TSMCの投資可能性を分析する動画です。動画では、TSMCの事業、収益成長、利益率、資本集約性について冷静に評価します。また、TSMCの競争上の優位性、地政学的リスク、地理的多様化の進展についても検討します。",
+        "tickers": [
+          "TSMC"
+        ],
+        "key_points": [
+          "TSMCの収益成長と利益率は高い",
+          "TSMCの競争上の優位性は規模、技術的専門知識、エコシステムのロックインによる",
+          "地政学的リスクと地理的多様化の進展がTSMCの将来に影響を与える",
+          "TSMCの投資可能性はまだ残されているか",
+          "TSMCの将来成長の可能性とリスクを考慮する必要がある"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "半導体業界"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Business with Brian",
+      "video_id": "zmxAWnk-Ank",
+      "title": "This ‘Always’ Happens Before a Market Correction",
+      "url": "https://www.youtube.com/watch?v=zmxAWnk-Ank",
+      "published": "2026-04-15T13:15:09+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、ホストが過去のすべての景気後退を分析し、市場の修正前に常に起こるパターンを特定したことを説明しています。ホストは、現在の市場状況が過去の景気後退のパターンに似ていることを示唆していますが、正しい投資判断をすることで、富を築くことができると主張しています。動画では、景気後退のリスク、市場のピーク、投資チェックリストなどについても言及しています。",
+        "tickers": [],
+        "key_points": [
+          "過去の景気後退を分析することで、市場の修正前に起こるパターンを特定できる",
+          "現在の市場状況は過去の景気後退のパターンに似ている",
+          "正しい投資判断をすることで、富を築くことができる",
+          "投資チェックリストを使用することで、リスクを管理できる",
+          "市場のピークは、景気後退の前触れとなることがある"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "マクロ経済",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
       "channel_name": "Asymmetric Investing",
       "video_id": "INUCjhXZYbw",
       "title": "This Is Exactly How the AI Bubble Pops",
       "url": "https://www.youtube.com/watch?v=INUCjhXZYbw",
       "published": "2026-04-15T10:50:35+00:00",
       "analysis": {
-        "summary_ja": "この動画では、人工知能（AI）関連の株式市場バブルが3年間形成されてきたが、いつまでも続くわけではなく、バブルが崩壊する仕組みについて説明している。バブルの形成、崩壊の理由、そして崩壊の方法について分析している。AI関連株に投資している場合、この動画は必見である。",
+        "summary_ja": "この動画では、人工知能（AI）関連の株式市場バブルが3年間形成されてきたが、いつまでも続くわけではなく、バブルが崩壊する方法について説明している。バブルが崩壊する可能性と、個人投資家がこれに対してどのように対応すべきかが議論されている。",
         "tickers": [
           "NVDA"
         ],
         "key_points": [
-          "AI関連の株式市場バブルが形成されてきた",
-          "バブルはいつまでも続くわけではなく、崩壊する",
-          "バブルの形成と崩壊の理由について分析",
-          "バブルの崩壊は予測可能",
-          "投資家は注意が必要"
+          "AI関連の株式市場バブルが形成されており、崩壊する可能性がある",
+          "バブルの崩壊は、過去のドットコムバブルと類似している",
+          "個人投資家は、バブルの崩壊に備えて投資戦略を再検討すべきである",
+          "バブルの崩壊は、市場全体に影響を及ぼす可能性がある",
+          "投資家は、バブルの崩壊に対するリスク管理を講じる必要がある"
         ],
         "sentiment": "bearish",
         "topics": [
           "市場見通し",
-          "バブル",
-          "人工知能"
+          "投資戦略",
+          "バブル"
         ],
         "importance": 4
       },
       "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
         "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
         "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
         "SMCI": 27.29,
         "SOFI": 18.79,
-        "TSLA": 391.95
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Felix & Friends",
+      "video_id": "M8jEbBFczt4",
+      "title": "The Global Monetary Reset Has Begun (Hint: Act Now!)",
+      "url": "https://www.youtube.com/watch?v=M8jEbBFczt4",
+      "published": "2026-04-15T13:00:07+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、ホストのFelix Prehnがグローバルな金融リセットが始まったことを示唆し、視聴者に今すぐ行動するよう促しています。Felixはウォール街の知識と個人投資家の間にあるギャップについて話し、独自の取引アプローチを紹介します。動画では、投資と取引に関する洞察が提供され、視聴者は無料のコミュニティに参加したり、トレーニングセッションに参加したりすることができます。",
+        "tickers": [],
+        "key_points": [
+          "グローバルな金融リセットが始まっている",
+          "ウォール街の知識と個人投資家の間にあるギャップ",
+          "Felixの独自の取引アプローチ",
+          "投資と取引に関する洞察",
+          "無料のコミュニティとトレーニングセッションの参加"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Daniel Pronk",
+      "video_id": "4c-7aZYAt3U",
+      "title": "BIRD Stock is Up 600% Today - Here's What You Need to Know",
+      "url": "https://www.youtube.com/watch?v=4c-7aZYAt3U",
+      "published": "2026-04-15T22:44:24+00:00",
+      "analysis": {
+        "summary_ja": "BIRD株が600%上昇した背景と要因について解説している動画。AmazonのニュースやMark Zuckerbergのインタビューも取り上げられている。動画では、投資家向けの情報やアナリシスが提供されている。投資家は、自身の投資判断の参考としてこの情報を活用できる。動画内では、投資に関する重要な注意点も言及されている。",
+        "tickers": [
+          "BIRD",
+          "AMZN"
+        ],
+        "key_points": [
+          "BIRD株の600%上昇の要因を分析する",
+          "Amazonのニュースが市場に与える影響",
+          "Mark Zuckerbergのインタビューが示す市場動向",
+          "投資家が注意すべきリスクと注意点",
+          "個別銘柄と市場全体の関係性"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "Gsjw0XQB1fk",
+      "title": "Should Investors Buy Lowe's Stock Today? | LOW Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=Gsjw0XQB1fk",
+      "published": "2026-04-15T16:15:01+00:00",
+      "analysis": {
+        "summary_ja": "ホーム改修業界は世界最大の業界の一つであり、Lowe's の株式について分析している。動画では、投資家が Lowe's の株式を購入するべきかどうかについて議論している。動画の作成者は、投資家向けの書籍やツールも提供している。",
+        "tickers": [
+          "LOW"
+        ],
+        "key_points": [
+          "ホーム改修業界は世界最大の業界の一つである",
+          "Lowe's の株式について分析している",
+          "投資家向けの書籍やツールが提供されている",
+          "The Motley Fool Stock Advisor のパフォーマンスが紹介されている",
+          "投資にはリスクが伴うことが強調されている"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "VtGSVgDt4mE",
+      "title": "Why is Kraft Heinz Stock Falling, and is it a Generational Buying Opportunity?",
+      "url": "https://www.youtube.com/watch?v=VtGSVgDt4mE",
+      "published": "2026-04-15T15:45:05+00:00",
+      "analysis": {
+        "summary_ja": "クラフトハインツの株価が下落している理由と、世代を超えた買い機会であるかどうかについて分析しています。クラフトハインツはウォーレン・バフェットの投資で期待を裏切った企業の一つです。",
+        "tickers": [
+          "KHC"
+        ],
+        "key_points": [
+          "クラフトハインツの株価下落の理由を分析",
+          "買い機会としての潜在性を検討",
+          "ウォーレン・バフェットの投資戦略の参考",
+          "リスク管理とポートフォリオ構築の重要性",
+          "投資判断に役立つフレームワークの使用"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "QvWz1cF_uBw",
+      "title": "Could Qualcomm Stock be One of the Best Semiconductor Stocks to Buy Today?",
+      "url": "https://www.youtube.com/watch?v=QvWz1cF_uBw",
+      "published": "2026-04-15T13:45:23+00:00",
+      "analysis": {
+        "summary_ja": "Qualcomm の株式について分析し、業界の頭風が会社の成長に影響を与えていることを説明している。動画では、Qualcomm の株式を購入することのメリットとデメリットについて議論している。動画の作成者は、The Motley Fool などの投資ツールやリソースについても言及している。動画では、投資家が情報に基づいた決定を下すために必要な情報を提供している。投資家は、動画の内容を参考にして、Qualcomm の株式を購入するかどうかを判断することができる。",
+        "tickers": [
+          "QCOM"
+        ],
+        "key_points": [
+          "業界の頭風がQualcommの成長に影響を与えている",
+          "The Motley Foolなどの投資ツールやリソースが利用可能",
+          "投資家は情報に基づいた決定を下すために必要な情報を入手できる",
+          "Qualcommの株式を購入することのメリットとデメリットについて議論",
+          "投資家は動画の内容を参考にして、Qualcommの株式を購入するかどうかを判断できる"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "5DCdKxeDwkU",
+      "title": "For the First Time Ever, I am Upgrading Archer Aviation Stock to a Buy Rating",
+      "url": "https://www.youtube.com/watch?v=5DCdKxeDwkU",
+      "published": "2026-04-15T11:45:00+00:00",
+      "analysis": {
+        "summary_ja": "Archer Aviation 株を買い投票にアップグレードした理由について説明している動画。投資家は高リスクを負うことになるため、注意が必要。動画では、投資戦略やリスク管理についても触れている。",
+        "tickers": [
+          "Archer Aviation"
+        ],
+        "key_points": [
+          "Archer Aviation 株を買い投票にアップグレードした理由",
+          "高リスクを伴う投資であるため、投資家は注意が必要",
+          "投資戦略やリスク管理の重要性",
+          "The Motley Fool Stock Advisor のパフォーマンス",
+          "個別の投資戦略フレームワークの紹介"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "vydhZ-E6tjg",
+      "title": "Why Is UiPath Stock Crashing, and is it a Buying Opportunity? | PATH Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=vydhZ-E6tjg",
+      "published": "2026-04-15T10:45:05+00:00",
+      "analysis": {
+        "summary_ja": "UiPathの株価が下落している理由と、それが買い機会であるかどうかについて分析している動画です。AIモデルがより強力になるにつれて、ソフトウェア株が売却されている状況下でのUiPathの株価の動向を検討しています。動画では、投資家がUiPathの株式を購入する機会を探すための分析も行われています。",
+        "tickers": [
+          "PATH"
+        ],
+        "key_points": [
+          "UiPathの株価が下落している理由を分析",
+          "AIモデルがソフトウェア株への影響",
+          "UiPathの株価が買い機会であるかどうか",
+          "投資家がUiPathの株式を購入するための分析",
+          "投資判断におけるリスク管理の重要性"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "9FJuXiNNtVc",
+      "title": "Should You Buy Netflix Stock Before the Huge Investor Update? | NFLX Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=9FJuXiNNtVc",
+      "published": "2026-04-15T09:45:00+00:00",
+      "analysis": {
+        "summary_ja": "Netflixの株価について分析し、投資家向けの情報を提供する動画。Netflixの管理チームが年間目標を上方修正する可能性が高いと予測している。動画では、Netflixの株式購入について検討する必要性を強調している。",
+        "tickers": [
+          "NFLX"
+        ],
+        "key_points": [
+          "Netflixの管理チームが年間目標を上方修正する可能性が高い",
+          "投資家向けの情報を提供するために、動画ではNetflixの株価について分析している",
+          "動画では、Netflixの株式購入について検討する必要性を強調している",
+          "The Motley Fool Stock Advisorのパフォーマンスは983%である",
+          "過去のパフォーマンスは将来の結果を保証しない"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "0Uamwbn1a6E",
+      "title": "Why Is Monday.com Stock Crashing, and is it a Buy Right Now?",
+      "url": "https://www.youtube.com/watch?v=0Uamwbn1a6E",
+      "published": "2026-04-14T16:45:01+00:00",
+      "analysis": {
+        "summary_ja": "Monday.com の株価が下落している理由と、現在買い時かどうかについて分析しています。ソフトウェア株の売り出しが広がっていることや、投資戦略に関するアドバイスが提供されています。",
+        "tickers": [
+          "Monday.com"
+        ],
+        "key_points": [
+          "Monday.com の株価はソフトウェア株の売り出しの影響を受けて下落している",
+          "投資家は慎重な分析とリスク管理が必要",
+          "投資戦略の重要性を強調",
+          "The Motley Fool の投資アドバイスが紹介されている",
+          "個別銘柄分析の重要性"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "6roWLUwMzcI",
+      "title": "DraftKings Stock Analysis: Buy or Sell? | #dkng #predictions #stocks #stockmarket #trading #invest",
+      "url": "https://www.youtube.com/shorts/6roWLUwMzcI",
+      "published": "2026-04-14T16:38:13+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、DraftKingsの株式分析が行われ、購入するか売るかについて議論されています。動画の作成者は、大学教授であり、CFA資格を持っており、投資に関する本も出版しています。動画では、投資家向けの6ステップの投資フレームワークが紹介されています。",
+        "tickers": [
+          "DKNG"
+        ],
+        "key_points": [
+          "DraftKingsの株式分析",
+          "投資判断のための6ステップの投資フレームワーク",
+          "リスク管理とポートフォリオの構築",
+          "投資家向けの本の紹介",
+          "投資研究のためのデータソースとしてFiscal.aiを使用"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "4YIXzkukRSU",
+      "title": "Why Is Mercado Libre Stock Falling, and is it a Buying Opportunity? | MELI Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=4YIXzkukRSU",
+      "published": "2026-04-14T16:15:00+00:00",
+      "analysis": {
+        "summary_ja": "Mercado Libre の株価が下落している理由と、それが買い機会であるかどうかについて分析しています。Mercado Libre は、より便利な配送戦略を通じて新しい顧客を引き付けているという特徴があります。",
+        "tickers": [
+          "MELI"
+        ],
+        "key_points": [
+          "Mercado Libre の株価が下落している理由を分析",
+          "Mercado Libre の配送戦略が新しい顧客を引き付けている",
+          "投資機会としての Mercado Libre の株価の下落",
+          "The Motley Fool の投資成果と特別オファー",
+          "パーカー・エヴァン・タテヴォシアンの投資フレームワークに関する本"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "fhGTBtxD-xM",
+      "title": "Massive News for Taiwan Semiconductor Stock Investors | TSM Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=fhGTBtxD-xM",
+      "published": "2026-04-14T12:45:10+00:00",
+      "analysis": {
+        "summary_ja": "台湾半導体（TSM）の株主にとっての大きなニュースについて分析しています。世界で最も優れた製造会社の1つである可能性があると述べています。動画では、TSMの株価について分析し、投資家への影響について説明しています。",
+        "tickers": [
+          "TSM"
+        ],
+        "key_points": [
+          "台湾半導体は世界で最も優れた製造会社の1つである可能性がある",
+          "TSMの株主にとっての大きなニュースが発表された",
+          "投資家は最新の情報に常に気を配る必要がある",
+          "動画ではTSMの株価について分析している",
+          "投資判断の参考となる情報が提供されている"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "e6wDM1Md53c",
+      "title": "I'm Downgrading This Semiconductor Stock",
+      "url": "https://www.youtube.com/watch?v=e6wDM1Md53c",
+      "published": "2026-04-14T11:45:04+00:00",
+      "analysis": {
+        "summary_ja": "動画では、半導体株式についての投資判断が下ろされている。動画作成者は以前この株式を買いとしていたが、現在は売りとしている。動画では、投資家向けの情報や投資戦略についても言及されている。",
+        "tickers": [],
+        "key_points": [
+          "半導体株式の投資判断が下ろされている",
+          "動画作成者は以前この株式を買いとしていたが、現在は売りとしている",
+          "投資家向けの情報や投資戦略についても言及されている"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "EO2vWQwk_Qo",
+      "title": "Should Investors Buy AMD Stock Today?",
+      "url": "https://www.youtube.com/watch?v=EO2vWQwk_Qo",
+      "published": "2026-04-14T10:15:00+00:00",
+      "analysis": {
+        "summary_ja": "AMDの財務結果は優れていたが、株価は下落した。動画では、投資家がAMDの株を購入するべきかどうかについて議論している。動画の作者は、投資家が情報に基づいた決定を下すために、独自の6ステップ投資フレームワークを紹介している。また、動画の一部はThe Motley Foolが提供しており、投資家向けの特別オファーについて紹介している。",
+        "tickers": [
+          "AMD"
+        ],
+        "key_points": [
+          "AMDの財務結果は優れていたが、株価は下落した",
+          "投資家は情報に基づいた決定を下すために、投資戦略を立てる必要がある",
+          "6ステップ投資フレームワークは、投資家が情報に基づいた決定を下すために役立つ",
+          "The Motley Foolの投資アドバイザーは過去に983%のリターンを達成している",
+          "投資にはリスクが伴うため、投資家は慎重な検討が必要"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "決算分析"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "0btSBuWeg0M",
+      "title": "The Stock Market Is About to Break… Or Fail (Critical Level)",
+      "url": "https://www.youtube.com/watch?v=0btSBuWeg0M",
+      "published": "2026-04-15T13:03:17+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、株式市場が重要な局面に立っており、SPYレベルのブレークアウトまたはダブルトップの形成が市場の次の動きを決定する可能性があることを説明しています。ホストのジェリー・ローマインは、自身の投資戦略と市場分析を共有し、視聴者に情報に基づいた投資決定を下すための洞察を提供しています。",
+        "tickers": [
+          "SPY"
+        ],
+        "key_points": [
+          "SPYレベルのブレークアウトまたはダブルトップの形成が市場の次の動きを決定する可能性がある",
+          "ブレークアウトは新たな高値への突破を意味し、ダブルトップは下降の可能性を示唆する",
+          "ジェリー・ローマインの投資戦略は長期的な成長と複利を重視している",
+          "市場の動きはさまざまな要因によって影響を受けるため、情報に基づいた投資決定が重要",
+          "視聴者は自身の投資目標とリスク許容度に基づいて投資決定を下す必要がある"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "3EGPJ5DHHPI",
+      "title": "Palantir Investors Are PANICKING… Are They About to Get RICH?",
+      "url": "https://www.youtube.com/watch?v=3EGPJ5DHHPI",
+      "published": "2026-04-14T14:17:41+00:00",
+      "analysis": {
+        "summary_ja": "Palantir の投資家がパニックに陥っている状況について説明し、将来の潜在的な利益について論じている。動画では、Jerry Romine が自身の投資戦略と成果について紹介している。Jerry Romine は、1990 年代から投資を始め、不動産、Amazon、株式で複数の七桁のビジネスを築いた。2025 年には、69% の ROI で 240 万ドルの利益を上げた。",
+        "tickers": [
+          "PLTR",
+          "NVDA"
+        ],
+        "key_points": [
+          "Palantir の投資家がパニックに陥っている状況",
+          "Jerry Romine の投資戦略と成果",
+          "2025 年の 69% の ROI と 240 万ドルの利益",
+          "Jerry Romine の投資経験とビジネス成果",
+          "Moomoo でのキャッシュスイープの利点"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Ticker Symbol: YOU",
+      "video_id": "FQhoQ4bRbe8",
+      "title": "This New Chip Factory Could Save America",
+      "url": "https://www.youtube.com/watch?v=FQhoQ4bRbe8",
+      "published": "2026-04-15T22:40:12+00:00",
+      "analysis": {
+        "summary_ja": "動画では、Terafabという新しいチップファクトリーについて紹介しています。Terafabは、アメリカの半導体産業を救う可能性があるとされています。動画では、Terafabの技術と潜在的な影響について深く分析しています。",
+        "tickers": [],
+        "key_points": [
+          "Terafabは、アメリカの半導体産業を救う可能性がある",
+          "Terafabの技術は、チップの製造をより効率的にすることができる",
+          "Terafabの成功は、アメリカの経済に大きな影響を与える可能性がある"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Stealth Wealth Investing",
+      "video_id": "vjS6G2iJh5U",
+      "title": "Feel Stuck in Your Career After 40?  You MUST Do THIS",
+      "url": "https://www.youtube.com/watch?v=vjS6G2iJh5U",
+      "published": "2026-04-15T16:01:47+00:00",
+      "analysis": {
+        "summary_ja": "この動画は40歳を超えてキャリアに困っている人に向けて、投資を通じて新たなキャリアを始める方法について紹介しています。動画では、10,000ドルの初期投資から始めて、企業生活を離れる方法について説明しています。ただし、動画内では具体的な投資戦略や銘柄については触れられていません。",
+        "tickers": [],
+        "key_points": [
+          "40歳を超えても新たなキャリアを始めることができる",
+          "投資を通じて収入を得ることが可能",
+          "企業生活を離れるための方法について紹介",
+          "投資にはリスクが伴うため、十分な注意が必要",
+          "専門家のアドバイスを得ることが重要"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "キャリア開発"
+        ],
+        "importance": 3
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Antonio Linares",
+      "video_id": "NJ0wCdI2Luk",
+      "title": "this is bigger than AMD at $4",
+      "url": "https://www.youtube.com/watch?v=NJ0wCdI2Luk",
+      "published": "2026-04-15T18:05:27+00:00",
+      "analysis": {
+        "summary_ja": "動画では、AMDの株価が4ドルだった時代と現在の市場状況を比較検討し、現在の市場がより大きな機会を提供している可能性について議論しています。ホストは、現在の市場状況が将来の成長に良い兆しであると考え、投資家に機会を逃さないよう注意を呼びかけています。動画では、特定の銘柄や市場動向について詳細な分析が行われています。",
+        "tickers": [
+          "AMD"
+        ],
+        "key_points": [
+          "AMDの過去の株価と現在の市場状況の比較",
+          "現在の市場が将来の成長に良い兆しである可能性",
+          "投資家に機会を逃さないよう注意を呼びかける",
+          "特定の銘柄や市場動向についての詳細な分析",
+          "将来の市場動向についての予測"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
       }
     },
     {
@@ -42,7 +1492,7 @@
       "url": "https://www.youtube.com/watch?v=KcW9TJq82eA",
       "published": "2026-04-15T20:00:28+00:00",
       "analysis": {
-        "summary_ja": "Super MicroのAIストーリーが信頼を取り戻せば爆発的に成長する可能性があるが、現在は信頼の問題で株価が下落している。会社の新しいAIシステムやNVIDIAとの提携が進むものの、投資家はこれらの製品ローンチよりも大きな問題に焦点を当てている。動画では、法的な論争、ガバナンスの問題、製品ロードマップ、評価の乖離がこの株をどのように分裂させているかを分析する。",
+        "summary_ja": "Super MicroのAIストーリーが信頼を取り戻せば爆発的に成長する可能性があるが、現在は信頼の問題で株価が下落している。会社の新しいAIシステムやNVIDIAとの提携が進むにも関わらず、投資家はより大きな問題に焦点を当てている。動画では、法的な論争、ガバナンス、製品ロードマップ、評価の断絶がこの株をどのように分裂させているかを分析する。",
         "tickers": [
           "SMCI",
           "NVDA"
@@ -51,7 +1501,7 @@
           "Super MicroのAI製品ストーリーがまだ重要である",
           "法的な論争が会社の評価に与える影響",
           "現在の評価が安いとみなされる理由",
-          "信頼が投資判断の決定的要因となる"
+          "信頼が投資判断の決定要因となる"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -61,11 +1511,33 @@
         "importance": 4
       },
       "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
         "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
         "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
         "SMCI": 27.29,
         "SOFI": 18.79,
-        "TSLA": 391.95
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
       }
     },
     {
@@ -75,16 +1547,16 @@
       "url": "https://www.youtube.com/watch?v=Xqvi5jiAQn8",
       "published": "2026-04-15T18:00:36+00:00",
       "analysis": {
-        "summary_ja": "SoFi 株の最近の下落は、実際の財務状況よりも投資家の感情的な反応によるものである可能性がある。次の決算発表が株価の方向性を変える可能性があり、将来の成長、バランスシートの健全性、評価の妥当性などが考慮される。SoFi 株の潜在的な機会やリスクについて分析する。投資家は、SoFi 株の将来のパフォーマンスを予測する上で、感情的な要因と基本的な財務状況の両方を考慮する必要がある。",
+        "summary_ja": "SoFi 株の下落は、実際の業績よりも市場の雰囲気に影響された可能性がある。次の決算発表が株価の方向性を変える可能性がある。SoFi 株の評価、将来の成長、財務の健全性、実行の改善とプレミアム期待とのバランスについて分析する。",
         "tickers": [
           "SOFI"
         ],
         "key_points": [
-          "SoFi 株の下落は感情的な反応によるものである可能性がある",
+          "SoFi 株の下落は市場の雰囲気に影響された可能性がある",
+          "最新の財務実績は実際の業績よりも市場の雰囲気に影響された",
+          "評価はまだ高いかもしれない",
           "次の決算発表が株価の方向性を変える可能性がある",
-          "将来の成長とバランスシートの健全性が考慮される",
-          "評価の妥当性が重要な要素となる",
-          "感情的な要因と基本的な財務状況の両方を考慮する必要がある"
+          "将来の成長と財務の健全性が重要な要素となる"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -95,11 +1567,33 @@
         "importance": 4
       },
       "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
         "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
         "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
         "SMCI": 27.29,
         "SOFI": 18.79,
-        "TSLA": 391.95
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
       }
     },
     {
@@ -109,16 +1603,16 @@
       "url": "https://www.youtube.com/watch?v=AVZycidZWuQ",
       "published": "2026-04-14T20:00:06+00:00",
       "analysis": {
-        "summary_ja": "Armの自社製チップの発表が企業の投資ストーリーを変える可能性がある。Armのビジネスモデルが変化する可能性や、AIインフラストラクチャへの長期的な影響について分析する。ただし、株価の高騰や評価の高さ、戦略的リスクも考慮する必要がある。",
+        "summary_ja": "Armの自社チップ開発が投資ストーリーを変える可能性について分析。Armのビジネスモデルへの影響や、AIインフラストラクチャへの長期的な潜在的な影響について議論。ただし、既に株価が上昇しており、評価が非常に高く、戦略的なリスクもあることを考慮する必要がある。",
         "tickers": [
           "ARM"
         ],
         "key_points": [
-          "Armの自社製チップが企業の投資ストーリーを変える可能性がある",
-          "Armのビジネスモデルが変化する可能性",
-          "AIインフラストラクチャへの長期的な影響",
-          "株価の高騰や評価の高さ",
-          "戦略的リスク"
+          "Armの自社チップ開発が投資ストーリーを変える可能性",
+          "Armのビジネスモデルへの影響",
+          "AIインフラストラクチャへの長期的な潜在的な影響",
+          "評価が非常に高く、戦略的なリスクがある",
+          "この状況が機会かトラップか"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -129,11 +1623,33 @@
         "importance": 4
       },
       "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
         "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
         "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
         "SMCI": 27.29,
         "SOFI": 18.79,
-        "TSLA": 391.95
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
       }
     },
     {
@@ -143,31 +1659,706 @@
       "url": "https://www.youtube.com/watch?v=T3FLi98V3Xo",
       "published": "2026-04-14T18:00:34+00:00",
       "analysis": {
-        "summary_ja": "テスラの第1四半期の納車実績が見込みを下回ったことについて分析し、在庫増加やエネルギー貯蔵の弱さが将来の成長に与える影響を検討している。4月22日のイベントがテスラの株価に与える影響についても言及している。",
+        "summary_ja": "テスラの第1四半期の納車実績が見込みを下回ったことについて分析し、50,000台以上の余剰車両が生産されたことの意味や、エネルギー貯蔵の弱い数字がブルーカースに与える影響について議論している。4月22日のイベントがテスラの株価に与える影響についても言及している。",
         "tickers": [
           "TSLA"
         ],
         "key_points": [
-          "テスラの納車実績が見込みを下回ったことの意味",
-          "在庫増加が論争を呼んでいる背景",
-          "エネルギー貯蔵の弱さがブルーケースに与える影響",
-          "4月22日のイベントがテスラの株価に与える影響",
-          "テスラの自律走行技術が将来の成長に与える影響"
+          "テスラの納車実績の見込み下回りが実際の需要をどう反映しているか",
+          "50,000台以上の余剰車両が議論をどう変えたか",
+          "エネルギー貯蔵の弱い数字がブルーカースに与える影響",
+          "4月22日のイベントがテスラの株価に与える影響"
         ],
         "sentiment": "neutral",
         "topics": [
           "個別銘柄分析",
-          "決算分析",
+          "決算分析"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "3jrCaqLZj0k",
+      "title": "What happens to Bitmine if Ethereum hits $250k?",
+      "url": "https://www.youtube.com/shorts/3jrCaqLZj0k",
+      "published": "2026-04-16T01:23:38+00:00",
+      "analysis": {
+        "summary_ja": "Ethereum の将来の市場動向に基づいて、Bitmine 株の潜在的な上昇を分析する動画です。Ethereum が 22,000 ドルに達した場合、Bitmine は 500 ドル近くに上昇する可能性があり、62,000 ドルに達した場合、1,500 ドルまで上昇する可能性があります。さらに、Ethereum が 25 万ドルに達した場合、Bitmine の評価額に大きな影響を与える可能性があります。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "Ethereum の価格上昇に伴い、Bitmine 株の潜在的な上昇が予測される",
+          "Ethereum が 22,000 ドルに達した場合、Bitmine は 500 ドル近くに上昇する可能性",
+          "Ethereum が 62,000 ドルに達した場合、Bitmine は 1,500 ドルまで上昇する可能性",
+          "Ethereum が 25 万ドルに達した場合、Bitmine の評価額に大きな影響を与える可能性",
+          "この分析は、市場相関関係の情報提供のみを目的としており、投資アドバイスではありません"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "仮想通貨",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "Sx4y6ykj_5o",
+      "title": "The world's largest crypto staking operation is about to launch.",
+      "url": "https://www.youtube.com/shorts/Sx4y6ykj_5o",
+      "published": "2026-04-15T23:39:40+00:00",
+      "analysis": {
+        "summary_ja": "Bitmine社は、世界最大の商用ステーキング運用となるMavenを2週間以内にリリース予定。10億ドル以上の暗号資産がステーキングされる見込みで、暗号資産市場に大きな変化が起こる可能性がある。個人投資家は、投資決定前に独自の調査を行う必要がある。この動画は教育目的のみであり、投資アドバイスではない。",
+        "tickers": [],
+        "key_points": [
+          "Bitmine社のMavenは、世界最大の商用ステーキング運用となる",
+          "10億ドル以上の暗号資産がステーキングされる見込み",
+          "暗号資産市場に大きな変化が起こる可能性がある",
+          "個人投資家は、投資決定前に独自の調査を行う必要がある",
+          "この動画は教育目的のみであり、投資アドバイスではない"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "暗号資産",
+          "ステーキング"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "SC6Z_44HTvY",
+      "title": "$BMNR SECRETLY dropped Q1 Earnings (2 HUGE Surprises)",
+      "url": "https://www.youtube.com/watch?v=SC6Z_44HTvY",
+      "published": "2026-04-15T21:54:31+00:00",
+      "analysis": {
+        "summary_ja": "BMNR の Q1 決算が発表され、2 つの大きな驚きが含まれている。動画では、これらの驚きについて説明し、投資家への影響について分析している。動画の概要では、自動売買ソフトウェアの紹介と、10,000 ドル以上の口座を持つ投資家向けのサービスについて触れている。動画は情報提供と教育目的のみであり、投資アドバイスではない。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "BMNR の Q1 決算が発表された",
+          "2 つの大きな驚きが含まれている",
+          "自動売買ソフトウェアの紹介",
+          "10,000 ドル以上の口座を持つ投資家向けのサービス",
+          "投資にはリスクが伴う"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "bvhJ119S6Ys",
+      "title": "Turn bear market panic into long-term wealth 📈",
+      "url": "https://www.youtube.com/shorts/bvhJ119S6Ys",
+      "published": "2026-04-15T18:33:46+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、ベアマーケットでの恐慌を長期的な富への転換する方法について説明しています。株式市場での真の富は一晩で築かれるものではなく、恐怖のサイクルの中での信念から生まれるものです。高潜在性の会社を早期に特定し、長期的な視点を維持し、下降局面で株式を保持または増やすことで富を築くことができます。",
+        "tickers": [],
+        "key_points": [
+          "高潜在性の会社を早期に特定することの重要性",
+          "長期的な視点を維持することの重要性",
+          "下降局面で株式を保持または増やすことで富を築くことができる",
+          "市場の歴史的なサイクルを理解することで潜在的な損失を機会に変えることができる",
+          "忍耐強く待つことで富を築くことができる"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "市場見通し",
+          "長期投資"
+        ],
+        "importance": 5
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "AU_TeEUTX3I",
+      "title": "Is Ethereum undervalued compared to Bitcoin? Find out the simple math.",
+      "url": "https://www.youtube.com/shorts/AU_TeEUTX3I",
+      "published": "2026-04-15T14:26:39+00:00",
+      "analysis": {
+        "summary_ja": "イーサリアムの真の価値を判断するのは複雑に感じられるかもしれないが、この動画では歴史的な関係からイーサリアムとビットコインの価格関係を分析し、イーサリアムの価格がビットコインの価格の5%に相当する可能性があることを示している。投資家はこの比較評価方法を参考にして市場動向と将来の価格変動を評価することができる。ただし、仮想通貨市場は変動性が高いため、投資決定を行う前に十分な調査を行う必要がある。",
+        "tickers": [],
+        "key_points": [
+          "イーサリアムとビットコインの歴史的な価格関係を分析することで、イーサリアムの価格がビットコインの価格の5%に相当する可能性があることが示唆される",
+          "この比較評価方法は投資家が市場動向と将来の価格変動を評価するための基準となる",
+          "仮想通貨市場は変動性が高いため、投資決定を行う前に十分な調査を行う必要がある",
+          "イーサリアムの価格はビットコインの価格に影響される可能性がある",
+          "投資家はこの分析を参考にして、自分の投資戦略を立てることができる"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "G9HeAUk0-5I",
+      "title": "Is Tom Lee the most accurate crypto prophet? Here’s why his wild targets come true.",
+      "url": "https://www.youtube.com/shorts/G9HeAUk0-5I",
+      "published": "2026-04-15T02:27:37+00:00",
+      "analysis": {
+        "summary_ja": "Tom Leeは、過去にビットコインの価格予測を的中させたことで知られており、現在はイーサリアムの価格が25万ドルに達する可能性を予測している。彼の予測は極端に思えるかもしれないが、市場サイクルと長期的な資産の潜在力を深く理解していることがわかる。彼の予測は、市場の感情と専門家の見解を反映している。投資家は、Tom Leeの予測を参考にして、自らの投資戦略を立てることができる。",
+        "tickers": [],
+        "key_points": [
+          "Tom Leeは過去にビットコインの価格予測を的中させている",
+          "イーサリアムの価格が25万ドルに達する可能性を予測している",
+          "市場サイクルと長期的な資産の潜在力を深く理解している",
+          "予測は市場の感情と専門家の見解を反映している",
+          "投資家は予測を参考にして自らの投資戦略を立てることができる"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
           "投資戦略"
         ],
         "importance": 4
       },
       "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
         "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
         "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
         "SMCI": 27.29,
         "SOFI": 18.79,
-        "TSLA": 391.95
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "ajiXjckzB1U",
+      "title": "$BMNR Hit The BOTTOM. 7700 Changes Everything.",
+      "url": "https://www.youtube.com/watch?v=ajiXjckzB1U",
+      "published": "2026-04-14T22:54:28+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、BMNR 株の分析が行われており、底値に達した可能性について議論されている。動画内では、自動売買ソフトウェアの紹介も行われている。視聴者は、自身の投資判断のために独自の研究を行う必要がある。動画の内容は、投資家向けの情報提供と教育を目的としている。BMNR 株の動向について、重要な変化点として 7700 が言及されている。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "BMNR 株の底値に達した可能性",
+          "自動売買ソフトウェアの紹介",
+          "投資判断のために独自の研究が必要",
+          "7700 が重要な変化点として言及されている",
+          "動画の内容は投資家向けの情報提供と教育を目的としている"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "PmwfjVq7a_4",
+      "title": "Could Bitmain hit $5,000? Discover the power of holding with high conviction.",
+      "url": "https://www.youtube.com/shorts/PmwfjVq7a_4",
+      "published": "2026-04-14T22:17:47+00:00",
+      "analysis": {
+        "summary_ja": "Bitmain の将来の価値が 5,000 ドルに達する可能性について論じている。長期的な視点と確固たる信念が必要である。歴史的なパフォーマンスを分析し、市場の変動性に耐えることが重要である。",
+        "tickers": [],
+        "key_points": [
+          "長期的な視点と確固たる信念が必要",
+          "市場の変動性に耐えることが重要",
+          "歴史的なパフォーマンスを分析することで将来の成長の可能性を理解できる",
+          "平均ダウン戦略を採用することが有効",
+          "将来のブルマーケットでの成長の可能性が高い"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "YgvYHIvKyE0",
+      "title": "Is a $5,000 price target realistic or just crazy? Let's break down the math.",
+      "url": "https://www.youtube.com/shorts/YgvYHIvKyE0",
+      "published": "2026-04-14T17:35:53+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、Tom Lee による Ethereum の 5,000 ドルへの価格目標について分析しています。Bitmine の Maven ステーキングプラットフォームの潜在性と、Ethereum が世界最大の商業運用になる可能性について議論しています。Ethereum と Bitcoin の歴史的なパフォーマンスや将来の市場予測を比較検討しながら、Ethereum の価格目標を 12,000 ドルから 60,000 ドル以上までと広範囲に設定しています。",
+        "tickers": [],
+        "key_points": [
+          "Ethereum の価格目標は 5,000 ドルから 60,000 ドル以上",
+          "Bitmine の Maven ステーキングプラットフォームの潜在性",
+          "Ethereum と Bitcoin の歴史的なパフォーマンスの比較",
+          "将来の市場予測と Ethereum の役割",
+          "ステーキングプラットフォームの影響"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "ulBBETEJqPc",
+      "title": "Is the quantum computing breakthrough finally upon us?",
+      "url": "https://www.youtube.com/shorts/ulBBETEJqPc",
+      "published": "2026-04-14T17:16:38+00:00",
+      "analysis": {
+        "summary_ja": "量子コンピューティングの技術が大規模な市場応用に近づいている可能性が高まっており、投資家や分析家が注目を集めている。金融市場は、工業規模の量子コンピューティングが近い将来実現する兆しを見せている。技術の進歩と市場への応用が期待される。",
+        "tickers": [
+          "BMNR"
+        ],
+        "key_points": [
+          "量子コンピューティングの技術が進歩し、大規模な市場応用に近づいている",
+          "投資家や分析家が量子コンピューティングの市場への応用に注目",
+          "金融市場は工業規模の量子コンピューティングの実現を信頼している",
+          "量子コンピューティングの応用は様々な分野に及ぶ可能性がある",
+          "市場への応用の実現時期は不明"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "エマージングテクノロジー",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "0hX7KeW4pdE",
+      "title": "Is Bitmain heading to $5,000? Tom Lee’s bold prediction explained.",
+      "url": "https://www.youtube.com/shorts/0hX7KeW4pdE",
+      "published": "2026-04-14T16:36:39+00:00",
+      "analysis": {
+        "summary_ja": "Bitmain の株価が 5,000 ドルまで上昇する可能性について Tom Lee の予測を分析する動画です。Tom Lee は過去にテスラの早期上昇を予測した実績がありますが、投資家はこの予測に慎重な姿勢で臨む必要があります。この動画では、Bitmain の将来的な成長可能性と市場の現実を考慮した分析が行われます。",
+        "tickers": [],
+        "key_points": [
+          "Tom Lee は Bitmain の株価が 5,000 ドルまで上昇する可能性を予測しています",
+          "過去の成功例としてテスラの早期上昇を予測した実績があります",
+          "投資家はこの予測に慎重な姿勢で臨む必要があります",
+          "Bitmain の将来的な成長可能性と市場の現実を考慮した分析が必要です",
+          "投資には常にリスクが伴うため、個人研究が必要です"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "iVBg2QFSMgg",
+      "title": "How would a non-state actor actually crash crypto markets? The sequence revealed.",
+      "url": "https://www.youtube.com/shorts/iVBg2QFSMgg",
+      "published": "2026-04-14T13:56:38+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、非国家主体が暗号資産市場を崩壊させる方法について論じられています。金融インフラストラクチャの脆弱性と非国家主体の動機を分析し、市場の不安定化がどのように利用されるかを説明しています。市場の崩壊の可能性とその影響についても言及されています。",
+        "tickers": [],
+        "key_points": [
+          "非国家主体が暗号資産市場を崩壊させる可能性がある",
+          "金融インフラストラクチャの脆弱性が市場の不安定化につながる",
+          "デジタル資産の価値が急激に低下する可能性がある",
+          "サイバー攻撃が市場の崩壊の引き金となる可能性がある",
+          "投資家は市場のリスクを認識し、適切な対策を講じる必要がある"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "市場見通し",
+          "投資戦略",
+          "サイバー攻撃",
+          "金融インフラストラクチャ",
+          "暗号資産"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AMD": 258.12,
+        "AMZN": 248.5,
+        "ARCHER AVIATION": null,
+        "ARM": 159.34,
+        "ASML": 1481.77,
+        "BAC": 54.32,
+        "BIRD": 16.99,
+        "BMNR": 22.34,
+        "DKNG": 23.64,
+        "GRG": null,
+        "JNJ": 238.67,
+        "JPM": 305.93,
+        "KHC": 22.01,
+        "LOW": 243.99,
+        "MELI": 1872.12,
+        "MONDAY.COM": null,
+        "NFLX": 107.71,
+        "NVDA": 198.87,
+        "PATH": 10.61,
+        "PLTR": 142.15,
+        "QCOM": 133.05,
+        "SMCI": 27.29,
+        "SOFI": 18.79,
+        "SPY": 699.94,
+        "TSLA": 391.95,
+        "TSM": 375.1,
+        "TSMC": null
       }
     }
   ]
