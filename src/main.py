@@ -484,10 +484,23 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 16px;
+      height: 52px; gap: 31px;
     }}
     .header-ticker {{
-      flex: 1; min-width: 0; overflow: hidden; height: 46px;
+      flex: 1; min-width: 0; height: 46px;
+      position: relative; overflow: hidden;
+    }}
+    .header-ticker::before,
+    .header-ticker::after {{
+      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
+    }}
+    .header-ticker::before {{
+      left: 0;
+      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
+    }}
+    .header-ticker::after {{
+      right: 0;
+      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
     }}
     .header-ticker .tradingview-widget-container,
     .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
