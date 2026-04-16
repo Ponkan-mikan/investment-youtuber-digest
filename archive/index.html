@@ -27,12 +27,31 @@
       border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
-      max-width: 720px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; height: 52px;
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px; gap: 31px;
     }
+    .header-ticker {
+      flex: 1; min-width: 0; height: 46px;
+      position: relative; overflow: hidden;
+    }
+    .header-ticker::before,
+    .header-ticker::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
+    }
+    .header-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker .tradingview-widget-container,
+    .header-ticker .tradingview-widget-container__widget { height: 46px !important; }
     .ad-logo {
       display: inline-flex; align-items: center; font-size: 18px;
-      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
     }
     .ad-logo__cursor {
       display: inline-block; width: 2px; height: 1.1em;
@@ -42,7 +61,7 @@
     .ad-logo__alpha { color: var(--brand); font-weight: 700; }
     .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
     @keyframes blink { 50% { opacity: 0; } }
-    nav { display: flex; gap: 4px; }
+    nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
     .nav-link {
       font-size: 0.7rem; color: var(--muted); text-decoration: none;
       padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
@@ -83,6 +102,29 @@
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
+      <div class="header-ticker">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+              {"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"},
+              {"description": "Dow Jones", "proName": "FOREXCOM:DJI"},
+              {"description": "VIX", "proName": "CBOE:VIX"},
+              {"description": "USD/JPY", "proName": "FX_IDC:USDJPY"},
+              {"description": "Gold", "proName": "TVC:GOLD"},
+              {"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}
+            ],
+            "showSymbolLogo": false,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
         <a href="../index.html" class="nav-link">← latest</a>
@@ -99,7 +141,7 @@
     <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
     <div class="archive-list"><a class="archive-row" href="2026-04-16.html"><span class="arc-idx">01</span><span class="arc-date">2026-04-16</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-15.html"><span class="arc-idx">02</span><span class="arc-date">2026-04-15</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-14.html"><span class="arc-idx">03</span><span class="arc-date">2026-04-14</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-13.html"><span class="arc-idx">04</span><span class="arc-date">2026-04-13</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-12.html"><span class="arc-idx">05</span><span class="arc-date">2026-04-12</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-11.html"><span class="arc-idx">06</span><span class="arc-date">2026-04-11</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-10.html"><span class="arc-idx">07</span><span class="arc-date">2026-04-10</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-09.html"><span class="arc-idx">08</span><span class="arc-date">2026-04-09</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-08.html"><span class="arc-idx">09</span><span class="arc-date">2026-04-08</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-07.html"><span class="arc-idx">10</span><span class="arc-date">2026-04-07</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-06.html"><span class="arc-idx">11</span><span class="arc-date">2026-04-06</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-05.html"><span class="arc-idx">12</span><span class="arc-date">2026-04-05</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-03.html"><span class="arc-idx">13</span><span class="arc-date">2026-04-03</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-02.html"><span class="arc-idx">14</span><span class="arc-date">2026-04-02</span><span class="arc-arrow">→</span></a><a class="archive-row" href="2026-04-01.html"><span class="arc-idx">15</span><span class="arc-date">2026-04-01</span><span class="arc-arrow">→</span></a></div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-16 17:21 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-17 00:59 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');

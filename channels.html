@@ -27,12 +27,31 @@
       border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
-      max-width: 720px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; height: 52px;
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px; gap: 31px;
     }
+    .header-ticker {
+      flex: 1; min-width: 0; height: 46px;
+      position: relative; overflow: hidden;
+    }
+    .header-ticker::before,
+    .header-ticker::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
+    }
+    .header-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker .tradingview-widget-container,
+    .header-ticker .tradingview-widget-container__widget { height: 46px !important; }
     .ad-logo {
       display: inline-flex; align-items: center; font-size: 18px;
-      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
     }
     .ad-logo__cursor {
       display: inline-block; width: 2px; height: 1.1em;
@@ -42,7 +61,7 @@
     .ad-logo__alpha { color: var(--brand); font-weight: 700; }
     .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
     @keyframes blink { 50% { opacity: 0; } }
-    nav { display: flex; gap: 4px; }
+    nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
     .nav-link {
       font-size: 0.7rem; color: var(--muted); text-decoration: none;
       padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
@@ -90,6 +109,29 @@
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
+      <div class="header-ticker">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+              {"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"},
+              {"description": "Dow Jones", "proName": "FOREXCOM:DJI"},
+              {"description": "VIX", "proName": "CBOE:VIX"},
+              {"description": "USD/JPY", "proName": "FX_IDC:USDJPY"},
+              {"description": "Gold", "proName": "TVC:GOLD"},
+              {"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}
+            ],
+            "showSymbolLogo": false,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
       <nav>
         <a href="archive/index.html" class="nav-link">archive</a>
         <a href="index.html" class="nav-link">← latest</a>
@@ -106,7 +148,7 @@
     <p class="subtitle">// 監視対象の米国投資系YouTubeチャンネル一覧</p>
     <div class="channel-list"><a class="channel-row" href="https://youtube.com/@FinancialEducation" target="_blank" rel="noopener"><span class="ch-idx">01</span><span class="ch-name">Financial Education</span><span class="ch-handle">@FinancialEducation</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@EverythingMoney" target="_blank" rel="noopener"><span class="ch-idx">02</span><span class="ch-name">Everything Money</span><span class="ch-handle">@EverythingMoney</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@Value-Investing" target="_blank" rel="noopener"><span class="ch-idx">03</span><span class="ch-name">Sven Carlin</span><span class="ch-handle">@Value-Investing</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@brianstoffelyt" target="_blank" rel="noopener"><span class="ch-idx">04</span><span class="ch-name">Brian Stoffel</span><span class="ch-handle">@brianstoffelyt</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@CouchInvestor" target="_blank" rel="noopener"><span class="ch-idx">05</span><span class="ch-name">Couch Investor</span><span class="ch-handle">@CouchInvestor</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@ChrisSain1" target="_blank" rel="noopener"><span class="ch-idx">06</span><span class="ch-name">Chris Sain</span><span class="ch-handle">@ChrisSain1</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@BusinesswithBrian" target="_blank" rel="noopener"><span class="ch-idx">07</span><span class="ch-name">Business with Brian</span><span class="ch-handle">@BusinesswithBrian</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@AsymmetricInvesting" target="_blank" rel="noopener"><span class="ch-idx">08</span><span class="ch-name">Asymmetric Investing</span><span class="ch-handle">@AsymmetricInvesting</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@FelixFriends" target="_blank" rel="noopener"><span class="ch-idx">09</span><span class="ch-name">Felix & Friends</span><span class="ch-handle">@FelixFriends</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@DanielPronk" target="_blank" rel="noopener"><span class="ch-idx">10</span><span class="ch-name">Daniel Pronk</span><span class="ch-handle">@DanielPronk</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@parkevtatevosiancfa9544" target="_blank" rel="noopener"><span class="ch-idx">11</span><span class="ch-name">Parkev's Picks</span><span class="ch-handle">@parkevtatevosiancfa9544</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@JerryRomineStocks" target="_blank" rel="noopener"><span class="ch-idx">12</span><span class="ch-name">Jerry Romine</span><span class="ch-handle">@JerryRomineStocks</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@TickerSymbolYOU" target="_blank" rel="noopener"><span class="ch-idx">13</span><span class="ch-name">Ticker Symbol: YOU</span><span class="ch-handle">@TickerSymbolYOU</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@ThePatientInvestor" target="_blank" rel="noopener"><span class="ch-idx">14</span><span class="ch-name">The Patient Investor</span><span class="ch-handle">@ThePatientInvestor</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@StealthWealthInvesting" target="_blank" rel="noopener"><span class="ch-idx">15</span><span class="ch-name">Stealth Wealth Investing</span><span class="ch-handle">@StealthWealthInvesting</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@TomNashTV" target="_blank" rel="noopener"><span class="ch-idx">16</span><span class="ch-name">Tom Nash</span><span class="ch-handle">@TomNashTV</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@Adriconomics" target="_blank" rel="noopener"><span class="ch-idx">17</span><span class="ch-name">Adriconomics</span><span class="ch-handle">@Adriconomics</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@alc_magic" target="_blank" rel="noopener"><span class="ch-idx">18</span><span class="ch-name">Antonio Linares</span><span class="ch-handle">@alc_magic</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@RickOrford" target="_blank" rel="noopener"><span class="ch-idx">19</span><span class="ch-name">Rick Orford</span><span class="ch-handle">@RickOrford</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@wolfofdubai" target="_blank" rel="noopener"><span class="ch-idx">20</span><span class="ch-name">Wolf of Dubai</span><span class="ch-handle">@wolfofdubai</span><span class="ch-arrow">↗</span></a><a class="channel-row" href="https://youtube.com/@ChristianDarnton1" target="_blank" rel="noopener"><span class="ch-idx">21</span><span class="ch-name">Christian Darnton - Investing</span><span class="ch-handle">@ChristianDarnton1</span><span class="ch-arrow">↗</span></a></div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-16 17:21 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// alphadigest &nbsp;·&nbsp; 2026-04-17 00:59 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');
