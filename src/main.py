@@ -476,19 +476,9 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     ::-webkit-scrollbar-track {{ background: var(--bg); }}
     ::-webkit-scrollbar-thumb {{ background: var(--border); }}
 
-    /* ticker tape */
-    .tv-ticker-wrap {{
-      position: sticky; top: 0; z-index: 101;
-      background: rgba(8,8,12,0.95);
-      border-bottom: 1px solid var(--border);
-      height: 46px; overflow: hidden;
-    }}
-    .tv-ticker-wrap .tradingview-widget-container,
-    .tv-ticker-wrap .tradingview-widget-container__widget {{ height: 46px !important; }}
-
     /* header */
     header {{
-      position: sticky; top: 46px; z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 clamp(16px,4vw,48px);
@@ -496,8 +486,13 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 12px;
+      height: 52px; gap: 16px;
     }}
+    .header-ticker {{
+      flex: 1; min-width: 0; overflow: hidden; height: 46px;
+    }}
+    .header-ticker .tradingview-widget-container,
+    .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
     .ad-logo {{
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -510,17 +505,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     .ad-logo__alpha {{ color: var(--brand); font-weight: 700; }}
     .ad-logo__digest {{ color: var(--text); font-weight: 400; opacity: 0.5; }}
     @keyframes blink {{ 50% {{ opacity: 0; }} }}
-    .nav-pills {{ display: flex; align-items: center; gap: 6px; flex: 1; justify-content: center; }}
-    .stat-pill {{
-      font-size: 0.65rem; color: var(--muted);
-      background: var(--surface); border: 1px solid var(--border);
-      padding: 3px 10px; border-radius: 2px;
-      display: flex; align-items: center; gap: 5px;
-    }}
-    .dot {{ width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }}
-    .dot-bull {{ background: var(--brand); }}
-    .dot-bear {{ background: var(--red); }}
-    .dot-neut {{ background: var(--muted); }}
     nav {{ display: flex; align-items: center; gap: 4px; flex-shrink: 0; }}
     .nav-link {{
       font-size: 0.7rem; color: var(--muted); text-decoration: none;
@@ -695,7 +679,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     }}
 
     @media (max-width: 640px) {{
-      .nav-pills {{ display: none; }}
+      .header-ticker {{ display: none; }}
       .hero h1 {{ font-size: 1.7rem; }}
       .grid {{ grid-template-columns: 1fr; }}
       .filters {{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }}
@@ -711,31 +695,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 <body>
   <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-  <!-- TradingView Ticker Tape -->
-  <div class="tv-ticker-wrap">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-      {{
-        "symbols": [
-          {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
-          {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
-          {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
-          {{"description": "VIX", "proName": "CBOE:VIX"}},
-          {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
-          {{"description": "Gold", "proName": "TVC:GOLD"}},
-          {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
-        ],
-        "showSymbolLogo": false,
-        "isTransparent": true,
-        "displayMode": "adaptive",
-        "colorTheme": "dark",
-        "locale": "en"
-      }}
-      </script>
-    </div>
-  </div>
-
   <header>
     <div class="header-inner">
       <a href="{root_path}index.html" class="ad-logo">
@@ -743,10 +702,28 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="nav-pills">
-        <div class="stat-pill"><span class="dot dot-bull"></span>{n_bullish} bullish</div>
-        <div class="stat-pill"><span class="dot dot-bear"></span>{n_bearish} bearish</div>
-        <div class="stat-pill"><span class="dot dot-neut"></span>{n_neutral} neutral</div>
+      <div class="header-ticker">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {{
+            "symbols": [
+              {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
+              {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
+              {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
+              {{"description": "VIX", "proName": "CBOE:VIX"}},
+              {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
+              {{"description": "Gold", "proName": "TVC:GOLD"}},
+              {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
+            ],
+            "showSymbolLogo": false,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }}
+          </script>
+        </div>
       </div>
       <nav>
         <a href="{root_path}channels.html" class="nav-link">channels</a>
@@ -791,7 +768,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     </div>
   </div>
 
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -971,7 +948,7 @@ def generate_archive_index_html(dates: list[str]) -> str:
     <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
     <div class="archive-list">{rows}</div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1100,7 +1077,7 @@ def generate_channels_html(channels: list[dict]) -> str:
     <p class="subtitle">// 監視対象の米国投資系YouTubeチャンネル一覧</p>
     <div class="channel-list">{rows}</div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1366,7 +1343,7 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
       {mention_rows if mention_rows else '<p class="no-mentions">// no mentions found in archive</p>'}
     </div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by CZM PROJECT</footer>
+  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([ticker])}</script>
 </body>
 </html>"""
