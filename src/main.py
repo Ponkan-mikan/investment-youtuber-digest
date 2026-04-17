@@ -5,6 +5,7 @@ Investment YouTube Daily Digest Generator
 import json
 import os
 import re
+import sys
 import time
 import traceback
 from datetime import datetime, timezone, timedelta
@@ -1422,9 +1423,72 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
 </html>"""
 
 
+# ---- プレビュー用ダミーデータ -------------------------------------------
+
+def _dummy_results(today: str) -> list[dict]:
+    """--preview モード用のダミー動画データを返す。"""
+    base_iso = f"{today}T10:00:00+09:00"
+    items = [
+        ("Financial Education",  "Why NVIDIA Could Be the Best AI Stock to Buy Right Now",          ["NVDA"],          "bullish",  ["個別銘柄分析"]),
+        ("Everything Money",     "Is Apple Stock Overvalued? A Deep Dive into AAPL Valuation",      ["AAPL"],          "neutral",  ["個別銘柄分析", "決算分析"]),
+        ("Sven Carlin",          "The Market Is Flashing Warning Signs — Here's What I'm Watching", ["SPY", "VIX"],    "bearish",  ["マクロ経済", "市場見通し"]),
+        ("Tom Nash",             "Tesla Q2 Earnings Preview: What to Expect This Week",             ["TSLA"],          "bullish",  ["決算分析"]),
+        ("Couch Investor",       "Should You Buy Archer Aviation Stock? ACHR Analysis",             ["ACHR"],          "neutral",  ["個別銘柄分析"]),
+        ("Asymmetric Investing", "3 Undervalued Stocks the Market Is Completely Ignoring",          ["MNDY", "CRWD"],  "bullish",  ["投資戦略", "個別銘柄分析"]),
+        ("Daniel Pronk",         "Gold Is Breaking Out — What It Means for Your Portfolio",         ["GLD", "GDX"],    "bullish",  ["マクロ経済"]),
+        ("Chris Sain",           "Monday.com Stock: Why I Just Added to My Position",               ["MNDY"],          "bullish",  ["個別銘柄分析"]),
+    ]
+    results = []
+    for ch, title, tickers, sentiment, topics in items:
+        results.append({
+            "channel_name": ch,
+            "video_id":     "dummyVideoId",
+            "title":        title,
+            "url":          "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "published":    base_iso,
+            "price_snapshot": {},
+            "analysis": {
+                "summary_ja":  "これはプレビューモード用のダミー要約テキストです。実際の動画内容は反映されていません。デザイン確認用にご利用ください。",
+                "tickers":     tickers,
+                "key_points":  ["ダミーポイント①：実際のデータは本番実行時に生成されます", "ダミーポイント②：デザイン確認専用のサンプルテキストです"],
+                "sentiment":   sentiment,
+                "topics":      topics,
+                "importance":  3,
+            },
+        })
+    return results
+
+
 # ---- メイン ------------------------------------------------------------
 
 def main() -> None:
+    preview_mode = "--preview" in sys.argv
+
+    # ---- プレビューモード ------------------------------------------------
+    if preview_mode:
+        print("=== PREVIEW MODE ===  (API呼び出しなし・ダミーデータで生成)")
+        today = datetime.now(JST).strftime("%Y-%m-%d")
+        all_results = _dummy_results(today)
+        channels = load_channels()
+
+        DOCS_DIR.mkdir(exist_ok=True)
+        (DOCS_DIR / "archive").mkdir(exist_ok=True)
+
+        with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
+            f.write(generate_html(all_results, today))
+        with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
+            f.write(generate_channels_html(channels))
+
+        index_path = DOCS_DIR / "index.html"
+        print(f"\n[OK] プレビュー生成完了: {index_path}")
+        print("  ブラウザで開いてください:")
+        print(f"  file:///{index_path.as_posix()}")
+
+        import webbrowser
+        webbrowser.open(index_path.as_uri())
+        return
+
+    # ---- 通常モード ------------------------------------------------------
     api_key = os.environ.get("GROQ_API_KEY")
     if not api_key:
         raise EnvironmentError(
