@@ -201,8 +201,9 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 以下のJSON形式のみで回答してください（マークダウンのコードブロックや説明文は不要。JSONオブジェクトだけを出力）:
 {{
-  "summary_ja": "動画の主要な内容を日本語で3〜5文で要約",
+  "summary_ja": "動画の主要な内容を日本語で3〜5文で要約。企業名・銘柄名・ティッカーシンボルが出てきた場合は必ず <b>企業名</b> のように <b> タグで囲むこと",
   "tickers": ["言及された銘柄の正式なティッカーシンボルのリスト（例: AAPL, NVDA, ACHR, MNDY）。会社名で言及されている場合も必ずティッカーシンボルに変換すること（例: 'Archer Aviation'→'ACHR', 'Monday.com'→'MNDY', 'Tesla'→'TSLA'）。ティッカーシンボルが不明な場合や株式銘柄でない場合は含めない。なければ空配列"],
+  "undervalued_picks": ["YouTuberが明示的に『割安』『過小評価されている』『市場に無視されている』『買い場』と述べていた銘柄のティッカーシンボルのリスト。なければ空配列"],
   "key_points": ["投資判断に役立つ重要ポイントを日本語で箇条書き（最大5つ）"],
   "sentiment": "bullish か bearish か neutral のいずれか",
   "topics": ["該当するカテゴリ（例: 個別銘柄分析, マクロ経済, 投資戦略, 決算分析, 市場見通し）"],
@@ -417,7 +418,7 @@ def _bg_canvas_js(tickers: list[str]) -> str:
     return js.replace('__TICKERS__', tickers_json)
 
 
-def generate_html(results: list[dict], date_str: str, is_archive: bool = False) -> str:
+def generate_html(results: list[dict], date_str: str, is_archive: bool = False, exec_summary: dict | None = None) -> str:
     results_sorted = sorted(
         results,
         key=lambda x: int(x.get("analysis", {}).get("importance", 1)),
@@ -439,11 +440,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
 
     root_path    = "../" if is_archive else ""
     favicon_href = "../favicon.svg" if is_archive else "favicon.svg"
-    if is_archive:
-        nav_links = ("<a href='index.html' class='nav-link'>all archives</a>"
-                     "<a href='../index.html' class='nav-link'>← latest</a>")
-    else:
-        nav_links = "<a href='archive/index.html' class='nav-link'>archive →</a>"
+    nav_links = f"<a href='{root_path}archive/index.html' class='nav-link'>archive</a>"
 
     cards = "\n".join(_render_card(r, root_path) for r in results_sorted)
     if not cards:
@@ -531,15 +528,62 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     }}
     .nav-link:hover {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
 
-    /* hero */
+    /* executive summary / hero */
+    .exec-summary {{
+      max-width: 1440px; margin: 0 auto;
+      padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) clamp(16px,3vw,28px);
+    }}
+    .exec-inner {{
+      border-left: 3px solid var(--exec-accent, rgba(255,255,255,0.15));
+      padding-left: 18px;
+      transition: transform 80ms ease;
+    }}
+    .exec-inner:hover {{ transform: translateY(-2px); }}
+    .exec-header {{
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 14px;
+    }}
+    .exec-label {{
+      font-size: 0.82rem; font-weight: 700; color: var(--brand); letter-spacing: 1px; flex-shrink: 0;
+    }}
+    .exec-stats-row {{
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.7rem;
+    }}
+    .exec-date {{ color: var(--brand); font-weight: 700; border: 1px solid rgba(0,255,136,0.25); padding: 1px 8px; border-radius: 2px; }}
+    .exec-stat-total {{ color: var(--muted); }}
+    .exec-stat-bull  {{ color: var(--brand); }}
+    .exec-stat-bear  {{ color: var(--red); }}
+    .exec-stat-neut  {{ color: var(--muted); }}
+    .exec-grid {{
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;
+    }}
+    .exec-block {{
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px;
+    }}
+    .exec-block-label {{
+      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px;
+    }}
+    .exec-ticker-item {{
+      padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--border);
+    }}
+    .exec-ticker-item:last-child {{ border-bottom: none; margin-bottom: 0; padding-bottom: 0; }}
+    .exec-ticker-item .ticker {{ margin-bottom: 4px; display: inline-block; }}
+    .exec-ticker-ch  {{ font-size: 0.63rem; color: var(--muted); margin: 3px 0; }}
+    .exec-ticker-text {{ font-size: 0.78rem; color: rgba(255,255,255,0.7); line-height: 1.65; }}
+    .exec-empty {{ font-size: 0.72rem; color: var(--dim); }}
+    .exec-overall {{
+      background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px;
+    }}
+    .exec-overall p {{ font-size: 0.86rem; line-height: 1.82; color: rgba(255,255,255,0.82); }}
+    .exec-themes {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }}
+    .exec-theme {{ font-size: 0.62rem; color: var(--muted); border: 1px solid var(--border); padding: 2px 9px; border-radius: 2px; }}
+    /* archive page: minimal hero */
     .hero {{
-      text-align: center;
-      padding: clamp(52px,7vw,88px) 16px clamp(28px,4vw,48px);
+      max-width: 1440px; margin: 0 auto;
+      padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) clamp(16px,3vw,28px);
     }}
     .hero-prompt {{
       font-size: 0.72rem; color: var(--muted);
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      margin-bottom: 22px;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
     }}
     .prompt-symbol {{ color: var(--brand); opacity: 0.7; }}
     .prompt-date {{
@@ -547,24 +591,17 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       border: 1px solid rgba(0,255,136,0.25); padding: 2px 10px;
       border-radius: 2px; font-size: 0.82rem;
     }}
-    .hero h1 {{
-      font-size: clamp(2rem,5vw,3rem); font-weight: 700;
-      letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 10px;
-    }}
-    .hero h1 .green {{ color: var(--brand); }}
-    .hero-tagline {{
-      font-size: 0.68rem; color: var(--dim); letter-spacing: 2px; margin-bottom: 40px;
-    }}
     .hero-stats {{
-      display: flex; justify-content: center; gap: clamp(24px,5vw,72px); flex-wrap: wrap;
+      display: flex; gap: clamp(16px,3vw,40px); flex-wrap: wrap; align-items: baseline;
     }}
     .h-stat {{ text-align: center; }}
-    .h-stat-num {{ font-size: clamp(1.6rem,3.5vw,2.2rem); font-weight: 700; line-height: 1; }}
+    .h-stat-num {{ font-size: clamp(1.4rem,3vw,1.9rem); font-weight: 700; line-height: 1; }}
     .h-stat-num.c-total {{ color: var(--text); }}
     .h-stat-num.c-bull  {{ color: var(--brand); }}
     .h-stat-num.c-bear  {{ color: var(--red); }}
     .h-stat-num.c-neut  {{ color: var(--muted); }}
-    .h-stat-label {{ font-size: 0.6rem; color: var(--dim); margin-top: 6px; letter-spacing: 0.12em; }}
+    .h-stat-label {{ font-size: 0.6rem; color: var(--dim); margin-top: 5px; letter-spacing: 0.1em; }}
+    @media (max-width: 640px) {{ .exec-grid {{ grid-template-columns: 1fr; }} }}
 
     /* filters */
     .filters {{
@@ -607,7 +644,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     }}
     .card.visible {{ opacity: 1; transform: translateY(0); }}
     .card.hidden  {{ display: none !important; }}
-    .card:hover   {{ transform: translateY(-2px); }}
+    .card:hover   {{ transform: translateY(-2px); transition: opacity 350ms ease, transform 80ms ease, border-color 150ms ease; }}
     .card.sent-bullish {{ border-left: 2px solid var(--brand); }}
     .card.sent-bearish {{ border-left: 2px solid var(--red); }}
     .card.sent-neutral {{ border-left: 2px solid rgba(255,255,255,0.12); }}
@@ -645,7 +682,8 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
       border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px;
     }}
 
-.summary {{ font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }}
+    .summary {{ font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }}
+    .summary b {{ color: var(--text); font-weight: 700; }}
 
     .points-details {{ margin-bottom: 10px; }}
     .points-details > summary {{
@@ -741,21 +779,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-prompt">
-      <span class="prompt-symbol">></span>
-      <span>digest</span>
-      <span class="prompt-date">{date_str}</span>
-    </div>
-    <h1><span class="green">alpha</span>digest</h1>
-    <p class="hero-tagline">// top investment voices, distilled</p>
-    <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num c-total">{len(results)}</div><div class="h-stat-label">total</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">bullish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">bearish</div></div>
-      <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">neutral</div></div>
-    </div>
-  </section>
+  {_render_hero(date_str, len(results), n_bullish, n_bearish, n_neutral, exec_summary)}
 
   <div class="filters">
     <div class="filter-segment">
@@ -773,7 +797,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False) 
     </div>
   </div>
 
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -966,7 +990,7 @@ def generate_archive_index_html(dates: list[str]) -> str:
       </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
-        <a href="../index.html" class="nav-link">← latest</a>
+        <a href="index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
@@ -980,7 +1004,7 @@ def generate_archive_index_html(dates: list[str]) -> str:
     <p class="subtitle">// 過去の投資YouTube日次ダイジェスト一覧</p>
     <div class="archive-list">{rows}</div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1136,8 +1160,8 @@ def generate_channels_html(channels: list[dict]) -> str:
         </div>
       </div>
       <nav>
+        <a href="channels.html" class="nav-link">channels</a>
         <a href="archive/index.html" class="nav-link">archive</a>
-        <a href="index.html" class="nav-link">← latest</a>
       </nav>
     </div>
   </header>
@@ -1151,7 +1175,7 @@ def generate_channels_html(channels: list[dict]) -> str:
     <p class="subtitle">// 監視対象の米国投資系YouTubeチャンネル一覧</p>
     <div class="channel-list">{rows}</div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([])}</script>
 </body>
 </html>"""
@@ -1317,7 +1341,8 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
         <span class="ad-logo__digest">digest</span>
       </a>
       <nav>
-        <a href="../index.html" class="nav-link">← latest</a>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href="../archive/index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
@@ -1417,10 +1442,222 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
       {mention_rows if mention_rows else '<p class="no-mentions">// no mentions found in archive</p>'}
     </div>
   </main>
-  <footer>// alphadigest &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; {now_jst} &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>{_bg_canvas_js([ticker])}</script>
 </body>
 </html>"""
+
+
+# ---- エグゼクティブサマリー生成 -----------------------------------------
+
+def get_new_tickers(today_results: list, archive_dir: Path, today: str) -> list:
+    """本日初めて登場したティッカーシンボルを検出する。"""
+    historical = set()
+    for json_path in sorted(archive_dir.glob("*.json")):
+        if json_path.stem == today:
+            continue
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+            for r in data.get("results", []):
+                for t in r.get("analysis", {}).get("tickers", []):
+                    historical.add(t.upper().strip())
+        except Exception:
+            continue
+
+    seen = {}
+    for r in today_results:
+        for t in r.get("analysis", {}).get("tickers", []):
+            t = t.upper().strip()
+            if t and t not in historical and t not in seen:
+                seen[t] = {
+                    "ticker":  t,
+                    "channel": r["channel_name"],
+                    "summary": r["analysis"].get("summary_ja", "")[:120],
+                }
+    return list(seen.values())
+
+
+def get_undervalued_picks(today_results: list) -> list:
+    """undervalued_picks フィールドからデータを集約する。"""
+    items = []
+    seen = set()
+    for r in today_results:
+        a = r.get("analysis", {})
+        for t in a.get("undervalued_picks", []):
+            t = t.upper().strip()
+            if not t or t in seen:
+                continue
+            seen.add(t)
+            # 理由: key_points の中から該当ティッカーに関連するものを優先
+            reason = ""
+            for kp in a.get("key_points", []):
+                if t in kp.upper() or any(w in kp for w in ["割安", "過小評価", "無視", "買い場", "undervalued"]):
+                    reason = kp
+                    break
+            if not reason:
+                reason = a.get("summary_ja", "")[:100]
+            items.append({
+                "ticker":  t,
+                "channel": r["channel_name"],
+                "reason":  reason,
+            })
+    return items
+
+
+def generate_executive_summary_text(
+    api_key: str, results: list, n_bullish: int, n_bearish: int, n_neutral: int
+) -> dict:
+    """全動画サマリーを束ねてGroqでエグゼクティブサマリーを生成する。"""
+    lines = []
+    for r in results[:20]:  # 最大20件
+        a = r.get("analysis", {})
+        lines.append(
+            f"[{r['channel_name']}] ({a.get('sentiment','neutral')}) {r['title']}\n"
+            f"{a.get('summary_ja','')}"
+        )
+    combined = "\n\n".join(lines)
+
+    prompt = f"""以下は本日の投資系YouTube動画ダイジェスト（{len(results)}本）のサマリーです。
+センチメント: bullish {n_bullish} / bearish {n_bearish} / neutral {n_neutral}
+
+{combined}
+
+以下のJSON形式のみで回答してください（マークダウン不要、JSONオブジェクトのみ）:
+{{
+  "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的な日本語サマリー（3〜5文）。主要テーマと注目ポイントを含める",
+  "key_themes": ["本日全体で共通して語られた主要テーマ（最大3つ、日本語）"]
+}}"""
+
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    payload = {
+        "model": _GROQ_MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": 512,
+        "temperature": 0.3,
+    }
+    try:
+        resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=30)
+        resp.raise_for_status()
+        text = resp.json()["choices"][0]["message"]["content"]
+        text_clean = re.sub(r"```(?:json)?\s*", "", text)
+        text_clean = re.sub(r"\s*```", "", text_clean).strip()
+        m = re.search(r"\{[\s\S]*\}", text_clean)
+        if m:
+            return json.loads(m.group())
+    except Exception as e:
+        print(f"  [WARN] エグゼクティブサマリー生成失敗: {e}")
+    return {"overall_summary": "", "key_themes": []}
+
+
+def build_exec_summary(
+    api_key: str, results: list, archive_dir: Path, today: str,
+    n_bullish: int, n_bearish: int, n_neutral: int
+) -> dict:
+    """エグゼクティブサマリーデータを組み立てる。"""
+    print("  エグゼクティブサマリー生成中...")
+    new_tickers     = get_new_tickers(results, archive_dir, today)
+    undervalued     = get_undervalued_picks(results)
+    llm_summary     = generate_executive_summary_text(api_key, results, n_bullish, n_bearish, n_neutral)
+    return {
+        "new_tickers":      new_tickers,
+        "undervalued_picks": undervalued,
+        "overall_summary":  llm_summary.get("overall_summary", ""),
+        "key_themes":       llm_summary.get("key_themes", []),
+    }
+
+
+# ---- ヒーロー / エグゼクティブサマリー HTML 生成 -------------------------
+
+def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_neutral: int, exec_summary: dict | None) -> str:
+    """ヒーローセクションHTMLを生成する。exec_summaryがあればエグゼクティブサマリーを表示。"""
+    stats_html = f"""<div class="exec-stats-row">
+      <span class="exec-date">{date_str}</span>
+      <span class="exec-stat-total">{n_total} videos</span>
+      <span class="exec-stat-bull">&#9650; {n_bullish} bullish</span>
+      <span class="exec-stat-bear">&#9660; {n_bearish} bearish</span>
+      <span class="exec-stat-neut">&#9679; {n_neutral} neutral</span>
+    </div>"""
+
+    if exec_summary is None:
+        # アーカイブページ用: シンプルな統計表示
+        return f"""<div class="hero">
+    <div class="hero-prompt">
+      <span class="prompt-symbol">&gt;</span>
+      <span>digest</span>
+      <span class="prompt-date">{date_str}</span>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num c-total">{n_total}</div><div class="h-stat-label">total</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bull">{n_bullish}</div><div class="h-stat-label">bullish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bear">{n_bearish}</div><div class="h-stat-label">bearish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-neut">{n_neutral}</div><div class="h-stat-label">neutral</div></div>
+    </div>
+  </div>"""
+
+    # ---- 新規ティッカーブロック ----
+    new_tickers = exec_summary.get("new_tickers", [])
+    root = "../" if exec_summary.get("_is_archive") else ""
+    if new_tickers:
+        items_html = "".join(
+            f'<div class="exec-ticker-item">'
+            f'<a class="ticker" href="{root}ticker/{t["ticker"]}.html">{t["ticker"]}</a>'
+            f'<div class="exec-ticker-ch">by {t["channel"]}</div>'
+            f'<div class="exec-ticker-text">{t["summary"]}</div>'
+            f'</div>'
+            for t in new_tickers[:4]
+        )
+    else:
+        items_html = '<p class="exec-empty">// no new tickers today</p>'
+    new_block = f'<div class="exec-block"><div class="exec-block-label">// new tickers</div>{items_html}</div>'
+
+    # ---- 過小評価銘柄ブロック ----
+    undervalued = exec_summary.get("undervalued_picks", [])
+    if undervalued:
+        uv_html = "".join(
+            f'<div class="exec-ticker-item">'
+            f'<a class="ticker" href="{root}ticker/{u["ticker"]}.html">{u["ticker"]}</a>'
+            f'<div class="exec-ticker-ch">by {u["channel"]}</div>'
+            f'<div class="exec-ticker-text">{u["reason"]}</div>'
+            f'</div>'
+            for u in undervalued[:4]
+        )
+    else:
+        uv_html = '<p class="exec-empty">// no undervalued picks today</p>'
+    uv_block = f'<div class="exec-block"><div class="exec-block-label">// undervalued picks</div>{uv_html}</div>'
+
+    # ---- 総合サマリーブロック ----
+    overall = exec_summary.get("overall_summary", "")
+    themes  = exec_summary.get("key_themes", [])
+    themes_html = ""
+    if themes:
+        tags = "".join(f'<span class="exec-theme">{th}</span>' for th in themes)
+        themes_html = f'<div class="exec-themes">{tags}</div>'
+    overall_block = f"""<div class="exec-overall">
+      <div class="exec-block-label">// overall</div>
+      <p>{overall}</p>
+      {themes_html}
+    </div>"""
+
+    if n_bullish > n_bearish:
+        accent = "var(--brand)"        # 緑
+    elif n_bearish > n_bullish:
+        accent = "var(--red)"          # 赤
+    else:
+        accent = "rgba(255,255,255,0.25)"  # グレー
+
+    return f"""<section class="exec-summary">
+    <div class="exec-inner" style="--exec-accent:{accent}">
+      <div class="exec-header">
+        <span class="exec-label">// executive summary</span>
+        {stats_html}
+      </div>
+      <div class="exec-grid">
+        {new_block}
+        {uv_block}
+      </div>
+      {overall_block}
+    </div>
+  </section>"""
 
 
 # ---- プレビュー用ダミーデータ -------------------------------------------
@@ -1429,17 +1666,17 @@ def _dummy_results(today: str) -> list[dict]:
     """--preview モード用のダミー動画データを返す。"""
     base_iso = f"{today}T10:00:00+09:00"
     items = [
-        ("Financial Education",  "Why NVIDIA Could Be the Best AI Stock to Buy Right Now",          ["NVDA"],          "bullish",  ["個別銘柄分析"]),
-        ("Everything Money",     "Is Apple Stock Overvalued? A Deep Dive into AAPL Valuation",      ["AAPL"],          "neutral",  ["個別銘柄分析", "決算分析"]),
-        ("Sven Carlin",          "The Market Is Flashing Warning Signs — Here's What I'm Watching", ["SPY", "VIX"],    "bearish",  ["マクロ経済", "市場見通し"]),
-        ("Tom Nash",             "Tesla Q2 Earnings Preview: What to Expect This Week",             ["TSLA"],          "bullish",  ["決算分析"]),
-        ("Couch Investor",       "Should You Buy Archer Aviation Stock? ACHR Analysis",             ["ACHR"],          "neutral",  ["個別銘柄分析"]),
-        ("Asymmetric Investing", "3 Undervalued Stocks the Market Is Completely Ignoring",          ["MNDY", "CRWD"],  "bullish",  ["投資戦略", "個別銘柄分析"]),
-        ("Daniel Pronk",         "Gold Is Breaking Out — What It Means for Your Portfolio",         ["GLD", "GDX"],    "bullish",  ["マクロ経済"]),
-        ("Chris Sain",           "Monday.com Stock: Why I Just Added to My Position",               ["MNDY"],          "bullish",  ["個別銘柄分析"]),
+        ("Financial Education",  "Why NVIDIA Could Be the Best AI Stock to Buy Right Now",          ["NVDA"],         [],           "bullish", ["個別銘柄分析"]),
+        ("Everything Money",     "Is Apple Stock Overvalued? A Deep Dive into AAPL Valuation",      ["AAPL"],         [],           "neutral", ["個別銘柄分析", "決算分析"]),
+        ("Sven Carlin",          "The Market Is Flashing Warning Signs — Here's What I'm Watching", ["SPY", "VIX"],   [],           "bearish", ["マクロ経済", "市場見通し"]),
+        ("Tom Nash",             "Tesla Q2 Earnings Preview: What to Expect This Week",             ["TSLA"],         [],           "bullish", ["決算分析"]),
+        ("Couch Investor",       "Should You Buy Archer Aviation Stock? ACHR Analysis",             ["ACHR"],         ["ACHR"],     "neutral", ["個別銘柄分析"]),
+        ("Asymmetric Investing", "3 Undervalued Stocks the Market Is Completely Ignoring",          ["MNDY", "CRWD"], ["MNDY"],     "bullish", ["投資戦略", "個別銘柄分析"]),
+        ("Daniel Pronk",         "Gold Is Breaking Out — What It Means for Your Portfolio",         ["GLD", "GDX"],   [],           "bullish", ["マクロ経済"]),
+        ("Chris Sain",           "Monday.com Stock: Why I Just Added to My Position",               ["MNDY"],         ["MNDY"],     "bullish", ["個別銘柄分析"]),
     ]
     results = []
-    for ch, title, tickers, sentiment, topics in items:
+    for ch, title, tickers, undervalued, sentiment, topics in items:
         results.append({
             "channel_name": ch,
             "video_id":     "dummyVideoId",
@@ -1448,12 +1685,13 @@ def _dummy_results(today: str) -> list[dict]:
             "published":    base_iso,
             "price_snapshot": {},
             "analysis": {
-                "summary_ja":  "これはプレビューモード用のダミー要約テキストです。実際の動画内容は反映されていません。デザイン確認用にご利用ください。",
-                "tickers":     tickers,
-                "key_points":  ["ダミーポイント①：実際のデータは本番実行時に生成されます", "ダミーポイント②：デザイン確認専用のサンプルテキストです"],
-                "sentiment":   sentiment,
-                "topics":      topics,
-                "importance":  3,
+                "summary_ja":       "これはプレビューモード用のダミー要約テキストです。実際の動画内容は反映されていません。デザイン確認用にご利用ください。",
+                "tickers":          tickers,
+                "undervalued_picks": undervalued,
+                "key_points":       ["ダミーポイント①：実際のデータは本番実行時に生成されます", "ダミーポイント②：デザイン確認専用のサンプルテキストです"],
+                "sentiment":        sentiment,
+                "topics":           topics,
+                "importance":       3,
             },
         })
     return results
@@ -1472,12 +1710,44 @@ def main() -> None:
         channels = load_channels()
 
         DOCS_DIR.mkdir(exist_ok=True)
-        (DOCS_DIR / "archive").mkdir(exist_ok=True)
+        archive_dir = DOCS_DIR / "archive"
+        archive_dir.mkdir(exist_ok=True)
 
+        # ダミーのエグゼクティブサマリー
+        n_bull = sum(1 for r in all_results if r["analysis"]["sentiment"] == "bullish")
+        n_bear = sum(1 for r in all_results if r["analysis"]["sentiment"] == "bearish")
+        n_neut = len(all_results) - n_bull - n_bear
+        dummy_exec = {
+            "new_tickers": [
+                {"ticker": "ACHR", "channel": "Couch Investor",
+                 "summary": "Archer Aviation（ACHR）が初登場。eVTOL（電動垂直離着陸機）市場のリーダーとして注目。"},
+            ],
+            "undervalued_picks": [
+                {"ticker": "MNDY", "channel": "Asymmetric Investing",
+                 "reason": "市場に過小評価されているSaaS銘柄として複数のYouTuberが言及。PERは同業他社比で割安水準。"},
+            ],
+            "overall_summary": "本日のダイジェストでは、AIおよびテクノロジー関連銘柄への強気な見方が目立ちました。NVDAやTSLAを中心に決算期待からのbullish sentimentが多く、一方でSven Carlinはマクロ的なリスクへの警戒を呼びかけています。金価格の上昇も複数チャンネルで取り上げられており、インフレヘッジとしての関心が高まっています。",
+            "key_themes": ["AIテクノロジー株への強気姿勢", "マクロリスクへの警戒", "金・コモディティへの関心"],
+        }
+
+        # トップページ
         with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
-            f.write(generate_html(all_results, today))
+            f.write(generate_html(all_results, today, exec_summary=dummy_exec))
+        # channelsページ
         with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
             f.write(generate_channels_html(channels))
+        # archiveの日別ページ（今日分＋ダミー2日分）
+        dummy_dates = [
+            today,
+            (datetime.now(JST) - timedelta(days=1)).strftime("%Y-%m-%d"),
+            (datetime.now(JST) - timedelta(days=2)).strftime("%Y-%m-%d"),
+        ]
+        for d in dummy_dates:
+            with open(archive_dir / f"{d}.html", "w", encoding="utf-8") as f:
+                f.write(generate_html(_dummy_results(d), d, is_archive=True))
+        # archive一覧ページ
+        with open(archive_dir / "index.html", "w", encoding="utf-8") as f:
+            f.write(generate_archive_index_html(sorted(dummy_dates, reverse=True)))
 
         index_path = DOCS_DIR / "index.html"
         print(f"\n[OK] プレビュー生成完了: {index_path}")
@@ -1601,10 +1871,15 @@ def main() -> None:
     with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
         f.write(generate_channels_html(channels))
 
+    # エグゼクティブサマリーを生成
+    exec_summary = build_exec_summary(
+        client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral
+    )
+
     # メインページ (index.html) を更新
     print("  メインページ(index.html)生成中...")
     with open(DOCS_DIR / "index.html", "w", encoding="utf-8") as f:
-        f.write(generate_html(all_results, today))
+        f.write(generate_html(all_results, today, exec_summary=exec_summary))
 
     # latest.json（後方互換）
     print("  latest.json保存中...")
