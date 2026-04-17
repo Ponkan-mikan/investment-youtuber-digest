@@ -1872,6 +1872,9 @@ def main() -> None:
         f.write(generate_channels_html(channels))
 
     # エグゼクティブサマリーを生成
+    n_bullish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bullish")
+    n_bearish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bearish")
+    n_neutral = len(all_results) - n_bullish - n_bearish
     exec_summary = build_exec_summary(
         client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral
     )
