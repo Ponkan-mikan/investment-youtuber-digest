@@ -1535,17 +1535,23 @@ def generate_executive_summary_text(
         "max_tokens": 512,
         "temperature": 0.3,
     }
-    try:
-        resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=30)
-        resp.raise_for_status()
-        text = resp.json()["choices"][0]["message"]["content"]
-        text_clean = re.sub(r"```(?:json)?\s*", "", text)
-        text_clean = re.sub(r"\s*```", "", text_clean).strip()
-        m = re.search(r"\{[\s\S]*\}", text_clean)
-        if m:
-            return json.loads(m.group())
-    except Exception as e:
-        print(f"  [WARN] エグゼクティブサマリー生成失敗: {e}")
+    for attempt in range(2):
+        try:
+            if attempt > 0:
+                print("  [INFO] エグゼクティブサマリー再試行中 (5s待機)...")
+                time.sleep(5)
+            resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=60)
+            resp.raise_for_status()
+            text = resp.json()["choices"][0]["message"]["content"]
+            print(f"  [INFO] エグゼクティブサマリー応答: {text[:120]!r}")
+            text_clean = re.sub(r"```(?:json)?\s*", "", text)
+            text_clean = re.sub(r"\s*```", "", text_clean).strip()
+            m = re.search(r"\{[\s\S]*\}", text_clean)
+            if m:
+                return json.loads(m.group())
+        except Exception as e:
+            print(f"  [WARN] エグゼクティブサマリー生成失敗 (attempt {attempt+1}): {e}")
+            traceback.print_exc()
     return {"overall_summary": "", "key_themes": []}
 
 
@@ -1557,6 +1563,7 @@ def build_exec_summary(
     print("  エグゼクティブサマリー生成中...")
     new_tickers     = get_new_tickers(results, archive_dir, today)
     undervalued     = get_undervalued_picks(results)
+    time.sleep(3)  # Groq rate limit margin after per-video calls
     llm_summary     = generate_executive_summary_text(api_key, results, n_bullish, n_bearish, n_neutral)
     return {
         "new_tickers":      new_tickers,
@@ -1651,11 +1658,11 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         <span class="exec-label">// executive summary</span>
         {stats_html}
       </div>
+      {overall_block}
       <div class="exec-grid">
         {new_block}
         {uv_block}
       </div>
-      {overall_block}
     </div>
   </section>"""
 
