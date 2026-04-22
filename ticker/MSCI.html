@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSCI — alphadigest</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
+    }
+    .header-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
+    }
+    .ad-logo {
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+    }
+    .ad-logo__cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
+    }
+    .ad-logo__alpha { color: var(--brand); font-weight: 700; }
+    .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
+    @keyframes blink { 50% { opacity: 0; } }
+    nav { display: flex; gap: 4px; }
+    .nav-link {
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
+    }
+    .nav-link:hover { color: var(--brand); border-color: rgba(0,255,136,0.3); }
+    main { max-width: 960px; margin: 0 auto; padding: clamp(32px,5vw,64px) clamp(16px,4vw,48px) 80px; }
+    .page-prompt {
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    }
+    .prompt-symbol { color: var(--brand); opacity: 0.7; }
+    .ticker-hero {
+      display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;
+    }
+    h1 {
+      font-size: clamp(2rem,5vw,3rem); font-weight: 700;
+      letter-spacing: -0.04em; color: var(--brand);
+    }
+    .mention-count {
+      font-size: 0.72rem; color: var(--dim);
+      border: 1px solid var(--border); padding: 3px 10px; border-radius: 2px;
+    }
+    /* TradingView widgets layout */
+    .widgets-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .widget-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden;
+    }
+    .widget-box.span2 { grid-column: 1 / -1; }
+    .widget-label {
+      font-size: 0.6rem; color: var(--dim); letter-spacing: 0.1em;
+      padding: 8px 12px 4px; border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 640px) {
+      .widgets-grid { grid-template-columns: 1fr; }
+      .widget-box.span2 { grid-column: 1; }
+    }
+    /* Mention history */
+    .section-title {
+      font-size: 0.68rem; color: var(--dim); letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .mention-list { display: flex; flex-direction: column; gap: 4px; margin-bottom: 40px; }
+    .mention-row {
+      display: grid;
+      grid-template-columns: 96px 148px 72px 60px 1fr 20px;
+      align-items: center; gap: 10px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 2px solid rgba(0,255,136,0.15);
+      border-radius: 2px; padding: 10px 14px;
+      text-decoration: none; transition: all 150ms ease;
+    }
+    .mention-row:hover { border-left-color: var(--brand); transform: translateX(3px); }
+    .m-date    { font-size: 0.65rem; color: var(--dim); flex-shrink: 0; }
+    .m-channel { font-size: 0.65rem; color: var(--brand); opacity: 0.7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .m-price   { font-size: 0.72rem; color: var(--muted); font-weight: 700; text-align: right; }
+    .m-pct     { font-size: 0.72rem; font-weight: 700; text-align: right; }
+    .m-pct-up  { color: var(--brand); }
+    .m-pct-dn  { color: #ff4444; }
+    .m-pct-na  { color: var(--dim); }
+    .m-title   { font-size: 0.78rem; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .m-arrow   { color: var(--brand); font-size: 0.72rem; opacity: 0.6; }
+    .no-mentions { color: var(--dim); font-size: 0.78rem; padding: 20px 0; }
+    @media (max-width: 640px) {
+      .mention-row { grid-template-columns: 80px 60px 48px 1fr 16px; }
+      .m-channel { display: none; }
+    }
+    footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }
+    #bgCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href="../archive/index.html" class="nav-link">archive</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="page-prompt">
+      <span class="prompt-symbol">></span>
+      <span>ticker</span>
+      <span style="color:var(--brand);font-weight:700">MSCI</span>
+    </div>
+    <div class="ticker-hero">
+      <h1>MSCI</h1>
+      <span class="mention-count">1 mentions in archive</span>
+    </div>
+
+    <div class="widgets-grid">
+      <!-- Symbol Info: 価格・時価総額・PER等 -->
+      <div class="widget-box span2">
+        <div class="widget-label">// market overview</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+          {
+            "symbol": "MSCI",
+            "width": "100%",
+            "locale": "en",
+            "colorTheme": "dark",
+            "isTransparent": true
+          }
+          </script>
+        </div>
+      </div>
+      <!-- Chart -->
+      <div class="widget-box span2">
+        <div class="widget-label">// price chart</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {
+            "symbol": "MSCI",
+            "width": "100%",
+            "height": 420,
+            "interval": "D",
+            "timezone": "America/New_York",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "#0c0c10",
+            "gridColor": "rgba(255,255,255,0.04)",
+            "hide_side_toolbar": false,
+            "allow_symbol_change": false,
+            "save_image": false,
+            "calendar": false
+          }
+          </script>
+        </div>
+      </div>
+      <!-- Technical Analysis -->
+      <div class="widget-box">
+        <div class="widget-label">// analyst rating</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+          {
+            "symbol": "MSCI",
+            "width": "100%",
+            "height": 400,
+            "interval": "1W",
+            "locale": "en",
+            "colorTheme": "dark",
+            "isTransparent": true
+          }
+          </script>
+        </div>
+      </div>
+      <!-- Financials -->
+      <div class="widget-box">
+        <div class="widget-label">// financials</div>
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+          {
+            "symbol": "MSCI",
+            "width": "100%",
+            "height": 400,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-title">// mention history (1 videos)</p>
+    <div class="mention-list">
+      <a class="mention-row" href="../archive/2026-04-23.html"><span class="m-date">2026-04-23</span><span class="m-channel">Sven Carlin</span><span class="m-price">$608.04</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Michael Burry's Stocks To Buy & Investing Strategy (JD, BABA, PYPL, CRM, MSCI, TSLA, NVDA, PLTR)</span><span class="m-arrow">↗</span></a>
+    </div>
+  </main>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-04-23 07:57 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <script>(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const TICKERS = ["MSCI"];
+  const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
+
+  // 4x4 Bayer ordered dither
+  const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  function dither(x, y) { return (BAYER[y & 3][x & 3] / 16) - 0.5; }
+
+  // 1/f pink noise
+  function pinkNoise() {
+    const b = [0,0,0,0,0,0,0];
+    return { next() {
+      const w = (Math.random() - 0.5) * 2;
+      b[0]=0.99886*b[0]+w*0.0555; b[1]=0.99332*b[1]+w*0.0751;
+      b[2]=0.96900*b[2]+w*0.1539; b[3]=0.86650*b[3]+w*0.3105;
+      b[4]=0.55000*b[4]+w*0.5330; b[5]=-0.7616*b[5]-w*0.0169;
+      const v = b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362;
+      b[6] = w * 0.1159;
+      return v * 0.11;
+    }};
+  }
+
+  const G = 13;
+  const noise = pinkNoise();
+  let W = 0, H = 0, phase = 0, last = performance.now();
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  function frame(ts) {
+    const dt = Math.min(0.05, (ts - last) / 1000);
+    last = ts;
+    phase += (Math.PI * 2 / 10) * dt;
+
+    const fv = noise.next();
+    const ampScale = 1 + fv * 0.18;
+    const intOff   = fv * 0.045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "bold 9px 'JetBrains Mono',monospace";
+    ctx.textBaseline = 'top';
+
+    const cols = Math.ceil(W / G);
+    const rows = Math.ceil(H / G);
+    const cy   = rows * 0.58;
+    const base = rows / 4;
+    const amp  = base * ampScale;
+    const freq = 0.036;
+    const sp2  = phase * 0.86;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const w1   = Math.sin(x * freq + phase) * amp;
+        const w2   = Math.cos(x * freq * 0.5 - sp2) * (base * 0.42 * ampScale);
+        const dist = Math.abs(y - (cy + w1 + w2));
+        let   int  = Math.max(0, 1 - dist / 12);
+        int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
+
+        if (int + dither(x, y) > 0.5) {
+          ctx.fillStyle = 'rgba(0,255,136,0.22)';
+          ctx.fillText(chars[x % chars.length], x * G, y * G);
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();</script>
+</body>
+</html>
