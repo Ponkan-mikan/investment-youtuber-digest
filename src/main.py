@@ -302,7 +302,7 @@ def _render_card(r: dict, root_path: str = "") -> str:
     vid_m = re.search(r"[?&]v=([A-Za-z0-9_-]{11})", r.get("url", ""))
     if vid_m:
         thumb_url  = f"https://img.youtube.com/vi/{vid_m.group(1)}/mqdefault.jpg"
-        thumb_html = f'<div class="card-thumb"><img src="{thumb_url}" alt="" loading="lazy" onerror="this.closest(\'.card-thumb\').style.display=\'none\'"></div>'
+        thumb_html = f'<div class="card-thumb"><a href="{r["url"]}" target="_blank" rel="noopener"><img src="{thumb_url}" alt="" loading="lazy" onerror="this.closest(\'.card-thumb\').style.display=\'none\'"></a></div>'
     else:
         thumb_html = ""
     ticker_html = "".join(
