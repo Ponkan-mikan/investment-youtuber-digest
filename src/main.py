@@ -129,6 +129,8 @@ _SHORT_RE = re.compile(r'#shorts?\b|#reels?\b', re.IGNORECASE)
 
 def is_short(video: dict) -> bool:
     """YouTube ショート動画かどうかを判定する。"""
+    if "/shorts/" in video.get("url", ""):
+        return True
     if _SHORT_RE.search(f"{video['title']} {video['description']}"):
         return True
     d = video.get("duration_seconds", 0)
@@ -300,7 +302,7 @@ def _render_card(r: dict, root_path: str = "") -> str:
     vid_m = re.search(r"[?&]v=([A-Za-z0-9_-]{11})", r.get("url", ""))
     if vid_m:
         thumb_url  = f"https://img.youtube.com/vi/{vid_m.group(1)}/mqdefault.jpg"
-        thumb_html = f'<div class="card-thumb"><img src="{thumb_url}" alt="" loading="lazy"></div>'
+        thumb_html = f'<div class="card-thumb"><img src="{thumb_url}" alt="" loading="lazy" onerror="this.closest(\'.card-thumb\').style.display=\'none\'"></div>'
     else:
         thumb_html = ""
     ticker_html = "".join(
@@ -574,7 +576,9 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     }}
     .exec-ticker-item:last-child {{ border-bottom: none; margin-bottom: 0; padding-bottom: 0; }}
     .exec-ticker-item .ticker {{ margin-bottom: 4px; display: inline-block; }}
-    .exec-ticker-title {{ font-size: 0.78rem; color: rgba(255,255,255,0.82); line-height: 1.5; margin: 3px 0 1px; }}
+    .exec-ticker-title {{ font-size: 0.78rem; line-height: 1.5; margin: 3px 0 1px; }}
+    .exec-ticker-title a {{ color: rgba(255,255,255,0.82); text-decoration: none; }}
+    .exec-ticker-title a:hover {{ color: #fff; text-decoration: underline; }}
     .exec-ticker-ch  {{ font-size: 0.63rem; color: var(--muted); }}
     .exec-empty {{ font-size: 0.72rem; color: var(--dim); }}
     /* archive page: minimal hero */
@@ -1476,6 +1480,7 @@ def get_new_tickers(today_results: list, archive_dir: Path, today: str) -> list:
                     "ticker":  t,
                     "channel": r["channel_name"],
                     "title":   r.get("title", ""),
+                    "url":     r.get("url", ""),
                 }
     return list(seen.values())
 
@@ -1501,6 +1506,7 @@ def get_undervalued_picks(today_results: list) -> list:
                 "ticker":  t,
                 "channel": r["channel_name"],
                 "title":   r.get("title", ""),
+                "url":     r.get("url", ""),
             })
     return items
 
@@ -1609,7 +1615,7 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         items_html = "".join(
             f'<div class="exec-ticker-item">'
             f'<a class="ticker" href="{root}ticker/{t["ticker"]}.html">{t["ticker"]}</a>'
-            f'<div class="exec-ticker-title">{t["title"]}</div>'
+            f'<div class="exec-ticker-title"><a href="{t["url"]}" target="_blank" rel="noopener">{t["title"]}</a></div>'
             f'<div class="exec-ticker-ch">— {t["channel"]}</div>'
             f'</div>'
             for t in new_tickers[:4]
@@ -1624,7 +1630,7 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         uv_html = "".join(
             f'<div class="exec-ticker-item">'
             f'<a class="ticker" href="{root}ticker/{u["ticker"]}.html">{u["ticker"]}</a>'
-            f'<div class="exec-ticker-title">{u["title"]}</div>'
+            f'<div class="exec-ticker-title"><a href="{u["url"]}" target="_blank" rel="noopener">{u["title"]}</a></div>'
             f'<div class="exec-ticker-ch">— {u["channel"]}</div>'
             f'</div>'
             for u in undervalued[:4]
@@ -1714,11 +1720,13 @@ def main() -> None:
         dummy_exec = {
             "new_tickers": [
                 {"ticker": "ACHR", "channel": "Couch Investor",
-                 "title": "Should You Buy Archer Aviation Stock? ACHR Analysis"},
+                 "title": "Should You Buy Archer Aviation Stock? ACHR Analysis",
+                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
             ],
             "undervalued_picks": [
                 {"ticker": "MNDY", "channel": "Asymmetric Investing",
-                 "title": "3 Undervalued Stocks the Market Is Completely Ignoring"},
+                 "title": "3 Undervalued Stocks the Market Is Completely Ignoring",
+                 "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
             ],
         }
 
