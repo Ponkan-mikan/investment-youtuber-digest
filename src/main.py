@@ -1866,6 +1866,8 @@ def main() -> None:
             time.sleep(2)  # Groq レート制限対策（30 RPM = 2秒間隔）
 
     # 当日言及されたティッカーの株価スナップショットを取得
+    all_results.sort(key=lambda r: r.get("published", ""), reverse=True)
+
     print("\n株価スナップショットを取得中...")
     all_tickers = set()
     for r in all_results:
