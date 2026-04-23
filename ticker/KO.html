@@ -27,12 +27,31 @@
       border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; height: 52px;
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px; gap: 31px;
     }
+    .header-ticker {
+      flex: 1; min-width: 0; height: 46px;
+      position: relative; overflow: hidden;
+    }
+    .header-ticker::before,
+    .header-ticker::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
+    }
+    .header-ticker::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
+    }
+    .header-ticker .tradingview-widget-container,
+    .header-ticker .tradingview-widget-container__widget { height: 46px !important; }
     .ad-logo {
       display: inline-flex; align-items: center; font-size: 18px;
-      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
     }
     .ad-logo__cursor {
       display: inline-block; width: 2px; height: 1.1em;
@@ -42,7 +61,7 @@
     .ad-logo__alpha { color: var(--brand); font-weight: 700; }
     .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
     @keyframes blink { 50% { opacity: 0; } }
-    nav { display: flex; gap: 4px; }
+    nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
     .nav-link {
       font-size: 0.7rem; color: var(--muted); text-decoration: none;
       padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
@@ -130,6 +149,29 @@
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
+      <div class="header-ticker">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+              {"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"},
+              {"description": "Dow Jones", "proName": "FOREXCOM:DJI"},
+              {"description": "VIX", "proName": "CBOE:VIX"},
+              {"description": "USD/JPY", "proName": "FX_IDC:USDJPY"},
+              {"description": "Gold", "proName": "TVC:GOLD"},
+              {"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}
+            ],
+            "showSymbolLogo": false,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+          }
+          </script>
+        </div>
+      </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
         <a href="../archive/index.html" class="nav-link">archive</a>
@@ -229,10 +271,10 @@
 
     <p class="section-title">// mention history (4 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-21.html"><span class="m-date">2026-04-21</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$75.48</span><span class="m-pct m-pct-dn">-1.1%</span><span class="m-title">Should Investors Buy Coca-Cola Stock Before April 28? | KO Stock Analysis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-12.html"><span class="m-date">2026-04-12</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$77.47</span><span class="m-pct m-pct-dn">-3.7%</span><span class="m-title">Is Coca-Cola Stock an Undervalued Dividend Stock to Buy?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-11.html"><span class="m-date">2026-04-11</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$77.47</span><span class="m-pct m-pct-dn">-3.7%</span><span class="m-title">Is Coca-Cola Stock an Undervalued Dividend Stock to Buy?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-01.html"><span class="m-date">2026-04-01</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">—</span><span class="m-pct m-pct-na">—</span><span class="m-title">4 Stocks to Sell Today</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-04-21.html"><span class="m-date">2026-04-21</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$75.48</span><span class="m-pct m-pct-up">+1.1%</span><span class="m-title">Should Investors Buy Coca-Cola Stock Before April 28? | KO Stock Analysis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-12.html"><span class="m-date">2026-04-12</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$77.47</span><span class="m-pct m-pct-dn">-1.5%</span><span class="m-title">Is Coca-Cola Stock an Undervalued Dividend Stock to Buy?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-11.html"><span class="m-date">2026-04-11</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$77.47</span><span class="m-pct m-pct-dn">-1.5%</span><span class="m-title">Is Coca-Cola Stock an Undervalued Dividend Stock to Buy?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-01.html"><span class="m-date">2026-04-01</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">—</span><span class="m-pct m-pct-na">—</span><span class="m-title">4 Stocks to Sell Today</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-04-23 21:50 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-04-23 23:39 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');

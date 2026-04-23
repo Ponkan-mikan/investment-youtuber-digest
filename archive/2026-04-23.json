@@ -8,18 +8,16 @@
       "url": "https://www.youtube.com/watch?v=s5r02ljTEAo",
       "published": "2026-04-22T21:16:51+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Tesla</b> (<b>TSLA</b>) と <b>ServiceNow Inc.</b> (<b>NOW</b>) の株式の業績を分析しています。動画では、財務諸表やデータ分析に焦点を当て、各企業の財務状況を理解する方法を説明しています。",
+        "summary_ja": "この動画では、<b>Tesla</b> (<b>TSLA</b>) と <b>ServiceNow Inc.</b> (<b>NOW</b>) の株式の業績について分析しています。財務諸表やデータ分析を通じて、各企業の財務状況を理解することができます。",
         "tickers": [
           "TSLA",
           "NOW"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "財務諸表の分析が重要",
-          "データ分析を通じて企業の財務状況を理解する",
-          "個別銘柄の分析が投資判断に役立つ",
-          "投資家は独自の研究と判断が必要",
-          "投資アドバイスではなく、自己責任での投資判断"
+          "財務諸表の分析は企業の財務状況を理解する上で重要",
+          "データ分析を通じて企業の業績を評価することができる",
+          "個別銘柄の分析は投資判断に役立つ"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -29,28 +27,15 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -61,47 +46,33 @@
       "url": "https://www.youtube.com/watch?v=47Lo5nX807U",
       "published": "2026-04-22T19:47:13+00:00",
       "analysis": {
-        "summary_ja": "この動画では、ホストのポールがリアルタイムで株式市場を分析し、過小評価されている株式を探します。視聴者はチャットで株式のリクエストを投稿でき、ポールはそれらを分析します。この動画では、投資戦略や市場の動向についても議論されます。ポールは、<b>Everything Money</b> の代表として、投資アドバイスではなく教育的な内容を提供することを強調しています。",
+        "summary_ja": "この動画では、ホストのPaulが現行の市場状況を分析し、過小評価されている株式を特定することを目的としています。視聴者はチャットで株式のリクエストを送信でき、Paulはそれをライブで分析します。動画では投資戦略や市場の反応についても議論されますが、投資アドバイスではなく、個人の判断に基づくものであると注意されています。",
         "tickers": [],
         "undervalued_picks": [],
         "key_points": [
-          "過小評価されている株式を探すために、リアルタイムで市場分析を行う",
-          "視聴者はチャットで株式のリクエストを投稿できる",
-          "投資戦略や市場の動向についても議論される",
-          "投資アドバイスではなく教育的な内容を提供する",
-          "個別の投資決定には、自己責任で研究と判断が必要"
+          "過小評価されている株式の特定",
+          "市場状況の分析",
+          "投資戦略の議論",
+          "個人の判断に基づく投資",
+          "投資アドバイスではない"
         ],
         "sentiment": "neutral",
         "topics": [
           "個別銘柄分析",
-          "投資戦略",
-          "市場見通し"
+          "投資戦略"
         ],
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -112,7 +83,7 @@
       "url": "https://www.youtube.com/watch?v=AVyPTdybanI",
       "published": "2026-04-21T20:51:46+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Apple</b> のCEOティム・クックの退任や、<b>MMM</b>、<b>United Health</b>、<b>Avis</b> の決算発表など、株式市場で注目されたニュースや決算発表について話し合われています。また、ビットコインの価格動向についても触れています。動画では、これらのニュースが株式市場に与える影響について分析しています。",
+        "summary_ja": "この動画では、<b>Apple</b> のCEOティム・クックの退任や、<b>MMM</b>、<b>United Health</b>、<b>Avis</b> の決算発表など、株式市場で注目されたニュースや決算発表について議論しています。また、ビットコインの動向も言及されています。",
         "tickers": [
           "AAPL",
           "MMM",
@@ -121,11 +92,11 @@
         ],
         "undervalued_picks": [],
         "key_points": [
-          "<b>Apple</b> のCEOティム・クックの退任が発表された",
-          "<b>MMM</b> と <b>United Health</b> の決算発表が行われた",
-          "<b>Avis</b> のショートスクイズが起こった",
-          "ビットコインの価格が下落した",
-          "これらのニュースが株式市場に与える影響について分析された"
+          "<b>Apple</b> のCEO交代が株式市場に与える影響について議論",
+          "<b>MMM</b> と <b>United Health</b> の決算発表が株価に与える影響",
+          "ビットコインの下落とその要因について",
+          "<b>Avis</b> のショートスクイズについて",
+          "個人投資家が市場の動向を把握することの重要性"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -136,28 +107,15 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -168,48 +126,36 @@
       "url": "https://www.youtube.com/watch?v=-2hPtxOR8n0",
       "published": "2026-04-23T11:03:12+00:00",
       "analysis": {
-        "summary_ja": "この動画では、AI Revolutionと<b>SpaceX</b>のIPO、<b>Tesla</b>の株価について議論しています。ホストは、投資家が<b>Elon Musk</b>のビジネス戦略に注目すべきであると述べています。また、ホストは自身のストックマーケットリサーチプラットフォームと無料のバリューインベスティングコースについて紹介しています。",
+        "summary_ja": "この動画では、AI Revolutionや<b>Elon</b>の<b>SpaceX</b>のIPO、<b>TSLA</b>の株価について議論しています。YouTuberは、投資家向けのストックマーケットリサーチプラットフォームや無料のバリューインベスティングコースを紹介しています。",
         "tickers": [
           "TSLA"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "AI Revolutionと<b>SpaceX</b>のIPOが市場に与える影響",
-          "<b>Elon Musk</b>のビジネス戦略の重要性",
-          "ホストのストックマーケットリサーチプラットフォームの紹介",
-          "無料のバリューインベスティングコースの紹介",
-          "投資家が<b>Elon Musk</b>のビジネス戦略に注目すべきである"
+          "AI Revolutionが株式市場に与える影響について",
+          "SpaceXのIPOとその潜在的な影響",
+          "<b>TSLA</b>の株価の動向",
+          "バリューインベスティングの重要性",
+          "投資家向けのリサーチプラットフォームの紹介"
         ],
         "sentiment": "bullish",
         "topics": [
           "個別銘柄分析",
-          "投資戦略"
+          "投資戦略",
+          "市場見通し"
         ],
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -220,7 +166,7 @@
       "url": "https://www.youtube.com/watch?v=2dJH0dAoBOQ",
       "published": "2026-04-21T22:00:04+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Wolters Kluwer</b> の株価下落について議論されています。YouTuberは、自身のストックマーケットリサーチプラットフォームや、7年のパフォーマンスレビュー、無料のバリューインベスティングコースについて言及しています。また、自身が著した『Modern Value Investing』という本も紹介しています。動画では、<b>Wolters Kluwer</b> のティッカーシンボルは <b>WKL</b> として言及されています。",
+        "summary_ja": "<b>Wolters Kluwer</b> の株価下落を受けての買い方針について議論している。YouTuberは<b>Wolters Kluwer</b> のティッカーシンボルはAMS: WKLであると述べている。YouTuberは自身のストックマーケットリサーチプラットフォームや無料のバリューインベスティングコースについても言及している。",
         "tickers": [
           "WKL"
         ],
@@ -228,11 +174,11 @@
           "WKL"
         ],
         "key_points": [
-          "YouTuberは、自身のストックマーケットリサーチプラットフォームを紹介しています。",
-          "7年のパフォーマンスレビューについて言及しています。",
-          "無料のバリューインベスティングコースを提供しています。",
-          "自身が著した『Modern Value Investing』という本を紹介しています。",
-          "投資判断の際には、自身のリサーチプラットフォームやコースを活用することを推奨しています。"
+          "YouTuberは<b>Wolters Kluwer</b> の株価下落について議論している",
+          "YouTuberは自身のストックマーケットリサーチプラットフォームを紹介している",
+          "YouTuberは無料のバリューインベスティングコースを提供している",
+          "YouTuberは投資判断において個別の研究と分析の重要性を強調している",
+          "YouTuberは自身の投資経験と見解を共有している"
         ],
         "sentiment": "bullish",
         "topics": [
@@ -242,28 +188,15 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -274,17 +207,17 @@
       "url": "https://www.youtube.com/watch?v=lWWgGF5Jb6A",
       "published": "2026-04-22T23:09:32+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>ServiceNow</b> の株価が「ビート＆レイズ」（予想を上回る業績発表と将来の予想の引き上げ）にもかかわらず下落した理由について説明しています。YouTuberのBrian FeroldiとBrian Stoffelは、投資家がこのような動きにどう対応すべきかを論じています。",
+        "summary_ja": "この動画では、<b>ServiceNow</b> の株価が「ビート＆レイズ」（予想を上回る業績発表と将来の予想の引き上げ）にもかかわらず下落した理由について分析しています。ホストのブライアン・フェロルディとブライアン・ストフェルは、投資家がこのような動きにどう反応すべきかについて議論しています。",
         "tickers": [
           "NOW"
         ],
         "undervalued_picks": [],
         "key_points": [
           "「ビート＆レイズ」にもかかわらず株価が下落する理由を分析する",
-          "投資家がこのような市場の動きにどう対応すべきかを論じる",
-          "高品質な企業に長期投資することの重要性を強調する",
-          "市場の短期的な変動に左右されず、基本的な分析に焦点を当てる必要性を指摘する",
-          "投資判断の参考となるツールやリソースを紹介する"
+          "投資家がこのような動きにどう反応すべきかについて議論する",
+          "企業の財務状況と将来の成長可能性を評価する",
+          "市場の反応と投資家の感情の役割を考慮する",
+          "長期的な視点を維持することの重要性を強調する"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -294,28 +227,15 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -326,46 +246,32 @@
       "url": "https://www.youtube.com/watch?v=6ROCl_Ug2H0",
       "published": "2026-04-22T05:17:31+00:00",
       "analysis": {
-        "summary_ja": "<b>Anthropic</b>の新しいAIモデル、Claude Mythosがリリースされ、ソフトウェア業界に大きな影響を与えている。この動画では、Claude Mythosが何をしていて、ソフトウェア投資家が注目すべき点は何であるか、また、投資家のポートフォリオに与える影響について説明する。ソフトウェア企業のビジネスモデルがAIの進化によってどのように影響を受けるかも分析する。",
+        "summary_ja": "<b>Anthropic</b>の新しいAIモデル、Claude Mythosがリリースされ、ソフトウェア業界に大きな影響を与えている。この動画では、Claude Mythosが何をしていて、ソフトウェア投資家が注目すべき点は何であるか、また、投資家のポートフォリオに与える影響について解説する。ソフトウェア企業のビジネスモデルがAIの進化によってどのように影響を受けるかも分析する。",
         "tickers": [],
         "undervalued_picks": [],
         "key_points": [
           "Claude Mythosは、以前のAIモデルと比べて何が違うのか",
-          "ソフトウェア企業のビジネスモデルの中で、どのようなモデルがAIの進化によって最も影響を受けるか",
-          "AIの進化によって、どのような企業が利益を得る可能性があるか",
-          "長期投資家として、AIの進化をどのように考慮するべきか"
+          "ソフトウェア企業のビジネスモデルの中で、どれがAIの影響を受けやすいのか",
+          "AIの進化によって、どの企業が利益を得る可能性があるのか",
+          "長期投資家として、AIの影響をどのように考慮するべきか"
         ],
         "sentiment": "neutral",
         "topics": [
           "個別銘柄分析",
-          "投資戦略",
-          "市場見通し"
+          "投資戦略"
         ],
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -376,7 +282,7 @@
       "url": "https://www.youtube.com/watch?v=xBiokVHzxhA",
       "published": "2026-04-22T16:17:54+00:00",
       "analysis": {
-        "summary_ja": "<b>Hims & Hers</b> は現在小規模なテレヘルス企業ですが、長期的な成長潜在性をまだ表面的にしか掘り下げていないとされています。この動画では、<b>Hims & Hers</b> のプラットフォームが将来的に1兆ドルのビジネスになる可能性がある理由と、これらのビジネスが歴史的にどのように構築されてきたかを説明しています。新しい製品の導入により、<b>Hims & Hers</b> の株は将来的に100倍の潜在性を持つ買い持ち候補になる可能性があります。",
+        "summary_ja": "<b>Hims & Hers</b> は現在小規模なテレヘルス企業ですが、長期的な成長潜在性は高いと考えられます。この動画では、<b>Hims & Hers</b> のプラットフォームが将来的に1兆ドルのビジネスになる可能性がある理由と、新しい製品が長期的な成長につながる可能性について説明しています。",
         "tickers": [
           "HIMS"
         ],
@@ -384,42 +290,29 @@
           "HIMS"
         ],
         "key_points": [
-          "<b>Hims & Hers</b> のプラットフォームが将来的に1兆ドルのビジネスになる可能性がある",
-          "新しい製品の導入により将来的に100倍の潜在性を持つ",
-          "テレヘルス企業の長期的な成長潜在性",
-          "過小評価されているため買い持ち候補になる可能性",
-          "将来的に大きな成長が見込める"
+          "<b>Hims & Hers</b> の長期的な成長潜在性は高い",
+          "新しい製品の導入が成長に貢献する可能性がある",
+          "テレヘルス業界の将来性は高い",
+          "企業の成長は歴史的な事例から学べる",
+          "100倍の潜在性があると考えられる"
         ],
         "sentiment": "bullish",
         "topics": [
           "個別銘柄分析",
-          "投資戦略"
+          "成長株"
         ],
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -430,18 +323,18 @@
       "url": "https://www.youtube.com/watch?v=JmceGuGJVtY",
       "published": "2026-04-22T05:50:18+00:00",
       "analysis": {
-        "summary_ja": "Asymmetric Investing April AMA動画では、ホストが視聴者からの質問に答えながら、投資戦略や市場の見通しについて議論しています。ホストは<b>Archer Aviation</b>や<b>Tesla</b>などの企業について言及し、投資家が考慮すべき重要なポイントについて説明しています。動画では、投資家が市場の変動に備えるための戦略や、さまざまな銘柄の潜在的な機会についても議論しています。",
+        "summary_ja": "Asymmetric Investing April AMA動画では、ホストが視聴者からの質問に答えながら、投資戦略や市場の見通しについて議論しています。特に<b>テスラ</b>や<b>アマゾン</b>などの企業について言及しています。ホストは、リスクとリターンのバランスを考慮した投資アプローチの重要性を強調しています。また、市場のトレンドや個別の銘柄についての洞察も提供しています。",
         "tickers": [
-          "ACHR",
-          "TSLA"
+          "TSLA",
+          "AMZN"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "投資家は市場の変動に備えるための戦略を立てる必要がある",
-          "さまざまな銘柄の潜在的な機会を探すことが重要",
-          "投資家はリスク管理を怠らないことが必要",
-          "市場の見通しは予測不可能な要素が多い",
-          "投資家は情報に基づいた投資判断を下す必要がある"
+          "リスクとリターンのバランスを考慮した投資アプローチの重要性",
+          "市場のトレンドと個別の銘柄についての洞察",
+          "<b>テスラ</b>や<b>アマゾン</b>などの企業についての分析",
+          "投資判断における多様化の重要性",
+          "市場の予測は常に不確実であるということ"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -452,28 +345,52 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
+        "WKL": null
+      }
+    },
+    {
+      "channel_name": "Felix & Friends",
+      "video_id": "AhB7PKjMGK8",
+      "title": "New Fed Chair’s Plan to Cancel America’s Debt",
+      "url": "https://www.youtube.com/watch?v=AhB7PKjMGK8",
+      "published": "2026-04-23T13:00:16+00:00",
+      "analysis": {
+        "summary_ja": "この動画では、<b>Federal Reserve</b> の新しい議長の計画や、ウォール街のルール、メタルラリーの収益化方法について議論しています。また、ホストのフェリックス・プレーンは、自身の投資経験や、トレーディング業界の現実について話しています。フェリックスは、40歳で早期退職を達成し、視聴者に金融市場をナビゲートするための透明性と理解を提供することを目的としています。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "アメリカの国債の問題とその解決策について議論",
+          "ウォール街のルールとメタルラリーの収益化方法について説明",
+          "トレーディング業界の現実とフェリックスの投資経験について話す",
+          "早期退職を達成するための投資戦略について議論",
+          "金融市場をナビゲートするための透明性と理解の重要性について強調"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4
+      },
+      "price_snapshot": {
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -484,15 +401,15 @@
       "url": "https://www.youtube.com/watch?v=xziUSXN-cVw",
       "published": "2026-04-22T13:00:06+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Silver</b> の価格動向とその影響について議論されています。ホストの <b>Felix Prehn</b> は、金融市場における独自のアプローチと取引戦略を紹介しています。動画では、<b>Silver</b> と <b>S&amp;P 500</b> の比率の変化についても言及されています。",
+        "summary_ja": "この動画では、<b>Silver</b> の市場動向と、最近のルール変更が市場に与える影響について議論しています。ホストのFelix Prehnは、50年間の<b>Silver</b> とS&amp;P 500の比率を分析し、歴史的なスパイクを比較しています。また、Felixは、個別の投資家が金融市場をナビゲートするためのアプローチについても言及しています。",
         "tickers": [],
         "undervalued_picks": [],
         "key_points": [
-          "Silver の価格動向とその影響について議論",
-          "金融市場における独自のアプローチと取引戦略の紹介",
-          "Silver と S&amp;P 500 の比率の変化について言及",
-          "金融市場のリアルな状況と投資戦略について議論",
-          "早期退職を実現した <b>Felix Prehn</b> の投資経験と知見を共有"
+          "最近のルール変更が<b>Silver</b> の市場に与える影響",
+          "50年間の<b>Silver</b> とS&amp;P 500の比率の分析",
+          "歴史的なスパイクの比較",
+          "個別の投資家が金融市場をナビゲートするためのアプローチ",
+          "リスクと潜在的な利益についての考察"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -503,28 +420,69 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
+        "WKL": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "kZepf6X3ObU",
+      "title": "Should You Buy Robinhood Stock Before the Huge Investor Update? | HOOD Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=kZepf6X3ObU",
+      "published": "2026-04-23T13:45:20+00:00",
+      "analysis": {
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
+      },
+      "price_snapshot": {
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
+        "WKL": null
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "e7W-R7WGGwA",
+      "title": "Should Investors Buy Chipotle Stock Before April 29? | CMG Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=e7W-R7WGGwA",
+      "published": "2026-04-23T12:45:06+00:00",
+      "analysis": {
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
+      },
+      "price_snapshot": {
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -535,50 +493,23 @@
       "url": "https://www.youtube.com/watch?v=MNpz1yEGztw",
       "published": "2026-04-23T11:45:02+00:00",
       "analysis": {
-        "summary_ja": "<b>Snap</b> の株価が下落している理由と、投資家向けの大規模なアップデート前に買い場となる可能性について議論している。動画では、<b>Snap</b> が社会的メディア企業の中で最も成長が遅い企業の1つであると述べられている。",
-        "tickers": [
-          "SNAP"
-        ],
-        "undervalued_picks": [
-          "SNAP"
-        ],
-        "key_points": [
-          "<b>Snap</b> の株価は下落している",
-          "投資家向けの大規模なアップデートが予定されている",
-          "成長が遅い社会的メディア企業の1つである",
-          "買い場となる可能性について議論している",
-          "投資判断のためのフレームワークの重要性について言及"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -589,48 +520,23 @@
       "url": "https://www.youtube.com/watch?v=U5OED5f84Xw",
       "published": "2026-04-22T14:45:06+00:00",
       "analysis": {
-        "summary_ja": "<b>Adobe</b> の株主は、人工知能がもたらす脅威に対する <b>Adobe</b> の対策に懐疑的である。YouTuberは、<b>Adobe</b> の株式について分析を行っている。また、YouTuberは自身の投資フレームワークや書籍、The Motley Fool Stock Advisorについて紹介している。",
-        "tickers": [
-          "ADBE"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "人工知能がもたらす脅威に対する <b>Adobe</b> の対策が懐疑視されている",
-          "YouTuberは、<b>Adobe</b> の株式について分析を行っている",
-          "YouTuberは自身の投資フレームワークや書籍について紹介している",
-          "The Motley Fool Stock Advisorのパフォーマンスについて言及されている",
-          "過去のパフォーマンスは将来的に成功を約束するものではない"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -641,50 +547,23 @@
       "url": "https://www.youtube.com/watch?v=MStJQwZQEbU",
       "published": "2026-04-22T13:45:23+00:00",
       "analysis": {
-        "summary_ja": "<b>Fiverr</b> の株価が下落している理由と、投資家向けの大きなアップデート前に買い場となる可能性について議論している。動画では、<b>Fiverr</b> の経営陣が利益のある成長に焦点を当てていることが言及されている。また、YouTuberの投資フレームワークや、The Motley Foolなどの投資ツールの紹介も行われている。",
-        "tickers": [
-          "FVRR"
-        ],
-        "undervalued_picks": [
-          "FVRR"
-        ],
-        "key_points": [
-          "<b>Fiverr</b> の株価が下落している理由を分析する",
-          "投資家向けの大きなアップデート前に買い場となる可能性について議論する",
-          "YouTuberの投資フレームワークの紹介",
-          "The Motley Foolなどの投資ツールの紹介",
-          "リスク管理とポートフォリオの構築の重要性"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -695,48 +574,23 @@
       "url": "https://www.youtube.com/watch?v=8dA0pILes-g",
       "published": "2026-04-22T12:45:01+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Qualcomm</b> (<b>QCOM</b>) の株式について分析しています。近期的な成長は期待できません。",
-        "tickers": [
-          "QCOM"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "近期的な成長は期待できません",
-          "The Motley Fool Stock Advisor のパフォーマンスは 983% です",
-          "個別の投資結果は異なる場合があります",
-          "リスク管理とポートフォリオ構築の重要性",
-          "投資前に戦略を立てる必要性"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -747,48 +601,23 @@
       "url": "https://www.youtube.com/watch?v=aiy_--mBQvY",
       "published": "2026-04-22T11:45:00+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Alphabet</b> (<b>GOOG</b>) の株式を購入するかどうかについて議論している。企業の四半期報告を待つべき因子について言及している。また、YouTuberの投資フレームワークや書籍、The Motley Foolとのスポンサーについても触れている。",
-        "tickers": [
-          "GOOG"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "四半期報告を待つべき因子について言及",
-          "The Motley Fool Stock Advisorのパフォーマンスについて言及",
-          "YouTuberの投資フレームワークについて言及",
-          "書籍『Make Money Buying and Selling Stocks』について言及",
-          "Fiscal.aiをデータソースとして使用"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -799,46 +628,23 @@
       "url": "https://www.youtube.com/watch?v=noGHrm2uktA",
       "published": "2026-04-21T16:15:05+00:00",
       "analysis": {
-        "summary_ja": "<b>Spotify</b> の株式を購入するべきかについて議論している動画です。動画では、<b>Spotify</b> が月間アクティブユーザーが 10 億人に近づいていることを紹介しています。また、動画の作成者は、投資家向けの書籍やコミュニティへの参加を促しています。",
-        "tickers": [
-          "SPOT"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "<b>Spotify</b> の月間アクティブユーザーが 10 億人に近づいている",
-          "投資家向けの書籍やコミュニティへの参加が紹介されている",
-          "The Motley Fool の特別オファーが紹介されている"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 3
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -849,101 +655,23 @@
       "url": "https://www.youtube.com/watch?v=sbpNdUzbRGM",
       "published": "2026-04-21T15:45:09+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>UPS</b> の株式を4月28日前に購入するべきかどうかについて議論しています。高油価格と増加する貿易障壁が、<b>UPS</b> にとっての頭風であると指摘しています。また、動画では、投資家向けのさまざまなツールやリソースについても言及しています。",
-        "tickers": [
-          "UPS"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "高油価格と増加する貿易障壁が、<b>UPS</b> にとっての頭風である",
-          "投資家向けのツールやリソースとして、The Motley Fool や Fiscal.ai が紹介されている",
-          "動画では、<b>UPS</b> の株式購入についての明確な勧告は出されていない",
-          "投資家は、投資決定前に個別の調査と分析を行う必要がある",
-          "動画では、投資家向けの書籍やコミュニティについても言及されている"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
-        "WKL": null
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "IAlSpcem9a8",
-      "title": "Should You Buy Cadence Design Stock Before the Huge Investor Update?",
-      "url": "https://www.youtube.com/watch?v=IAlSpcem9a8",
-      "published": "2026-04-21T13:15:06+00:00",
-      "analysis": {
-        "summary_ja": "<b>Cadence Design</b> の株式を購入するべきかについて議論している動画です。企業は四半期の財務結果を発表する予定で、これは投資家にとって大きな影響を与える可能性があります。動画では、投資家が情報に基づいた決定を下すために必要な情報を提供しています。",
-        "tickers": [
-          "CDNS"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "四半期の財務結果が発表される前に<b>Cadence Design</b>の株式を購入するべきか",
-          "財務結果が投資家にとって大きな影響を与える可能性",
-          "投資家が情報に基づいた決定を下すために必要な情報",
-          "投資戦略とリスク管理の重要性",
-          "投資家が<b>Cadence Design</b>の株式を購入する前に考慮すべき点"
-        ],
-        "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略",
-          "決算分析"
-        ],
-        "importance": 4
-      },
-      "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -954,48 +682,23 @@
       "url": "https://www.youtube.com/watch?v=4E5cjr8xClI",
       "published": "2026-04-22T15:21:19+00:00",
       "analysis": {
-        "summary_ja": "<b>GE Aerospace</b> の業績が予想を上回ったにもかかわらず、株価が5.56%下落した理由を分析。同社の87%の受注増加、29%の収益増加、25%の調整後EPS増加について議論。さらに、$210億の受注残高、87%の受注増、供給망の遅延リスク、米イラン間の地政学的頭風などについて説明。",
-        "tickers": [
-          "GE"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "<b>GE Aerospace</b> の業績は予想を上回ったが、株価は下落した",
-          "87%の受注増加、29%の収益増加、25%の調整後EPS増加",
-          "$210億の受注残高",
-          "供給망の遅延リスク",
-          "米イラン間の地政学的頭風"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1006,46 +709,23 @@
       "url": "https://www.youtube.com/watch?v=HgI927a2Skk",
       "published": "2026-04-22T15:26:13+00:00",
       "analysis": {
-        "summary_ja": "この動画では、個人投資家が短期間で10,000ドルを稼ぐ方法について説明しています。動画の内容は、投資戦略や市場分析についての情報提供に重点が置かれています。ただし、動画内では、<b>StealthWealthInvesting</b> チャンネルのホストは、投資家が自己責任で投資決定を行う必要性を強調しています。",
+        "summary_ja": "要約の取得に失敗しました。",
         "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [
-          "投資家は、自己責任で投資決定を行う必要がある",
-          "投資前に、ライセンスを持つ金融アドバイザーに相談することが重要",
-          "市場の分析と投資戦略の理解は、成功した投資家になるために不可欠",
-          "リスク管理と資産の多様化は、投資ポートフォリオの健全性を維持するために重要",
-          "投資家は、投資決定の際に、感情的な判断ではなく、冷静な分析に基づく判断を行うべき"
-        ],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "投資戦略",
-          "市場分析"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1056,49 +736,23 @@
       "url": "https://www.youtube.com/watch?v=f2gIkqDC0WY",
       "published": "2026-04-22T20:00:35+00:00",
       "analysis": {
-        "summary_ja": "<b>Amazon</b> の隠れた AI ビジネスが投資家にとって重要な情報となる可能性がある。同社の AI ビジネスは、カスタム チップ、AI 需要、収益エンジンの組み合わせによって大きく成長する可能性がある。しかし、同社の AI インフラストラクチャへの激しい投資により、利益とキャッシュ フローが圧迫されるリスクもある。<b>Amazon</b> の株価はまだ上昇する可能性があるが、リスクも存在する。",
-        "tickers": [
-          "AMZN"
-        ],
-        "undervalued_picks": [
-          "AMZN"
-        ],
-        "key_points": [
-          "<b>Amazon</b> のカスタム チップ ビジネスが予想よりも大きい可能性がある",
-          "株主向けの手紙が AI 需要について明らかにしたこと",
-          "AI 投資が成長を促進するか、キャッシュ フローを悪化させるか",
-          "<b>Amazon</b> 株が現在の水準でまだ上昇する可能性があるか"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "テクノロジー"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1109,47 +763,23 @@
       "url": "https://www.youtube.com/watch?v=-VLDGH-ZT1o",
       "published": "2026-04-22T18:00:01+00:00",
       "analysis": {
-        "summary_ja": "<b>NVIDIA</b> の新しいラックスケール AI プラットフォーム <b>Vera Rubin</b> が発表され、企業のインフラストラクチャー スタック全体における役割の拡大が期待されている。投資家は、<b>NVIDIA</b> の株価が 300 ドルまで上昇する可能性について検討している。しかし、AI の採用が遅れたり、AI 関連の支出が減少したりすると、状況は変化する可能性がある。",
-        "tickers": [
-          "NVDA"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "<b>NVIDIA</b> の <b>Vera Rubin</b> プラットフォームは、通常のチップ ランチよりも大きなストーリーである",
-          "<b>NVIDIA</b> は、コンピューティング、ネットワーキング、ストレージ、システム デザインにおいてさらに多くの価値を生み出す可能性がある",
-          "<b>NVIDIA</b> の株価が 300 ドルまで上昇する可能性について検討する必要がある",
-          "AI の採用の減少や AI 関連の支出の減少は、<b>NVIDIA</b> の株価に悪影響を及ぼす可能性がある"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1160,7 +790,7 @@
       "url": "https://www.youtube.com/watch?v=hEyDOGAERNc",
       "published": "2026-04-21T20:00:28+00:00",
       "analysis": {
-        "summary_ja": "動画では、<b>SoundHound</b> の株価が高値から下落しているにもかかわらず、同社が米国のテレコム事業者と独占的なプラットフォーム契約を結んだことを受けて、同社の将来性について論じている。同契約により、<b>SoundHound</b> はネットワークを通じて拡大する機会が生まれる可能性があるが、損失、評価の圧力、実行リスクが依然として懸念事項となっている。YouTuberは、この契約が同社の成長に大きな影響を与える可能性があると考えており、投資家がこの機会を活かすことができるかどうかについて議論している。",
+        "summary_ja": "YouTuberのRick Orfordは、<b>SoundHound</b> の株価が高値から下落しているにもかかわらず、同社が米国のテレコム事業者と独占的なプラットフォーム契約を結んだことを発表した。Rickは、この契約が<b>SoundHound</b>にとって重要な機会となり、将来の成長に貢献する可能性があると考える。一方で、同社の損失、評価の圧力、実行のリスクも考慮する必要がある。",
         "tickers": [
           "SOUN"
         ],
@@ -1168,11 +798,11 @@
           "SOUN"
         ],
         "key_points": [
-          "<b>SoundHound</b> のテレコム事業者との契約が同社の成長に与える影響",
-          "同社の損失、評価の圧力、実行リスクが投資家の判断に与える影響",
-          "ネットワークを通じた拡大が同社のビジネスモデルに与える影響",
-          "YouTuberの投資判断と同社の将来性についての見解",
-          "同社の株価が高値から下落していることの意味"
+          "<b>SoundHound</b>がテレコム事業者と結んだ契約の詳細",
+          "市場が<b>SoundHound</b>のストーリーにまだ完全に買っていない理由",
+          "実行が繰り返し収益を解放する可能性",
+          "現在の株価がリスキーか、または長期投資家にとって魅力的か",
+          "将来の成長の可能性"
         ],
         "sentiment": "bullish",
         "topics": [
@@ -1182,28 +812,15 @@
         "importance": 4
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1214,47 +831,23 @@
       "url": "https://www.youtube.com/watch?v=qAEY9oDOhsA",
       "published": "2026-04-21T18:00:49+00:00",
       "analysis": {
-        "summary_ja": "<b>Applied Digital</b> の株価は急成長と収益性の改善にもかかわらず下落した。動画では、この下落の理由、財務実績、将来の成長可能性について分析している。デットの増加や顧客集中度の高さが実行リスクを高めている。<b>Applied Digital</b> の株価は将来の大きな機会または残念な失敗につながる可能性がある。",
-        "tickers": [
-          "APLD"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "調整済み利益が投資家の懸念を緩和しなかった理由",
-          "GAAP損失が実際の業績について何を示しているか",
-          "デットと顧客集中度が実行リスクを高めている",
-          "売り気配が警告であるか機会であるか"
-        ],
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
         "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析"
-        ],
-        "importance": 4
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1265,48 +858,23 @@
       "url": "https://www.youtube.com/watch?v=q0n8zWTYwqM",
       "published": "2026-04-22T22:24:18+00:00",
       "analysis": {
-        "summary_ja": "この動画では、<b>Bitmine</b> のティッカーシンボル <b>BMNR</b> が急騰したことが紹介されています。動画の作者は、自動取引ソフトウェア <b>AutoPilot</b> を使用して、9 時間の仕事の傍らで $1M の利益を上げる方法を紹介しています。ただし、動画では投資にはリスクが伴うこと、利益や株価の変動は保証されていないことを注意しています。",
-        "tickers": [
-          "BMNR"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "BMNR の急騰について",
-          "自動取引ソフトウェア <b>AutoPilot</b> の紹介",
-          "9 時間の仕事の傍らで $1M の利益を上げる方法",
-          "投資にはリスクが伴う",
-          "利益や株価の変動は保証されていない"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     },
@@ -1317,50 +885,23 @@
       "url": "https://www.youtube.com/watch?v=6XBWrSuPUjQ",
       "published": "2026-04-21T21:46:12+00:00",
       "analysis": {
-        "summary_ja": "この動画では、97%の小規模投資家が大きな上昇を逃した<b>BMNR</b>について話されています。動画内では、自動取引ソフトウェアのAutoPilot™を使用して、9時から5時の仕事をしながら取引をする方法が紹介されています。また、動画では<b>Bitmine</b>も言及されています。",
-        "tickers": [
-          "BMNR"
-        ],
-        "undervalued_picks": [
-          "BMNR"
-        ],
-        "key_points": [
-          "小規模投資家の多くが大きな上昇を逃している",
-          "自動取引ソフトウェアのAutoPilot™を使用することで、手間なく取引をすることができる",
-          "9時から5時の仕事をしながら取引をする方法が紹介されている",
-          "動画では<b>BMNR</b>と<b>Bitmine</b>について言及されている",
-          "投資にはリスクが伴うため、自己責任で投資する必要がある"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
+        "summary_ja": "要約の取得に失敗しました。",
+        "tickers": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1
       },
       "price_snapshot": {
-        "AAPL": 273.17,
-        "ACHR": 6.06,
-        "ADBE": 255.94,
-        "AMZN": 255.36,
-        "APLD": 32.43,
-        "BMNR": 23.31,
-        "CAR": 443.94,
-        "CDNS": 331.61,
-        "FVRR": 10.69,
-        "GE": 276.29,
-        "GOOG": 337.73,
-        "HIMS": 29.01,
-        "MMM": 145.78,
-        "NOW": 103.07,
-        "NVDA": 202.5,
-        "QCOM": 136.07,
-        "SNAP": 5.84,
-        "SOUN": 8.22,
-        "SPOT": 522.88,
-        "TSLA": 387.51,
-        "UNH": 353.52,
-        "UPS": 105.3,
+        "AAPL": 273.83,
+        "AMZN": 256.5,
+        "CAR": 273.62,
+        "HIMS": 28.86,
+        "MMM": 145.73,
+        "NOW": 85.35,
+        "SOUN": 8.01,
+        "TSLA": 372.54,
+        "UNH": 353.96,
         "WKL": null
       }
     }
