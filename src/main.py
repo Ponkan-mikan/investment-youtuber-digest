@@ -297,6 +297,12 @@ def _render_card(r: dict, root_path: str = "") -> str:
     pub_date   = format_pub_datetime(r.get("published", ""))
 
     sent_label  = _SENT_LABEL.get(sentiment, sentiment)
+    vid_m = re.search(r"[?&]v=([A-Za-z0-9_-]{11})", r.get("url", ""))
+    if vid_m:
+        thumb_url  = f"https://img.youtube.com/vi/{vid_m.group(1)}/mqdefault.jpg"
+        thumb_html = f'<div class="card-thumb"><img src="{thumb_url}" alt="" loading="lazy"></div>'
+    else:
+        thumb_html = ""
     ticker_html = "".join(
         f'<a class="ticker" href="{root_path}ticker/{t}.html">{t}</a>'
         for t in tickers
@@ -316,6 +322,7 @@ def _render_card(r: dict, root_path: str = "") -> str:
         points_block = ""
 
     return f"""<article class="card sent-{sentiment}" data-sentiment="{sentiment}">
+  {thumb_html}
   <div class="card-top">
     <span class="channel-name">{r['channel_name']}</span>
     <span class="badge-sent {sentiment}">{sent_label}</span>
@@ -567,15 +574,9 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     }}
     .exec-ticker-item:last-child {{ border-bottom: none; margin-bottom: 0; padding-bottom: 0; }}
     .exec-ticker-item .ticker {{ margin-bottom: 4px; display: inline-block; }}
-    .exec-ticker-ch  {{ font-size: 0.63rem; color: var(--muted); margin: 3px 0; }}
-    .exec-ticker-text {{ font-size: 0.78rem; color: rgba(255,255,255,0.7); line-height: 1.65; }}
+    .exec-ticker-title {{ font-size: 0.78rem; color: rgba(255,255,255,0.82); line-height: 1.5; margin: 3px 0 1px; }}
+    .exec-ticker-ch  {{ font-size: 0.63rem; color: var(--muted); }}
     .exec-empty {{ font-size: 0.72rem; color: var(--dim); }}
-    .exec-overall {{
-      background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px;
-    }}
-    .exec-overall p {{ font-size: 0.86rem; line-height: 1.82; color: rgba(255,255,255,0.82); }}
-    .exec-themes {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }}
-    .exec-theme {{ font-size: 0.62rem; color: var(--muted); border: 1px solid var(--border); padding: 2px 9px; border-radius: 2px; }}
     /* archive page: minimal hero */
     .hero {{
       max-width: 1440px; margin: 0 auto;
@@ -651,6 +652,8 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .card.sent-bullish:hover {{ border-color: rgba(0,255,136,0.25); border-left-color: var(--brand); }}
     .card.sent-bearish:hover {{ border-color: rgba(255,68,68,0.25); border-left-color: var(--red); }}
 
+    .card-thumb {{ margin: -18px -20px 14px; border-radius: 1px 1px 0 0; overflow: hidden; line-height: 0; }}
+    .card-thumb img {{ width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }}
     .card-top {{
       display: flex; justify-content: space-between; align-items: center;
       gap: 8px; margin-bottom: 8px;
@@ -1472,7 +1475,7 @@ def get_new_tickers(today_results: list, archive_dir: Path, today: str) -> list:
                 seen[t] = {
                     "ticker":  t,
                     "channel": r["channel_name"],
-                    "summary": r["analysis"].get("summary_ja", "")[:120],
+                    "title":   r.get("title", ""),
                 }
     return list(seen.values())
 
@@ -1494,12 +1497,10 @@ def get_undervalued_picks(today_results: list) -> list:
                 if t in kp.upper() or any(w in kp for w in ["割安", "過小評価", "無視", "買い場", "undervalued"]):
                     reason = kp
                     break
-            if not reason:
-                reason = a.get("summary_ja", "")[:100]
             items.append({
                 "ticker":  t,
                 "channel": r["channel_name"],
-                "reason":  reason,
+                "title":   r.get("title", ""),
             })
     return items
 
@@ -1608,8 +1609,8 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         items_html = "".join(
             f'<div class="exec-ticker-item">'
             f'<a class="ticker" href="{root}ticker/{t["ticker"]}.html">{t["ticker"]}</a>'
-            f'<div class="exec-ticker-ch">by {t["channel"]}</div>'
-            f'<div class="exec-ticker-text">{t["summary"]}</div>'
+            f'<div class="exec-ticker-title">{t["title"]}</div>'
+            f'<div class="exec-ticker-ch">— {t["channel"]}</div>'
             f'</div>'
             for t in new_tickers[:4]
         )
@@ -1623,27 +1624,14 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         uv_html = "".join(
             f'<div class="exec-ticker-item">'
             f'<a class="ticker" href="{root}ticker/{u["ticker"]}.html">{u["ticker"]}</a>'
-            f'<div class="exec-ticker-ch">by {u["channel"]}</div>'
-            f'<div class="exec-ticker-text">{u["reason"]}</div>'
+            f'<div class="exec-ticker-title">{u["title"]}</div>'
+            f'<div class="exec-ticker-ch">— {u["channel"]}</div>'
             f'</div>'
             for u in undervalued[:4]
         )
     else:
         uv_html = '<p class="exec-empty">// no undervalued picks today</p>'
     uv_block = f'<div class="exec-block"><div class="exec-block-label">// undervalued picks</div>{uv_html}</div>'
-
-    # ---- 総合サマリーブロック ----
-    overall = exec_summary.get("overall_summary", "")
-    themes  = exec_summary.get("key_themes", [])
-    themes_html = ""
-    if themes:
-        tags = "".join(f'<span class="exec-theme">{th}</span>' for th in themes)
-        themes_html = f'<div class="exec-themes">{tags}</div>'
-    overall_block = f"""<div class="exec-overall">
-      <div class="exec-block-label">// overall</div>
-      <p>{overall}</p>
-      {themes_html}
-    </div>"""
 
     if n_bullish > n_bearish:
         accent = "var(--brand)"        # 緑
@@ -1658,7 +1646,6 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
         <span class="exec-label">// executive summary</span>
         {stats_html}
       </div>
-      {overall_block}
       <div class="exec-grid">
         {new_block}
         {uv_block}
@@ -1727,14 +1714,12 @@ def main() -> None:
         dummy_exec = {
             "new_tickers": [
                 {"ticker": "ACHR", "channel": "Couch Investor",
-                 "summary": "Archer Aviation（ACHR）が初登場。eVTOL（電動垂直離着陸機）市場のリーダーとして注目。"},
+                 "title": "Should You Buy Archer Aviation Stock? ACHR Analysis"},
             ],
             "undervalued_picks": [
                 {"ticker": "MNDY", "channel": "Asymmetric Investing",
-                 "reason": "市場に過小評価されているSaaS銘柄として複数のYouTuberが言及。PERは同業他社比で割安水準。"},
+                 "title": "3 Undervalued Stocks the Market Is Completely Ignoring"},
             ],
-            "overall_summary": "本日のダイジェストでは、AIおよびテクノロジー関連銘柄への強気な見方が目立ちました。NVDAやTSLAを中心に決算期待からのbullish sentimentが多く、一方でSven Carlinはマクロ的なリスクへの警戒を呼びかけています。金価格の上昇も複数チャンネルで取り上げられており、インフレヘッジとしての関心が高まっています。",
-            "key_themes": ["AIテクノロジー株への強気姿勢", "マクロリスクへの警戒", "金・コモディティへの関心"],
         }
 
         # トップページ

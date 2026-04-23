@@ -13,10 +13,10 @@ jobs:
       contents: write  # gh-pages ブランチへの push に必要
 
     steps:
-      - name: Check schedule expiry (auto-stop after 2026-05-10)
+      - name: Check schedule expiry (auto-stop after 2026-05-30)
         run: |
           TODAY=$(date -u +%Y-%m-%d)
-          EXPIRY="2026-05-11"
+          EXPIRY="2026-05-31"
           if [[ "$TODAY" > "$EXPIRY" ]]; then
             echo "Schedule expired ($TODAY > $EXPIRY). Skipping."
             exit 0
