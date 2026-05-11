@@ -29,26 +29,16 @@
     .header-inner {
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 31px;
+      height: 52px;
     }
-    .header-ticker {
-      flex: 1; min-width: 0; height: 46px;
-      position: relative; overflow: hidden;
+    .tv-tape {
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
     }
-    .header-ticker::before,
-    .header-ticker::after {
-      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
-    }
-    .header-ticker::before {
-      left: 0;
-      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
-    }
-    .header-ticker::after {
-      right: 0;
-      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
-    }
-    .header-ticker .tradingview-widget-container,
-    .header-ticker .tradingview-widget-container__widget { height: 46px !important; }
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget { height: 46px !important; }
     .ad-logo {
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -149,35 +139,20 @@
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="header-ticker">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {
-            "symbols": [
-              {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
-              {"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"},
-              {"description": "Dow Jones", "proName": "FOREXCOM:DJI"},
-              {"description": "VIX", "proName": "CBOE:VIX"},
-              {"description": "USD/JPY", "proName": "FX_IDC:USDJPY"},
-              {"description": "Gold", "proName": "TVC:GOLD"},
-              {"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}
-            ],
-            "showSymbolLogo": false,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }
-          </script>
-        </div>
-      </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
         <a href="../archive/index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"description":"DJI","proName":"FOREXCOM:DJI"},{"description":"VIX","proName":"CBOE:VIX"},{"description":"USD/JPY","proName":"FX_IDC:USDJPY"},{"description":"Gold","proName":"TVC:GOLD"},{"description":"BTC","proName":"BITSTAMP:BTCUSD"}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+      </script>
+    </div>
+  </div>
   <main>
     <div class="page-prompt">
       <span class="prompt-symbol">></span>
@@ -274,7 +249,7 @@
       <a class="mention-row" href="../archive/2026-05-10.html"><span class="m-date">2026-05-10</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$28.27</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Hims & Hers Stock: This Changes Everything! | $HIMS</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-05-09.html"><span class="m-date">2026-05-09</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$28.27</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Hims & Hers Stock: This Changes Everything! | $HIMS</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-05-08.html"><span class="m-date">2026-05-08</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$25.65</span><span class="m-pct m-pct-up">+10.2%</span><span class="m-title">5 Stocks I Love in May</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-05-07.html"><span class="m-date">2026-05-07</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$26.88</span><span class="m-pct m-pct-up">+5.2%</span><span class="m-title">5 Stocks I Love in May</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-26.html"><span class="m-date">2026-04-26</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$30.56</span><span class="m-pct m-pct-dn">-7.5%</span><span class="m-title">FINALLY! Hims & Hers + Eli Lilly</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-25.html"><span class="m-date">2026-04-25</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$30.56</span><span class="m-pct m-pct-dn">-7.5%</span><span class="m-title">FINALLY! Hims & Hers + Eli Lilly</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-24.html"><span class="m-date">2026-04-24</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$28.15</span><span class="m-pct m-pct-up">+0.4%</span><span class="m-title">This Stock Has $1 Trillion In Potential | Hims & Hers Thesis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-23.html"><span class="m-date">2026-04-23</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$28.86</span><span class="m-pct m-pct-dn">-2.0%</span><span class="m-title">This Stock Has $1 Trillion In Potential | Hims & Hers Thesis</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-12.html"><span class="m-date">2026-04-12</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$19.43</span><span class="m-pct m-pct-up">+45.5%</span><span class="m-title">Did Hims & Hers Just Become an AI Company?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-11.html"><span class="m-date">2026-04-11</span><span class="m-channel">Asymmetric Investing</span><span class="m-price">$19.43</span><span class="m-pct m-pct-up">+45.5%</span><span class="m-title">Did Hims & Hers Just Become an AI Company?</span><span class="m-arrow">↗</span></a><a class="mention-row" href="../archive/2026-04-03.html"><span class="m-date">2026-04-03</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$19.14</span><span class="m-pct m-pct-up">+47.7%</span><span class="m-title">Should You Buy Hims Stock Today?</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-05-11 07:57 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-05-11 18:11 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
   <script>(function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const canvas = document.getElementById('bgCanvas');
