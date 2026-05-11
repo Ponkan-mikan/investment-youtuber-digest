@@ -497,26 +497,16 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 31px;
+      height: 52px;
     }}
-    .header-ticker {{
-      flex: 1; min-width: 0; height: 46px;
-      position: relative; overflow: hidden;
+    .tv-tape {{
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
     }}
-    .header-ticker::before,
-    .header-ticker::after {{
-      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
-    }}
-    .header-ticker::before {{
-      left: 0;
-      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker::after {{
-      right: 0;
-      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker .tradingview-widget-container,
-    .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget {{ height: 46px !important; }}
     .ad-logo {{
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -733,7 +723,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     }}
 
     @media (max-width: 640px) {{
-      .header-ticker {{ display: none; }}
+      .tv-tape {{ display: none; }}
       .hero h1 {{ font-size: 1.7rem; }}
       .grid {{ grid-template-columns: 1fr; }}
       .filters {{ flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }}
@@ -756,35 +746,20 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="header-ticker">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {{
-            "symbols": [
-              {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
-              {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
-              {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
-              {{"description": "VIX", "proName": "CBOE:VIX"}},
-              {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
-              {{"description": "Gold", "proName": "TVC:GOLD"}},
-              {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
-            ],
-            "showSymbolLogo": false,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }}
-          </script>
-        </div>
-      </div>
       <nav>
         <a href="{root_path}channels.html" class="nav-link">channels</a>
         {nav_links}
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {{"symbols":[{{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"}},{{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"}},{{"description":"DJI","proName":"FOREXCOM:DJI"}},{{"description":"VIX","proName":"CBOE:VIX"}},{{"description":"USD/JPY","proName":"FX_IDC:USDJPY"}},{{"description":"Gold","proName":"TVC:GOLD"}},{{"description":"BTC","proName":"BITSTAMP:BTCUSD"}}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}}
+      </script>
+    </div>
+  </div>
 
   {_render_hero(date_str, len(results), n_bullish, n_bearish, n_neutral, exec_summary)}
 
@@ -899,26 +874,16 @@ def generate_archive_index_html(dates: list[str]) -> str:
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 31px;
+      height: 52px;
     }}
-    .header-ticker {{
-      flex: 1; min-width: 0; height: 46px;
-      position: relative; overflow: hidden;
+    .tv-tape {{
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
     }}
-    .header-ticker::before,
-    .header-ticker::after {{
-      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
-    }}
-    .header-ticker::before {{
-      left: 0;
-      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker::after {{
-      right: 0;
-      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker .tradingview-widget-container,
-    .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget {{ height: 46px !important; }}
     .ad-logo {{
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -972,35 +937,20 @@ def generate_archive_index_html(dates: list[str]) -> str:
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="header-ticker">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {{
-            "symbols": [
-              {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
-              {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
-              {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
-              {{"description": "VIX", "proName": "CBOE:VIX"}},
-              {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
-              {{"description": "Gold", "proName": "TVC:GOLD"}},
-              {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
-            ],
-            "showSymbolLogo": false,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }}
-          </script>
-        </div>
-      </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
         <a href="index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {{"symbols":[{{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"}},{{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"}},{{"description":"DJI","proName":"FOREXCOM:DJI"}},{{"description":"VIX","proName":"CBOE:VIX"}},{{"description":"USD/JPY","proName":"FX_IDC:USDJPY"}},{{"description":"Gold","proName":"TVC:GOLD"}},{{"description":"BTC","proName":"BITSTAMP:BTCUSD"}}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}}
+      </script>
+    </div>
+  </div>
   <main>
     <div class="page-prompt">
       <span class="prompt-symbol">></span>
@@ -1063,26 +1013,16 @@ def generate_channels_html(channels: list[dict]) -> str:
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 31px;
+      height: 52px;
     }}
-    .header-ticker {{
-      flex: 1; min-width: 0; height: 46px;
-      position: relative; overflow: hidden;
+    .tv-tape {{
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
     }}
-    .header-ticker::before,
-    .header-ticker::after {{
-      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
-    }}
-    .header-ticker::before {{
-      left: 0;
-      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker::after {{
-      right: 0;
-      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker .tradingview-widget-container,
-    .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget {{ height: 46px !important; }}
     .ad-logo {{
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -1143,35 +1083,20 @@ def generate_channels_html(channels: list[dict]) -> str:
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="header-ticker">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {{
-            "symbols": [
-              {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
-              {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
-              {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
-              {{"description": "VIX", "proName": "CBOE:VIX"}},
-              {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
-              {{"description": "Gold", "proName": "TVC:GOLD"}},
-              {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
-            ],
-            "showSymbolLogo": false,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }}
-          </script>
-        </div>
-      </div>
       <nav>
         <a href="channels.html" class="nav-link">channels</a>
         <a href="archive/index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {{"symbols":[{{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"}},{{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"}},{{"description":"DJI","proName":"FOREXCOM:DJI"}},{{"description":"VIX","proName":"CBOE:VIX"}},{{"description":"USD/JPY","proName":"FX_IDC:USDJPY"}},{{"description":"Gold","proName":"TVC:GOLD"}},{{"description":"BTC","proName":"BITSTAMP:BTCUSD"}}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}}
+      </script>
+    </div>
+  </div>
   <main>
     <div class="page-prompt">
       <span class="prompt-symbol">></span>
@@ -1246,26 +1171,16 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
     .header-inner {{
       max-width: 1440px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
-      height: 52px; gap: 31px;
+      height: 52px;
     }}
-    .header-ticker {{
-      flex: 1; min-width: 0; height: 46px;
-      position: relative; overflow: hidden;
+    .tv-tape {{
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
     }}
-    .header-ticker::before,
-    .header-ticker::after {{
-      content: ''; position: absolute; top: 0; bottom: 0; width: 48px; z-index: 2; pointer-events: none;
-    }}
-    .header-ticker::before {{
-      left: 0;
-      background: linear-gradient(to right, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker::after {{
-      right: 0;
-      background: linear-gradient(to left, rgba(8,8,12,0.92), transparent);
-    }}
-    .header-ticker .tradingview-widget-container,
-    .header-ticker .tradingview-widget-container__widget {{ height: 46px !important; }}
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget {{ height: 46px !important; }}
     .ad-logo {{
       display: inline-flex; align-items: center; font-size: 18px;
       line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
@@ -1366,35 +1281,20 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
         <span class="ad-logo__alpha">alpha</span>
         <span class="ad-logo__digest">digest</span>
       </a>
-      <div class="header-ticker">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-          {{
-            "symbols": [
-              {{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}},
-              {{"proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100"}},
-              {{"description": "Dow Jones", "proName": "FOREXCOM:DJI"}},
-              {{"description": "VIX", "proName": "CBOE:VIX"}},
-              {{"description": "USD/JPY", "proName": "FX_IDC:USDJPY"}},
-              {{"description": "Gold", "proName": "TVC:GOLD"}},
-              {{"description": "Bitcoin", "proName": "BITSTAMP:BTCUSD"}}
-            ],
-            "showSymbolLogo": false,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-          }}
-          </script>
-        </div>
-      </div>
       <nav>
         <a href="../channels.html" class="nav-link">channels</a>
         <a href="../archive/index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {{"symbols":[{{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"}},{{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"}},{{"description":"DJI","proName":"FOREXCOM:DJI"}},{{"description":"VIX","proName":"CBOE:VIX"}},{{"description":"USD/JPY","proName":"FX_IDC:USDJPY"}},{{"description":"Gold","proName":"TVC:GOLD"}},{{"description":"BTC","proName":"BITSTAMP:BTCUSD"}}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}}
+      </script>
+    </div>
+  </div>
   <main>
     <div class="page-prompt">
       <span class="prompt-symbol">></span>
