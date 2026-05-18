@@ -191,7 +191,24 @@ def get_current_price(ticker: str) -> float | None:
         return None
 
 
-# ---- Claude API 要約 ---------------------------------------------------
+def get_daily_change(ticker: str) -> tuple[float | None, float | None]:
+    """現在価格と前日比変化率(%)を返す。(price, pct_change)"""
+    try:
+        hist = yf.Ticker(ticker).history(period="5d")
+        if hist.empty:
+            return None, None
+        price = round(float(hist["Close"].iloc[-1]), 2)
+        if len(hist) >= 2:
+            prev = float(hist["Close"].iloc[-2])
+            if prev > 0:
+                pct = round((price - prev) / prev * 100, 2)
+                return price, pct
+        return price, None
+    except Exception:
+        return None, None
+
+
+# ---- Groq API 要約 ---------------------------------------------------
 
 SUMMARY_PROMPT_TEMPLATE = """\
 以下の投資系YouTube動画から、個人投資家にとって重要な情報を抽出してください。
@@ -282,6 +299,134 @@ def summarize_video(
         "topics": [],
         "importance": 1,
     }
+
+
+# ---- CME FedWatch ------------------------------------------------------
+
+def _bp_range(rate_str: str) -> tuple[int | None, int | None]:
+    """'525-550' → (525, 550). 解析失敗時は (None, None)。"""
+    parts = str(rate_str).replace(" ", "").split("-")
+    if len(parts) == 2:
+        try:
+            return int(parts[0]), int(parts[1])
+        except ValueError:
+            pass
+    return None, None
+
+
+def fetch_fedwatch() -> list[dict]:
+    """CME FedWatch APIからFOMC会合の金利予測確率を取得する。失敗時は空リストを返す。"""
+    try:
+        url = "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch"
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            "Accept": "application/json",
+            "Referer": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+        }
+        resp = requests.get(url, headers=headers, timeout=15)
+        resp.raise_for_status()
+        raw = resp.json()
+
+        if isinstance(raw, list):
+            meetings = raw
+        elif isinstance(raw, dict):
+            meetings = [v for _, v in sorted(raw.items()) if isinstance(v, dict)]
+        else:
+            return []
+
+        results = []
+        for item in meetings[:4]:
+            date_str = item.get("forecastDate") or item.get("date", "")
+            probs_raw = item.get("probs", [])
+            current_target = item.get("currentTarget", "")
+            if not date_str or not probs_raw:
+                continue
+
+            meeting_label = date_str
+            for fmt in ["%m/%d/%Y", "%Y-%m-%d", "%m/%d/%y"]:
+                try:
+                    meeting_label = datetime.strptime(date_str, fmt).strftime("%b %d, %Y")
+                    break
+                except ValueError:
+                    pass
+
+            # 確率を 0–1 に正規化（APIによって 0–1 または 0–100 で返る場合がある）
+            probs = []
+            for p in probs_raw:
+                prob = float(p.get("probability", 0))
+                if prob > 1.0:
+                    prob /= 100.0
+                probs.append({"rate": p.get("targetRate", ""), "p": prob})
+
+            cur_lo, cur_hi = _bp_range(current_target)
+
+            if cur_hi is None:
+                best = max(probs, key=lambda x: x["p"], default=None)
+                outcome = best["rate"] if best else "—"
+                cls = "fw-hold"
+                prob_pct = f"{best['p'] * 100:.1f}%" if best else "—"
+            else:
+                p_cut = p_hold = p_hike = 0.0
+                for x in probs:
+                    lo, hi = _bp_range(x["rate"])
+                    if hi is not None and hi < cur_hi:
+                        p_cut += x["p"]
+                    elif lo == cur_lo and hi == cur_hi:
+                        p_hold += x["p"]
+                    elif lo is not None and lo > cur_lo:
+                        p_hike += x["p"]
+
+                if p_cut >= p_hold and p_cut >= p_hike and p_cut > 0.05:
+                    best_cut = None
+                    for x in probs:
+                        lo, hi = _bp_range(x["rate"])
+                        if hi is not None and hi < cur_hi:
+                            if best_cut is None or x["p"] > best_cut["p"]:
+                                best_cut = x
+                    if best_cut:
+                        _, hi_cut = _bp_range(best_cut["rate"])
+                        cut_bp = cur_hi - hi_cut
+                        outcome = f"利下げ -{cut_bp}bp"
+                    else:
+                        outcome = "利下げ"
+                    cls = "fw-cut"
+                    prob_pct = f"{p_cut * 100:.1f}%"
+                elif p_hike > p_hold and p_hike > p_cut and p_hike > 0.05:
+                    best_hike = None
+                    for x in probs:
+                        lo, hi = _bp_range(x["rate"])
+                        if lo is not None and lo > cur_lo:
+                            if best_hike is None or x["p"] > best_hike["p"]:
+                                best_hike = x
+                    if best_hike:
+                        lo_hike, _ = _bp_range(best_hike["rate"])
+                        hike_bp = lo_hike - cur_lo
+                        outcome = f"利上げ +{hike_bp}bp"
+                    else:
+                        outcome = "利上げ"
+                    cls = "fw-hike"
+                    prob_pct = f"{p_hike * 100:.1f}%"
+                else:
+                    outcome = f"据置 ({current_target})" if current_target else "据置"
+                    cls = "fw-hold"
+                    prob_pct = f"{p_hold * 100:.1f}%"
+
+            results.append({
+                "meeting": meeting_label,
+                "outcome": outcome,
+                "outcome_class": cls,
+                "prob": prob_pct,
+            })
+
+        return results
+
+    except Exception as e:
+        print(f"  [WARN] FedWatch取得失敗: {e}")
+        return []
 
 
 # ---- HTML 生成 ---------------------------------------------------------
@@ -550,25 +695,83 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .exec-stat-bull  {{ color: var(--brand); }}
     .exec-stat-bear  {{ color: var(--red); }}
     .exec-stat-neut  {{ color: var(--muted); }}
-    .exec-grid {{
-      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;
+    /* heatmap */
+    .exec-heatmap {{
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden; margin-bottom: 12px;
     }}
-    .exec-block {{
-      background: var(--surface); border: 1px solid var(--border); border-radius: 2px; padding: 14px 16px;
+    .heatmap-titlebar {{
+      display: flex; align-items: center;
+      padding: 8px 14px; border-bottom: 1px solid var(--border);
+      background: rgba(0,255,136,0.04);
     }}
-    .exec-block-label {{
-      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px;
+    .heatmap-title-link {{
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand); text-decoration: none;
     }}
-    .exec-ticker-item {{
-      padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--border);
+    .heatmap-title-link:hover {{ text-decoration: underline; opacity: 0.8; }}
+    .heatmap-ext-icon {{ font-size: 0.55rem; color: var(--dim); margin-left: 6px; }}
+    .heatmap-body {{ height: 420px; }}
+    .heatmap-body .tradingview-widget-container,
+    .heatmap-body .tradingview-widget-container__widget {{ height: 100% !important; }}
+    /* brief + key points */
+    .exec-brief-grid {{
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;
     }}
-    .exec-ticker-item:last-child {{ border-bottom: none; margin-bottom: 0; padding-bottom: 0; }}
-    .exec-ticker-item .ticker {{ margin-bottom: 4px; display: inline-block; }}
-    .exec-ticker-title {{ font-size: 0.78rem; line-height: 1.5; margin: 3px 0 1px; }}
-    .exec-ticker-title a {{ color: rgba(255,255,255,0.82); text-decoration: none; }}
-    .exec-ticker-title a:hover {{ color: #fff; text-decoration: underline; }}
-    .exec-ticker-ch  {{ font-size: 0.63rem; color: var(--muted); }}
-    .exec-empty {{ font-size: 0.72rem; color: var(--dim); }}
+    .exec-brief, .exec-keypoints {{
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 16px 18px;
+    }}
+    .block-label {{ font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px; }}
+    .brief-text {{ font-size: 0.82rem; line-height: 1.85; color: rgba(255,255,255,0.78); }}
+    .keypoint-list {{ list-style: none; display: flex; flex-direction: column; gap: 7px; }}
+    .keypoint-list li {{
+      font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
+    }}
+    .keypoint-list li::before {{ content: '→'; color: var(--brand); flex-shrink: 0; }}
+    /* fedwatch */
+    .fedwatch-bar {{
+      display: flex; align-items: center;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
+    }}
+    .fedwatch-label {{
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
+      padding: 8px 14px; border-right: 1px solid var(--border);
+      white-space: nowrap; flex-shrink: 0;
+      background: rgba(0,255,136,0.04); text-decoration: none;
+    }}
+    .fedwatch-label:hover {{ text-decoration: underline; opacity: 0.8; }}
+    .fedwatch-items {{ display: flex; align-items: center; overflow-x: auto; flex: 1; }}
+    .fedwatch-item {{
+      display: flex; flex-direction: column; align-items: center;
+      padding: 6px 18px; border-right: 1px solid var(--border);
+      min-width: 130px; flex-shrink: 0;
+    }}
+    .fedwatch-meeting {{ font-size: 0.6rem; color: var(--muted); margin-bottom: 3px; }}
+    .fedwatch-outcome {{ font-size: 0.65rem; font-weight: 700; }}
+    .fedwatch-prob {{ font-size: 0.72rem; color: var(--brand); font-weight: 700; }}
+    .fw-hold {{ color: var(--muted); }}
+    .fw-cut {{ color: var(--brand); }}
+    .fw-hike {{ color: var(--red); }}
+    .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 14px; white-space: nowrap; }}
+    /* top tickers */
+    .exec-tickers {{
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 12px 18px;
+    }}
+    .ticker-chips {{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }}
+    .ticker-chip {{
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 2px; padding: 6px 12px; font-size: 0.72rem;
+      text-decoration: none; color: var(--text);
+    }}
+    .ticker-chip:hover {{ border-color: rgba(0,255,136,0.3); }}
+    .chip-sym {{ color: var(--brand); font-weight: 700; font-size: 0.78rem; }}
+    .chip-price {{ color: var(--muted); }}
+    .chip-chg-up {{ color: var(--brand); }}
+    .chip-chg-dn {{ color: var(--red); }}
     /* archive page: minimal hero */
     .hero {{
       max-width: 1440px; margin: 0 auto;
@@ -594,7 +797,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .h-stat-num.c-bear  {{ color: var(--red); }}
     .h-stat-num.c-neut  {{ color: var(--muted); }}
     .h-stat-label {{ font-size: 0.6rem; color: var(--dim); margin-top: 5px; letter-spacing: 0.1em; }}
-    @media (max-width: 640px) {{ .exec-grid {{ grid-template-columns: 1fr; }} }}
+    @media (max-width: 640px) {{ .exec-brief-grid {{ grid-template-columns: 1fr; }} }}
 
     /* filters */
     .filters {{
@@ -1472,7 +1675,7 @@ def generate_executive_summary_text(
 以下のJSON形式のみで回答してください（マークダウン不要、JSONオブジェクトのみ）:
 {{
   "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的な日本語サマリー（3〜5文）。主要テーマと注目ポイントを含める",
-  "key_themes": ["本日全体で共通して語られた主要テーマ（最大3つ、日本語）"]
+  "key_points": ["投資家が今日注目すべき重要なポイント（最大4つ、日本語で具体的・アクション性のある内容）"]
 }}"""
 
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
@@ -1499,7 +1702,7 @@ def generate_executive_summary_text(
         except Exception as e:
             print(f"  [WARN] エグゼクティブサマリー生成失敗 (attempt {attempt+1}): {e}")
             traceback.print_exc()
-    return {"overall_summary": "", "key_themes": []}
+    return {"overall_summary": "", "key_points": []}
 
 
 def build_exec_summary(
@@ -1508,15 +1711,44 @@ def build_exec_summary(
 ) -> dict:
     """エグゼクティブサマリーデータを組み立てる。"""
     print("  エグゼクティブサマリー生成中...")
-    new_tickers     = get_new_tickers(results, archive_dir, today)
-    undervalued     = get_undervalued_picks(results)
+    new_tickers = get_new_tickers(results, archive_dir, today)
+    undervalued = get_undervalued_picks(results)
+
+    # FedWatch データ取得
+    print("  FedWatchデータ取得中...")
+    fedwatch_data = fetch_fedwatch()
+    print(f"  FedWatch: {len(fedwatch_data)} 件取得" if fedwatch_data else "  FedWatch: データなし（非表示）")
+
+    # 本日言及されたトップティッカーの現在価格＋前日比
+    print("  トップティッカー株価取得中...")
+    freq: dict[str, int] = {}
+    for r in results:
+        for t in r.get("analysis", {}).get("tickers", []):
+            t = t.upper().strip()
+            if t:
+                freq[t] = freq.get(t, 0) + 1
+    top_ticker_names = sorted(freq, key=lambda x: freq[x], reverse=True)[:10]
+    top_tickers: list[dict] = []
+    for ticker in top_ticker_names:
+        price, pct = get_daily_change(ticker)
+        chip: dict = {"ticker": ticker, "price": "—", "change": "—", "up": True}
+        if price is not None:
+            chip["price"] = f"${price:,.2f}"
+        if pct is not None:
+            chip["change"] = f"{'+'if pct >= 0 else ''}{pct:.1f}%"
+            chip["up"] = pct >= 0
+        top_tickers.append(chip)
+        time.sleep(0.2)
+
     time.sleep(3)  # Groq rate limit margin after per-video calls
-    llm_summary     = generate_executive_summary_text(api_key, results, n_bullish, n_bearish, n_neutral)
+    llm_summary = generate_executive_summary_text(api_key, results, n_bullish, n_bearish, n_neutral)
     return {
-        "new_tickers":      new_tickers,
+        "new_tickers":       new_tickers,
         "undervalued_picks": undervalued,
-        "overall_summary":  llm_summary.get("overall_summary", ""),
-        "key_themes":       llm_summary.get("key_themes", []),
+        "overall_summary":   llm_summary.get("overall_summary", ""),
+        "key_points":        llm_summary.get("key_points", []),
+        "fedwatch":          fedwatch_data,
+        "top_tickers":       top_tickers,
     }
 
 
@@ -1548,54 +1780,102 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
     </div>
   </div>"""
 
-    # ---- 新規ティッカーブロック ----
-    new_tickers = exec_summary.get("new_tickers", [])
     root = "../" if exec_summary.get("_is_archive") else ""
-    if new_tickers:
-        items_html = "".join(
-            f'<div class="exec-ticker-item">'
-            f'<a class="ticker" href="{root}ticker/{t["ticker"]}.html">{t["ticker"]}</a>'
-            f'<div class="exec-ticker-title"><a href="{t["url"]}" target="_blank" rel="noopener">{t["title"]}</a></div>'
-            f'<div class="exec-ticker-ch">— {t["channel"]}</div>'
-            f'</div>'
-            for t in new_tickers[:4]
-        )
-    else:
-        items_html = '<p class="exec-empty">// no new tickers today</p>'
-    new_block = f'<div class="exec-block"><div class="exec-block-label">// new tickers</div>{items_html}</div>'
-
-    # ---- 過小評価銘柄ブロック ----
-    undervalued = exec_summary.get("undervalued_picks", [])
-    if undervalued:
-        uv_html = "".join(
-            f'<div class="exec-ticker-item">'
-            f'<a class="ticker" href="{root}ticker/{u["ticker"]}.html">{u["ticker"]}</a>'
-            f'<div class="exec-ticker-title"><a href="{u["url"]}" target="_blank" rel="noopener">{u["title"]}</a></div>'
-            f'<div class="exec-ticker-ch">— {u["channel"]}</div>'
-            f'</div>'
-            for u in undervalued[:4]
-        )
-    else:
-        uv_html = '<p class="exec-empty">// no undervalued picks today</p>'
-    uv_block = f'<div class="exec-block"><div class="exec-block-label">// undervalued picks</div>{uv_html}</div>'
 
     if n_bullish > n_bearish:
-        accent = "var(--brand)"        # 緑
+        accent = "var(--brand)"
     elif n_bearish > n_bullish:
-        accent = "var(--red)"          # 赤
+        accent = "var(--red)"
     else:
-        accent = "rgba(255,255,255,0.25)"  # グレー
+        accent = "rgba(255,255,255,0.25)"
+
+    # 1. 全幅ヒートマップ
+    heatmap_url = (
+        "https://www.tradingview.com/heatmap/stock/"
+        "#%7B%22dataSource%22%3A%22SPX500%22%2C%22blockSize%22%3A%22market_cap_basic%22"
+        "%2C%22blockColor%22%3A%22change%22%2C%22grouping%22%3A%22sector%22%7D"
+    )
+    heatmap_html = f"""<div class="exec-heatmap">
+      <div class="heatmap-titlebar">
+        <a class="heatmap-title-link" href="{heatmap_url}" target="_blank" rel="noopener">
+          // MARKET HEATMAP &mdash; S&amp;P 500 SECTORS
+          <span class="heatmap-ext-icon">&#8599;</span>
+        </a>
+      </div>
+      <div class="heatmap-body">
+        <div class="tradingview-widget-container" style="height:100%">
+          <div class="tradingview-widget-container__widget" style="height:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+          {{"exchanges":[],"dataSource":"SPX500","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","symbolUrl":"","colorTheme":"dark","hasTopBar":false,"isDataSetEnabled":false,"isZoomEnabled":true,"hasSymbolTooltip":true,"isMonoSize":false,"width":"100%","height":"100%"}}
+          </script>
+        </div>
+      </div>
+    </div>"""
+
+    # 2. AI BRIEF + KEY POINTS（左右2分割）
+    overall_summary = exec_summary.get("overall_summary", "")
+    key_points = exec_summary.get("key_points", exec_summary.get("key_themes", []))
+    kp_items = "".join(f"<li>{p}</li>" for p in key_points) if key_points else "<li>// データ取得中</li>"
+    brief_html = f"""<div class="exec-brief-grid">
+      <div class="exec-brief">
+        <div class="block-label">// AI BRIEF</div>
+        <p class="brief-text">{overall_summary or "// AI サマリー生成中..."}</p>
+      </div>
+      <div class="exec-keypoints">
+        <div class="block-label">// KEY POINTS</div>
+        <ul class="keypoint-list">{kp_items}</ul>
+      </div>
+    </div>"""
+
+    # 3. FED WATCH バー（データ取得できた場合のみ表示）
+    fedwatch_items = exec_summary.get("fedwatch", [])
+    if fedwatch_items:
+        fw_items_html = "".join(
+            f'<div class="fedwatch-item">'
+            f'<span class="fedwatch-meeting">{fw["meeting"]}</span>'
+            f'<span class="fedwatch-outcome {fw["outcome_class"]}">{fw["outcome"]}</span>'
+            f'<span class="fedwatch-prob">{fw["prob"]}</span>'
+            f'</div>'
+            for fw in fedwatch_items
+        )
+        fedwatch_html = f"""<div class="fedwatch-bar">
+      <a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>
+      <div class="fedwatch-items">{fw_items_html}</div>
+      <span class="fedwatch-note">source: CME FedWatch</span>
+    </div>"""
+    else:
+        fedwatch_html = ""
+
+    # 4. TOP TICKERS チップ
+    top_tickers = exec_summary.get("top_tickers", [])
+    if top_tickers:
+        chips_html = "".join(
+            f'<a class="ticker-chip" href="{root}ticker/{t["ticker"]}.html">'
+            f'<span class="chip-sym">{t["ticker"]}</span>'
+            f'<span class="chip-price">{t["price"]}</span>'
+            f'<span class="{"chip-chg-up" if t.get("up", True) else "chip-chg-dn"}">'
+            f'{"&#9650;" if t.get("up", True) else "&#9660;"} {t["change"]}'
+            f'</span>'
+            f'</a>'
+            for t in top_tickers
+        )
+        tickers_html = f"""<div class="exec-tickers">
+      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄</div>
+      <div class="ticker-chips">{chips_html}</div>
+    </div>"""
+    else:
+        tickers_html = ""
 
     return f"""<section class="exec-summary">
     <div class="exec-inner" style="--exec-accent:{accent}">
       <div class="exec-header">
-        <span class="exec-label">// executive summary</span>
+        <span class="exec-label">// daily alpha brief</span>
         {stats_html}
       </div>
-      <div class="exec-grid">
-        {new_block}
-        {uv_block}
-      </div>
+      {heatmap_html}
+      {brief_html}
+      {fedwatch_html}
+      {tickers_html}
     </div>
   </section>"""
 
