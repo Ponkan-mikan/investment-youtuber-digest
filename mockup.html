@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exec Summary Mockup — alphadigest</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08080c; --surface: #0c0c10; --border: #1a1a1e;
+      --brand: #00ff88; --text: #ffffff; --red: #ff4444;
+      --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: var(--bg); color: var(--text); font-size: 14px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,12,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(16px,4vw,48px);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 52px;
+    }
+    .ad-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; font-size: 18px; font-weight: 700; }
+    .ad-logo__alpha { color: var(--brand); }
+    .ad-logo__digest { color: var(--muted); font-weight: 400; }
+    .mockup-badge {
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
+      border: 1px solid rgba(0,255,136,0.4); padding: 2px 8px; border-radius: 2px;
+    }
+    nav { display: flex; gap: 6px; }
+    .nav-link {
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+    }
+
+    /* ── TICKER TAPE (TradingView) ── */
+    .tv-tape {
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
+    }
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget { height: 46px !important; }
+
+    /* ── EXEC SUMMARY WRAPPER ── */
+    .exec-wrap {
+      max-width: 1200px; margin: 0 auto;
+      padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) 12px;
+    }
+
+    /* ── SECTION HEADER ── */
+    .exec-section-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
+    }
+    .exec-label { font-size: 0.75rem; font-weight: 700; color: var(--brand); letter-spacing: 2px; }
+    .exec-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .exec-date {
+      font-size: 0.7rem; color: var(--brand); font-weight: 700;
+      border: 1px solid rgba(0,255,136,0.3); padding: 2px 10px; border-radius: 2px;
+    }
+    .exec-stat { font-size: 0.7rem; }
+    .bull { color: var(--brand); }
+    .bear { color: var(--red); }
+    .neut { color: var(--muted); }
+
+    /* ── FED WATCH BAR ── */
+    .fedwatch-bar {
+      display: flex; align-items: center; gap: 0;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
+    }
+    .fedwatch-label {
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
+      padding: 8px 14px; border-right: 1px solid var(--border);
+      white-space: nowrap; flex-shrink: 0;
+      background: rgba(0,255,136,0.04);
+    }
+    .fedwatch-items { display: flex; align-items: center; gap: 0; overflow-x: auto; flex: 1; }
+    .fedwatch-item {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 6px 18px; border-right: 1px solid var(--border);
+      min-width: 130px; flex-shrink: 0;
+    }
+    .fedwatch-meeting { font-size: 0.6rem; color: var(--muted); margin-bottom: 3px; }
+    .fedwatch-outcome { font-size: 0.65rem; font-weight: 700; }
+    .fedwatch-prob { font-size: 0.72rem; color: var(--brand); font-weight: 700; }
+    .fw-hold { color: var(--muted); }
+    .fw-cut { color: var(--brand); }
+    .fw-hike { color: var(--red); }
+    .fedwatch-note {
+      font-size: 0.58rem; color: var(--dim); padding: 0 14px;
+      white-space: nowrap;
+    }
+
+    /* ── MAIN GRID: left heatmap / right summary ── */
+    .exec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 800px) { .exec-grid { grid-template-columns: 1fr; } }
+
+    .exec-left {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden;
+      height: 320px;
+    }
+    .heatmap-label {
+      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px;
+      padding: 8px 12px; border-bottom: 1px solid var(--border);
+    }
+    .heatmap-widget { height: calc(320px - 33px); }
+    .heatmap-widget .tradingview-widget-container,
+    .heatmap-widget .tradingview-widget-container__widget { height: 100% !important; }
+
+    .exec-right {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .exec-brief {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 16px 18px; flex: 1;
+    }
+    .block-label {
+      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px;
+    }
+    .brief-text {
+      font-size: 0.82rem; line-height: 1.85; color: rgba(255,255,255,0.78);
+    }
+
+    .exec-keypoints {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 16px 18px;
+    }
+    .keypoint-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .keypoint-list li {
+      font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .keypoint-list li::before { content: '→'; color: var(--brand); flex-shrink: 0; }
+
+    /* ── TOP TICKERS ── */
+    .ticker-row {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 12px 18px; margin-bottom: 0;
+    }
+    .ticker-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .ticker-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 2px; padding: 6px 12px; font-size: 0.72rem;
+      text-decoration: none; color: var(--text);
+    }
+    .chip-sym { color: var(--brand); font-weight: 700; font-size: 0.78rem; }
+    .chip-price { color: var(--muted); }
+    .chip-chg-up { color: var(--brand); }
+    .chip-chg-dn { color: var(--red); }
+
+    /* ── NOTE ── */
+    .mockup-note {
+      max-width: 1200px; margin: 24px auto;
+      padding: 0 clamp(16px,4vw,48px);
+      font-size: 0.7rem; color: var(--dim); line-height: 1.8;
+      border-left: 3px solid rgba(0,255,136,0.2); padding-left: 16px;
+    }
+    .mockup-note b { color: var(--brand); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a class="ad-logo" href="index.html">
+        <span class="ad-logo__alpha">alpha</span><span class="ad-logo__digest">digest</span>
+      </a>
+      <span class="mockup-badge">MOCKUP</span>
+      <nav>
+        <a href="index.html" class="nav-link">← 本番サイトへ戻る</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- TICKER TAPE -->
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"description":"DJI","proName":"FOREXCOM:DJI"},{"description":"VIX","proName":"CBOE:VIX"},{"description":"USD/JPY","proName":"FX_IDC:USDJPY"},{"description":"Gold","proName":"TVC:GOLD"},{"description":"BTC","proName":"BITSTAMP:BTCUSD"}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+      </script>
+    </div>
+  </div>
+
+  <!-- EXEC SUMMARY -->
+  <div class="exec-wrap">
+
+    <!-- SECTION HEADER -->
+    <div class="exec-section-header">
+      <span class="exec-label">// DAILY ALPHA BRIEF</span>
+      <div class="exec-meta">
+        <span class="exec-date">2026-05-18</span>
+        <span class="exec-stat">9 videos</span>
+        <span class="exec-stat bull">▲ 7 bullish</span>
+        <span class="exec-stat bear">▼ 1 bearish</span>
+        <span class="exec-stat neut">● 1 neutral</span>
+      </div>
+    </div>
+
+    <!-- FED WATCH BAR -->
+    <div class="fedwatch-bar">
+      <div class="fedwatch-label">// FED WATCH</div>
+      <div class="fedwatch-items">
+        <div class="fedwatch-item">
+          <span class="fedwatch-meeting">Jun 18, 2025</span>
+          <span class="fedwatch-outcome fw-hold">据置 (5.25–5.50%)</span>
+          <span class="fedwatch-prob">88.5%</span>
+        </div>
+        <div class="fedwatch-item">
+          <span class="fedwatch-meeting">Jul 30, 2025</span>
+          <span class="fedwatch-outcome fw-cut">利下げ -25bp</span>
+          <span class="fedwatch-prob">61.2%</span>
+        </div>
+        <div class="fedwatch-item">
+          <span class="fedwatch-meeting">Sep 17, 2025</span>
+          <span class="fedwatch-outcome fw-cut">利下げ -25bp</span>
+          <span class="fedwatch-prob">74.8%</span>
+        </div>
+        <div class="fedwatch-item">
+          <span class="fedwatch-meeting">Nov 5, 2025</span>
+          <span class="fedwatch-outcome fw-cut">利下げ -25bp</span>
+          <span class="fedwatch-prob">55.3%</span>
+        </div>
+      </div>
+      <span class="fedwatch-note">source: CME FedWatch</span>
+    </div>
+
+    <!-- MAIN GRID: heatmap left / summary right -->
+    <div class="exec-grid">
+
+      <!-- LEFT: HEATMAP -->
+      <div class="exec-left">
+        <div class="heatmap-label">// MARKET HEATMAP — S&P 500 SECTORS</div>
+        <div class="heatmap-widget">
+          <div class="tradingview-widget-container" style="height:100%">
+            <div class="tradingview-widget-container__widget" style="height:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+            {
+              "exchanges": [],
+              "dataSource": "SPX500",
+              "grouping": "sector",
+              "blockSize": "market_cap_basic",
+              "blockColor": "change",
+              "locale": "en",
+              "symbolUrl": "",
+              "colorTheme": "dark",
+              "hasTopBar": false,
+              "isDataSetEnabled": false,
+              "isZoomEnabled": true,
+              "hasSymbolTooltip": true,
+              "isMonoSize": false,
+              "width": "100%",
+              "height": "100%"
+            }
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: AI BRIEF + KEY POINTS -->
+      <div class="exec-right">
+        <div class="exec-brief">
+          <div class="block-label">// AI BRIEF</div>
+          <p class="brief-text">
+            本日は半導体・AI関連銘柄が市場全体を牽引する展開。NVIDIAの決算が市場予想を大幅に上回ったことを受け、テクノロジーセクターへの強気な見方が多数を占めた。FRBの利下げ期待も追い風となり、グロース株全般にリスクオンの雰囲気が広がっている。一方、エネルギーセクターは原油価格の下落を受けて相対的に軟調。
+          </p>
+        </div>
+        <div class="exec-keypoints">
+          <div class="block-label">// KEY POINTS</div>
+          <ul class="keypoint-list">
+            <li>NVIDIAの四半期決算が市場予想を約15%上回り、データセンター需要の底堅さを確認</li>
+            <li>CME FedWatchでは7月の利下げ確率が61%に上昇、ハト派転換への期待が再燃</li>
+            <li>Magnificent 7全銘柄が上昇し、S&P500全体の上げをリード</li>
+            <li>エネルギーセクターは原油在庫増加を嫌気し軟調。XOM・CVXが下落</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM: TOP TICKERS -->
+    <div class="ticker-row">
+      <div class="block-label">// TOP TICKERS — 本日の動画で言及された銘柄</div>
+      <div class="ticker-chips">
+        <a href="#" class="ticker-chip"><span class="chip-sym">NVDA</span><span class="chip-price">$892.04</span><span class="chip-chg-up">▲ +4.1%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">AAPL</span><span class="chip-price">$189.30</span><span class="chip-chg-up">▲ +1.2%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">MSFT</span><span class="chip-price">$415.20</span><span class="chip-chg-up">▲ +2.8%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">TSLA</span><span class="chip-price">$245.10</span><span class="chip-chg-dn">▼ -1.5%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">AMD</span><span class="chip-price">$160.55</span><span class="chip-chg-up">▲ +3.8%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">META</span><span class="chip-price">$520.40</span><span class="chip-chg-up">▲ +2.1%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">AMZN</span><span class="chip-price">$185.70</span><span class="chip-chg-up">▲ +0.9%</span></a>
+        <a href="#" class="ticker-chip"><span class="chip-sym">GOOG</span><span class="chip-price">$172.80</span><span class="chip-chg-dn">▼ -0.3%</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MOCKUP NOTES -->
+  <div class="mockup-note">
+    <b>// MOCKUP 説明</b><br>
+    ・<b>ヒートマップ</b>：TradingViewのS&P500セクター別ヒートマップ（リアルタイム）<br>
+    ・<b>FED WATCH バー</b>：CME FedWatchの利上げ・利下げ確率。Pythonがビルド時に取得して埋め込む想定（現在はサンプル値）<br>
+    ・<b>AI BRIEF / KEY POINTS</b>：Groq（Llama 3.3）による要約。現在と同じ内容をリデザイン<br>
+    ・<b>TOP TICKERS</b>：本日の動画で言及された銘柄チップ。クリックでティッカーページへ遷移<br><br>
+    <b>// このページはモックアップです。本番サイトには影響しません。</b>
+  </div>
+
+</body>
+</html>
