@@ -56,12 +56,13 @@
     .exec-wrap {
       max-width: 1200px; margin: 0 auto;
       padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) 12px;
+      display: flex; flex-direction: column; gap: 12px;
     }
 
     /* ── SECTION HEADER ── */
     .exec-section-header {
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
+      flex-wrap: wrap; gap: 12px;
     }
     .exec-label { font-size: 0.75rem; font-weight: 700; color: var(--brand); letter-spacing: 2px; }
     .exec-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
@@ -74,11 +75,56 @@
     .bear { color: var(--red); }
     .neut { color: var(--muted); }
 
-    /* ── FED WATCH BAR ── */
+    /* ── 1. FULL-WIDTH HEATMAP ── */
+    .exec-heatmap {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden;
+    }
+    .heatmap-titlebar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 8px 14px; border-bottom: 1px solid var(--border);
+      background: rgba(0,255,136,0.04);
+    }
+    .heatmap-title-link {
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
+      text-decoration: none;
+    }
+    .heatmap-title-link:hover { text-decoration: underline; opacity: 0.8; }
+    .heatmap-ext-icon { font-size: 0.55rem; color: var(--dim); margin-left: 6px; }
+    .heatmap-body { height: 420px; }
+    .heatmap-body .tradingview-widget-container,
+    .heatmap-body .tradingview-widget-container__widget { height: 100% !important; }
+
+    /* ── 2. AI BRIEF + KEY POINTS (side by side) ── */
+    .exec-brief-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 720px) { .exec-brief-grid { grid-template-columns: 1fr; } }
+
+    .exec-brief, .exec-keypoints {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 16px 18px;
+    }
+    .block-label {
+      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px;
+    }
+    .brief-text {
+      font-size: 0.82rem; line-height: 1.85; color: rgba(255,255,255,0.78);
+    }
+    .keypoint-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .keypoint-list li {
+      font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .keypoint-list li::before { content: '→'; color: var(--brand); flex-shrink: 0; }
+
+    /* ── 3. FED WATCH BAR ── */
     .fedwatch-bar {
       display: flex; align-items: center; gap: 0;
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
+      border-radius: 2px; overflow: hidden;
     }
     .fedwatch-label {
       font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
@@ -103,58 +149,10 @@
       white-space: nowrap;
     }
 
-    /* ── MAIN GRID: left heatmap / right summary ── */
-    .exec-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-    @media (max-width: 800px) { .exec-grid { grid-template-columns: 1fr; } }
-
-    .exec-left {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; overflow: hidden;
-      height: 320px;
-    }
-    .heatmap-label {
-      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px;
-      padding: 8px 12px; border-bottom: 1px solid var(--border);
-    }
-    .heatmap-widget { height: calc(320px - 33px); }
-    .heatmap-widget .tradingview-widget-container,
-    .heatmap-widget .tradingview-widget-container__widget { height: 100% !important; }
-
-    .exec-right {
-      display: flex; flex-direction: column; gap: 12px;
-    }
-
-    .exec-brief {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; padding: 16px 18px; flex: 1;
-    }
-    .block-label {
-      font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px;
-    }
-    .brief-text {
-      font-size: 0.82rem; line-height: 1.85; color: rgba(255,255,255,0.78);
-    }
-
-    .exec-keypoints {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; padding: 16px 18px;
-    }
-    .keypoint-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
-    .keypoint-list li {
-      font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5;
-      display: flex; gap: 8px; align-items: flex-start;
-    }
-    .keypoint-list li::before { content: '→'; color: var(--brand); flex-shrink: 0; }
-
-    /* ── TOP TICKERS ── */
+    /* ── 4. TOP TICKERS ── */
     .ticker-row {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; padding: 12px 18px; margin-bottom: 0;
+      border-radius: 2px; padding: 12px 18px;
     }
     .ticker-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
     .ticker-chip {
@@ -218,7 +216,62 @@
       </div>
     </div>
 
-    <!-- FED WATCH BAR -->
+    <!-- 1. FULL-WIDTH HEATMAP -->
+    <div class="exec-heatmap">
+      <div class="heatmap-titlebar">
+        <a class="heatmap-title-link"
+           href="https://www.tradingview.com/heatmap/stock/#%7B%22dataSource%22%3A%22SPX500%22%2C%22blockSize%22%3A%22market_cap_basic%22%2C%22blockColor%22%3A%22change%22%2C%22grouping%22%3A%22sector%22%7D"
+           target="_blank" rel="noopener">
+          // MARKET HEATMAP — S&amp;P 500 SECTORS
+          <span class="heatmap-ext-icon">↗</span>
+        </a>
+      </div>
+      <div class="heatmap-body">
+        <div class="tradingview-widget-container" style="height:100%">
+          <div class="tradingview-widget-container__widget" style="height:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+          {
+            "exchanges": [],
+            "dataSource": "SPX500",
+            "grouping": "sector",
+            "blockSize": "market_cap_basic",
+            "blockColor": "change",
+            "locale": "en",
+            "symbolUrl": "",
+            "colorTheme": "dark",
+            "hasTopBar": false,
+            "isDataSetEnabled": false,
+            "isZoomEnabled": true,
+            "hasSymbolTooltip": true,
+            "isMonoSize": false,
+            "width": "100%",
+            "height": "100%"
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. AI BRIEF + KEY POINTS (side by side) -->
+    <div class="exec-brief-grid">
+      <div class="exec-brief">
+        <div class="block-label">// AI BRIEF</div>
+        <p class="brief-text">
+          本日は半導体・AI関連銘柄が市場全体を牽引する展開。NVIDIAの決算が市場予想を大幅に上回ったことを受け、テクノロジーセクターへの強気な見方が多数を占めた。FRBの利下げ期待も追い風となり、グロース株全般にリスクオンの雰囲気が広がっている。一方、エネルギーセクターは原油価格の下落を受けて相対的に軟調。
+        </p>
+      </div>
+      <div class="exec-keypoints">
+        <div class="block-label">// KEY POINTS</div>
+        <ul class="keypoint-list">
+          <li>NVIDIAの四半期決算が市場予想を約15%上回り、データセンター需要の底堅さを確認</li>
+          <li>CME FedWatchでは7月の利下げ確率が61%に上昇、ハト派転換への期待が再燃</li>
+          <li>Magnificent 7全銘柄が上昇し、S&amp;P500全体の上げをリード</li>
+          <li>エネルギーセクターは原油在庫増加を嫌気し軟調。XOM・CVXが下落</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. FED WATCH BAR -->
     <div class="fedwatch-bar">
       <div class="fedwatch-label">// FED WATCH</div>
       <div class="fedwatch-items">
@@ -246,59 +299,7 @@
       <span class="fedwatch-note">source: CME FedWatch</span>
     </div>
 
-    <!-- MAIN GRID: heatmap left / summary right -->
-    <div class="exec-grid">
-
-      <!-- LEFT: HEATMAP -->
-      <div class="exec-left">
-        <div class="heatmap-label">// MARKET HEATMAP — S&P 500 SECTORS</div>
-        <div class="heatmap-widget">
-          <div class="tradingview-widget-container" style="height:100%">
-            <div class="tradingview-widget-container__widget" style="height:100%"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
-            {
-              "exchanges": [],
-              "dataSource": "SPX500",
-              "grouping": "sector",
-              "blockSize": "market_cap_basic",
-              "blockColor": "change",
-              "locale": "en",
-              "symbolUrl": "",
-              "colorTheme": "dark",
-              "hasTopBar": false,
-              "isDataSetEnabled": false,
-              "isZoomEnabled": true,
-              "hasSymbolTooltip": true,
-              "isMonoSize": false,
-              "width": "100%",
-              "height": "100%"
-            }
-            </script>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: AI BRIEF + KEY POINTS -->
-      <div class="exec-right">
-        <div class="exec-brief">
-          <div class="block-label">// AI BRIEF</div>
-          <p class="brief-text">
-            本日は半導体・AI関連銘柄が市場全体を牽引する展開。NVIDIAの決算が市場予想を大幅に上回ったことを受け、テクノロジーセクターへの強気な見方が多数を占めた。FRBの利下げ期待も追い風となり、グロース株全般にリスクオンの雰囲気が広がっている。一方、エネルギーセクターは原油価格の下落を受けて相対的に軟調。
-          </p>
-        </div>
-        <div class="exec-keypoints">
-          <div class="block-label">// KEY POINTS</div>
-          <ul class="keypoint-list">
-            <li>NVIDIAの四半期決算が市場予想を約15%上回り、データセンター需要の底堅さを確認</li>
-            <li>CME FedWatchでは7月の利下げ確率が61%に上昇、ハト派転換への期待が再燃</li>
-            <li>Magnificent 7全銘柄が上昇し、S&P500全体の上げをリード</li>
-            <li>エネルギーセクターは原油在庫増加を嫌気し軟調。XOM・CVXが下落</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- BOTTOM: TOP TICKERS -->
+    <!-- 4. TOP TICKERS -->
     <div class="ticker-row">
       <div class="block-label">// TOP TICKERS — 本日の動画で言及された銘柄</div>
       <div class="ticker-chips">
@@ -318,9 +319,9 @@
   <!-- MOCKUP NOTES -->
   <div class="mockup-note">
     <b>// MOCKUP 説明</b><br>
-    ・<b>ヒートマップ</b>：TradingViewのS&P500セクター別ヒートマップ（リアルタイム）<br>
+    ・<b>ヒートマップ</b>：TradingViewのS&amp;P500セクター別ヒートマップ（リアルタイム）。タイトルクリックでTradingView本家へ<br>
+    ・<b>AI BRIEF / KEY POINTS</b>：Groq（Llama 3.3）による要約。左右2分割で並列表示<br>
     ・<b>FED WATCH バー</b>：CME FedWatchの利上げ・利下げ確率。Pythonがビルド時に取得して埋め込む想定（現在はサンプル値）<br>
-    ・<b>AI BRIEF / KEY POINTS</b>：Groq（Llama 3.3）による要約。現在と同じ内容をリデザイン<br>
     ・<b>TOP TICKERS</b>：本日の動画で言及された銘柄チップ。クリックでティッカーページへ遷移<br><br>
     <b>// このページはモックアップです。本番サイトには影響しません。</b>
   </div>
