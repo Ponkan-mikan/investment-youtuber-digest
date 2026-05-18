@@ -535,9 +535,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .exec-inner {{
       border-left: 3px solid var(--exec-accent, rgba(255,255,255,0.15));
       padding-left: 18px;
-      transition: transform 80ms ease;
     }}
-    .exec-inner:hover {{ transform: translateY(-2px); }}
     .exec-header {{
       display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 14px;
     }}
