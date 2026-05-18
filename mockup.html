@@ -131,7 +131,9 @@
       padding: 8px 14px; border-right: 1px solid var(--border);
       white-space: nowrap; flex-shrink: 0;
       background: rgba(0,255,136,0.04);
+      text-decoration: none;
     }
+    .fedwatch-label:hover { text-decoration: underline; opacity: 0.8; }
     .fedwatch-items { display: flex; align-items: center; gap: 0; overflow-x: auto; flex: 1; }
     .fedwatch-item {
       display: flex; flex-direction: column; align-items: center;
@@ -273,7 +275,9 @@
 
     <!-- 3. FED WATCH BAR -->
     <div class="fedwatch-bar">
-      <div class="fedwatch-label">// FED WATCH</div>
+      <a class="fedwatch-label"
+         href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html"
+         target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim);">↗</span></a>
       <div class="fedwatch-items">
         <div class="fedwatch-item">
           <span class="fedwatch-meeting">Jun 18, 2025</span>
