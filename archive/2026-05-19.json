@@ -1,37 +1,4 @@
 {
   "date": "2026-05-19",
-  "results": [
-    {
-      "channel_name": "Jeremy Lefebvre Makes Money",
-      "video_id": "mJrp04S7cB8",
-      "title": "This Stock will hit $500‼️",
-      "url": "https://www.youtube.com/watch?v=mJrp04S7cB8",
-      "published": "2026-05-18T22:49:54+00:00",
-      "analysis": {
-        "summary_ja": "この動画では、<b>Tesla</b>、<b>Nvidia</b>、<b>Palantir</b> などの銘柄について言及されています。YouTuberは、これらの銘柄が将来高騰する可能性があると述べています。また、YouTuberのPatreonやプライベートストックグループへの参加方法も紹介されています。",
-        "tickers": [
-          "TSLA",
-          "NVDA",
-          "PLTR"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "YouTuberは、特定の銘柄が将来高騰する可能性があると述べています",
-          "YouTuberのPatreonやプライベートストックグループへの参加方法が紹介されています",
-          "YouTuberは、投資家がこれらの銘柄に注目する必要があると述べています"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4
-      },
-      "price_snapshot": {
-        "NVDA": 222.32,
-        "PLTR": 135.14,
-        "TSLA": 409.99
-      }
-    }
-  ]
+  "results": []
 }

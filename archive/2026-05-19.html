@@ -367,8 +367,8 @@
       <span class="prompt-date">2026-05-19</span>
     </div>
     <div class="hero-stats">
-      <div class="h-stat"><div class="h-stat-num c-total">1</div><div class="h-stat-label">total</div></div>
-      <div class="h-stat"><div class="h-stat-num c-bull">1</div><div class="h-stat-label">bullish</div></div>
+      <div class="h-stat"><div class="h-stat-num c-total">0</div><div class="h-stat-label">total</div></div>
+      <div class="h-stat"><div class="h-stat-num c-bull">0</div><div class="h-stat-label">bullish</div></div>
       <div class="h-stat"><div class="h-stat-num c-bear">0</div><div class="h-stat-label">bearish</div></div>
       <div class="h-stat"><div class="h-stat-num c-neut">0</div><div class="h-stat-label">neutral</div></div>
     </div>
@@ -385,26 +385,12 @@
 
   <div class="grid-wrap">
     <div class="grid" id="grid">
-      <article class="card sent-bullish" data-sentiment="bullish">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=mJrp04S7cB8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/mJrp04S7cB8/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Jeremy Lefebvre Makes Money</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=mJrp04S7cB8" target="_blank" rel="noopener">This Stock will hit $500‼️</a></h3>
-  <div class="tags"><a class="ticker" href="../ticker/TSLA.html">TSLA</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>Tesla</b>、<b>Nvidia</b>、<b>Palantir</b> などの銘柄について言及されています。YouTuberは、これらの銘柄が将来高騰する可能性があると述べています。また、YouTuberのPatreonやプライベートストックグループへの参加方法も紹介されています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>YouTuberは、特定の銘柄が将来高騰する可能性があると述べています</li><li>YouTuberのPatreonやプライベートストックグループへの参加方法が紹介されています</li><li>YouTuberは、投資家がこれらの銘柄に注目する必要があると述べています</li></ul></details>
-  <div class="card-footer">
-    <time>2026-05-19 07:49 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=mJrp04S7cB8" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
+      <div class="empty"><p>// 新着動画はありません</p></div>
       <div id="no-results">// no results matching filters</div>
     </div>
   </div>
 
-  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-05-19 10:42 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-05-19 15:42 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -452,7 +438,7 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const TICKERS = ["TSLA", "NVDA", "PLTR"];
+  const TICKERS = [];
   const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
 
   // 4x4 Bayer ordered dither
