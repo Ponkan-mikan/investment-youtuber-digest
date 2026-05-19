@@ -4,6 +4,7 @@ Investment YouTube Daily Digest Generator
 """
 import json
 import os
+import calendar
 import re
 import sys
 import time
@@ -301,161 +302,83 @@ def summarize_video(
     }
 
 
-# ---- CME FedWatch ------------------------------------------------------
+# ---- FedWatch (30-Day Fed Funds先物から計算) ----------------------------
 
-def _bp_range(rate_str: str) -> tuple[int | None, int | None]:
-    """'525-550' または '5.25-5.50' → (525, 550) に正規化。解析失敗時は (None, None)。"""
-    parts = str(rate_str).replace(" ", "").split("-")
-    if len(parts) == 2:
-        try:
-            lo = float(parts[0])
-            hi = float(parts[1])
-            # 小数パーセント形式（例 5.25-5.50）の場合は bps に変換
-            if hi < 20:
-                lo = round(lo * 100)
-                hi = round(hi * 100)
-            return int(lo), int(hi)
-        except ValueError:
-            pass
-    return None, None
+_FOMC_SCHEDULE = [
+    ("Jan 28, 2026",  1, 2026, 28),
+    ("Mar 18, 2026",  3, 2026, 18),
+    ("May  6, 2026",  5, 2026,  6),
+    ("Jun 17, 2026",  6, 2026, 17),
+    ("Jul 29, 2026",  7, 2026, 29),
+    ("Sep 16, 2026",  9, 2026, 16),
+    ("Oct 28, 2026", 10, 2026, 28),
+    ("Dec  9, 2026", 12, 2026,  9),
+]
+
+_ZQ_MONTH = {1:"F",2:"G",3:"H",4:"J",5:"K",6:"M",7:"N",8:"Q",9:"U",10:"V",11:"X",12:"Z"}
+
+
+def _get_fed_funds_lower_bound() -> float:
+    """FREDからFed Funds目標下限金利を取得。失敗時は4.25を返す。"""
+    try:
+        resp = requests.get(
+            "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL",
+            timeout=10, headers={"User-Agent": "Mozilla/5.0"},
+        )
+        resp.raise_for_status()
+        lines = [ln.strip() for ln in resp.text.strip().split("\n")
+                 if ln.strip() and not ln.upper().startswith("DATE")]
+        if lines:
+            val = float(lines[-1].split(",")[1])
+            print(f"  [INFO] Fed Funds lower bound (FRED): {val}%")
+            return val
+    except Exception as e:
+        print(f"  [WARN] FRED取得失敗: {e}")
+    return 4.25
 
 
 def fetch_fedwatch() -> list[dict]:
-    """CME FedWatch APIからFOMC会合の金利予測確率を取得する。失敗時は空リストを返す。"""
+    """30-Day Fed Funds先物 (ZQ) からFOMC会合の利上げ・利下げ確率を計算する。"""
     try:
-        # 複数のエンドポイント候補を順に試す
-        candidates = [
-            "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch",
-            "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch?monthOffset=0",
-        ]
-        headers = {
-            "User-Agent": (
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/124.0.0.0 Safari/537.36"
-            ),
-            "Accept": "application/json, text/plain, */*",
-            "Accept-Language": "en-US,en;q=0.9",
-            "Referer": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
-            "X-Requested-With": "XMLHttpRequest",
-        }
-        resp = None
-        for url in candidates:
-            try:
-                r = requests.get(url, headers=headers, timeout=15)
-                print(f"  [INFO] FedWatch HTTP {r.status_code} ({url})")
-                if r.status_code == 200:
-                    ct = r.headers.get("Content-Type", "")
-                    if "json" not in ct:
-                        print(f"  [WARN] FedWatch: JSON以外のレスポンス Content-Type={ct[:60]!r}")
-                        print(f"  [DEBUG] FedWatch応答先頭150字: {r.text[:150]!r}")
-                        continue
-                    resp = r
-                    break
-            except requests.exceptions.RequestException as e:
-                print(f"  [WARN] FedWatch接続失敗 ({url}): {e}")
-                continue
-
-        if resp is None:
-            print("  [WARN] FedWatch: 全エンドポイント失敗")
+        today = datetime.now(JST).date()
+        upcoming = [m for m in _FOMC_SCHEDULE
+                    if datetime(m[2], m[1], m[3]).date() > today][:4]
+        if not upcoming:
             return []
-
-        raw = resp.json()
-        print(f"  [DEBUG] FedWatch raw type={type(raw).__name__}, keys={list(raw.keys())[:6] if isinstance(raw, dict) else 'list'}")
-
-        if isinstance(raw, list):
-            meetings = raw
-        elif isinstance(raw, dict):
-            meetings = [v for _, v in sorted(raw.items()) if isinstance(v, dict)]
-        else:
-            return []
-
+        rate_lo = _get_fed_funds_lower_bound()
+        rate_hi = rate_lo + 0.25
         results = []
-        for item in meetings[:4]:
-            date_str = item.get("forecastDate") or item.get("date", "")
-            probs_raw = item.get("probs", [])
-            current_target = item.get("currentTarget", "")
-            if not date_str or not probs_raw:
-                continue
-
-            meeting_label = date_str
-            for fmt in ["%m/%d/%Y", "%Y-%m-%d", "%m/%d/%y"]:
-                try:
-                    meeting_label = datetime.strptime(date_str, fmt).strftime("%b %d, %Y")
-                    break
-                except ValueError:
-                    pass
-
-            # 確率を 0–1 に正規化（APIによって 0–1 または 0–100 で返る場合がある）
-            probs = []
-            for p in probs_raw:
-                prob = float(p.get("probability", 0))
-                if prob > 1.0:
-                    prob /= 100.0
-                probs.append({"rate": p.get("targetRate", ""), "p": prob})
-
-            cur_lo, cur_hi = _bp_range(current_target)
-
-            if cur_hi is None:
-                best = max(probs, key=lambda x: x["p"], default=None)
-                outcome = best["rate"] if best else "—"
-                cls = "fw-hold"
-                prob_pct = f"{best['p'] * 100:.1f}%" if best else "—"
-            else:
-                p_cut = p_hold = p_hike = 0.0
-                for x in probs:
-                    lo, hi = _bp_range(x["rate"])
-                    if hi is not None and hi < cur_hi:
-                        p_cut += x["p"]
-                    elif lo == cur_lo and hi == cur_hi:
-                        p_hold += x["p"]
-                    elif lo is not None and lo > cur_lo:
-                        p_hike += x["p"]
-
+        for label, month, year, day in upcoming:
+            ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
+            try:
+                hist = yf.Ticker(ticker).history(period="5d")
+                if hist.empty:
+                    print(f"  [WARN] FedWatch {ticker}: no data")
+                    continue
+                price = float(hist["Close"].iloc[-1])
+                implied_avg = 100.0 - price
+                days_in_month = calendar.monthrange(year, month)[1]
+                days_before = day - 1
+                days_after = days_in_month - days_before
+                rate_after = (
+                    (implied_avg * days_in_month - days_before * rate_lo) / days_after
+                    if days_after > 0 else implied_avg
+                )
+                p_cut  = max(0.0, min(1.0, (rate_lo - rate_after) / 0.25))
+                p_hike = max(0.0, min(1.0, (rate_after - rate_hi) / 0.25))
+                p_hold = max(0.0, 1.0 - p_cut - p_hike)
                 if p_cut >= p_hold and p_cut >= p_hike and p_cut > 0.05:
-                    best_cut = None
-                    for x in probs:
-                        lo, hi = _bp_range(x["rate"])
-                        if hi is not None and hi < cur_hi:
-                            if best_cut is None or x["p"] > best_cut["p"]:
-                                best_cut = x
-                    if best_cut:
-                        _, hi_cut = _bp_range(best_cut["rate"])
-                        cut_bp = cur_hi - hi_cut
-                        outcome = f"利下げ -{cut_bp}bp"
-                    else:
-                        outcome = "利下げ"
-                    cls = "fw-cut"
-                    prob_pct = f"{p_cut * 100:.1f}%"
-                elif p_hike > p_hold and p_hike > p_cut and p_hike > 0.05:
-                    best_hike = None
-                    for x in probs:
-                        lo, hi = _bp_range(x["rate"])
-                        if lo is not None and lo > cur_lo:
-                            if best_hike is None or x["p"] > best_hike["p"]:
-                                best_hike = x
-                    if best_hike:
-                        lo_hike, _ = _bp_range(best_hike["rate"])
-                        hike_bp = lo_hike - cur_lo
-                        outcome = f"利上げ +{hike_bp}bp"
-                    else:
-                        outcome = "利上げ"
-                    cls = "fw-hike"
-                    prob_pct = f"{p_hike * 100:.1f}%"
+                    outcome, cls, prob_pct = "利下げ -25bp", "fw-cut", f"{p_cut*100:.1f}%"
+                elif p_hike >= p_hold and p_hike >= p_cut and p_hike > 0.05:
+                    outcome, cls, prob_pct = "利上げ +25bp", "fw-hike", f"{p_hike*100:.1f}%"
                 else:
-                    outcome = f"据置 ({current_target})" if current_target else "据置"
-                    cls = "fw-hold"
-                    prob_pct = f"{p_hold * 100:.1f}%"
-
-            results.append({
-                "meeting": meeting_label,
-                "outcome": outcome,
-                "outcome_class": cls,
-                "prob": prob_pct,
-            })
-
+                    outcome = f"据置 ({rate_lo:.2f}-{rate_hi:.2f}%)"
+                    cls, prob_pct = "fw-hold", f"{p_hold*100:.1f}%"
+                results.append({"meeting": label, "outcome": outcome, "outcome_class": cls, "prob": prob_pct})
+                print(f"  [INFO] FedWatch {label}: {outcome} {prob_pct}")
+            except Exception as e:
+                print(f"  [WARN] FedWatch {ticker}: {e}")
         return results
-
     except Exception as e:
         print(f"  [WARN] FedWatch取得失敗: {e}")
         return []
