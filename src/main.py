@@ -220,7 +220,7 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 以下のJSON形式のみで回答してください（マークダウンのコードブロックや説明文は不要。JSONオブジェクトだけを出力）:
 {{
-  "summary_ja": "動画の主要な内容を日本語で3〜5文で要約。企業名・銘柄名・ティッカーシンボルが出てきた場合は必ず <b>企業名</b> のように <b> タグで囲むこと",
+  "summary_ja": "動画の主要な内容を日本語で3〜5文で要約。企業名・銘柄名は必ず英語のアルファベット表記（例: Tesla, Nvidia, Palantir）またはティッカーシンボル（TSLA, NVDA, PLTR）を使用し、カタカナ表記は一切使用しない。企業名・ティッカーシンボルが出てきた場合は必ず <b>企業名またはティッカー</b> のように <b> タグで囲むこと",
   "tickers": ["言及された銘柄の正式なティッカーシンボルのリスト（例: AAPL, NVDA, ACHR, MNDY）。会社名で言及されている場合も必ずティッカーシンボルに変換すること（例: 'Archer Aviation'→'ACHR', 'Monday.com'→'MNDY', 'Tesla'→'TSLA'）。ティッカーシンボルが不明な場合や株式銘柄でない場合は含めない。なければ空配列"],
   "undervalued_picks": ["YouTuberが明示的に『割安』『過小評価されている』『市場に無視されている』『買い場』と述べていた銘柄のティッカーシンボルのリスト。なければ空配列"],
   "key_points": ["投資判断に役立つ重要ポイントを日本語で箇条書き（最大5つ）"],
@@ -304,11 +304,17 @@ def summarize_video(
 # ---- CME FedWatch ------------------------------------------------------
 
 def _bp_range(rate_str: str) -> tuple[int | None, int | None]:
-    """'525-550' → (525, 550). 解析失敗時は (None, None)。"""
+    """'525-550' または '5.25-5.50' → (525, 550) に正規化。解析失敗時は (None, None)。"""
     parts = str(rate_str).replace(" ", "").split("-")
     if len(parts) == 2:
         try:
-            return int(parts[0]), int(parts[1])
+            lo = float(parts[0])
+            hi = float(parts[1])
+            # 小数パーセント形式（例 5.25-5.50）の場合は bps に変換
+            if hi < 20:
+                lo = round(lo * 100)
+                hi = round(hi * 100)
+            return int(lo), int(hi)
         except ValueError:
             pass
     return None, None
@@ -317,19 +323,45 @@ def _bp_range(rate_str: str) -> tuple[int | None, int | None]:
 def fetch_fedwatch() -> list[dict]:
     """CME FedWatch APIからFOMC会合の金利予測確率を取得する。失敗時は空リストを返す。"""
     try:
-        url = "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch"
+        # 複数のエンドポイント候補を順に試す
+        candidates = [
+            "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch",
+            "https://www.cmegroup.com/CmeWS/mvc/ProductCalendar/V2/getFedWatch?monthOffset=0",
+        ]
         headers = {
             "User-Agent": (
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0.0.0 Safari/537.36"
+                "Chrome/124.0.0.0 Safari/537.36"
             ),
-            "Accept": "application/json",
+            "Accept": "application/json, text/plain, */*",
+            "Accept-Language": "en-US,en;q=0.9",
             "Referer": "https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html",
+            "X-Requested-With": "XMLHttpRequest",
         }
-        resp = requests.get(url, headers=headers, timeout=15)
-        resp.raise_for_status()
+        resp = None
+        for url in candidates:
+            try:
+                r = requests.get(url, headers=headers, timeout=15)
+                print(f"  [INFO] FedWatch HTTP {r.status_code} ({url})")
+                if r.status_code == 200:
+                    ct = r.headers.get("Content-Type", "")
+                    if "json" not in ct:
+                        print(f"  [WARN] FedWatch: JSON以外のレスポンス Content-Type={ct[:60]!r}")
+                        print(f"  [DEBUG] FedWatch応答先頭150字: {r.text[:150]!r}")
+                        continue
+                    resp = r
+                    break
+            except requests.exceptions.RequestException as e:
+                print(f"  [WARN] FedWatch接続失敗 ({url}): {e}")
+                continue
+
+        if resp is None:
+            print("  [WARN] FedWatch: 全エンドポイント失敗")
+            return []
+
         raw = resp.json()
+        print(f"  [DEBUG] FedWatch raw type={type(raw).__name__}, keys={list(raw.keys())[:6] if isinstance(raw, dict) else 'list'}")
 
         if isinstance(raw, list):
             meetings = raw
@@ -1674,8 +1706,8 @@ def generate_executive_summary_text(
 
 以下のJSON形式のみで回答してください（マークダウン不要、JSONオブジェクトのみ）:
 {{
-  "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的な日本語サマリー（3〜5文）。主要テーマと注目ポイントを含める",
-  "key_points": ["投資家が今日注目すべき重要なポイント（最大4つ、日本語で具体的・アクション性のある内容）"]
+  "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的な日本語サマリー（3〜5文）。企業名・銘柄名は英語のアルファベット表記（例: Tesla, Nvidia, Palantir）またはティッカーシンボル（TSLA, NVDA, PLTR）のみ使用し、カタカナ表記は一切使用しない。",
+  "key_points": ["投資家が今日注目すべき重要なポイント（最大4つ、日本語で具体的・アクション性のある内容）。企業名は英語表記またはティッカーシンボルのみ使用し、カタカナ表記は一切使用しない。"]
 }}"""
 
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
