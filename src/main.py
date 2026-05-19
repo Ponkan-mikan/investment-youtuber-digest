@@ -2024,11 +2024,20 @@ def main() -> None:
     archive_dir = DOCS_DIR / "archive"
     archive_dir.mkdir(exist_ok=True)
 
+    # エグゼクティブサマリーを生成（アーカイブ・メインページ共通）
+    n_bullish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bullish")
+    n_bearish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bearish")
+    n_neutral = len(all_results) - n_bullish - n_bearish
+    exec_summary = build_exec_summary(
+        client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral
+    )
+
     # アーカイブ: 当日分の HTML / JSON を保存
     print(f"  アーカイブHTML生成: archive/{today}.html")
     archive_html_path = archive_dir / f"{today}.html"
+    archive_exec = dict(exec_summary, _is_archive=True)
     with open(archive_html_path, "w", encoding="utf-8") as f:
-        f.write(generate_html(all_results, today, is_archive=True))
+        f.write(generate_html(all_results, today, is_archive=True, exec_summary=archive_exec))
 
     print(f"  アーカイブJSON保存: archive/{today}.json")
     with open(archive_dir / f"{today}.json", "w", encoding="utf-8") as f:
@@ -2047,14 +2056,6 @@ def main() -> None:
     print("  チャンネルページ生成中...")
     with open(DOCS_DIR / "channels.html", "w", encoding="utf-8") as f:
         f.write(generate_channels_html(channels))
-
-    # エグゼクティブサマリーを生成
-    n_bullish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bullish")
-    n_bearish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bearish")
-    n_neutral = len(all_results) - n_bullish - n_bearish
-    exec_summary = build_exec_summary(
-        client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral
-    )
 
     # メインページ (index.html) を更新
     print("  メインページ(index.html)生成中...")
