@@ -318,8 +318,8 @@ _FOMC_SCHEDULE = [
 _ZQ_MONTH = {1:"F",2:"G",3:"H",4:"J",5:"K",6:"M",7:"N",8:"Q",9:"U",10:"V",11:"X",12:"Z"}
 
 
-def _get_fed_funds_lower_bound() -> float:
-    """FREDからFed Funds目標下限金利を取得。失敗時は4.25を返す。"""
+def _get_fed_funds_lower_bound() -> float | None:
+    """FREDからFed Funds目標下限金利を取得。失敗時はNoneを返す。"""
     try:
         resp = requests.get(
             "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL",
@@ -334,7 +334,7 @@ def _get_fed_funds_lower_bound() -> float:
             return val
     except Exception as e:
         print(f"  [WARN] FRED取得失敗: {e}")
-    return 4.25
+    return None
 
 
 def fetch_fedwatch() -> list[dict]:
@@ -346,6 +346,8 @@ def fetch_fedwatch() -> list[dict]:
         if not upcoming:
             return []
         rate_lo = _get_fed_funds_lower_bound()
+        if rate_lo is None:
+            return [{"error": True, "message": "FRED API 取得エラー（現在金利を取得できませんでした）"}]
         rate_hi = rate_lo + 0.25
         results = []
         for label, month, year, day in upcoming:
@@ -381,7 +383,7 @@ def fetch_fedwatch() -> list[dict]:
         return results
     except Exception as e:
         print(f"  [WARN] FedWatch取得失敗: {e}")
-        return []
+        return [{"error": True, "message": f"FedWatch 取得エラー: {e}"}]
 
 
 # ---- HTML 生成 ---------------------------------------------------------
@@ -710,6 +712,7 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .fw-cut {{ color: var(--brand); }}
     .fw-hike {{ color: var(--red); }}
     .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 14px; white-space: nowrap; }}
+    .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; }}
     /* top tickers */
     .exec-tickers {{
       background: var(--surface); border: 1px solid var(--border);
@@ -1782,9 +1785,16 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       </div>
     </div>"""
 
-    # 3. FED WATCH バー（データ取得できた場合のみ表示）
+    # 3. FED WATCH バー
     fedwatch_items = exec_summary.get("fedwatch", [])
-    if fedwatch_items:
+    fw_label = '<a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>'
+    if fedwatch_items and fedwatch_items[0].get("error"):
+        err_msg = fedwatch_items[0].get("message", "データ取得エラー")
+        fedwatch_html = f"""<div class="fedwatch-bar">
+      {fw_label}
+      <div class="fedwatch-items"><span class="fedwatch-error">// {err_msg}</span></div>
+    </div>"""
+    elif fedwatch_items:
         fw_items_html = "".join(
             f'<div class="fedwatch-item">'
             f'<span class="fedwatch-meeting">{fw["meeting"]}</span>'
@@ -1794,13 +1804,14 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
             for fw in fedwatch_items
         )
         fedwatch_html = f"""<div class="fedwatch-bar">
-      <a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>
+      {fw_label}
       <div class="fedwatch-items">{fw_items_html}</div>
       <span class="fedwatch-note">source: CME FedWatch</span>
     </div>"""
     else:
         fedwatch_html = ""
 
+    # 4. TOP TICKERS チップ
     # 4. TOP TICKERS チップ
     top_tickers = exec_summary.get("top_tickers", [])
     if top_tickers:
