@@ -13,9 +13,10 @@
       --muted: rgba(255,255,255,0.5); --dim: rgba(255,255,255,0.3);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
     body {
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -26,12 +27,21 @@
       border-bottom: 1px solid var(--border); padding: 0 clamp(16px,4vw,48px);
     }
     .header-inner {
-      max-width: 960px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; height: 52px;
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px;
     }
+    .tv-tape {
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
+    }
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget { height: 46px !important; }
     .ad-logo {
       display: inline-flex; align-items: center; font-size: 18px;
-      line-height: 1; letter-spacing: -0.5px; text-decoration: none;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
     }
     .ad-logo__cursor {
       display: inline-block; width: 2px; height: 1.1em;
@@ -41,7 +51,7 @@
     .ad-logo__alpha { color: var(--brand); font-weight: 700; }
     .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
     @keyframes blink { 50% { opacity: 0; } }
-    nav { display: flex; gap: 4px; }
+    nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
     .nav-link {
       font-size: 0.7rem; color: var(--muted); text-decoration: none;
       padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
@@ -117,9 +127,11 @@
       .m-channel { display: none; }
     }
     footer { text-align: center; padding: 20px; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim); }
+    #bgCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
   <header>
     <div class="header-inner">
       <a href="../index.html" class="ad-logo">
@@ -128,10 +140,19 @@
         <span class="ad-logo__digest">digest</span>
       </a>
       <nav>
-        <a href="../index.html" class="nav-link">← latest</a>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href="../archive/index.html" class="nav-link">archive</a>
       </nav>
     </div>
   </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"description":"DJI","proName":"FOREXCOM:DJI"},{"description":"VIX","proName":"CBOE:VIX"},{"description":"USD/JPY","proName":"FX_IDC:USDJPY"},{"description":"Gold","proName":"TVC:GOLD"},{"description":"BTC","proName":"BITSTAMP:BTCUSD"}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+      </script>
+    </div>
+  </div>
   <main>
     <div class="page-prompt">
       <span class="prompt-symbol">></span>
@@ -225,9 +246,87 @@
 
     <p class="section-title">// mention history (1 videos)</p>
     <div class="mention-list">
-      <a class="mention-row" href="../archive/2026-04-07.html"><span class="m-date">2026-04-07</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$927.06</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Great News for Eli Lilly Stock Investors!</span><span class="m-arrow">↗</span></a>
+      <a class="mention-row" href="../archive/2026-05-26.html"><span class="m-date">2026-05-26</span><span class="m-channel">Parkev's Picks</span><span class="m-price">$1065.00</span><span class="m-pct m-pct-up">+0.0%</span><span class="m-title">Is Eli Lilly Stock an Undervalued Stock to Buy? | LLY Stock Discounted Cash Flow Valuation</span><span class="m-arrow">↗</span></a>
     </div>
   </main>
-  <footer>// alphadigest · 2026-04-07 07:45 JST</footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-05-26 08:14 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <script>(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const TICKERS = ["LLY"];
+  const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
+
+  // 4x4 Bayer ordered dither
+  const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  function dither(x, y) { return (BAYER[y & 3][x & 3] / 16) - 0.5; }
+
+  // 1/f pink noise
+  function pinkNoise() {
+    const b = [0,0,0,0,0,0,0];
+    return { next() {
+      const w = (Math.random() - 0.5) * 2;
+      b[0]=0.99886*b[0]+w*0.0555; b[1]=0.99332*b[1]+w*0.0751;
+      b[2]=0.96900*b[2]+w*0.1539; b[3]=0.86650*b[3]+w*0.3105;
+      b[4]=0.55000*b[4]+w*0.5330; b[5]=-0.7616*b[5]-w*0.0169;
+      const v = b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362;
+      b[6] = w * 0.1159;
+      return v * 0.11;
+    }};
+  }
+
+  const G = 13;
+  const noise = pinkNoise();
+  let W = 0, H = 0, phase = 0, last = performance.now();
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  function frame(ts) {
+    const dt = Math.min(0.05, (ts - last) / 1000);
+    last = ts;
+    phase += (Math.PI * 2 / 10) * dt;
+
+    const fv = noise.next();
+    const ampScale = 1 + fv * 0.18;
+    const intOff   = fv * 0.045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "bold 9px 'JetBrains Mono',monospace";
+    ctx.textBaseline = 'top';
+
+    const cols = Math.ceil(W / G);
+    const rows = Math.ceil(H / G);
+    const cy   = rows * 0.58;
+    const base = rows / 4;
+    const amp  = base * ampScale;
+    const freq = 0.036;
+    const sp2  = phase * 0.86;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const w1   = Math.sin(x * freq + phase) * amp;
+        const w2   = Math.cos(x * freq * 0.5 - sp2) * (base * 0.42 * ampScale);
+        const dist = Math.abs(y - (cy + w1 + w2));
+        let   int  = Math.max(0, 1 - dist / 12);
+        int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
+
+        if (int + dither(x, y) > 0.5) {
+          ctx.fillStyle = 'rgba(0,255,136,0.22)';
+          ctx.fillText(chars[x % chars.length], x * G, y * G);
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();</script>
 </body>
 </html>
