@@ -317,24 +317,37 @@ _FOMC_SCHEDULE = [
 
 _ZQ_MONTH = {1:"F",2:"G",3:"H",4:"J",5:"K",6:"M",7:"N",8:"Q",9:"U",10:"V",11:"X",12:"Z"}
 
+# FRBが利下げ・利上げしたら手動で更新 (FRED取得失敗時のフォールバック)
+_FALLBACK_RATE_LO = 3.50  # 2026-05現在: 3.50-3.75%レンジの下限
 
-def _get_fed_funds_lower_bound() -> float | None:
-    """FREDからFed Funds目標下限金利を取得。失敗時はNoneを返す。"""
-    try:
-        resp = requests.get(
-            "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL",
-            timeout=10, headers={"User-Agent": "Mozilla/5.0"},
-        )
-        resp.raise_for_status()
-        lines = [ln.strip() for ln in resp.text.strip().split("\n")
-                 if ln.strip() and not ln.upper().startswith("DATE")]
-        if lines:
-            val = float(lines[-1].split(",")[1])
-            print(f"  [INFO] Fed Funds lower bound (FRED): {val}%")
-            return val
-    except Exception as e:
-        print(f"  [WARN] FRED取得失敗: {e}")
-    return None
+
+def _get_fed_funds_lower_bound() -> float:
+    """FREDからFed Funds目標下限金利を取得。失敗時はフォールバック値を返す。"""
+    _FRED_URLS = [
+        "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL",
+        "https://fred.stlouisfed.org/data/DFEDTARL.txt",
+    ]
+    headers = {"User-Agent": "Mozilla/5.0"}
+    for url in _FRED_URLS:
+        try:
+            resp = requests.get(url, timeout=10, headers=headers)
+            resp.raise_for_status()
+            lines = [ln.strip() for ln in resp.text.strip().split("\n")
+                     if ln.strip() and not ln.upper().startswith("DATE")
+                     and not ln.startswith("#")]
+            for line in reversed(lines):
+                parts = line.replace(",", " ").split()
+                if len(parts) >= 2 and parts[-1] not in (".", ""):
+                    try:
+                        val = float(parts[-1])
+                        print(f"  [INFO] Fed Funds lower bound (FRED): {val}%")
+                        return val
+                    except ValueError:
+                        continue
+        except Exception as e:
+            print(f"  [WARN] FRED取得失敗 ({url}): {e}")
+    print(f"  [WARN] FRED全エンドポイント失敗。フォールバック金利 {_FALLBACK_RATE_LO}% を使用")
+    return _FALLBACK_RATE_LO
 
 
 def fetch_fedwatch() -> list[dict]:
@@ -342,12 +355,10 @@ def fetch_fedwatch() -> list[dict]:
     try:
         today = datetime.now(JST).date()
         upcoming = [m for m in _FOMC_SCHEDULE
-                    if datetime(m[2], m[1], m[3]).date() > today][:4]
+                    if datetime(m[2], m[1], m[3]).date() > today][:3]
         if not upcoming:
             return []
         rate_lo = _get_fed_funds_lower_bound()
-        if rate_lo is None:
-            return [{"error": True, "message": "FRED API 取得エラー（現在金利を取得できませんでした）"}]
         rate_hi = rate_lo + 0.25
         results = []
         for label, month, year, day in upcoming:
@@ -369,21 +380,59 @@ def fetch_fedwatch() -> list[dict]:
                 p_cut  = max(0.0, min(1.0, (rate_lo - rate_after) / 0.25))
                 p_hike = max(0.0, min(1.0, (rate_after - rate_hi) / 0.25))
                 p_hold = max(0.0, 1.0 - p_cut - p_hike)
-                if p_cut >= p_hold and p_cut >= p_hike and p_cut > 0.05:
-                    outcome, cls, prob_pct = "利下げ -25bp", "fw-cut", f"{p_cut*100:.1f}%"
-                elif p_hike >= p_hold and p_hike >= p_cut and p_hike > 0.05:
-                    outcome, cls, prob_pct = "利上げ +25bp", "fw-hike", f"{p_hike*100:.1f}%"
-                else:
-                    outcome = f"据置 ({rate_lo:.2f}-{rate_hi:.2f}%)"
-                    cls, prob_pct = "fw-hold", f"{p_hold*100:.1f}%"
-                results.append({"meeting": label, "outcome": outcome, "outcome_class": cls, "prob": prob_pct})
-                print(f"  [INFO] FedWatch {label}: {outcome} {prob_pct}")
+                ease = round(p_cut  * 100, 1)
+                hold = round(p_hold * 100, 1)
+                hike = round(p_hike * 100, 1)
+                results.append({"meeting": label, "ease": ease, "hold": hold, "hike": hike})
+                print(f"  [INFO] FedWatch {label}: EASE {ease}% / HOLD {hold}% / HIKE {hike}%")
             except Exception as e:
                 print(f"  [WARN] FedWatch {ticker}: {e}")
         return results
     except Exception as e:
         print(f"  [WARN] FedWatch取得失敗: {e}")
         return [{"error": True, "message": f"FedWatch 取得エラー: {e}"}]
+
+
+_FEDWATCH_HISTORY_PATH = DATA_DIR / "fedwatch_history.json"
+
+
+def _save_fedwatch_history(data: list[dict], date_str: str) -> None:
+    """FedWatchデータを日次履歴JSONに追記保存する。90日超は自動削除。"""
+    try:
+        history = {}
+        if _FEDWATCH_HISTORY_PATH.exists():
+            with open(_FEDWATCH_HISTORY_PATH, encoding="utf-8") as f:
+                history = json.load(f)
+        history[date_str] = {
+            item["meeting"]: {"ease": item["ease"], "hold": item["hold"], "hike": item["hike"]}
+            for item in data if not item.get("error")
+        }
+        cutoff = (datetime.now(JST) - timedelta(days=90)).date().isoformat()
+        history = {k: v for k, v in history.items() if k >= cutoff}
+        with open(_FEDWATCH_HISTORY_PATH, "w", encoding="utf-8") as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"  [WARN] FedWatch履歴保存失敗: {e}")
+
+
+def _load_fedwatch_history_for(meeting: str, today_str: str) -> dict:
+    """指定会合の1日前・1週前・1ヶ月前のデータを返す。キー: 1d/1w/1m。"""
+    result = {}
+    try:
+        if not _FEDWATCH_HISTORY_PATH.exists():
+            return result
+        with open(_FEDWATCH_HISTORY_PATH, encoding="utf-8") as f:
+            history = json.load(f)
+        from datetime import date as _date
+        today_d = _date.fromisoformat(today_str)
+        for label, delta_days in [("1d", 1), ("1w", 7), ("1m", 30)]:
+            target = (today_d - timedelta(days=delta_days)).isoformat()
+            candidates = sorted([d for d in history if d <= target], reverse=True)
+            if candidates and meeting in history[candidates[0]]:
+                result[label] = history[candidates[0]][meeting]
+    except Exception as e:
+        print(f"  [WARN] FedWatch履歴読込失敗: {e}")
+    return result
 
 
 # ---- HTML 生成 ---------------------------------------------------------
@@ -688,31 +737,45 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .keypoint-list li::before {{ content: '→'; color: var(--brand); flex-shrink: 0; }}
     /* fedwatch */
     .fedwatch-bar {{
-      display: flex; align-items: center;
+      display: flex; align-items: stretch;
       background: var(--surface); border: 1px solid var(--border);
       border-radius: 2px; margin-bottom: 12px; overflow: hidden;
     }}
     .fedwatch-label {{
       font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
-      padding: 8px 14px; border-right: 1px solid var(--border);
-      white-space: nowrap; flex-shrink: 0;
+      padding: 10px 14px; border-right: 1px solid var(--border);
+      white-space: nowrap; flex-shrink: 0; display: flex; align-items: center;
       background: rgba(0,255,136,0.04); text-decoration: none;
     }}
     .fedwatch-label:hover {{ text-decoration: underline; opacity: 0.8; }}
-    .fedwatch-items {{ display: flex; align-items: center; overflow-x: auto; flex: 1; }}
+    .fedwatch-items {{ display: flex; overflow-x: auto; flex: 1; }}
     .fedwatch-item {{
-      display: flex; flex-direction: column; align-items: center;
-      padding: 6px 18px; border-right: 1px solid var(--border);
-      min-width: 130px; flex-shrink: 0;
+      display: flex; flex-direction: column;
+      padding: 8px 14px; border-right: 1px solid var(--border);
+      min-width: 160px; flex-shrink: 0;
     }}
-    .fedwatch-meeting {{ font-size: 0.6rem; color: var(--muted); margin-bottom: 3px; }}
-    .fedwatch-outcome {{ font-size: 0.65rem; font-weight: 700; }}
-    .fedwatch-prob {{ font-size: 0.72rem; color: var(--brand); font-weight: 700; }}
+    .fedwatch-meeting {{
+      font-size: 0.6rem; color: var(--brand); opacity: 0.8;
+      letter-spacing: 1px; margin-bottom: 6px; white-space: nowrap;
+    }}
+    .fw-table {{ border-collapse: collapse; width: 100%; }}
+    .fw-table th {{
+      font-size: 0.52rem; color: var(--dim); text-align: right;
+      padding: 1px 4px; font-weight: 400; letter-spacing: 0.5px;
+    }}
+    .fw-table td {{ padding: 2px 4px; white-space: nowrap; }}
+    .fw-row-label {{
+      font-size: 0.55rem; color: var(--muted); text-align: left;
+      letter-spacing: 0.5px; padding-right: 8px !important;
+    }}
+    .fw-val {{ font-size: 0.68rem; font-weight: 700; text-align: right; }}
+    .fw-val.fw-now {{ font-size: 0.72rem; }}
     .fw-hold {{ color: var(--muted); }}
     .fw-cut {{ color: var(--brand); }}
     .fw-hike {{ color: var(--red); }}
-    .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 14px; white-space: nowrap; }}
-    .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; }}
+    .fw-na {{ color: var(--dim); font-weight: 400; font-size: 0.6rem; }}
+    .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }}
+    .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }}
     /* top tickers */
     .exec-tickers {{
       background: var(--surface); border: 1px solid var(--border);
@@ -1676,6 +1739,13 @@ def build_exec_summary(
     print("  FedWatchデータ取得中...")
     fedwatch_data = fetch_fedwatch()
     print(f"  FedWatch: {len(fedwatch_data)} 件取得" if fedwatch_data else "  FedWatch: データなし（非表示）")
+    if fedwatch_data and not fedwatch_data[0].get("error"):
+        _save_fedwatch_history(fedwatch_data, today)
+        for item in fedwatch_data:
+            hist = _load_fedwatch_history_for(item["meeting"], today)
+            item["1d"] = hist.get("1d")
+            item["1w"] = hist.get("1w")
+            item["1m"] = hist.get("1m")
 
     # 本日言及されたトップティッカーの現在価格＋前日比
     print("  トップティッカー株価取得中...")
@@ -1795,14 +1865,36 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       <div class="fedwatch-items"><span class="fedwatch-error">// {err_msg}</span></div>
     </div>"""
     elif fedwatch_items:
-        fw_items_html = "".join(
-            f'<div class="fedwatch-item">'
-            f'<span class="fedwatch-meeting">{fw["meeting"]}</span>'
-            f'<span class="fedwatch-outcome {fw["outcome_class"]}">{fw["outcome"]}</span>'
-            f'<span class="fedwatch-prob">{fw["prob"]}</span>'
-            f'</div>'
-            for fw in fedwatch_items
-        )
+        def _fw_cell(val, css_cls, is_now=False):
+            if val is None:
+                return '<td class="fw-val fw-na">—</td>'
+            now_cls = " fw-now" if is_now else ""
+            return f'<td class="fw-val {css_cls}{now_cls}">{val:.1f}%</td>'
+        def _fw_item(fw):
+            d1 = fw.get("1d"); d7 = fw.get("1w"); d30 = fw.get("1m")
+            has_hist = any(x is not None for x in [d1, d7, d30])
+            hist_head = '<th>1D</th><th>1W</th><th>1M</th>' if has_hist else ''
+            ease_hist = (f'{_fw_cell(d1["ease"] if d1 else None,"fw-cut")}'
+                         f'{_fw_cell(d7["ease"] if d7 else None,"fw-cut")}'
+                         f'{_fw_cell(d30["ease"] if d30 else None,"fw-cut")}') if has_hist else ''
+            hold_hist = (f'{_fw_cell(d1["hold"] if d1 else None,"fw-hold")}'
+                         f'{_fw_cell(d7["hold"] if d7 else None,"fw-hold")}'
+                         f'{_fw_cell(d30["hold"] if d30 else None,"fw-hold")}') if has_hist else ''
+            hike_hist = (f'{_fw_cell(d1["hike"] if d1 else None,"fw-hike")}'
+                         f'{_fw_cell(d7["hike"] if d7 else None,"fw-hike")}'
+                         f'{_fw_cell(d30["hike"] if d30 else None,"fw-hike")}') if has_hist else ''
+            return (
+                f'<div class="fedwatch-item">'
+                f'<div class="fedwatch-meeting">{fw["meeting"]}</div>'
+                f'<table class="fw-table">'
+                f'<tr><th></th><th>NOW</th>{hist_head}</tr>'
+                f'<tr><td class="fw-row-label">EASE</td>{_fw_cell(fw["ease"],"fw-cut",True)}{ease_hist}</tr>'
+                f'<tr><td class="fw-row-label">NO CHG</td>{_fw_cell(fw["hold"],"fw-hold",True)}{hold_hist}</tr>'
+                f'<tr><td class="fw-row-label">HIKE</td>{_fw_cell(fw["hike"],"fw-hike",True)}{hike_hist}</tr>'
+                f'</table>'
+                f'</div>'
+            )
+        fw_items_html = "".join(_fw_item(fw) for fw in fedwatch_items)
         fedwatch_html = f"""<div class="fedwatch-bar">
       {fw_label}
       <div class="fedwatch-items">{fw_items_html}</div>
