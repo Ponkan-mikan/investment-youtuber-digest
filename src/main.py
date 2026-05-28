@@ -355,7 +355,7 @@ def fetch_fedwatch() -> list[dict]:
     try:
         today = datetime.now(JST).date()
         upcoming = [m for m in _FOMC_SCHEDULE
-                    if datetime(m[2], m[1], m[3]).date() > today][:3]
+                    if datetime(m[2], m[1], m[3]).date() > today][:5]
         if not upcoming:
             return []
         rate_lo = _get_fed_funds_lower_bound()
@@ -771,8 +771,8 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .fw-val {{ font-size: 0.68rem; font-weight: 700; text-align: right; }}
     .fw-val.fw-now {{ font-size: 0.72rem; }}
     .fw-hold {{ color: var(--muted); }}
-    .fw-cut {{ color: var(--brand); }}
-    .fw-hike {{ color: var(--red); }}
+    .fw-cut {{ color: var(--muted); }}
+    .fw-hike {{ color: var(--muted); }}
     .fw-na {{ color: var(--dim); font-weight: 400; font-size: 0.6rem; }}
     .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }}
     .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }}
