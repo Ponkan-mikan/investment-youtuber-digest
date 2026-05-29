@@ -435,6 +435,43 @@ def _load_fedwatch_history_for(meeting: str, today_str: str) -> dict:
     return result
 
 
+def _generate_fedwatch_comment(api_key: str, fedwatch_data: list[dict], rate_lo: float) -> str:
+    """FedWatchデータをGroqに渡して1〜2文の日本語解釈コメントを生成する。"""
+    try:
+        rate_hi = rate_lo + 0.25
+        table_lines = [f"現在のFF金利目標: {rate_lo:.2f}–{rate_hi:.2f}%\n"]
+        for fw in fedwatch_data:
+            if fw.get("error"):
+                continue
+            table_lines.append(
+                f'{fw["meeting"]}: EASE {fw["ease"]:.1f}% / NO CHG {fw["hold"]:.1f}% / HIKE {fw["hike"]:.1f}%'
+            )
+        table_str = "\n".join(table_lines)
+        prompt = (
+            "以下はCME FedWatchツールに基づくFOMC会合ごとの市場の金利予測です。\n\n"
+            f"{table_str}\n\n"
+            "この予測データを投資家向けに1〜2文（日本語）で簡潔に解釈してください。"
+            "現在の市場コンセンサス（利上げ・据置・利下げ期待）と、"
+            "注目すべき点（確率の偏り・転換点など）を含めてください。"
+            "出力はプレーンテキスト（マークダウン・記号・改行なし）で。"
+        )
+        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+        payload = {
+            "model": _GROQ_MODEL,
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": 200,
+            "temperature": 0.3,
+        }
+        resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=20)
+        resp.raise_for_status()
+        comment = resp.json()["choices"][0]["message"]["content"].strip()
+        print(f"  [INFO] FedWatchコメント生成: {comment[:60]}...")
+        return comment
+    except Exception as e:
+        print(f"  [WARN] FedWatchコメント生成失敗: {e}")
+        return ""
+
+
 # ---- HTML 生成 ---------------------------------------------------------
 
 _SENT_LABEL = {"bullish": "▲ bullish", "bearish": "▼ bearish", "neutral": "● neutral"}
@@ -776,6 +813,15 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .fw-na {{ color: var(--dim); font-weight: 400; font-size: 0.6rem; }}
     .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }}
     .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }}
+    .fedwatch-comment-area {{
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10px 16px; max-width: 260px; flex-shrink: 0;
+      border-left: 1px solid var(--border);
+    }}
+    .fedwatch-comment {{
+      font-size: 0.65rem; color: rgba(255,255,255,0.65); line-height: 1.5;
+      margin-bottom: 4px;
+    }}
     /* top tickers */
     .exec-tickers {{
       background: var(--surface); border: 1px solid var(--border);
@@ -1746,6 +1792,10 @@ def build_exec_summary(
             item["1d"] = hist.get("1d")
             item["1w"] = hist.get("1w")
             item["1m"] = hist.get("1m")
+        print("  FedWatchコメント生成中...")
+        fedwatch_comment = _generate_fedwatch_comment(api_key, fedwatch_data, _FALLBACK_RATE_LO)
+    else:
+        fedwatch_comment = ""
 
     # 本日言及されたトップティッカーの現在価格＋前日比
     print("  トップティッカー株価取得中...")
@@ -1776,6 +1826,7 @@ def build_exec_summary(
         "overall_summary":   llm_summary.get("overall_summary", ""),
         "key_points":        llm_summary.get("key_points", []),
         "fedwatch":          fedwatch_data,
+        "fedwatch_comment":  fedwatch_comment,
         "top_tickers":       top_tickers,
     }
 
@@ -1857,6 +1908,7 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
 
     # 3. FED WATCH バー
     fedwatch_items = exec_summary.get("fedwatch", [])
+    fedwatch_comment = exec_summary.get("fedwatch_comment", "")
     fw_label = '<a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>'
     if fedwatch_items and fedwatch_items[0].get("error"):
         err_msg = fedwatch_items[0].get("message", "データ取得エラー")
@@ -1895,10 +1947,20 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
                 f'</div>'
             )
         fw_items_html = "".join(_fw_item(fw) for fw in fedwatch_items)
+        fw_comment_html = ""
+        if fedwatch_comment:
+            fw_comment_html = (
+                f'<div class="fedwatch-comment-area">'
+                f'<span class="fedwatch-comment">{fedwatch_comment}</span>'
+                f'<span class="fedwatch-note">source: CME FedWatch (ZQ先物)</span>'
+                f'</div>'
+            )
+        else:
+            fw_comment_html = '<span class="fedwatch-note">source: CME FedWatch</span>'
         fedwatch_html = f"""<div class="fedwatch-bar">
       {fw_label}
       <div class="fedwatch-items">{fw_items_html}</div>
-      <span class="fedwatch-note">source: CME FedWatch</span>
+      {fw_comment_html}
     </div>"""
     else:
         fedwatch_html = ""
