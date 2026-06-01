@@ -359,7 +359,8 @@ def fetch_fedwatch() -> list[dict]:
         if not upcoming:
             return []
         rate_lo = _get_fed_funds_lower_bound()
-        rate_hi = rate_lo + 0.25
+        # Bootstrap法: 各会合の「会合直前の期待金利」を前回会合の結果から更新していく
+        expected_pre_rate = rate_lo
         results = []
         for label, month, year, day in upcoming:
             ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
@@ -374,17 +375,19 @@ def fetch_fedwatch() -> list[dict]:
                 days_before = day - 1
                 days_after = days_in_month - days_before
                 rate_after = (
-                    (implied_avg * days_in_month - days_before * rate_lo) / days_after
+                    (implied_avg * days_in_month - days_before * expected_pre_rate) / days_after
                     if days_after > 0 else implied_avg
                 )
-                p_cut  = max(0.0, min(1.0, (rate_lo - rate_after) / 0.25))
-                p_hike = max(0.0, min(1.0, (rate_after - rate_hi) / 0.25))
+                p_cut  = max(0.0, min(1.0, (expected_pre_rate - rate_after) / 0.25))
+                p_hike = max(0.0, min(1.0, (rate_after - (expected_pre_rate + 0.25)) / 0.25))
                 p_hold = max(0.0, 1.0 - p_cut - p_hike)
                 ease = round(p_cut  * 100, 1)
                 hold = round(p_hold * 100, 1)
                 hike = round(p_hike * 100, 1)
                 results.append({"meeting": label, "ease": ease, "hold": hold, "hike": hike})
-                print(f"  [INFO] FedWatch {label}: EASE {ease}% / HOLD {hold}% / HIKE {hike}%")
+                print(f"  [INFO] FedWatch {label} (pre={expected_pre_rate:.4f}%): EASE {ease}% / HOLD {hold}% / HIKE {hike}%")
+                # 次の会合の基準金利を更新: 今回会合後の期待値
+                expected_pre_rate += 0.25 * p_hike - 0.25 * p_cut
             except Exception as e:
                 print(f"  [WARN] FedWatch {ticker}: {e}")
         return results
