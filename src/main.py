@@ -361,23 +361,39 @@ def fetch_fedwatch() -> list[dict]:
         rate_lo = _get_fed_funds_lower_bound()
         # Bootstrap法: 各会合の「会合直前の期待金利」を前回会合の結果から更新していく
         expected_pre_rate = rate_lo
+        # 会合後の残り日数がこれ未満なら翌月ZQを使う（月末会合の誤差増幅を防ぐ）
+        _DAYS_AFTER_MIN = 7
         results = []
         for label, month, year, day in upcoming:
             ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
             try:
-                hist = yf.Ticker(ticker).history(period="5d")
-                if hist.empty:
-                    print(f"  [WARN] FedWatch {ticker}: no data")
-                    continue
-                price = float(hist["Close"].iloc[-1])
-                implied_avg = 100.0 - price
                 days_in_month = calendar.monthrange(year, month)[1]
                 days_before = day - 1
                 days_after = days_in_month - days_before
-                rate_after = (
-                    (implied_avg * days_in_month - days_before * expected_pre_rate) / days_after
-                    if days_after > 0 else implied_avg
-                )
+
+                if days_after < _DAYS_AFTER_MIN:
+                    # 月末付近の会合: 翌月ZQを post-meeting rate として使う
+                    nm = month % 12 + 1
+                    ny = year + (1 if month == 12 else 0)
+                    next_ticker = f"ZQ{_ZQ_MONTH[nm]}{str(ny)[-2:]}.CBT"
+                    hist_next = yf.Ticker(next_ticker).history(period="5d")
+                    if hist_next.empty:
+                        print(f"  [WARN] FedWatch {next_ticker} (翌月代替): no data")
+                        continue
+                    price_next = float(hist_next["Close"].iloc[-1])
+                    rate_after = 100.0 - price_next  # 翌月全体 = 会合後レート
+                    print(f"  [INFO] FedWatch {label}: 翌月契約({next_ticker})を使用 rate_after={rate_after:.4f}%")
+                else:
+                    hist = yf.Ticker(ticker).history(period="5d")
+                    if hist.empty:
+                        print(f"  [WARN] FedWatch {ticker}: no data")
+                        continue
+                    price = float(hist["Close"].iloc[-1])
+                    implied_avg = 100.0 - price
+                    rate_after = (
+                        (implied_avg * days_in_month - days_before * expected_pre_rate) / days_after
+                    )
+
                 p_cut  = max(0.0, min(1.0, (expected_pre_rate - rate_after) / 0.25))
                 p_hike = max(0.0, min(1.0, (rate_after - (expected_pre_rate + 0.25)) / 0.25))
                 p_hold = max(0.0, 1.0 - p_cut - p_hike)
