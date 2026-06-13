@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alphadigest — 2026-06-14</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta property="og:title" content="alphadigest">
+  <meta property="og:description" content="top investment voices, distilled.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #08080c;
+      --surface: #0c0c10;
+      --border:  #1a1a1e;
+      --brand:   #00ff88;
+      --text:    #ffffff;
+      --muted:   rgba(255,255,255,0.5);
+      --dim:     rgba(255,255,255,0.3);
+      --red:     #ff4444;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      background: transparent; color: var(--text); min-height: 100vh; font-size: 14px;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); }
+
+    /* header */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(8,8,12,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 clamp(16px,4vw,48px);
+    }
+    .header-inner {
+      max-width: 1440px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px;
+    }
+    .tv-tape {
+      position: sticky; top: 52px; z-index: 99;
+      background: rgba(8,8,12,0.95);
+      border-bottom: 1px solid var(--border);
+      height: 46px; overflow: hidden;
+    }
+    .tv-tape .tradingview-widget-container,
+    .tv-tape .tradingview-widget-container__widget { height: 46px !important; }
+    .ad-logo {
+      display: inline-flex; align-items: center; font-size: 18px;
+      line-height: 1; letter-spacing: -0.5px; text-decoration: none; flex-shrink: 0;
+    }
+    .ad-logo__cursor {
+      display: inline-block; width: 2px; height: 1.1em;
+      background: var(--brand); opacity: 0.8; border-radius: 1px; margin-right: 7px;
+      animation: blink 1.2s step-end infinite;
+    }
+    .ad-logo__alpha { color: var(--brand); font-weight: 700; }
+    .ad-logo__digest { color: var(--text); font-weight: 400; opacity: 0.5; }
+    @keyframes blink { 50% { opacity: 0; } }
+    nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+    .nav-link {
+      font-size: 0.7rem; color: var(--muted); text-decoration: none;
+      padding: 4px 11px; border: 1px solid var(--border); border-radius: 2px;
+      font-family: inherit; transition: all 150ms ease;
+    }
+    .nav-link:hover { color: var(--brand); border-color: rgba(0,255,136,0.3); }
+
+    /* executive summary / hero */
+    .exec-summary {
+      max-width: 1440px; margin: 0 auto;
+      padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) clamp(16px,3vw,28px);
+    }
+    .exec-inner {
+      border-left: 3px solid var(--exec-accent, rgba(255,255,255,0.15));
+      padding-left: 18px;
+    }
+    .exec-header {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .exec-label {
+      font-size: 0.82rem; font-weight: 700; color: var(--brand); letter-spacing: 1px; flex-shrink: 0;
+    }
+    .exec-stats-row {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 0.7rem;
+    }
+    .exec-date { color: var(--brand); font-weight: 700; border: 1px solid rgba(0,255,136,0.25); padding: 1px 8px; border-radius: 2px; }
+    .exec-stat-total { color: var(--muted); }
+    .exec-stat-bull  { color: var(--brand); }
+    .exec-stat-bear  { color: var(--red); }
+    .exec-stat-neut  { color: var(--muted); }
+    /* heatmap */
+    .exec-heatmap {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; overflow: hidden; margin-bottom: 12px;
+    }
+    .heatmap-titlebar {
+      display: flex; align-items: center;
+      padding: 8px 14px; border-bottom: 1px solid var(--border);
+      background: rgba(0,255,136,0.04);
+    }
+    .heatmap-title-link {
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand); text-decoration: none;
+    }
+    .heatmap-title-link:hover { text-decoration: underline; opacity: 0.8; }
+    .heatmap-ext-icon { font-size: 0.55rem; color: var(--dim); margin-left: 6px; }
+    .heatmap-body { height: 420px; }
+    .heatmap-body .tradingview-widget-container,
+    .heatmap-body .tradingview-widget-container__widget { height: 100% !important; }
+    /* brief + key points */
+    .exec-brief-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;
+    }
+    .exec-brief, .exec-keypoints {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 16px 18px;
+    }
+    .block-label { font-size: 0.58rem; color: var(--brand); letter-spacing: 2px; margin-bottom: 10px; }
+    .brief-text { font-size: 0.82rem; line-height: 1.85; color: rgba(255,255,255,0.78); }
+    .keypoint-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .keypoint-list li {
+      font-size: 0.78rem; color: rgba(255,255,255,0.78); line-height: 1.5;
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .keypoint-list li::before { content: '→'; color: var(--brand); flex-shrink: 0; }
+    /* fedwatch */
+    .fedwatch-bar {
+      display: flex; align-items: stretch;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
+    }
+    .fedwatch-label {
+      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
+      padding: 10px 14px; border-right: 1px solid var(--border);
+      white-space: nowrap; flex-shrink: 0; display: flex; align-items: center;
+      background: rgba(0,255,136,0.04); text-decoration: none;
+    }
+    .fedwatch-label:hover { text-decoration: underline; opacity: 0.8; }
+    .fedwatch-items { display: flex; overflow-x: auto; flex: 1; }
+    .fedwatch-item {
+      display: flex; flex-direction: column;
+      padding: 8px 14px; border-right: 1px solid var(--border);
+      min-width: 160px; flex-shrink: 0;
+    }
+    .fedwatch-meeting {
+      font-size: 0.6rem; color: var(--brand); opacity: 0.8;
+      letter-spacing: 1px; margin-bottom: 6px; white-space: nowrap;
+    }
+    .fw-table { border-collapse: collapse; width: 100%; }
+    .fw-table th {
+      font-size: 0.52rem; color: var(--dim); text-align: right;
+      padding: 1px 4px; font-weight: 400; letter-spacing: 0.5px;
+    }
+    .fw-table td { padding: 2px 4px; white-space: nowrap; }
+    .fw-row-label {
+      font-size: 0.55rem; color: var(--muted); text-align: left;
+      letter-spacing: 0.5px; padding-right: 8px !important;
+    }
+    .fw-val { font-size: 0.68rem; font-weight: 700; text-align: right; }
+    .fw-val.fw-now { font-size: 0.72rem; }
+    .fw-hold { color: var(--muted); }
+    .fw-cut { color: var(--muted); }
+    .fw-hike { color: var(--muted); }
+    .fw-na { color: var(--dim); font-weight: 400; font-size: 0.6rem; }
+    .fedwatch-note { font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }
+    .fedwatch-error { font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }
+    .fedwatch-comment-area {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 10px 16px; max-width: 260px; flex-shrink: 0;
+      border-left: 1px solid var(--border);
+    }
+    .fedwatch-comment {
+      font-size: 0.65rem; color: rgba(255,255,255,0.65); line-height: 1.5;
+      margin-bottom: 4px;
+    }
+    /* top tickers */
+    .exec-tickers {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 12px 18px;
+    }
+    .ticker-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .ticker-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 2px; padding: 6px 12px; font-size: 0.72rem;
+      text-decoration: none; color: var(--text);
+    }
+    .ticker-chip:hover { border-color: rgba(0,255,136,0.3); }
+    .chip-sym { color: var(--brand); font-weight: 700; font-size: 0.78rem; }
+    .chip-price { color: var(--muted); }
+    .chip-chg-up { color: var(--brand); }
+    .chip-chg-dn { color: var(--red); }
+    /* archive page: minimal hero */
+    .hero {
+      max-width: 1440px; margin: 0 auto;
+      padding: clamp(24px,4vw,44px) clamp(16px,4vw,48px) clamp(16px,3vw,28px);
+    }
+    .hero-prompt {
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+    }
+    .prompt-symbol { color: var(--brand); opacity: 0.7; }
+    .prompt-date {
+      color: var(--brand); font-weight: 700;
+      border: 1px solid rgba(0,255,136,0.25); padding: 2px 10px;
+      border-radius: 2px; font-size: 0.82rem;
+    }
+    .hero-stats {
+      display: flex; gap: clamp(16px,3vw,40px); flex-wrap: wrap; align-items: baseline;
+    }
+    .h-stat { text-align: center; }
+    .h-stat-num { font-size: clamp(1.4rem,3vw,1.9rem); font-weight: 700; line-height: 1; }
+    .h-stat-num.c-total { color: var(--text); }
+    .h-stat-num.c-bull  { color: var(--brand); }
+    .h-stat-num.c-bear  { color: var(--red); }
+    .h-stat-num.c-neut  { color: var(--muted); }
+    .h-stat-label { font-size: 0.6rem; color: var(--dim); margin-top: 5px; letter-spacing: 0.1em; }
+    @media (max-width: 640px) { .exec-brief-grid { grid-template-columns: 1fr; } }
+
+    /* filters */
+    .filters {
+      max-width: 1440px; margin: 0 auto 20px;
+      padding: 0 clamp(16px,4vw,48px);
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .filter-segment {
+      display: flex; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 2px; padding: 2px; gap: 2px;
+    }
+    .filter-btn {
+      background: transparent; border: none; color: var(--muted);
+      border-radius: 2px; padding: 5px 14px;
+      font-size: 0.7rem; font-family: inherit; cursor: pointer;
+      transition: all 150ms ease; white-space: nowrap;
+    }
+    .filter-btn:hover { color: var(--text); }
+    .filter-btn.active { color: var(--bg); background: var(--text); }
+    .filter-btn.f-bull.active { color: var(--bg); background: var(--brand); }
+    .filter-btn.f-bear.active { color: var(--text); background: var(--red); }
+    .filter-btn.f-neut.active { color: var(--bg); background: rgba(255,255,255,0.5); }
+
+    /* grid */
+    .grid-wrap { max-width: 1440px; margin: 0 auto; padding: 0 clamp(16px,4vw,48px) 80px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 10px;
+    }
+    #no-results { display: none; text-align: center; color: var(--dim); padding: 80px 20px; grid-column: 1/-1; font-size: 0.78rem; }
+    .empty { text-align: center; color: var(--dim); padding: 80px 20px; font-size: 0.78rem; }
+
+    /* cards */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 2px; padding: 18px 20px; position: relative;
+      opacity: 0; transform: translateY(14px);
+      transition: opacity 350ms ease, transform 350ms ease, border-color 150ms ease;
+    }
+    .card.visible { opacity: 1; transform: translateY(0); }
+    .card.hidden  { display: none !important; }
+    .card:hover   { transform: translateY(-2px); transition: opacity 350ms ease, transform 80ms ease, border-color 150ms ease; }
+    .card.sent-bullish { border-left: 2px solid var(--brand); }
+    .card.sent-bearish { border-left: 2px solid var(--red); }
+    .card.sent-neutral { border-left: 2px solid rgba(255,255,255,0.12); }
+    .card.sent-bullish:hover { border-color: rgba(0,255,136,0.25); border-left-color: var(--brand); }
+    .card.sent-bearish:hover { border-color: rgba(255,68,68,0.25); border-left-color: var(--red); }
+
+    .card-thumb { margin: -18px -20px 14px; border-radius: 1px 1px 0 0; overflow: hidden; line-height: 0; }
+    .card-thumb img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .card-top {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 8px; margin-bottom: 8px;
+    }
+    .channel-name {
+      font-size: 0.63rem; font-weight: 500; color: var(--brand);
+      opacity: 0.65; letter-spacing: 0.03em;
+    }
+    .channel-name::before { content: '// '; opacity: 0.7; }
+    .badge-sent {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 2px 8px; border-radius: 2px; border: 1px solid; flex-shrink: 0;
+    }
+    .badge-sent.bullish { color: var(--brand); border-color: rgba(0,255,136,0.3); }
+    .badge-sent.bearish { color: var(--red);   border-color: rgba(255,68,68,0.3); }
+    .badge-sent.neutral { color: var(--muted); border-color: var(--border); }
+
+    h3 { font-size: 0.87rem; font-weight: 700; line-height: 1.55; margin-bottom: 10px; }
+    h3 a { color: var(--text); text-decoration: none; }
+    h3 a:hover { color: var(--brand); }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+    .ticker {
+      font-size: 0.65rem; font-weight: 700; color: var(--brand);
+      border: 1px solid rgba(0,255,136,0.25); padding: 1px 7px; border-radius: 2px;
+    }
+    .topic {
+      font-size: 0.63rem; color: var(--muted);
+      border: 1px solid var(--border); padding: 1px 7px; border-radius: 2px;
+    }
+
+    .summary { font-size: 0.81rem; line-height: 1.82; color: rgba(255,255,255,0.75); margin-bottom: 10px; }
+    .summary b { color: var(--text); font-weight: 700; }
+
+    .points-details { margin-bottom: 10px; }
+    .points-details > summary {
+      font-size: 0.68rem; color: var(--dim); cursor: pointer;
+      display: flex; align-items: center; gap: 6px;
+      padding: 3px 0; list-style: none; user-select: none; transition: color 150ms;
+    }
+    .points-details > summary::-webkit-details-marker { display: none; }
+    .points-details > summary::before {
+      content: '›'; font-size: 1rem; display: inline-block; transition: transform 150ms ease;
+    }
+    .points-details[open] > summary::before { transform: rotate(90deg); }
+    .points-details > summary:hover { color: var(--muted); }
+    .points-count {
+      background: var(--border); padding: 0 5px; font-size: 0.6rem; border-radius: 2px;
+    }
+    .points { list-style: none; padding: 6px 0 0; }
+    .points li {
+      font-size: 0.77rem; color: var(--muted); line-height: 1.75;
+      padding-left: 16px; position: relative; margin-bottom: 2px;
+    }
+    .points li::before { content: '>'; position: absolute; left: 0; color: var(--dim); }
+
+    .card-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 10px; border-top: 1px solid var(--border); margin-top: 8px;
+    }
+    .card-footer time { font-size: 0.62rem; color: var(--dim); }
+    .watch-btn {
+      font-size: 0.66rem; font-weight: 700; color: var(--muted);
+      text-decoration: none; padding: 4px 12px;
+      border: 1px solid var(--border); border-radius: 2px;
+      transition: all 150ms ease; font-family: inherit;
+    }
+    .watch-btn:hover { color: var(--bg); background: var(--brand); border-color: var(--brand); }
+
+    footer {
+      text-align: center; padding: 20px 16px;
+      border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--dim);
+    }
+
+    @media (max-width: 640px) {
+      .tv-tape { display: none; }
+      .hero h1 { font-size: 1.7rem; }
+      .grid { grid-template-columns: 1fr; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+      .filters::-webkit-scrollbar { display: none; }
+    }
+    /* bg canvas */
+    #bgCanvas {
+      position: fixed; inset: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="header-inner">
+      <a href="../index.html" class="ad-logo">
+        <span class="ad-logo__cursor"></span>
+        <span class="ad-logo__alpha">alpha</span>
+        <span class="ad-logo__digest">digest</span>
+      </a>
+      <nav>
+        <a href="../channels.html" class="nav-link">channels</a>
+        <a href='../archive/index.html' class='nav-link'>archive</a>
+      </nav>
+    </div>
+  </header>
+  <div class="tv-tape">
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"description":"DJI","proName":"FOREXCOM:DJI"},{"description":"VIX","proName":"CBOE:VIX"},{"description":"USD/JPY","proName":"FX_IDC:USDJPY"},{"description":"Gold","proName":"TVC:GOLD"},{"description":"BTC","proName":"BITSTAMP:BTCUSD"}],"showSymbolLogo":false,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}
+      </script>
+    </div>
+  </div>
+
+  <section class="exec-summary">
+    <div class="exec-inner" style="--exec-accent:var(--brand)">
+      <div class="exec-header">
+        <span class="exec-label">// daily alpha brief</span>
+        <div class="exec-stats-row">
+      <span class="exec-date">2026-06-14</span>
+      <span class="exec-stat-total">29 videos</span>
+      <span class="exec-stat-bull">&#9650; 11 bullish</span>
+      <span class="exec-stat-bear">&#9660; 0 bearish</span>
+      <span class="exec-stat-neut">&#9679; 18 neutral</span>
+    </div>
+      </div>
+      <div class="exec-heatmap">
+      <div class="heatmap-titlebar">
+        <a class="heatmap-title-link" href="https://www.tradingview.com/heatmap/stock/#%7B%22dataSource%22%3A%22SPX500%22%2C%22blockSize%22%3A%22market_cap_basic%22%2C%22blockColor%22%3A%22change%22%2C%22grouping%22%3A%22sector%22%7D" target="_blank" rel="noopener">
+          // MARKET HEATMAP &mdash; S&amp;P 500 SECTORS
+          <span class="heatmap-ext-icon">&#8599;</span>
+        </a>
+      </div>
+      <div class="heatmap-body">
+        <div class="tradingview-widget-container" style="height:100%">
+          <div class="tradingview-widget-container__widget" style="height:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js" async>
+          {"exchanges":[],"dataSource":"SPX500","grouping":"sector","blockSize":"market_cap_basic","blockColor":"change","locale":"en","symbolUrl":"","colorTheme":"dark","hasTopBar":false,"isDataSetEnabled":false,"isZoomEnabled":true,"hasSymbolTooltip":true,"isMonoSize":false,"width":"100%","height":"100%"}
+          </script>
+        </div>
+      </div>
+    </div>
+      <div class="exec-brief-grid">
+      <div class="exec-brief">
+        <div class="block-label">// AI BRIEF</div>
+        <p class="brief-text">本日の投資系YouTube動画ダイジェストでは、スペースストックブームやAI関連株の可能性について議論されています。Rick Orfordは、Rocket Lab、AST SpaceMobile、Redwireなどの宇宙関連株が将来の大きな成長を遂げる可能性があると指摘しています。また、Felix & Friendsは、S&P 500への投資の限界について話しています。投資家は、スペースストックやAI関連株への投資機会を検討する必要があります。</p>
+      </div>
+      <div class="exec-keypoints">
+        <div class="block-label">// KEY POINTS</div>
+        <ul class="keypoint-list"><li>スペースストックブームが起こり、Rocket Lab、AST SpaceMobile、Redwireなどの株価が上昇する可能性がある</li><li>AI関連株の成長が期待され、NVIDIA、Arista Networks、Micronなどの企業が注目される</li><li>S&P 500への投資の限界を認識し、より積極的な投資戦略を検討する必要がある</li><li>個人投資家は、投資判断を下す前に、十分な情報を収集し、自己責任で投資する必要がある</li></ul>
+      </div>
+    </div>
+      <div class="fedwatch-bar">
+      <a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>
+      <div class="fedwatch-items"><div class="fedwatch-item"><div class="fedwatch-meeting">Jun 17, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">97.1%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">2.9%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Jul 29, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">100.0%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">0.0%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Sep 16, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">69.7%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">30.3%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Oct 28, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">100.0%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">0.0%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Dec  9, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">82.9%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">17.1%</td></tr></table></div></div>
+      <div class="fedwatch-comment-area"><span class="fedwatch-comment">現在の市場コンセンサスは、6月と7月のFOMC会合では金利が据え置かれることが予想されており、9月以降の会合では据え置けと利上げの両方が予想されているが、12月までの会合では据え置けが主流である、また9月の会合では利上げの期待が30％とある程度の確率を占めていることが注目される。</span><span class="fedwatch-note">source: CME FedWatch (ZQ先物)</span></div>
+    </div>
+      <div class="exec-tickers">
+      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄</div>
+      <div class="ticker-chips"><a class="ticker-chip" href="../ticker/MU.html"><span class="chip-sym">MU</span><span class="chip-price">$981.61</span><span class="chip-chg-dn">&#9660; -1.4%</span></a><a class="ticker-chip" href="../ticker/AVGO.html"><span class="chip-sym">AVGO</span><span class="chip-price">$382.07</span><span class="chip-chg-dn">&#9660; -0.9%</span></a><a class="ticker-chip" href="../ticker/RKLB.html"><span class="chip-sym">RKLB</span><span class="chip-price">$102.39</span><span class="chip-chg-dn">&#9660; -10.8%</span></a><a class="ticker-chip" href="../ticker/ASTS.html"><span class="chip-sym">ASTS</span><span class="chip-price">$82.41</span><span class="chip-chg-dn">&#9660; -15.5%</span></a><a class="ticker-chip" href="../ticker/RDW.html"><span class="chip-sym">RDW</span><span class="chip-price">$15.12</span><span class="chip-chg-dn">&#9660; -11.5%</span></a><a class="ticker-chip" href="../ticker/ORA.html"><span class="chip-sym">ORA</span><span class="chip-price">$138.16</span><span class="chip-chg-up">&#9650; +1.3%</span></a><a class="ticker-chip" href="../ticker/ANET.html"><span class="chip-sym">ANET</span><span class="chip-price">$163.24</span><span class="chip-chg-up">&#9650; +4.4%</span></a><a class="ticker-chip" href="../ticker/ETN.html"><span class="chip-sym">ETN</span><span class="chip-price">$391.39</span><span class="chip-chg-dn">&#9660; -0.6%</span></a><a class="ticker-chip" href="../ticker/APLD.html"><span class="chip-sym">APLD</span><span class="chip-price">$42.70</span><span class="chip-chg-up">&#9650; +3.0%</span></a><a class="ticker-chip" href="../ticker/GM.html"><span class="chip-sym">GM</span><span class="chip-price">$81.50</span><span class="chip-chg-up">&#9650; +0.8%</span></a></div>
+    </div>
+    </div>
+  </section>
+
+  <div class="filters">
+    <div class="filter-segment">
+      <button class="filter-btn active" data-filter="all">all</button>
+      <button class="filter-btn f-bull" data-filter="bullish">▲ bullish</button>
+      <button class="filter-btn f-bear" data-filter="bearish">▼ bearish</button>
+      <button class="filter-btn f-neut" data-filter="neutral">● neutral</button>
+    </div>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="grid" id="grid">
+      <article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=6As7NVgt6Gw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/6As7NVgt6Gw/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Jerry Romine</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=6As7NVgt6Gw" target="_blank" rel="noopener">THESE Stocks Will Print Millionaires (You Are Investing in Stocks Wrong)</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/PLTR.html">PLTR</a><span class="topic">投資戦略</span><span class="topic">ポートフォリオ管理</span></div>
+  <p class="summary">この動画では、個人投資家が間違った投資方法で損をしていることを指摘し、正しい投資方法について説明しています。ホストのJerry Romineは、<b>Palantir (PLTR)</b> の分析や、ポートフォリオ管理の重要性について話しています。投資家は、感情に流されずに、データに基づいて投資判断を下す必要があると強調しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>投資家は、感情に流されずに、データに基づいて投資判断を下す必要がある</li><li>ポートフォリオ管理は、投資の成功に重要な要素である</li><li>短期的なトレードを長期的な投資と見なすことは、破滅への道である</li><li>データに基づいて、企業の実力と将来性を評価する必要がある</li><li>投資家は、リスクを管理するために、厳格なポートフォリオ管理カテゴリを使用する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 21:03 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=6As7NVgt6Gw" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=yZrISMdflHk" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/yZrISMdflHk/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">WallStreetZen</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=yZrISMdflHk" target="_blank" rel="noopener">Critical Minerals Are the Next Global Boom (4 Stocks to Watch Now)</a></h3>
+  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <p class="summary">動画では、クリティカルミネラルが次のグローバルブームになる可能性が高いと述べられている。クリティカルミネラルには、<b>Goldman Sachs</b>や<b>IEA</b>、<b>World Gold Council</b>が世代を超えた需要を見込んでいる<b>copper</b>、<b>zinc</b>、<b>gold</b>、<b>domestic steel</b>などがある。ホストのSteve Reitmeisterは、データに基づいてこのブームが10年間続く可能性があると主張し、4つの銘柄を紹介している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>クリティカルミネラルの需要は世代を超えたものと予測されている</li><li>インフラストラクチャーの整備やエネルギー転換がクリティカルミネラルの需要を押し上げる</li><li>アメリカの製造業の国内移転もクリティカルミネラルの需要に貢献する</li><li>このブームは10年間続く可能性がある</li><li>投資家はクリティカルミネラル関連の銘柄に注目する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 20:30 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=yZrISMdflHk" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=AUZomjhLMCk" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/AUZomjhLMCk/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=AUZomjhLMCk" target="_blank" rel="noopener">3 Space Stocks That Could Ride the Next Big Aerospace Boom</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/RKLB.html">RKLB</a><a class="ticker" href="../ticker/ASTS.html">ASTS</a><a class="ticker" href="../ticker/RDW.html">RDW</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Rocket Lab</b>、<b>AST SpaceMobile</b>、<b>Redwire</b> の3つの宇宙関連株が紹介されています。これらの企業は、打ち上げ、衛星接続、宇宙システム、防衛技術、ミッションクリティカルインフラストラクチャなどの分野で活躍しています。YouTuberは、これらの企業が持続可能なビジネスを築いているか、または単にスペースストックブームに乗っているのかを検討しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>Rocket Lab</b>は打ち上げ会社を超えたビジネスを展開している</li><li><b>AST SpaceMobile</b>は大規模な直接デバイス接続機会を追求している</li><li><b>Redwire</b>は宇宙と防衛インフラストラクチャに重要な役割を果たしている</li><li>これらの企業の実行、資金調達、遅延、評価が重要な要素となる</li><li>スペースストックブームの波に乗るリスクも存在する</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 07:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=AUZomjhLMCk" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=d8sSehdTSh8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/d8sSehdTSh8/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=d8sSehdTSh8" target="_blank" rel="noopener">Ormat Stock: The Hidden Artificial Intelligence Power Play Investors Are Finally Noticing</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/ORA.html">ORA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">決算分析</span></div>
+  <p class="summary">Ormat Technologies (<b>Ormat</b>) は、人工知能ブームの中で重要な役割を果たしている。地熱発電とデータセンターの関係性が注目されており、<b>Ormat</b> の株価は高騰している。ただし、過去の株価上昇により、現在の評価が高すぎる可能性もある。投資家は、<b>Ormat</b> のビジネス、財務結果、成長カタリスト、リスクなどを考慮する必要がある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>地熱発電が人工知能データセンターに重要な役割を果たしている</li><li><b>Ormat</b> の最新の財務結果が投資ストーリーを変えた</li><li>過去の株価上昇により評価が高騰している</li><li>成長カタリストとして地熱発電、エネルギー貯蔵、製品が注目される</li><li>リスクと赤旗として評価の高騰が指摘される</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 05:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=d8sSehdTSh8" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=2iP-bxH_stg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/2iP-bxH_stg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Felix & Friends</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=2iP-bxH_stg" target="_blank" rel="noopener">Why the S&P 500 Is Making You Poor (After SpaceX)</a></h3>
+  <div class="tags"><span class="topic">投資戦略</span><span class="topic">マクロ経済</span></div>
+  <p class="summary">この動画では、S&P 500 に投資することの潜在的なリスクと限界について議論しています。YouTuber は、<b>SpaceX</b> の成功に触れて、伝統的な投資戦略の限界を指摘しています。動画では、個人投資家がより積極的な投資戦略を検討する必要性を強調しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>S&P 500 に投資することの潜在的なリスク</li><li>伝統的な投資戦略の限界</li><li>より積極的な投資戦略の必要性</li><li>個人投資家の教育と情報の重要性</li><li>投資家がより活発的に投資を管理する必要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 03:36 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=2iP-bxH_stg" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=8JbKZ_ClawM" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/8JbKZ_ClawM/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=8JbKZ_ClawM" target="_blank" rel="noopener">Forget AI Apps: 5 Infrastructure Stocks Set to Explode</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/ANET.html">ANET</a><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/AVGO.html">AVGO</a><a class="ticker" href="../ticker/ETN.html">ETN</a><a class="ticker" href="../ticker/APLD.html">APLD</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Arista Networks</b>, <b>Micron</b>, <b>Broadcom</b>, <b>Eaton</b>, <b>Applied Digital</b> の5つの<b>AI</b>インフラストックが紹介されています。これらの企業は、<b>NVIDIA</b> 以外の<b>AI</b>分野で勝利する可能性があるとされています。市場の波動性は、高い投資機会をもたらす可能性があります。</p>
+  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li><b>AI</b>インフラストックは<b>AI</b>アプリのブームに勝つ可能性がある</li><li>5つの銘柄は重要な<b>AI</b>レイヤーに位置している</li><li>市場の波動性は投資家のための買い場となる可能性がある</li><li>各銘柄には異なるリスクプロファイルがある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 03:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=8JbKZ_ClawM" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=XmWBkcbH77c" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/XmWBkcbH77c/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Felix & Friends</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=XmWBkcbH77c" target="_blank" rel="noopener">If You Own Silver, Watch This Before June 16 (Here’s Why)</a></h3>
+  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">投資戦略</span></div>
+  <p class="summary">6月16日は新しいFed議長ケビン・ウォルシュの初めてのFOMC会合が行われ、銀の価格と利率の方向性が決まる。ウォルシュは過去に高利率を維持する意向を示しており、銀の価格に影響を与える可能性がある。銀には6年の供給不足があり、物理的な銀はカウンターパーティリスクがない。ドル指数は銀の価格の主なシグナルであり、ドルが下がると銀の価格は上昇する。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>6月16日は新しいFed議長ケビン・ウォルシュの初めてのFOMC会合が行われる</li><li>ウォルシュは過去に高利率を維持する意向を示しており、銀の価格に影響を与える可能性がある</li><li>銀には6年の供給不足があり、物理的な銀はカウンターパーティリスクがない</li><li>ドル指数は銀の価格の主なシグナルであり、ドルが下がると銀の価格は上昇する</li><li>投資家はETF、物理的な銀、鉱山株式に分散投資することが重要</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 02:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=XmWBkcbH77c" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=l3KMnsd7FBg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/l3KMnsd7FBg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=l3KMnsd7FBg" target="_blank" rel="noopener">Huge News for GM Stock, Tesla Stock, and Ford Stock Investors</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/GM.html">GM</a><a class="ticker" href="../ticker/F.html">F</a><a class="ticker" href="../ticker/TSLA.html">TSLA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">General Motors (<b>GM</b>) が Ford (<b>F</b>) に続いてバッテリー蓄電事業に参入し、<b>Tesla</b> (<b>TSLA</b>) に対する競争が激化する見込みである。YouTuber は、The Motley Fool の Stock Advisor のパフォーマンスについて言及し、983% のリターンを達成したと述べている。また、YouTuber の著書についても触れており、投資家が自信を持って情報に基づいた決定を下すためのフレームワークを提供している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>General Motors がバッテリー蓄電事業に参入することによる競争の激化</li><li>The Motley Fool の Stock Advisor のパフォーマンス</li><li>YouTuber の著書による投資家への支援</li><li>バッテリー蓄電事業の将来性</li><li>投資家が情報に基づいた決定を下すためのフレームワークの重要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-14 00:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=l3KMnsd7FBg" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=T0dqoBFCmto" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/T0dqoBFCmto/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=T0dqoBFCmto" target="_blank" rel="noopener">Why Is Adobe Stock Crashing, and is it a Buying Opportunity? | ADBE Stock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/ADBE.html">ADBE</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Adobe</b> のCFOが退任し、<b>Marvell Technologies</b> に加入することによる<b>ADBE</b> 株の影響について分析しています。YouTuberは、<b>ADBE</b> 株の買い場となるかどうかを検討しています。また、YouTuberの投資フレームワークや、<b>The Motley Fool</b> とのスポンサー契約についても触れています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>Adobe</b> のCFOが退任し、<b>Marvell Technologies</b> に加入することによる<b>ADBE</b> 株の影響について分析する</li><li>YouTuberの投資フレームワークを紹介する</li><li><b>The Motley Fool</b> とのスポンサー契約について触れる</li><li>過去の投資成果について言及する</li><li>リスク管理とポートフォリオ構築の重要性について言及する</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 23:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=T0dqoBFCmto" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=uILMZnkFj1A" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/uILMZnkFj1A/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=uILMZnkFj1A" target="_blank" rel="noopener">Broadcom Stock Analysis: My Final Verdict | AVGO STock Deep Dive Part 5</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/AVGO.html">AVGO</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画は、<b>Broadcom</b> (<b>AVGO</b>) の株式分析について話しています。半導体設計事業がブームになっていることを紹介しています。YouTuberは、投資家向けの6ステップの投資フレームワークを紹介し、投資家が自信を持って情報に基づいた決定を下すことができるように支援しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>半導体設計事業がブームになっている</li><li>投資家向けの6ステップの投資フレームワークが紹介されている</li><li>YouTuberは、投資家が自信を持って情報に基づいた決定を下すことができるように支援しています</li><li>The Motley Fool Stock Advisorのパフォーマンスが紹介されている</li><li>YouTuberの書籍「Make Money Buying and Selling Stocks」が紹介されている</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 22:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=uILMZnkFj1A" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=SFGY-gyzN0o" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/SFGY-gyzN0o/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=SFGY-gyzN0o" target="_blank" rel="noopener">What's Going on With Marvell Stock? | MRVL Stock Deep Dive Part 1</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MRVL.html">MRVL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">Marvell Technology Group の株価 (<b>MRVL</b>) が 2026 年の大部分で上昇した後、下落していることが分かった。YouTuber は <b>MRVL</b> の状況について深く分析している。動画では、The Motley Fool によるスポンサーも紹介されている。YouTuber は自身の投資フレームワークに関する本も紹介している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Marvell Technology Group の株価が下落している</li><li>The Motley Fool によるスポンサー紹介</li><li>YouTuber の投資フレームワークに関する本の紹介</li><li>Fiscal.ai による投資研究ツールの紹介</li><li>YouTuber のコミュニティへの参加方法の紹介</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=SFGY-gyzN0o" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=9l1kbyAyQqY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/9l1kbyAyQqY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Conor Kenny Stocks</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=9l1kbyAyQqY" target="_blank" rel="noopener">Don't Sell Your MICRON, AMD & NVIDIA!!! the Market Just Flipped!!!</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/AMD.html">AMD</a><a class="ticker" href="../ticker/NVDA.html">NVDA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">YouTuberは、<b>MICRON</b>, <b>AMD</b>, <b>NVIDIA</b> の株式を売却しないことを視聴者に勧めている。市場が変化したことを示唆しているが、具体的な理由や分析は動画の内容に依存する。YouTuberは、視聴者に自身のサービスやコミュニティへの参加を促している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>YouTuberは、<b>MICRON</b>, <b>AMD</b>, <b>NVIDIA</b> の株式を売却しないことを勧めている</li><li>市場が変化したことを示唆している</li><li>YouTuberは、自身のサービスやコミュニティへの参加を促している</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 21:32 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=9l1kbyAyQqY" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=eiYB7e4BRdU" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/eiYB7e4BRdU/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Sven Carlin</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=eiYB7e4BRdU" target="_blank" rel="noopener">Are Food Brand Stocks Dead? Unilever McCormick, GIS, Reckitt, CBP, FLO, KHC</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/UL.html">UL</a><a class="ticker" href="../ticker/MKC.html">MKC</a><a class="ticker" href="../ticker/GIS.html">GIS</a><a class="ticker" href="../ticker/RKT.html">RKT</a><a class="ticker" href="../ticker/CBP.html">CBP</a><a class="ticker" href="../ticker/FLO.html">FLO</a><a class="ticker" href="../ticker/KHC.html">KHC</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Unilever</b>、<b>McCormick</b>、<b>GIS</b>、<b>Reckitt</b>、<b>CBP</b>、<b>FLO</b>、<b>KHC</b>などの食品ブランド株が死んでいるかどうかについて議論しています。YouTuberは、これらの企業の業績と将来の見通しについて分析しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>食品ブランド株の業績と将来の見通しについて分析</li><li>YouTuberは、食品ブランド株が死んでいるかどうかについて議論</li><li>YouTuberのSTOCK MARKET RESEARCH PLATFORMについて紹介</li><li>YouTuberの投資戦略とポートフォリオについて説明</li><li>食品ブランド株の将来の可能性について議論</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 21:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=eiYB7e4BRdU" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=91Y3qieOGkY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/91Y3qieOGkY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=91Y3qieOGkY" target="_blank" rel="noopener">Should You Buy Zeta Global Stock on the Dip? | ZETA Stock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/ZETA.html">ZETA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>ZETA</b> 株の分析と、その株価の下落について議論しています。過去5日間で株価は18%下落しています。YouTuberは、The Motley Foolのサービスや自身の書籍、投資フレームワークについても触れています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>ZETA 株の分析と、その下落の理由について議論</li><li>The Motley Foolのサービスについて紹介</li><li>YouTuberの書籍「Make Money Buying and Selling Stocks: A 6-Step Framework for Evaluating Publicly Traded Companies」について紹介</li><li>Fiscal.aiを使用した投資研究について言及</li><li>YouTuberの投資フレームワークについて説明</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 20:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=91Y3qieOGkY" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=lZjTtXRp-1s" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/lZjTtXRp-1s/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">WallStreetZen</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=lZjTtXRp-1s" target="_blank" rel="noopener">Before 2027, Know These 4 Growth Stocks For 2030 Portfolio</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <p class="summary">この動画では、2030年の投資ポートフォリオを構築するために、4つの成長株を紹介しています。US市場に上場しているこれらの企業は、成長が速く、価格が安く、人口動態や経済の好調な風潮を受けています。YouTuberは、これらの企業について詳細に分析し、2030年のポートフォリオを構築するための参考情報を提供しています。ただし、動画内では具体的な企業名は言及されていません。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>2030年の投資ポートフォリオを構築するために、成長株を選ぶことが重要です</li><li>US市場に上場している企業を検討することができます</li><li>人口動態や経済の好調な風潮を受ける企業を選ぶことが重要です</li><li>投資判断には、企業の成長性や価格を考慮する必要があります</li><li>投資前に、ライセンスを持つ金融専門家に相談することが重要です</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 20:30 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=lZjTtXRp-1s" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=6X6I1xxMuUQ" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/6X6I1xxMuUQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Wolf of Dubai</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=6X6I1xxMuUQ" target="_blank" rel="noopener">Iran Deal + SpaceX IPO: The $BMNR Impact NOBODY Sees</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/BMNR.html">BMNR</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、イラン協定と<b>SpaceX</b>のIPOが<b>BMNR</b>に与える影響について議論しています。動画では、個人投資家がこれらの出来事の影響を理解する必要性を強調しています。また、動画の概要欄では、自動化されたトレーディングソフトウェアの紹介と、10,000ドル以上の口座を持つ投資家向けのサービスについて言及しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>イラン協定が<b>BMNR</b>の株価に与える影響について</li><li>自動化されたトレーディングソフトウェアの紹介</li><li>10,000ドル以上の口座を持つ投資家向けのサービスについて</li><li>個人投資家が<b>SpaceX</b>のIPOの影響を理解する必要性</li><li>投資判断におけるリスク管理の重要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 07:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=6X6I1xxMuUQ" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=Vn-ggZboJQw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Vn-ggZboJQw/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Daniel Pronk</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=Vn-ggZboJQw" target="_blank" rel="noopener">Revealing My New Largest Stock Position</a></h3>
+  <div class="tags"><span class="topic">投資戦略</span><span class="topic">リスク管理</span></div>
+  <p class="summary">YouTuberの<b>Daniel Pronk</b>は、新しく最大の株式保有ポジションについて話しています。動画では、投資に関する情報やリソースを提供していますが、具体的な銘柄については言及されていません。YouTuberは、投資に関する決定を下す前に、自己責任で調査する必要性を強調しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>投資に関する決定を下す前に、自己責任で調査する必要性</li><li>投資に関する情報やリソースを提供することの重要性</li><li>リスク管理と自己責任の重要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 06:36 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=Vn-ggZboJQw" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=QbRHbJ7xVGc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/QbRHbJ7xVGc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=QbRHbJ7xVGc" target="_blank" rel="noopener">Meta’s AI Spending Could Be Hiding a Huge Margin Opportunity</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/META.html">META</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Meta</b> のAIへの大量投資が、将来の大きなマージン機会を隠している可能性について議論しています。Wall Streetは、<b>Meta</b> のAIインフラストラクチャ計画やカスタムシリコン戦略、広告エンジン、評価、分析家の期待などを検討しています。動画では、<b>Meta</b> のAI投資が誤解されている可能性や、MTIAチッププログラムが将来の大きなマージンストーリーになる可能性についても言及しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>Meta</b> のAI投資が将来の大きなマージン機会を隠している可能性</li><li>MTIAチッププログラムが将来の大きなマージンストーリーになる可能性</li><li>Wall Streetは、<b>Meta</b> のAI投資の潜在的な効率性向上を十分に評価していない可能性</li><li><b>Meta</b> のAIインフラストラクチャ計画やカスタムシリコン戦略が重要</li><li>投資家は、<b>Meta</b> のAI投資の成果が現れるまで数年待つ必要がある可能性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 05:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=QbRHbJ7xVGc" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=LDI2gVm-ANQ" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/LDI2gVm-ANQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Everything Money</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=LDI2gVm-ANQ" target="_blank" rel="noopener">Paul Reacts to SpaceX Stock IPO | $SPCX</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/SPCX.html">SPCX</a><span class="topic">個別銘柄分析</span><span class="topic">IPO</span></div>
+  <p class="summary">PaulはSpaceXのIPOについて反応し、Elon Muskが世界初のトリリアダラーになる可能性について話しています。SpaceXのIPOは記録的なものとなり、Wall Streetのクラブに新たな参加者が加わる可能性があります。Paulは、個人投資家がこの機会に目を向けるべきだと考えています。ただし、投資前に十分な研究と検討を行う必要があります。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>SpaceXのIPOは記録的なものとなり、Elon Muskが世界初のトリリアダラーになる可能性があります</li><li>個人投資家がこの機会に目を向けるべきです</li><li>投資前に十分な研究と検討を行う必要があります</li><li>Wall Streetのクラブに新たな参加者が加わる可能性があります</li><li>投資家は、自分の投資目標とリスク許容度に合った投資決定を行う必要があります</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 04:02 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=LDI2gVm-ANQ" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=p8_UPNsS73g" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/p8_UPNsS73g/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=p8_UPNsS73g" target="_blank" rel="noopener">RoboStrategy Stock Could Be a Rare Way to Invest in the Future of Robotics</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">RoboStrategy 株は、ロボティクス、人工知能、自動化、物理AIへの投資機会を提供するユニークな投資銘柄である。ロボティクスへの投資機会を提供するが、最近の取引価格は純資産価値に対してプレミアムが高い。投資家は、ロボティクスへの投資機会のために高い価格を支払っている可能性がある。YouTuberは、ロボティクスへの投資機会を提供するRoboStrategy 株のメリットとデメリットを分析している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>RoboStrategy 株は、ロボティクス、人工知能、自動化、物理AIへの投資機会を提供する</li><li>最近の取引価格は純資産価値に対してプレミアムが高い</li><li>投資家は、ロボティクスへの投資機会のために高い価格を支払っている可能性がある</li><li>YouTuberは、ロボティクスへの投資機会を提供するRoboStrategy 株のメリットとデメリットを分析している</li><li>投資家は、RoboStrategy 株の投資リスクとリターンを慎重に検討する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 03:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=p8_UPNsS73g" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=bKc_BNIDe6s" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/bKc_BNIDe6s/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Asymmetric Investing</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=bKc_BNIDe6s" target="_blank" rel="noopener">Don't Buy the Hype! Investing Lessons from Past Bubbles</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/MU.html">MU</a><a class="ticker" href="../ticker/PLUG.html">PLUG</a><a class="ticker" href="../ticker/LCID.html">LCID</a><a class="ticker" href="../ticker/AMZN.html">AMZN</a><a class="ticker" href="../ticker/CSCO.html">CSCO</a><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <p class="summary">この動画では、<b>SpaceX</b> のIPOや<b>Micron</b>、<b>Nebius</b>などのロケット株が市場に与える影響について議論している。また、過去のバブルから投資の教訓を学び、FOMO（Fear of Missing Out）に陥らないための戦略について説明している。さらに、<b>Plug Power</b>、<b>Lucid</b>、<b>Amazon</b>、<b>Cisco</b>などの企業を例に挙げて、過度な期待とバブルの崩壊について分析している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>過度な期待とFOMOに陥らないための戦略の重要性</li><li>過去のバブルから学ぶ教訓</li><li>企業の実績と潜在性を冷静に評価する必要性</li><li>バブルの崩壊のリスクとその対策</li><li>長期的な視点で投資することの重要性</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 02:06 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=bKc_BNIDe6s" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=iHZvQ46__x0" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/iHZvQ46__x0/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=iHZvQ46__x0" target="_blank" rel="noopener">Why Is Oracle Stock Falling, and is it a Buying Opportunity? | ORCL STock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/ORCL.html">ORCL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>ORCL</b> の株価の低下と、それが買い場となる可能性について分析しています。 <b>ORCL</b> は AI インフラストラクチャーの構築に積極的に投資をしています。動画では、The Motley Fool による特別オファーと、大学教授と Chartered Financial Analyst (CFA) によって設計された 6 ステップの投資フレームワークについても言及しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>ORCL</b> の株価は低下しています</li><li><b>ORCL</b> は AI インフラストラクチャーの構築に投資をしています</li><li>The Motley Fool による特別オファーが利用可能です</li><li>6 ステップの投資フレームワークが提供されています</li><li>投資判断の参考となる情報が提供されています</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-13 00:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=iHZvQ46__x0" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=uSY7myvgoBE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/uSY7myvgoBE/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=uSY7myvgoBE" target="_blank" rel="noopener">With the Rivian R2 Starting Deliveries, Is it Time to Buy Rivian Stock? | RIVN Stock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/RIVN.html">RIVN</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">Rivian の新型車 <b>Rivian R2</b> の出荷が開始され、<b>RIVN</b> 株の買い時かどうかを分析する動画です。低価格モデルが電気自動車会社の需要を高める可能性があると述べられています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>Rivian R2</b> の出荷が開始され、需要が高まる可能性がある</li><li>低価格モデルが電気自動車会社の需要を高める可能性がある</li><li>投資判断の参考となる情報が提供されている</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 23:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=uSY7myvgoBE" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=E98koq91n1A" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/E98koq91n1A/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=E98koq91n1A" target="_blank" rel="noopener">I Found the Real Reason Why Broadcom Stock Crashed After Earnings | AVGO Stock Deep Dive Part 4</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/AVGO.html">AVGO</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">決算分析</span></div>
+  <p class="summary">この動画では、<b>Broadcom</b> (<b>AVGO</b>) の株価が決算発表後に急落した理由を分析しています。管理チームの発言が投資家の期待と異なったことが原因であると指摘しています。また、動画では投資戦略やリスク管理に関するアドバイスも提供されています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>管理チームの発言が投資家の期待と異なったことが<b>AVGO</b>の株価急落の原因</li><li>投資家は企業の管理チームの発言に注意する必要がある</li><li>リスク管理は投資戦略の重要な要素</li><li>投資家は独自の研究と分析を行う必要がある</li><li>投資戦略のフレームワークを確立することが重要</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 22:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=E98koq91n1A" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=YC1WTUg-0Yo" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/YC1WTUg-0Yo/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=YC1WTUg-0Yo" target="_blank" rel="noopener">Apple Stock Analysis: Buy or Sell After WWDC? | AAPL Stock</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/AAPL.html">AAPL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Apple</b> の株価の分析が行われており、WWDC後の<b>AAPL</b>の株価について購入するか売るかを検討する必要がある。動画では、<b>Apple</b> の収益性を高める能力が投資家にとっては鼓舞されるものであると述べられている。また、動画の作成者は、投資家向けの6ステップの投資フレームワークを紹介している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>Apple</b> の収益性を高める能力は投資家にとっては鼓舞されるものである</li><li>WWDC後の<b>AAPL</b>の株価について購入するか売るかを検討する必要がある</li><li>投資家向けの6ステップの投資フレームワークが紹介されている</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=YC1WTUg-0Yo" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=TGSvISTjp8s" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/TGSvISTjp8s/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=TGSvISTjp8s" target="_blank" rel="noopener">Is Pinterest an Undervalued Stock to Buy, or a Value Trap to Avoid? | PINS Stock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/PINS.html">PINS</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>PINS</b> の株価が高値から大幅に下落していることを受けて、その株が過小評価されているのか、または値下がりトラップなのかを分析しています。YouTuberは、The Motley Fool などの投資ツールや自身の投資フレームワークについても触れています。動画では、<b>PINS</b> の株価の動向や投資戦略について議論しています。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>PINS の株価は高値から大幅に下落している</li><li>過小評価されている株式を探す際には、投資戦略を立てることが重要</li><li>The Motley Fool などの投資ツールを使用することで、投資判断を支援できる</li><li>個別銘柄分析の際には、企業の財務状況や業績を考慮する必要がある</li><li>投資家は、自身の投資目標やリスク許容度に応じて、投資戦略を選択する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 20:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=TGSvISTjp8s" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=7o8qbn4CsYg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/7o8qbn4CsYg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Conor Kenny Stocks</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=7o8qbn4CsYg" target="_blank" rel="noopener">URGENT 🚨 SPACEX IPO TODAY!!! SPCX PRICE PREDICTION!!!</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">IPO</span></div>
+  <p class="summary">動画では、<b>SPACEX</b> のIPOについて言及されており、価格予測も行われている。YouTuberは視聴者に連絡する方法や、無料のトレーディンググループへの参加方法を紹介している。また、<b>SPACEX</b> の将来性についても触れている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>SPACEX のIPOについて言及</li><li>価格予測が行われている</li><li>YouTuberの連絡先が紹介されている</li><li>無料のトレーディンググループへの参加方法が紹介されている</li><li>SPACEX の将来性について言及</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 20:36 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=7o8qbn4CsYg" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=oUcBP8YXhdg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/oUcBP8YXhdg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">WallStreetZen</span>
+    <span class="badge-sent neutral">● neutral</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=oUcBP8YXhdg" target="_blank" rel="noopener">$1 Trillion Selloff Wall Street Has Been Waiting For</a></h3>
+  <div class="tags"><a class="ticker" href="../ticker/SNDK.html">SNDK</a><a class="ticker" href="../ticker/MU.html">MU</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
+  <p class="summary">Bank of America のトップマーケットストラテジストは、利益を確定し、修正に備えるよう投資家に警告している一方で、別のアナリストは <b>SanDisk</b> の価格目標を大幅に引き上げた。Steve Reitmeister は、これらの報告書が思われているほど矛盾していない理由を説明し、<b>SanDisk</b> と <b>Micron</b> が彼のポートフォリオの重要な保有銘柄であることを強調した。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Bank of America のマーケットストラテジストは、修正に備えるよう投資家に警告している</li><li>別のアナリストは <b>SanDisk</b> の価格目標を大幅に引き上げた</li><li>Steve Reitmeister は、<b>SanDisk</b> と <b>Micron</b> が彼のポートフォリオの重要な保有銘柄であることを強調した</li><li>NAND サプライの逼迫と AI メモリ トレードが市場に与える影響について議論された</li><li>Steve Reitmeister は、投資判断の参考となる 2 つの重要なポイントを共有した</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 12:37 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=oUcBP8YXhdg" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=O7MeDVdMbr8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/O7MeDVdMbr8/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Will Rich</span>
+    <span class="badge-sent bullish">▲ bullish</span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=O7MeDVdMbr8" target="_blank" rel="noopener">Redwire Breaks Out Ahead of SpaceX IPO</a></h3>
+  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">Redwire の株価が <b>SpaceX</b> の IPO に先立って上昇していることを紹介。動画では、個人投資家がポートフォリオを拡大するためのツールやサービスも紹介されている。動画内では、<b>SpaceX</b> の IPO に関する情報や、投資家が活用できるリソースについても言及されている。投資家は、<b>Redwire</b> の動向や <b>SpaceX</b> の IPO に関する情報に注目する必要がある。動画内では、投資家向けのサービスやツールも紹介されている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Redwire の株価が <b>SpaceX</b> の IPO に先立って上昇している</li><li>個人投資家がポートフォリオを拡大するためのツールやサービスが紹介されている</li><li>投資家は <b>SpaceX</b> の IPO に関する情報に注目する必要がある</li><li>動画内では、投資家向けのサービスやツールも紹介されている</li><li>投資家は、<b>Redwire</b> の動向に注目する必要がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-06-12 12:15 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=O7MeDVdMbr8" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+      <div id="no-results">// no results matching filters</div>
+    </div>
+  </div>
+
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-06-14 08:15 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+
+  <script>
+    // IntersectionObserver card fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('.card').forEach((c, i) => {
+      c.style.transitionDelay = Math.min(i * 35, 280) + 'ms';
+      observer.observe(c);
+    });
+
+    // Filters
+    let activeSentiment = 'all';
+    const allCards = document.querySelectorAll('.card');
+
+    function applyFilters() {
+      let visible = 0;
+      allCards.forEach(c => {
+        const matchS = activeSentiment === 'all' || c.dataset.sentiment === activeSentiment;
+        if (matchS) { c.classList.remove('hidden'); visible++; }
+        else { c.classList.add('hidden'); }
+      });
+      document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    document.querySelectorAll('[data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeSentiment = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // bg canvas
+    (function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const canvas = document.getElementById('bgCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const TICKERS = ["RKLB", "ASTS", "RDW", "ORA", "ANET", "MU", "AVGO", "ETN", "APLD", "GM", "F", "TSLA", "ADBE", "MRVL", "AMD", "NVDA", "PLTR", "UL", "MKC", "GIS", "RKT", "CBP", "FLO", "KHC", "ZETA", "BMNR", "META", "SPCX", "PLUG", "LCID", "AMZN", "CSCO", "ORCL", "RIVN", "AAPL", "PINS", "SNDK"];
+  const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
+
+  // 4x4 Bayer ordered dither
+  const BAYER = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]];
+  function dither(x, y) { return (BAYER[y & 3][x & 3] / 16) - 0.5; }
+
+  // 1/f pink noise
+  function pinkNoise() {
+    const b = [0,0,0,0,0,0,0];
+    return { next() {
+      const w = (Math.random() - 0.5) * 2;
+      b[0]=0.99886*b[0]+w*0.0555; b[1]=0.99332*b[1]+w*0.0751;
+      b[2]=0.96900*b[2]+w*0.1539; b[3]=0.86650*b[3]+w*0.3105;
+      b[4]=0.55000*b[4]+w*0.5330; b[5]=-0.7616*b[5]-w*0.0169;
+      const v = b[0]+b[1]+b[2]+b[3]+b[4]+b[5]+b[6]+w*0.5362;
+      b[6] = w * 0.1159;
+      return v * 0.11;
+    }};
+  }
+
+  const G = 13;
+  const noise = pinkNoise();
+  let W = 0, H = 0, phase = 0, last = performance.now();
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+  }
+  window.addEventListener('resize', resize, { passive: true });
+  resize();
+
+  function frame(ts) {
+    const dt = Math.min(0.05, (ts - last) / 1000);
+    last = ts;
+    phase += (Math.PI * 2 / 10) * dt;
+
+    const fv = noise.next();
+    const ampScale = 1 + fv * 0.18;
+    const intOff   = fv * 0.045;
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "bold 9px 'JetBrains Mono',monospace";
+    ctx.textBaseline = 'top';
+
+    const cols = Math.ceil(W / G);
+    const rows = Math.ceil(H / G);
+    const cy   = rows * 0.58;
+    const base = rows / 4;
+    const amp  = base * ampScale;
+    const freq = 0.036;
+    const sp2  = phase * 0.86;
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const w1   = Math.sin(x * freq + phase) * amp;
+        const w2   = Math.cos(x * freq * 0.5 - sp2) * (base * 0.42 * ampScale);
+        const dist = Math.abs(y - (cy + w1 + w2));
+        let   int  = Math.max(0, 1 - dist / 12);
+        int += Math.sin((x * 0.31 + y * 0.17) + phase * 0.35) * 0.035 + intOff;
+
+        if (int + dither(x, y) > 0.5) {
+          ctx.fillStyle = 'rgba(0,255,136,0.22)';
+          ctx.fillText(chars[x % chars.length], x * G, y * G);
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+  </script>
+
+</body>
+</html>
