@@ -317,55 +317,78 @@ _FOMC_SCHEDULE = [
 
 _ZQ_MONTH = {1:"F",2:"G",3:"H",4:"J",5:"K",6:"M",7:"N",8:"Q",9:"U",10:"V",11:"X",12:"Z"}
 
-# FRBが利下げ・利上げしたら手動で更新 (FRED取得失敗時のフォールバック)
-_FALLBACK_RATE_LO = 3.50  # 2026-05現在: 3.50-3.75%レンジの下限
+# 全データソース失敗時の最終フォールバック（実効FF金利の想定値、手動更新）
+_FALLBACK_EFFR = 3.62  # 2026-07現在: 3.50-3.75%レンジの実効レート
+
+# fetch_fedwatch() が推定した実効FF金利（コメント生成で参照）
+_LAST_EFFR: float | None = None
 
 
-def _get_fed_funds_lower_bound() -> float:
-    """FREDからFed Funds目標下限金利を取得。失敗時はフォールバック値を返す。"""
-    _FRED_URLS = [
-        "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFEDTARL",
-        "https://fred.stlouisfed.org/data/DFEDTARL.txt",
-    ]
-    headers = {"User-Agent": "Mozilla/5.0"}
-    for url in _FRED_URLS:
-        try:
-            resp = requests.get(url, timeout=10, headers=headers)
-            resp.raise_for_status()
-            lines = [ln.strip() for ln in resp.text.strip().split("\n")
-                     if ln.strip() and not ln.upper().startswith("DATE")
-                     and not ln.startswith("#")]
-            for line in reversed(lines):
-                parts = line.replace(",", " ").split()
-                if len(parts) >= 2 and parts[-1] not in (".", ""):
-                    try:
-                        val = float(parts[-1])
-                        print(f"  [INFO] Fed Funds lower bound (FRED): {val}%")
-                        return val
-                    except ValueError:
-                        continue
-        except Exception as e:
-            print(f"  [WARN] FRED取得失敗 ({url}): {e}")
-    print(f"  [WARN] FRED全エンドポイント失敗。フォールバック金利 {_FALLBACK_RATE_LO}% を使用")
-    return _FALLBACK_RATE_LO
+def _zq_implied_rate(month: int, year: int) -> float | None:
+    """ZQ先物の終値から月平均の織り込み金利 (100 - 価格) を返す。失敗時はNone。"""
+    ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
+    try:
+        hist = yf.Ticker(ticker).history(period="5d")
+        if hist.empty:
+            print(f"  [WARN] FedWatch {ticker}: no data")
+            return None
+        return 100.0 - float(hist["Close"].iloc[-1])
+    except Exception as e:
+        print(f"  [WARN] FedWatch {ticker}: {e}")
+        return None
+
+
+def _estimate_current_effr(today) -> float:
+    """当月のZQ先物から現在の実効FF金利(EFFR)を推定する。
+
+    当月に未開催のFOMC会合がある場合は、会合後の日数分を翌月契約の
+    織り込みレートで差し引いて会合前レートを逆算する。
+    """
+    implied = _zq_implied_rate(today.month, today.year)
+    if implied is None:
+        print(f"  [WARN] 当月ZQ取得失敗。フォールバックEFFR {_FALLBACK_EFFR}% を使用")
+        return _FALLBACK_EFFR
+    meeting_day = next(
+        (d for _, m, y, d in _FOMC_SCHEDULE
+         if y == today.year and m == today.month and d > today.day),
+        None,
+    )
+    if meeting_day is None:
+        print(f"  [INFO] EFFR推定 (当月ZQ): {implied:.4f}%")
+        return implied
+    days_in_month = calendar.monthrange(today.year, today.month)[1]
+    days_before = meeting_day - 1
+    days_after = days_in_month - days_before
+    nm = today.month % 12 + 1
+    ny = today.year + (1 if today.month == 12 else 0)
+    post = _zq_implied_rate(nm, ny)
+    if post is None or days_before <= 0:
+        print(f"  [INFO] EFFR推定 (当月ZQ・補正なし): {implied:.4f}%")
+        return implied
+    effr = (implied * days_in_month - days_after * post) / days_before
+    print(f"  [INFO] EFFR推定 (当月ZQ・翌月補正): {effr:.4f}%")
+    return effr
 
 
 def fetch_fedwatch() -> list[dict]:
-    """30-Day Fed Funds先物 (ZQ) からFOMC会合の利上げ・利下げ確率を計算する。"""
+    """30-Day Fed Funds先物 (ZQ) からFOMC会合の利上げ・利下げ確率を計算する。
+
+    CME FedWatchと同様に、実効FF金利(EFFR)を起点に各会合の
+    会合後期待金利をブートストラップし、±25bpの確率に変換する。
+    """
+    global _LAST_EFFR
     try:
         today = datetime.now(JST).date()
         upcoming = [m for m in _FOMC_SCHEDULE
                     if datetime(m[2], m[1], m[3]).date() > today][:5]
         if not upcoming:
             return []
-        rate_lo = _get_fed_funds_lower_bound()
-        # Bootstrap法: 各会合の「会合直前の期待金利」を前回会合の結果から更新していく
-        expected_pre_rate = rate_lo
+        expected_pre_rate = _estimate_current_effr(today)
+        _LAST_EFFR = expected_pre_rate
         # 会合後の残り日数がこれ未満なら翌月ZQを使う（月末会合の誤差増幅を防ぐ）
         _DAYS_AFTER_MIN = 7
         results = []
         for label, month, year, day in upcoming:
-            ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
             try:
                 days_in_month = calendar.monthrange(year, month)[1]
                 days_before = day - 1
@@ -375,37 +398,32 @@ def fetch_fedwatch() -> list[dict]:
                     # 月末付近の会合: 翌月ZQを post-meeting rate として使う
                     nm = month % 12 + 1
                     ny = year + (1 if month == 12 else 0)
-                    next_ticker = f"ZQ{_ZQ_MONTH[nm]}{str(ny)[-2:]}.CBT"
-                    hist_next = yf.Ticker(next_ticker).history(period="5d")
-                    if hist_next.empty:
-                        print(f"  [WARN] FedWatch {next_ticker} (翌月代替): no data")
+                    rate_after = _zq_implied_rate(nm, ny)
+                    if rate_after is None:
                         continue
-                    price_next = float(hist_next["Close"].iloc[-1])
-                    rate_after = 100.0 - price_next  # 翌月全体 = 会合後レート
-                    print(f"  [INFO] FedWatch {label}: 翌月契約({next_ticker})を使用 rate_after={rate_after:.4f}%")
+                    print(f"  [INFO] FedWatch {label}: 翌月契約を使用 rate_after={rate_after:.4f}%")
                 else:
-                    hist = yf.Ticker(ticker).history(period="5d")
-                    if hist.empty:
-                        print(f"  [WARN] FedWatch {ticker}: no data")
+                    implied_avg = _zq_implied_rate(month, year)
+                    if implied_avg is None:
                         continue
-                    price = float(hist["Close"].iloc[-1])
-                    implied_avg = 100.0 - price
                     rate_after = (
                         (implied_avg * days_in_month - days_before * expected_pre_rate) / days_after
                     )
 
-                p_cut  = max(0.0, min(1.0, (expected_pre_rate - rate_after) / 0.25))
-                p_hike = max(0.0, min(1.0, (rate_after - (expected_pre_rate + 0.25)) / 0.25))
+                # 会合後の期待金利変化を±25bpの確率に変換
+                delta = rate_after - expected_pre_rate
+                p_hike = max(0.0, min(1.0, delta / 0.25))
+                p_cut  = max(0.0, min(1.0, -delta / 0.25))
                 p_hold = max(0.0, 1.0 - p_cut - p_hike)
                 ease = round(p_cut  * 100, 1)
                 hold = round(p_hold * 100, 1)
                 hike = round(p_hike * 100, 1)
                 results.append({"meeting": label, "ease": ease, "hold": hold, "hike": hike})
                 print(f"  [INFO] FedWatch {label} (pre={expected_pre_rate:.4f}%): EASE {ease}% / HOLD {hold}% / HIKE {hike}%")
-                # 次の会合の基準金利を更新: 今回会合後の期待値
-                expected_pre_rate += 0.25 * p_hike - 0.25 * p_cut
+                # 次の会合の基準金利 = 先物が織り込む今回会合後の期待金利
+                expected_pre_rate = rate_after
             except Exception as e:
-                print(f"  [WARN] FedWatch {ticker}: {e}")
+                print(f"  [WARN] FedWatch {label}: {e}")
         return results
     except Exception as e:
         print(f"  [WARN] FedWatch取得失敗: {e}")
@@ -454,11 +472,10 @@ def _load_fedwatch_history_for(meeting: str, today_str: str) -> dict:
     return result
 
 
-def _generate_fedwatch_comment(api_key: str, fedwatch_data: list[dict], rate_lo: float) -> str:
+def _generate_fedwatch_comment(api_key: str, fedwatch_data: list[dict], effr: float) -> str:
     """FedWatchデータをGroqに渡して1〜2文の日本語解釈コメントを生成する。"""
     try:
-        rate_hi = rate_lo + 0.25
-        table_lines = [f"現在のFF金利目標: {rate_lo:.2f}–{rate_hi:.2f}%\n"]
+        table_lines = [f"現在の実効FF金利(EFFR): {effr:.2f}%\n"]
         for fw in fedwatch_data:
             if fw.get("error"):
                 continue
@@ -1812,7 +1829,9 @@ def build_exec_summary(
             item["1w"] = hist.get("1w")
             item["1m"] = hist.get("1m")
         print("  FedWatchコメント生成中...")
-        fedwatch_comment = _generate_fedwatch_comment(api_key, fedwatch_data, _FALLBACK_RATE_LO)
+        fedwatch_comment = _generate_fedwatch_comment(
+            api_key, fedwatch_data, _LAST_EFFR if _LAST_EFFR is not None else _FALLBACK_EFFR
+        )
     else:
         fedwatch_comment = ""
 
