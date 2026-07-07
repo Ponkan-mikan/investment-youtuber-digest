@@ -154,6 +154,45 @@ def is_german(video: dict) -> bool:
     return len(_DE_WORDS.findall(text)) >= 2
 
 
+# ---- 重複動画除去 ---------------------------------------------------------
+
+# ライブ配信の再配信・分割などで同一動画が複数回フィードに載るケースを除去する
+DEDUP_WINDOW_MINUTES = 30   # 公開時刻がこの範囲内なら近接と判定
+DEDUP_SIMILARITY     = 0.9  # 正規化後タイトルの類似度閾値（0〜1）
+
+
+def _normalize_title(title: str) -> str:
+    """タイトルを比較用に正規化する（小文字化・記号除去・空白圧縮）。"""
+    t = re.sub(r"[^\w\s]", "", title.lower())
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def dedupe_videos(videos: list[dict]) -> list[dict]:
+    """同一チャンネル内でタイトル類似かつ公開時刻近接の動画を1本にまとめる。"""
+    from difflib import SequenceMatcher
+    kept: list[dict] = []
+    for v in sorted(videos, key=lambda x: x.get("published", "")):
+        is_dup = False
+        for k in kept:
+            try:
+                dt_v = datetime.fromisoformat(v["published"])
+                dt_k = datetime.fromisoformat(k["published"])
+                near = abs((dt_v - dt_k).total_seconds()) <= DEDUP_WINDOW_MINUTES * 60
+            except Exception:
+                near = False
+            if not near:
+                continue
+            a, b = _normalize_title(v.get("title", "")), _normalize_title(k.get("title", ""))
+            if a == b or SequenceMatcher(None, a, b).ratio() >= DEDUP_SIMILARITY:
+                is_dup = True
+                break
+        if is_dup:
+            print(f"  [SKIP] 重複動画をスキップ: {v.get('title', '')[:50]}")
+        else:
+            kept.append(v)
+    return kept
+
+
 # ---- 日時フォーマット ---------------------------------------------------
 
 def format_pub_datetime(iso_str: str) -> str:
@@ -218,15 +257,29 @@ SUMMARY_PROMPT_TEMPLATE = """\
 概要欄:
 {description}
 
+【除外ルール — 最重要】
+以下の内容は summary_ja / key_points に一切含めてはならない:
+- スポンサー・広告・プロモーション（例: ソフトウェアやサービスの宣伝、特別レポートの案内、アフィリエイト）
+- 免責事項（例: 「投資アドバイスではない」「自己責任で判断してください」等の言い換え全般）
+- チャンネル自体の宣伝（メンバーシップ・コミュニティ・コース・無料特典への勧誘）
+- 内容のない埋め草（例: 「動画は情報と教育を目的としている」）
+
+【抽出対象は投資テーゼのみ】
+- どの銘柄・資産についての主張か
+- 強気/弱気どちらの主張か、その根拠（業績、バリュエーション、マクロ、テクニカル等）
+- 言及があれば目標価格・エントリー水準
+
 以下のJSON形式のみで回答してください（マークダウンのコードブロックや説明文は不要。JSONオブジェクトだけを出力）:
 {{
-  "summary_ja": "動画の主要な内容を日本語で3〜5文で要約。企業名・銘柄名は必ず英語のアルファベット表記（例: Tesla, Nvidia, Palantir）またはティッカーシンボル（TSLA, NVDA, PLTR）を使用し、カタカナ表記は一切使用しない。企業名・ティッカーシンボルが出てきた場合は必ず <b>企業名またはティッカー</b> のように <b> タグで囲むこと",
+  "summary_ja": "動画の投資テーゼを日本語で3〜5文で要約。企業名・銘柄名は必ず英語のアルファベット表記（例: Tesla, Nvidia, Palantir）またはティッカーシンボル（TSLA, NVDA, PLTR）を使用し、カタカナ表記は一切使用しない。企業名・ティッカーシンボルが出てきた場合は必ず <b>企業名またはティッカー</b> のように <b> タグで囲むこと。実質的な投資テーゼがない動画は宣伝内容を要約せず『実質的な投資情報なし』を含む1〜2文にすること",
   "tickers": ["言及された銘柄の正式なティッカーシンボルのリスト（例: AAPL, NVDA, ACHR, MNDY）。会社名で言及されている場合も必ずティッカーシンボルに変換すること（例: 'Archer Aviation'→'ACHR', 'Monday.com'→'MNDY', 'Tesla'→'TSLA'）。ティッカーシンボルが不明な場合や株式銘柄でない場合は含めない。なければ空配列"],
   "undervalued_picks": ["YouTuberが明示的に『割安』『過小評価されている』『市場に無視されている』『買い場』と述べていた銘柄のティッカーシンボルのリスト。なければ空配列"],
-  "key_points": ["投資判断に役立つ重要ポイントを日本語で箇条書き（最大5つ）"],
+  "key_points": ["投資判断に役立つ重要ポイントを日本語で箇条書き。2〜5個の可変長で、実質的な主張の数だけ書く。埋め草・免責事項・宣伝で水増ししてはならない。実質的な主張が2個未満ならその数だけでよい"],
   "sentiment": "bullish か bearish か neutral のいずれか",
   "topics": ["該当するカテゴリ（例: 個別銘柄分析, マクロ経済, 投資戦略, 決算分析, 市場見通し）"],
-  "importance": 投資家にとっての重要度スコア（1〜5の整数。5が最重要、投資に無関係なら1）
+  "importance": 投資家にとっての重要度スコア（1〜5の整数。5が最重要、投資に無関係なら1）,
+  "has_thesis": 動画に実質的な投資テーゼが存在すれば true、スポンサー紹介・宣伝・雑談が中心で実質的な投資情報がなければ false（falseの場合 importance は1にする）,
+  "promoLevel": "動画コンテンツに占めるスポンサー・宣伝・自己宣伝の割合。low / medium / high のいずれか"
 }}"""
 
 
@@ -298,6 +351,8 @@ def summarize_video(
         "sentiment": "neutral",
         "topics": [],
         "importance": 1,
+        "has_thesis": True,
+        "promoLevel": "low",
     }
 
 
@@ -316,6 +371,11 @@ def _render_card(r: dict, root_path: str = "") -> str:
     pub_date   = format_pub_datetime(r.get("published", ""))
 
     sent_label  = _SENT_LABEL.get(sentiment, sentiment)
+    # promoLevel は旧アーカイブJSONに存在しない場合があるため low 扱いにする
+    promo_badge = (
+        '<span class="badge-promo">&#9888; promo-heavy</span>'
+        if a.get("promoLevel", "low") == "high" else ""
+    )
     vid_m = re.search(r"[?&]v=([A-Za-z0-9_-]{11})", r.get("url", ""))
     if vid_m:
         thumb_url  = f"https://img.youtube.com/vi/{vid_m.group(1)}/mqdefault.jpg"
@@ -344,7 +404,7 @@ def _render_card(r: dict, root_path: str = "") -> str:
   {thumb_html}
   <div class="card-top">
     <span class="channel-name">{r['channel_name']}</span>
-    <span class="badge-sent {sentiment}">{sent_label}</span>
+    <span class="card-badges">{promo_badge}<span class="badge-sent {sentiment}">{sent_label}</span></span>
   </div>
   <h3><a href="{r['url']}" target="_blank" rel="noopener">{r['title']}</a></h3>
   {tags_block}
@@ -711,6 +771,12 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .badge-sent.bullish {{ color: var(--brand); border-color: rgba(0,255,136,0.3); }}
     .badge-sent.bearish {{ color: var(--red);   border-color: rgba(255,68,68,0.3); }}
     .badge-sent.neutral {{ color: var(--muted); border-color: var(--border); }}
+    .card-badges {{ display: flex; align-items: center; gap: 6px; flex-shrink: 0; }}
+    .badge-promo {{
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,170,0,0.4);
+      color: #ffaa00;
+    }}
 
     h3 {{ font-size: 0.87rem; font-weight: 700; line-height: 1.55; margin-bottom: 10px; }}
     h3 a {{ color: var(--text); text-decoration: none; }}
@@ -1716,7 +1782,7 @@ def _dummy_results(today: str) -> list[dict]:
         ("Chris Sain",           "Monday.com Stock: Why I Just Added to My Position",               ["MNDY"],         ["MNDY"],     "bullish", ["個別銘柄分析"]),
     ]
     results = []
-    for ch, title, tickers, undervalued, sentiment, topics in items:
+    for i, (ch, title, tickers, undervalued, sentiment, topics) in enumerate(items):
         results.append({
             "channel_name": ch,
             "video_id":     "dummyVideoId",
@@ -1732,6 +1798,9 @@ def _dummy_results(today: str) -> list[dict]:
                 "sentiment":        sentiment,
                 "topics":           topics,
                 "importance":       3,
+                "has_thesis":       True,
+                # promo-heavy バッジのデザイン確認用に1件だけ high にする
+                "promoLevel":       "high" if i == 1 else "low",
             },
         })
     return results
@@ -1823,7 +1892,7 @@ def main() -> None:
             continue
 
         print(f"\n[{ch['name']}] 新着動画を取得中...")
-        videos = get_recent_videos(ch["channel_id"])
+        videos = dedupe_videos(get_recent_videos(ch["channel_id"]))
 
         if not videos:
             print("  → 新着なし")
@@ -1850,6 +1919,7 @@ def main() -> None:
                     "summary_ja": "要約の取得に失敗しました。",
                     "tickers": [], "key_points": [],
                     "sentiment": "neutral", "topics": [], "importance": 1,
+                    "has_thesis": True, "promoLevel": "low",
                 }
 
             all_results.append({
