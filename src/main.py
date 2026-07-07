@@ -4,7 +4,6 @@ Investment YouTube Daily Digest Generator
 """
 import json
 import os
-import calendar
 import re
 import sys
 import time
@@ -300,212 +299,6 @@ def summarize_video(
         "topics": [],
         "importance": 1,
     }
-
-
-# ---- FedWatch (30-Day Fed Funds先物から計算) ----------------------------
-
-_FOMC_SCHEDULE = [
-    ("Jan 28, 2026",  1, 2026, 28),
-    ("Mar 18, 2026",  3, 2026, 18),
-    ("May  6, 2026",  5, 2026,  6),
-    ("Jun 17, 2026",  6, 2026, 17),
-    ("Jul 29, 2026",  7, 2026, 29),
-    ("Sep 16, 2026",  9, 2026, 16),
-    ("Oct 28, 2026", 10, 2026, 28),
-    ("Dec  9, 2026", 12, 2026,  9),
-]
-
-_ZQ_MONTH = {1:"F",2:"G",3:"H",4:"J",5:"K",6:"M",7:"N",8:"Q",9:"U",10:"V",11:"X",12:"Z"}
-
-# 全データソース失敗時の最終フォールバック（実効FF金利の想定値、手動更新）
-_FALLBACK_EFFR = 3.62  # 2026-07現在: 3.50-3.75%レンジの実効レート
-
-# fetch_fedwatch() が推定した実効FF金利（コメント生成で参照）
-_LAST_EFFR: float | None = None
-
-
-def _zq_implied_rate(month: int, year: int) -> float | None:
-    """ZQ先物の終値から月平均の織り込み金利 (100 - 価格) を返す。失敗時はNone。"""
-    ticker = f"ZQ{_ZQ_MONTH[month]}{str(year)[-2:]}.CBT"
-    try:
-        hist = yf.Ticker(ticker).history(period="5d")
-        if hist.empty:
-            print(f"  [WARN] FedWatch {ticker}: no data")
-            return None
-        return 100.0 - float(hist["Close"].iloc[-1])
-    except Exception as e:
-        print(f"  [WARN] FedWatch {ticker}: {e}")
-        return None
-
-
-def _estimate_current_effr(today) -> float:
-    """当月のZQ先物から現在の実効FF金利(EFFR)を推定する。
-
-    当月に未開催のFOMC会合がある場合は、会合後の日数分を翌月契約の
-    織り込みレートで差し引いて会合前レートを逆算する。
-    """
-    implied = _zq_implied_rate(today.month, today.year)
-    if implied is None:
-        print(f"  [WARN] 当月ZQ取得失敗。フォールバックEFFR {_FALLBACK_EFFR}% を使用")
-        return _FALLBACK_EFFR
-    meeting_day = next(
-        (d for _, m, y, d in _FOMC_SCHEDULE
-         if y == today.year and m == today.month and d > today.day),
-        None,
-    )
-    if meeting_day is None:
-        print(f"  [INFO] EFFR推定 (当月ZQ): {implied:.4f}%")
-        return implied
-    days_in_month = calendar.monthrange(today.year, today.month)[1]
-    days_before = meeting_day - 1
-    days_after = days_in_month - days_before
-    nm = today.month % 12 + 1
-    ny = today.year + (1 if today.month == 12 else 0)
-    post = _zq_implied_rate(nm, ny)
-    if post is None or days_before <= 0:
-        print(f"  [INFO] EFFR推定 (当月ZQ・補正なし): {implied:.4f}%")
-        return implied
-    effr = (implied * days_in_month - days_after * post) / days_before
-    print(f"  [INFO] EFFR推定 (当月ZQ・翌月補正): {effr:.4f}%")
-    return effr
-
-
-def fetch_fedwatch() -> list[dict]:
-    """30-Day Fed Funds先物 (ZQ) からFOMC会合の利上げ・利下げ確率を計算する。
-
-    CME FedWatchと同様に、実効FF金利(EFFR)を起点に各会合の
-    会合後期待金利をブートストラップし、±25bpの確率に変換する。
-    """
-    global _LAST_EFFR
-    try:
-        today = datetime.now(JST).date()
-        upcoming = [m for m in _FOMC_SCHEDULE
-                    if datetime(m[2], m[1], m[3]).date() > today][:5]
-        if not upcoming:
-            return []
-        expected_pre_rate = _estimate_current_effr(today)
-        _LAST_EFFR = expected_pre_rate
-        # 会合後の残り日数がこれ未満なら翌月ZQを使う（月末会合の誤差増幅を防ぐ）
-        _DAYS_AFTER_MIN = 7
-        results = []
-        for label, month, year, day in upcoming:
-            try:
-                days_in_month = calendar.monthrange(year, month)[1]
-                days_before = day - 1
-                days_after = days_in_month - days_before
-
-                if days_after < _DAYS_AFTER_MIN:
-                    # 月末付近の会合: 翌月ZQを post-meeting rate として使う
-                    nm = month % 12 + 1
-                    ny = year + (1 if month == 12 else 0)
-                    rate_after = _zq_implied_rate(nm, ny)
-                    if rate_after is None:
-                        continue
-                    print(f"  [INFO] FedWatch {label}: 翌月契約を使用 rate_after={rate_after:.4f}%")
-                else:
-                    implied_avg = _zq_implied_rate(month, year)
-                    if implied_avg is None:
-                        continue
-                    rate_after = (
-                        (implied_avg * days_in_month - days_before * expected_pre_rate) / days_after
-                    )
-
-                # 会合後の期待金利変化を±25bpの確率に変換
-                delta = rate_after - expected_pre_rate
-                p_hike = max(0.0, min(1.0, delta / 0.25))
-                p_cut  = max(0.0, min(1.0, -delta / 0.25))
-                p_hold = max(0.0, 1.0 - p_cut - p_hike)
-                ease = round(p_cut  * 100, 1)
-                hold = round(p_hold * 100, 1)
-                hike = round(p_hike * 100, 1)
-                results.append({"meeting": label, "ease": ease, "hold": hold, "hike": hike})
-                print(f"  [INFO] FedWatch {label} (pre={expected_pre_rate:.4f}%): EASE {ease}% / HOLD {hold}% / HIKE {hike}%")
-                # 次の会合の基準金利 = 先物が織り込む今回会合後の期待金利
-                expected_pre_rate = rate_after
-            except Exception as e:
-                print(f"  [WARN] FedWatch {label}: {e}")
-        return results
-    except Exception as e:
-        print(f"  [WARN] FedWatch取得失敗: {e}")
-        return [{"error": True, "message": f"FedWatch 取得エラー: {e}"}]
-
-
-_FEDWATCH_HISTORY_PATH = DATA_DIR / "fedwatch_history.json"
-
-
-def _save_fedwatch_history(data: list[dict], date_str: str) -> None:
-    """FedWatchデータを日次履歴JSONに追記保存する。90日超は自動削除。"""
-    try:
-        history = {}
-        if _FEDWATCH_HISTORY_PATH.exists():
-            with open(_FEDWATCH_HISTORY_PATH, encoding="utf-8") as f:
-                history = json.load(f)
-        history[date_str] = {
-            item["meeting"]: {"ease": item["ease"], "hold": item["hold"], "hike": item["hike"]}
-            for item in data if not item.get("error")
-        }
-        cutoff = (datetime.now(JST) - timedelta(days=90)).date().isoformat()
-        history = {k: v for k, v in history.items() if k >= cutoff}
-        with open(_FEDWATCH_HISTORY_PATH, "w", encoding="utf-8") as f:
-            json.dump(history, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"  [WARN] FedWatch履歴保存失敗: {e}")
-
-
-def _load_fedwatch_history_for(meeting: str, today_str: str) -> dict:
-    """指定会合の1日前・1週前・1ヶ月前のデータを返す。キー: 1d/1w/1m。"""
-    result = {}
-    try:
-        if not _FEDWATCH_HISTORY_PATH.exists():
-            return result
-        with open(_FEDWATCH_HISTORY_PATH, encoding="utf-8") as f:
-            history = json.load(f)
-        from datetime import date as _date
-        today_d = _date.fromisoformat(today_str)
-        for label, delta_days in [("1d", 1), ("1w", 7), ("1m", 30)]:
-            target = (today_d - timedelta(days=delta_days)).isoformat()
-            candidates = sorted([d for d in history if d <= target], reverse=True)
-            if candidates and meeting in history[candidates[0]]:
-                result[label] = history[candidates[0]][meeting]
-    except Exception as e:
-        print(f"  [WARN] FedWatch履歴読込失敗: {e}")
-    return result
-
-
-def _generate_fedwatch_comment(api_key: str, fedwatch_data: list[dict], effr: float) -> str:
-    """FedWatchデータをGroqに渡して1〜2文の日本語解釈コメントを生成する。"""
-    try:
-        table_lines = [f"現在の実効FF金利(EFFR): {effr:.2f}%\n"]
-        for fw in fedwatch_data:
-            if fw.get("error"):
-                continue
-            table_lines.append(
-                f'{fw["meeting"]}: EASE {fw["ease"]:.1f}% / NO CHG {fw["hold"]:.1f}% / HIKE {fw["hike"]:.1f}%'
-            )
-        table_str = "\n".join(table_lines)
-        prompt = (
-            "以下はCME FedWatchツールに基づくFOMC会合ごとの市場の金利予測です。\n\n"
-            f"{table_str}\n\n"
-            "この予測データを投資家向けに1〜2文（日本語）で簡潔に解釈してください。"
-            "現在の市場コンセンサス（利上げ・据置・利下げ期待）と、"
-            "注目すべき点（確率の偏り・転換点など）を含めてください。"
-            "出力はプレーンテキスト（マークダウン・記号・改行なし）で。"
-        )
-        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-        payload = {
-            "model": _GROQ_MODEL,
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": 200,
-            "temperature": 0.3,
-        }
-        resp = requests.post(_GROQ_URL, headers=headers, json=payload, timeout=20)
-        resp.raise_for_status()
-        comment = resp.json()["choices"][0]["message"]["content"].strip()
-        print(f"  [INFO] FedWatchコメント生成: {comment[:60]}...")
-        return comment
-    except Exception as e:
-        print(f"  [WARN] FedWatchコメント生成失敗: {e}")
-        return ""
 
 
 # ---- HTML 生成 ---------------------------------------------------------
@@ -808,56 +601,6 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
       display: flex; gap: 8px; align-items: flex-start;
     }}
     .keypoint-list li::before {{ content: '→'; color: var(--brand); flex-shrink: 0; }}
-    /* fedwatch */
-    .fedwatch-bar {{
-      display: flex; align-items: stretch;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
-    }}
-    .fedwatch-label {{
-      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
-      padding: 10px 14px; border-right: 1px solid var(--border);
-      white-space: nowrap; flex-shrink: 0; display: flex; align-items: center;
-      background: rgba(0,255,136,0.04); text-decoration: none;
-    }}
-    .fedwatch-label:hover {{ text-decoration: underline; opacity: 0.8; }}
-    .fedwatch-items {{ display: flex; overflow-x: auto; flex: 1; }}
-    .fedwatch-item {{
-      display: flex; flex-direction: column;
-      padding: 8px 14px; border-right: 1px solid var(--border);
-      min-width: 160px; flex-shrink: 0;
-    }}
-    .fedwatch-meeting {{
-      font-size: 0.6rem; color: var(--brand); opacity: 0.8;
-      letter-spacing: 1px; margin-bottom: 6px; white-space: nowrap;
-    }}
-    .fw-table {{ border-collapse: collapse; width: 100%; }}
-    .fw-table th {{
-      font-size: 0.52rem; color: var(--dim); text-align: right;
-      padding: 1px 4px; font-weight: 400; letter-spacing: 0.5px;
-    }}
-    .fw-table td {{ padding: 2px 4px; white-space: nowrap; }}
-    .fw-row-label {{
-      font-size: 0.55rem; color: var(--muted); text-align: left;
-      letter-spacing: 0.5px; padding-right: 8px !important;
-    }}
-    .fw-val {{ font-size: 0.68rem; font-weight: 700; text-align: right; }}
-    .fw-val.fw-now {{ font-size: 0.72rem; }}
-    .fw-hold {{ color: var(--muted); }}
-    .fw-cut {{ color: var(--muted); }}
-    .fw-hike {{ color: var(--muted); }}
-    .fw-na {{ color: var(--dim); font-weight: 400; font-size: 0.6rem; }}
-    .fedwatch-note {{ font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }}
-    .fedwatch-error {{ font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }}
-    .fedwatch-comment-area {{
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 10px 16px; max-width: 260px; flex-shrink: 0;
-      border-left: 1px solid var(--border);
-    }}
-    .fedwatch-comment {{
-      font-size: 0.65rem; color: rgba(255,255,255,0.65); line-height: 1.5;
-      margin-bottom: 4px;
-    }}
     /* top tickers */
     .exec-tickers {{
       background: var(--surface); border: 1px solid var(--border);
@@ -1817,24 +1560,6 @@ def build_exec_summary(
     new_tickers = get_new_tickers(results, archive_dir, today)
     undervalued = get_undervalued_picks(results)
 
-    # FedWatch データ取得
-    print("  FedWatchデータ取得中...")
-    fedwatch_data = fetch_fedwatch()
-    print(f"  FedWatch: {len(fedwatch_data)} 件取得" if fedwatch_data else "  FedWatch: データなし（非表示）")
-    if fedwatch_data and not fedwatch_data[0].get("error"):
-        _save_fedwatch_history(fedwatch_data, today)
-        for item in fedwatch_data:
-            hist = _load_fedwatch_history_for(item["meeting"], today)
-            item["1d"] = hist.get("1d")
-            item["1w"] = hist.get("1w")
-            item["1m"] = hist.get("1m")
-        print("  FedWatchコメント生成中...")
-        fedwatch_comment = _generate_fedwatch_comment(
-            api_key, fedwatch_data, _LAST_EFFR if _LAST_EFFR is not None else _FALLBACK_EFFR
-        )
-    else:
-        fedwatch_comment = ""
-
     # 本日言及されたトップティッカーの現在価格＋前日比
     print("  トップティッカー株価取得中...")
     freq: dict[str, int] = {}
@@ -1863,8 +1588,6 @@ def build_exec_summary(
         "undervalued_picks": undervalued,
         "overall_summary":   llm_summary.get("overall_summary", ""),
         "key_points":        llm_summary.get("key_points", []),
-        "fedwatch":          fedwatch_data,
-        "fedwatch_comment":  fedwatch_comment,
         "top_tickers":       top_tickers,
     }
 
@@ -1944,66 +1667,6 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       </div>
     </div>"""
 
-    # 3. FED WATCH バー
-    fedwatch_items = exec_summary.get("fedwatch", [])
-    fedwatch_comment = exec_summary.get("fedwatch_comment", "")
-    fw_label = '<a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>'
-    if fedwatch_items and fedwatch_items[0].get("error"):
-        err_msg = fedwatch_items[0].get("message", "データ取得エラー")
-        fedwatch_html = f"""<div class="fedwatch-bar">
-      {fw_label}
-      <div class="fedwatch-items"><span class="fedwatch-error">// {err_msg}</span></div>
-    </div>"""
-    elif fedwatch_items:
-        def _fw_cell(val, css_cls, is_now=False):
-            if val is None:
-                return '<td class="fw-val fw-na">—</td>'
-            now_cls = " fw-now" if is_now else ""
-            return f'<td class="fw-val {css_cls}{now_cls}">{val:.1f}%</td>'
-        def _fw_item(fw):
-            d1 = fw.get("1d"); d7 = fw.get("1w"); d30 = fw.get("1m")
-            has_hist = any(x is not None for x in [d1, d7, d30])
-            hist_head = '<th>1D</th><th>1W</th><th>1M</th>' if has_hist else ''
-            ease_hist = (f'{_fw_cell(d1["ease"] if d1 else None,"fw-cut")}'
-                         f'{_fw_cell(d7["ease"] if d7 else None,"fw-cut")}'
-                         f'{_fw_cell(d30["ease"] if d30 else None,"fw-cut")}') if has_hist else ''
-            hold_hist = (f'{_fw_cell(d1["hold"] if d1 else None,"fw-hold")}'
-                         f'{_fw_cell(d7["hold"] if d7 else None,"fw-hold")}'
-                         f'{_fw_cell(d30["hold"] if d30 else None,"fw-hold")}') if has_hist else ''
-            hike_hist = (f'{_fw_cell(d1["hike"] if d1 else None,"fw-hike")}'
-                         f'{_fw_cell(d7["hike"] if d7 else None,"fw-hike")}'
-                         f'{_fw_cell(d30["hike"] if d30 else None,"fw-hike")}') if has_hist else ''
-            return (
-                f'<div class="fedwatch-item">'
-                f'<div class="fedwatch-meeting">{fw["meeting"]}</div>'
-                f'<table class="fw-table">'
-                f'<tr><th></th><th>NOW</th>{hist_head}</tr>'
-                f'<tr><td class="fw-row-label">EASE</td>{_fw_cell(fw["ease"],"fw-cut",True)}{ease_hist}</tr>'
-                f'<tr><td class="fw-row-label">NO CHG</td>{_fw_cell(fw["hold"],"fw-hold",True)}{hold_hist}</tr>'
-                f'<tr><td class="fw-row-label">HIKE</td>{_fw_cell(fw["hike"],"fw-hike",True)}{hike_hist}</tr>'
-                f'</table>'
-                f'</div>'
-            )
-        fw_items_html = "".join(_fw_item(fw) for fw in fedwatch_items)
-        fw_comment_html = ""
-        if fedwatch_comment:
-            fw_comment_html = (
-                f'<div class="fedwatch-comment-area">'
-                f'<span class="fedwatch-comment">{fedwatch_comment}</span>'
-                f'<span class="fedwatch-note">source: CME FedWatch (ZQ先物)</span>'
-                f'</div>'
-            )
-        else:
-            fw_comment_html = '<span class="fedwatch-note">source: CME FedWatch</span>'
-        fedwatch_html = f"""<div class="fedwatch-bar">
-      {fw_label}
-      <div class="fedwatch-items">{fw_items_html}</div>
-      {fw_comment_html}
-    </div>"""
-    else:
-        fedwatch_html = ""
-
-    # 4. TOP TICKERS チップ
     # 4. TOP TICKERS チップ
     top_tickers = exec_summary.get("top_tickers", [])
     if top_tickers:
@@ -2032,7 +1695,6 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       </div>
       {heatmap_html}
       {brief_html}
-      {fedwatch_html}
       {tickers_html}
     </div>
   </section>"""
