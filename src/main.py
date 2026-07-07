@@ -400,7 +400,8 @@ def _render_card(r: dict, root_path: str = "") -> str:
     else:
         points_block = ""
 
-    return f"""<article class="card sent-{sentiment}" data-sentiment="{sentiment}">
+    tickers_attr = " ".join(t.upper().strip() for t in tickers if t.strip())
+    return f"""<article class="card sent-{sentiment}" data-sentiment="{sentiment}" data-tickers="{tickers_attr}">
   {thumb_html}
   <div class="card-top">
     <span class="channel-name">{r['channel_name']}</span>
@@ -678,6 +679,29 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
     .chip-price {{ color: var(--muted); }}
     .chip-chg-up {{ color: var(--brand); }}
     .chip-chg-dn {{ color: var(--red); }}
+    .chip-count {{ color: var(--dim); font-size: 0.66rem; }}
+    .chip-badge-spike {{
+      color: var(--brand); font-weight: 700; font-size: 0.64rem;
+      border: 1px solid rgba(0,255,136,0.35); padding: 0 5px; border-radius: 2px;
+      background: rgba(0,255,136,0.07);
+    }}
+    .chip-badge-new {{
+      color: #ffaa00; font-weight: 700; font-size: 0.64rem; letter-spacing: 0.08em;
+      border: 1px solid rgba(255,170,0,0.4); padding: 0 5px; border-radius: 2px;
+    }}
+    /* trending tickers (クリックでフィルタ) */
+    .exec-trending {{ margin-bottom: 12px; }}
+    .trend-chip {{
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 2px; padding: 6px 12px; font-size: 0.72rem;
+      color: var(--text); font-family: inherit; cursor: pointer;
+      transition: all 150ms ease;
+    }}
+    .trend-chip:hover {{ border-color: rgba(0,255,136,0.3); }}
+    .trend-chip.active {{
+      background: rgba(0,255,136,0.12); border-color: var(--brand);
+    }}
     /* archive page: minimal hero */
     .hero {{
       max-width: 1440px; margin: 0 auto;
@@ -911,13 +935,15 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
 
     // Filters
     let activeSentiment = 'all';
+    let activeTicker = null;
     const allCards = document.querySelectorAll('.card');
 
     function applyFilters() {{
       let visible = 0;
       allCards.forEach(c => {{
         const matchS = activeSentiment === 'all' || c.dataset.sentiment === activeSentiment;
-        if (matchS) {{ c.classList.remove('hidden'); visible++; }}
+        const matchT = !activeTicker || (c.dataset.tickers || '').split(' ').includes(activeTicker);
+        if (matchS && matchT) {{ c.classList.remove('hidden'); visible++; }}
         else {{ c.classList.add('hidden'); }}
       }});
       document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
@@ -928,6 +954,20 @@ def generate_html(results: list[dict], date_str: str, is_archive: bool = False, 
         btn.closest('.filter-segment').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeSentiment = btn.dataset.filter;
+        applyFilters();
+      }});
+    }});
+
+    // Trending Tickers → 銘柄フィルタ（再クリックで解除）
+    document.querySelectorAll('.trend-chip').forEach(chip => {{
+      chip.addEventListener('click', () => {{
+        const t = chip.dataset.ticker;
+        activeTicker = (activeTicker === t) ? null : t;
+        document.querySelectorAll('.trend-chip').forEach(c2 =>
+          c2.classList.toggle('active', c2.dataset.ticker === activeTicker));
+        if (activeTicker) {{
+          document.getElementById('grid').scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+        }}
         applyFilters();
       }});
     }});
@@ -1510,6 +1550,97 @@ def generate_ticker_page(ticker: str, mentions: list[dict], current_price: float
 </html>"""
 
 
+# ---- ティッカー言及トレンド (attention spike 検知) -----------------------
+
+TREND_WINDOW_DAYS  = 7    # 集計ウィンドウ（日）
+SPIKE_MIN_MENTIONS = 3    # スパイク判定: 今週の最低言及本数
+SPIKE_MIN_RATIO    = 2.0  # スパイク判定: 前週比の最低倍率
+NEW_MIN_MENTIONS   = 2    # 新規出現判定: 今週の最低言及本数（前週0本が条件）
+
+
+def build_ticker_trends(archive_dir: Path, today: str) -> dict:
+    """アーカイブJSONから「ティッカー×日付」の言及動画本数を集計し、
+    直近7日 vs 前7日の比較でスパイク・新規出現を検出する。
+
+    前週側にアーカイブが1日も存在しない場合（運用開始7日未満など）は
+    WoW判定をスキップし、集計値のみ返す。
+    """
+    daily: dict[str, dict[str, int]] = {}   # ticker -> {date: 言及動画本数}
+    archive_dates: set[str] = set()
+    for json_path in sorted(archive_dir.glob("*.json")):
+        try:
+            data = json.loads(json_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        date_str = data.get("date", json_path.stem)
+        archive_dates.add(date_str)
+        for r in data.get("results", []):
+            seen_in_video = set()
+            for t in r.get("analysis", {}).get("tickers", []):
+                t = t.upper().strip()
+                if t and t not in seen_in_video:
+                    seen_in_video.add(t)
+                    d = daily.setdefault(t, {})
+                    d[date_str] = d.get(date_str, 0) + 1
+
+    today_d    = datetime.strptime(today, "%Y-%m-%d").date()
+    this_start = today_d - timedelta(days=TREND_WINDOW_DAYS - 1)
+    prev_start = this_start - timedelta(days=TREND_WINDOW_DAYS)
+
+    def _in_range(ds: str, lo, hi) -> bool:
+        try:
+            d = datetime.strptime(ds, "%Y-%m-%d").date()
+        except ValueError:
+            return False
+        return lo <= d <= hi
+
+    has_prev_data = any(
+        _in_range(ds, prev_start, this_start - timedelta(days=1))
+        for ds in archive_dates
+    )
+
+    tickers: dict[str, dict] = {}
+    for t, counts in daily.items():
+        this_c = sum(c for ds, c in counts.items() if _in_range(ds, this_start, today_d))
+        prev_c = sum(c for ds, c in counts.items()
+                     if _in_range(ds, prev_start, this_start - timedelta(days=1)))
+        entry: dict = {"thisWeek": this_c, "prevWeek": prev_c if has_prev_data else None}
+        if has_prev_data:
+            if prev_c == 0 and this_c >= NEW_MIN_MENTIONS:
+                entry["status"] = "new"
+            elif this_c >= SPIKE_MIN_MENTIONS and prev_c > 0 and this_c / prev_c >= SPIKE_MIN_RATIO:
+                entry["status"] = "spike"
+                entry["wowPct"] = round((this_c / prev_c - 1) * 100)
+        tickers[t] = entry
+
+    return {
+        "generatedAt": today,
+        "windowDays":  TREND_WINDOW_DAYS,
+        "tickers":     tickers,
+        "daily":       daily,
+    }
+
+
+def get_trending_tickers(trends: dict, limit: int = 8) -> list[dict]:
+    """スパイク・新規出現ティッカーを表示用に上位抽出する。"""
+    items = []
+    for t, e in trends.get("tickers", {}).items():
+        status = e.get("status")
+        if status in ("spike", "new"):
+            items.append({
+                "ticker":   t,
+                "status":   status,
+                "thisWeek": e.get("thisWeek", 0),
+                "wowPct":   e.get("wowPct"),
+            })
+    # スパイクを WoW倍率順 → 新規を本数順で後ろに
+    spikes = sorted([i for i in items if i["status"] == "spike"],
+                    key=lambda x: (x.get("wowPct") or 0, x["thisWeek"]), reverse=True)
+    news   = sorted([i for i in items if i["status"] == "new"],
+                    key=lambda x: x["thisWeek"], reverse=True)
+    return (spikes + news)[:limit]
+
+
 # ---- エグゼクティブサマリー生成 -----------------------------------------
 
 def get_new_tickers(today_results: list, archive_dir: Path, today: str) -> list:
@@ -1619,12 +1750,14 @@ def generate_executive_summary_text(
 
 def build_exec_summary(
     api_key: str, results: list, archive_dir: Path, today: str,
-    n_bullish: int, n_bearish: int, n_neutral: int
+    n_bullish: int, n_bearish: int, n_neutral: int,
+    trends: dict | None = None,
 ) -> dict:
     """エグゼクティブサマリーデータを組み立てる。"""
     print("  エグゼクティブサマリー生成中...")
     new_tickers = get_new_tickers(results, archive_dir, today)
     undervalued = get_undervalued_picks(results)
+    trend_map = (trends or {}).get("tickers", {})
 
     # 本日言及されたトップティッカーの現在価格＋前日比
     print("  トップティッカー株価取得中...")
@@ -1638,7 +1771,12 @@ def build_exec_summary(
     top_tickers: list[dict] = []
     for ticker in top_ticker_names:
         price, pct = get_daily_change(ticker)
-        chip: dict = {"ticker": ticker, "price": "—", "change": "—", "up": True}
+        chip: dict = {"ticker": ticker, "price": "—", "change": "—", "up": True,
+                      "count": freq[ticker]}
+        te = trend_map.get(ticker, {})
+        if te.get("status"):
+            chip["trend_status"] = te["status"]
+            chip["trend_wow"] = te.get("wowPct")
         if price is not None:
             chip["price"] = f"${price:,.2f}"
         if pct is not None:
@@ -1655,6 +1793,7 @@ def build_exec_summary(
         "overall_summary":   llm_summary.get("overall_summary", ""),
         "key_points":        llm_summary.get("key_points", []),
         "top_tickers":       top_tickers,
+        "trending":          get_trending_tickers(trends) if trends else [],
     }
 
 
@@ -1733,21 +1872,49 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       </div>
     </div>"""
 
+    # 3. TRENDING TICKERS（言及急増・新規出現銘柄）
+    def _trend_badge(status, wow_pct):
+        if status == "spike":
+            pct = f" +{wow_pct}%" if wow_pct is not None else ""
+            return f'<span class="chip-badge-spike">&#9650;{pct}</span>'
+        if status == "new":
+            return '<span class="chip-badge-new">NEW</span>'
+        return ""
+
+    trending = exec_summary.get("trending", [])
+    if trending:
+        trend_chips = "".join(
+            f'<button class="trend-chip" data-ticker="{t["ticker"]}" type="button">'
+            f'<span class="chip-sym">{t["ticker"]}</span>'
+            f'<span class="chip-count">&times;{t["thisWeek"]}</span>'
+            f'{_trend_badge(t["status"], t.get("wowPct"))}'
+            f'</button>'
+            for t in trending
+        )
+        trending_html = f"""<div class="exec-tickers exec-trending">
+      <div class="block-label">// TRENDING TICKERS &mdash; 言及急増銘柄（直近7日 vs 前7日・クリックで動画をフィルタ）</div>
+      <div class="ticker-chips">{trend_chips}</div>
+    </div>"""
+    else:
+        trending_html = ""
+
     # 4. TOP TICKERS チップ
     top_tickers = exec_summary.get("top_tickers", [])
     if top_tickers:
         chips_html = "".join(
             f'<a class="ticker-chip" href="{root}ticker/{t["ticker"]}.html">'
             f'<span class="chip-sym">{t["ticker"]}</span>'
-            f'<span class="chip-price">{t["price"]}</span>'
+            + (f'<span class="chip-count">&times;{t["count"]}</span>' if t.get("count") else '')
+            + f'<span class="chip-price">{t["price"]}</span>'
             f'<span class="{"chip-chg-up" if t.get("up", True) else "chip-chg-dn"}">'
             f'{"&#9650;" if t.get("up", True) else "&#9660;"} {t["change"]}'
             f'</span>'
-            f'</a>'
+            + _trend_badge(t.get("trend_status"), t.get("trend_wow"))
+            + f'</a>'
             for t in top_tickers
         )
         tickers_html = f"""<div class="exec-tickers">
-      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄</div>
+      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄（&times;N = 本日の言及本数）</div>
       <div class="ticker-chips">{chips_html}</div>
     </div>"""
     else:
@@ -1761,6 +1928,7 @@ def _render_hero(date_str: str, n_total: int, n_bullish: int, n_bearish: int, n_
       </div>
       {heatmap_html}
       {brief_html}
+      {trending_html}
       {tickers_html}
     </div>
   </section>"""
@@ -1836,6 +2004,19 @@ def main() -> None:
                 {"ticker": "MNDY", "channel": "Asymmetric Investing",
                  "title": "3 Undervalued Stocks the Market Is Completely Ignoring",
                  "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"},
+            ],
+            "top_tickers": [
+                {"ticker": "NVDA", "price": "$194.83", "change": "+1.2%", "up": True,
+                 "count": 3, "trend_status": "spike", "trend_wow": 250},
+                {"ticker": "MNDY", "price": "$305.11", "change": "-0.8%", "up": False,
+                 "count": 2, "trend_status": "new"},
+                {"ticker": "AAPL", "price": "$308.63", "change": "+0.4%", "up": True,
+                 "count": 1},
+            ],
+            "trending": [
+                {"ticker": "NVDA", "status": "spike", "thisWeek": 7, "wowPct": 250},
+                {"ticker": "GLD",  "status": "spike", "thisWeek": 4, "wowPct": 100},
+                {"ticker": "MNDY", "status": "new",   "thisWeek": 2},
             ],
         }
 
@@ -1959,24 +2140,37 @@ def main() -> None:
     archive_dir = DOCS_DIR / "archive"
     archive_dir.mkdir(exist_ok=True)
 
+    # アーカイブJSONを先に保存（トレンド集計に当日分を含めるため）
+    print(f"  アーカイブJSON保存: archive/{today}.json")
+    with open(archive_dir / f"{today}.json", "w", encoding="utf-8") as f:
+        json.dump({"date": today, "results": all_results}, f, ensure_ascii=False, indent=2)
+
+    # ティッカー言及トレンドを集計して静的JSONとして出力
+    print("  ティッカー言及トレンド集計中...")
+    trends = build_ticker_trends(archive_dir, today)
+    n_spike = sum(1 for e in trends["tickers"].values() if e.get("status") == "spike")
+    n_new   = sum(1 for e in trends["tickers"].values() if e.get("status") == "new")
+    print(f"  トレンド: {len(trends['tickers'])} 銘柄集計 / spike {n_spike} / new {n_new}")
+    trends_dir = DOCS_DIR / "data"
+    trends_dir.mkdir(exist_ok=True)
+    with open(trends_dir / "ticker_trends.json", "w", encoding="utf-8") as f:
+        json.dump(trends, f, ensure_ascii=False, indent=2)
+
     # エグゼクティブサマリーを生成（アーカイブ・メインページ共通）
     n_bullish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bullish")
     n_bearish = sum(1 for r in all_results if r.get("analysis", {}).get("sentiment") == "bearish")
     n_neutral = len(all_results) - n_bullish - n_bearish
     exec_summary = build_exec_summary(
-        client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral
+        client, all_results, archive_dir, today, n_bullish, n_bearish, n_neutral,
+        trends=trends,
     )
 
-    # アーカイブ: 当日分の HTML / JSON を保存
+    # アーカイブ: 当日分の HTML を保存
     print(f"  アーカイブHTML生成: archive/{today}.html")
     archive_html_path = archive_dir / f"{today}.html"
     archive_exec = dict(exec_summary, _is_archive=True)
     with open(archive_html_path, "w", encoding="utf-8") as f:
         f.write(generate_html(all_results, today, is_archive=True, exec_summary=archive_exec))
-
-    print(f"  アーカイブJSON保存: archive/{today}.json")
-    with open(archive_dir / f"{today}.json", "w", encoding="utf-8") as f:
-        json.dump({"date": today, "results": all_results}, f, ensure_ascii=False, indent=2)
 
     # アーカイブ一覧ページを更新
     print("  アーカイブ一覧ページ生成中...")
