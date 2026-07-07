@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>alphadigest — 2026-07-07</title>
+  <title>alphadigest — 2026-07-08</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:title" content="alphadigest">
   <meta property="og:description" content="top investment voices, distilled.">
@@ -127,56 +127,6 @@
       display: flex; gap: 8px; align-items: flex-start;
     }
     .keypoint-list li::before { content: '→'; color: var(--brand); flex-shrink: 0; }
-    /* fedwatch */
-    .fedwatch-bar {
-      display: flex; align-items: stretch;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 2px; margin-bottom: 12px; overflow: hidden;
-    }
-    .fedwatch-label {
-      font-size: 0.6rem; letter-spacing: 2px; color: var(--brand);
-      padding: 10px 14px; border-right: 1px solid var(--border);
-      white-space: nowrap; flex-shrink: 0; display: flex; align-items: center;
-      background: rgba(0,255,136,0.04); text-decoration: none;
-    }
-    .fedwatch-label:hover { text-decoration: underline; opacity: 0.8; }
-    .fedwatch-items { display: flex; overflow-x: auto; flex: 1; }
-    .fedwatch-item {
-      display: flex; flex-direction: column;
-      padding: 8px 14px; border-right: 1px solid var(--border);
-      min-width: 160px; flex-shrink: 0;
-    }
-    .fedwatch-meeting {
-      font-size: 0.6rem; color: var(--brand); opacity: 0.8;
-      letter-spacing: 1px; margin-bottom: 6px; white-space: nowrap;
-    }
-    .fw-table { border-collapse: collapse; width: 100%; }
-    .fw-table th {
-      font-size: 0.52rem; color: var(--dim); text-align: right;
-      padding: 1px 4px; font-weight: 400; letter-spacing: 0.5px;
-    }
-    .fw-table td { padding: 2px 4px; white-space: nowrap; }
-    .fw-row-label {
-      font-size: 0.55rem; color: var(--muted); text-align: left;
-      letter-spacing: 0.5px; padding-right: 8px !important;
-    }
-    .fw-val { font-size: 0.68rem; font-weight: 700; text-align: right; }
-    .fw-val.fw-now { font-size: 0.72rem; }
-    .fw-hold { color: var(--muted); }
-    .fw-cut { color: var(--muted); }
-    .fw-hike { color: var(--muted); }
-    .fw-na { color: var(--dim); font-weight: 400; font-size: 0.6rem; }
-    .fedwatch-note { font-size: 0.58rem; color: var(--dim); padding: 0 12px; white-space: nowrap; align-self: center; }
-    .fedwatch-error { font-size: 0.72rem; color: var(--red, #ff4466); opacity: 0.85; padding: 0 8px; align-self: center; }
-    .fedwatch-comment-area {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 10px 16px; max-width: 260px; flex-shrink: 0;
-      border-left: 1px solid var(--border);
-    }
-    .fedwatch-comment {
-      font-size: 0.65rem; color: rgba(255,255,255,0.65); line-height: 1.5;
-      margin-bottom: 4px;
-    }
     /* top tickers */
     .exec-tickers {
       background: var(--surface); border: 1px solid var(--border);
@@ -194,6 +144,29 @@
     .chip-price { color: var(--muted); }
     .chip-chg-up { color: var(--brand); }
     .chip-chg-dn { color: var(--red); }
+    .chip-count { color: var(--dim); font-size: 0.66rem; }
+    .chip-badge-spike {
+      color: var(--brand); font-weight: 700; font-size: 0.64rem;
+      border: 1px solid rgba(0,255,136,0.35); padding: 0 5px; border-radius: 2px;
+      background: rgba(0,255,136,0.07);
+    }
+    .chip-badge-new {
+      color: #ffaa00; font-weight: 700; font-size: 0.64rem; letter-spacing: 0.08em;
+      border: 1px solid rgba(255,170,0,0.4); padding: 0 5px; border-radius: 2px;
+    }
+    /* trending tickers (クリックでフィルタ) */
+    .exec-trending { margin-bottom: 12px; }
+    .trend-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 2px; padding: 6px 12px; font-size: 0.72rem;
+      color: var(--text); font-family: inherit; cursor: pointer;
+      transition: all 150ms ease;
+    }
+    .trend-chip:hover { border-color: rgba(0,255,136,0.3); }
+    .trend-chip.active {
+      background: rgba(0,255,136,0.12); border-color: var(--brand);
+    }
     /* archive page: minimal hero */
     .hero {
       max-width: 1440px; margin: 0 auto;
@@ -287,6 +260,12 @@
     .badge-sent.bullish { color: var(--brand); border-color: rgba(0,255,136,0.3); }
     .badge-sent.bearish { color: var(--red);   border-color: rgba(255,68,68,0.3); }
     .badge-sent.neutral { color: var(--muted); border-color: var(--border); }
+    .card-badges { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .badge-promo {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em;
+      padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(255,170,0,0.4);
+      color: #ffaa00;
+    }
 
     h3 { font-size: 0.87rem; font-weight: 700; line-height: 1.55; margin-bottom: 10px; }
     h3 a { color: var(--text); text-decoration: none; }
@@ -389,11 +368,11 @@
       <div class="exec-header">
         <span class="exec-label">// daily alpha brief</span>
         <div class="exec-stats-row">
-      <span class="exec-date">2026-07-07</span>
-      <span class="exec-stat-total">24 videos</span>
-      <span class="exec-stat-bull">&#9650; 7 bullish</span>
+      <span class="exec-date">2026-07-08</span>
+      <span class="exec-stat-total">26 videos</span>
+      <span class="exec-stat-bull">&#9650; 11 bullish</span>
       <span class="exec-stat-bear">&#9660; 0 bearish</span>
-      <span class="exec-stat-neut">&#9679; 17 neutral</span>
+      <span class="exec-stat-neut">&#9679; 15 neutral</span>
     </div>
       </div>
       <div class="exec-heatmap">
@@ -415,21 +394,20 @@
       <div class="exec-brief-grid">
       <div class="exec-brief">
         <div class="block-label">// AI BRIEF</div>
-        <p class="brief-text">本日の投資系YouTube動画ダイジェストでは、BMNRの900%の回復が予測されていると述べられており、またAMDやMicronの株価についても分析が行われている。さらに、GE VernovaやBroadcomのAI関連の動向についても言及されている。投資家は、自身の投資目標や財務状況を考慮して、情報に基づいた決定を下す必要がある。現在の市場状況は好調であるが、リスク要因も存在する。</p>
+        <p class="brief-text">本日の投資系YouTube動画ダイジェストでは、ブルーシ ヽ センチメントが11、ベアーシ ヽ センチメントが0、ニュートラルセンチメントが15であることが報告された。Western Digital (WDC) のAI インフラストラクチャへの関与や、Accenture (ACN) の下落が買い場となる可能性について議論された。さらに、AMD の株価上昇や、IREN Stock の15% 上昇についても言及された。投資家は、これらの動向を分析し、投資機会を探ることが重要である。</p>
       </div>
       <div class="exec-keypoints">
         <div class="block-label">// KEY POINTS</div>
-        <ul class="keypoint-list"><li>BMNRの900%の回復が予測されている</li><li>AMDやMicronの株価について分析が行われている</li><li>GE VernovaやBroadcomのAI関連の動向についても言及されている</li><li>投資家は自身の投資目標や財務状況を考慮して、情報に基づいた決定を下す必要がある</li></ul>
+        <ul class="keypoint-list"><li>Western Digital (WDC) のストレージ事業がAI の成長により重要性を増している</li><li>Accenture (ACN) の下落が買い場となる可能性がある</li><li>AMD の株価が8% 上昇し、購入するタイミングについて議論されている</li><li>IREN Stock の株価が15% 上昇し、AI 需要の強さが要因のひとつである</li></ul>
       </div>
     </div>
-      <div class="fedwatch-bar">
-      <a class="fedwatch-label" href="https://www.cmegroup.com/markets/interest-rates/cme-fedwatch-tool.html" target="_blank" rel="noopener">// FED WATCH <span style="font-size:0.55rem;color:var(--dim)">&#8599;</span></a>
-      <div class="fedwatch-items"><div class="fedwatch-item"><div class="fedwatch-meeting">Jul 29, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">76.8%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">23.2%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Sep 16, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">60.0%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">40.0%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Oct 28, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">78.0%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">22.0%</td></tr></table></div><div class="fedwatch-item"><div class="fedwatch-meeting">Dec  9, 2026</div><table class="fw-table"><tr><th></th><th>NOW</th></tr><tr><td class="fw-row-label">EASE</td><td class="fw-val fw-cut fw-now">0.0%</td></tr><tr><td class="fw-row-label">NO CHG</td><td class="fw-val fw-hold fw-now">70.3%</td></tr><tr><td class="fw-row-label">HIKE</td><td class="fw-val fw-hike fw-now">29.7%</td></tr></table></div></div>
-      <div class="fedwatch-comment-area"><span class="fedwatch-comment">現在の市場コンセンサスは、2026年の残りのFOMC会合で金利が据え置かれる可能性が高いが、年末に向けて利上げの期待が強まっていることがわかる。特に12月の会合では利上げの期待が29.7%と相対的に高くなっているため、投資家は金利動向に注意する必要がある。</span><span class="fedwatch-note">source: CME FedWatch (ZQ先物)</span></div>
+      <div class="exec-tickers exec-trending">
+      <div class="block-label">// TRENDING TICKERS &mdash; 言及急増銘柄（直近7日 vs 前7日・クリックで動画をフィルタ）</div>
+      <div class="ticker-chips"><button class="trend-chip" data-ticker="META" type="button"><span class="chip-sym">META</span><span class="chip-count">&times;8</span><span class="chip-badge-spike">&#9650; +300%</span></button><button class="trend-chip" data-ticker="GOOGL" type="button"><span class="chip-sym">GOOGL</span><span class="chip-count">&times;4</span><span class="chip-badge-spike">&#9650; +300%</span></button><button class="trend-chip" data-ticker="AMZN" type="button"><span class="chip-sym">AMZN</span><span class="chip-count">&times;6</span><span class="chip-badge-spike">&#9650; +200%</span></button><button class="trend-chip" data-ticker="NKE" type="button"><span class="chip-sym">NKE</span><span class="chip-count">&times;3</span><span class="chip-badge-spike">&#9650; +200%</span></button><button class="trend-chip" data-ticker="IBM" type="button"><span class="chip-sym">IBM</span><span class="chip-count">&times;3</span><span class="chip-badge-spike">&#9650; +200%</span></button><button class="trend-chip" data-ticker="TSM" type="button"><span class="chip-sym">TSM</span><span class="chip-count">&times;5</span><span class="chip-badge-spike">&#9650; +150%</span></button><button class="trend-chip" data-ticker="AAPL" type="button"><span class="chip-sym">AAPL</span><span class="chip-count">&times;9</span><span class="chip-badge-spike">&#9650; +125%</span></button><button class="trend-chip" data-ticker="ASML" type="button"><span class="chip-sym">ASML</span><span class="chip-count">&times;4</span><span class="chip-badge-new">NEW</span></button></div>
     </div>
       <div class="exec-tickers">
-      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄</div>
-      <div class="ticker-chips"><a class="ticker-chip" href="ticker/AMD.html"><span class="chip-sym">AMD</span><span class="chip-price">$552.05</span><span class="chip-chg-up">&#9650; +6.6%</span></a><a class="ticker-chip" href="ticker/AVGO.html"><span class="chip-sym">AVGO</span><span class="chip-price">$373.90</span><span class="chip-chg-up">&#9650; +3.7%</span></a><a class="ticker-chip" href="ticker/NVDA.html"><span class="chip-sym">NVDA</span><span class="chip-price">$195.55</span><span class="chip-chg-up">&#9650; +0.4%</span></a><a class="ticker-chip" href="ticker/AAPL.html"><span class="chip-sym">AAPL</span><span class="chip-price">$312.66</span><span class="chip-chg-up">&#9650; +1.3%</span></a><a class="ticker-chip" href="ticker/BMNR.html"><span class="chip-sym">BMNR</span><span class="chip-price">$15.55</span><span class="chip-chg-up">&#9650; +8.3%</span></a><a class="ticker-chip" href="ticker/MU.html"><span class="chip-sym">MU</span><span class="chip-price">$984.75</span><span class="chip-chg-up">&#9650; +0.9%</span></a><a class="ticker-chip" href="ticker/GEV.html"><span class="chip-sym">GEV</span><span class="chip-price">$1,152.04</span><span class="chip-chg-up">&#9650; +3.5%</span></a><a class="ticker-chip" href="ticker/UPST.html"><span class="chip-sym">UPST</span><span class="chip-price">$34.33</span><span class="chip-chg-dn">&#9660; -1.3%</span></a><a class="ticker-chip" href="ticker/MRVL.html"><span class="chip-sym">MRVL</span><span class="chip-price">$249.27</span><span class="chip-chg-up">&#9650; +1.6%</span></a><a class="ticker-chip" href="ticker/ACN.html"><span class="chip-sym">ACN</span><span class="chip-price">$136.96</span><span class="chip-chg-dn">&#9660; -0.3%</span></a></div>
+      <div class="block-label">// TOP TICKERS &mdash; 本日の動画で言及された銘柄（&times;N = 本日の言及本数）</div>
+      <div class="ticker-chips"><a class="ticker-chip" href="ticker/ACN.html"><span class="chip-sym">ACN</span><span class="chip-count">&times;2</span><span class="chip-price">$142.14</span><span class="chip-chg-up">&#9650; +3.8%</span></a><a class="ticker-chip" href="ticker/BMNR.html"><span class="chip-sym">BMNR</span><span class="chip-count">&times;1</span><span class="chip-price">$14.80</span><span class="chip-chg-dn">&#9660; -4.8%</span></a><a class="ticker-chip" href="ticker/INTC.html"><span class="chip-sym">INTC</span><span class="chip-count">&times;1</span><span class="chip-price">$110.39</span><span class="chip-chg-dn">&#9660; -9.7%</span></a><a class="ticker-chip" href="ticker/PFE.html"><span class="chip-sym">PFE</span><span class="chip-count">&times;1</span><span class="chip-price">$24.07</span><span class="chip-chg-up">&#9650; +1.5%</span></a><a class="ticker-chip" href="ticker/WDC.html"><span class="chip-sym">WDC</span><span class="chip-count">&times;1</span><span class="chip-price">$532.10</span><span class="chip-chg-dn">&#9660; -7.9%</span></a><a class="ticker-chip" href="ticker/VKTX.html"><span class="chip-sym">VKTX</span><span class="chip-count">&times;1</span><span class="chip-price">$42.13</span><span class="chip-chg-up">&#9650; +8.8%</span></a><a class="ticker-chip" href="ticker/LLY.html"><span class="chip-sym">LLY</span><span class="chip-count">&times;1</span><span class="chip-price">$1,235.56</span><span class="chip-chg-up">&#9650; +3.0%</span></a><a class="ticker-chip" href="ticker/ADBE.html"><span class="chip-sym">ADBE</span><span class="chip-count">&times;1</span><span class="chip-price">$221.54</span><span class="chip-chg-up">&#9650; +1.6%</span></a><a class="ticker-chip" href="ticker/TTD.html"><span class="chip-sym">TTD</span><span class="chip-count">&times;1</span><span class="chip-price">$19.18</span><span class="chip-chg-dn">&#9660; -0.7%</span></a><a class="ticker-chip" href="ticker/IREN.html"><span class="chip-sym">IREN</span><span class="chip-count">&times;1</span><span class="chip-price">$39.81</span><span class="chip-chg-dn">&#9660; -9.3%</span></a></div>
     </div>
     </div>
   </section>
@@ -445,371 +423,402 @@
 
   <div class="grid-wrap">
     <div class="grid" id="grid">
-      <article class="card sent-bullish" data-sentiment="bullish">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Gxl8W8MUwtI/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Wolf of Dubai</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener">$BMNR: The 900% Recovery Nobody Sees Coming</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/BMNR.html">BMNR</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>BMNR</b> の900% の回復が予測されていると述べられています。動画では、プロのトレーダーをコピーする AutoPilot™ ソフトウェアの紹介も行われています。動画の内容は、投資に関する情報と教育を目的としています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>BMNR の900% の回復が予測されている</li><li>AutoPilot™ ソフトウェアを使用してプロのトレーダーをコピーすることが可能</li><li>投資にはリスクが伴う</li><li>個別の研究と分析が必要</li><li>動画の内容は投資に関する情報と教育を目的としている</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-07 08:11 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=brYaqgsI1Tc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/brYaqgsI1Tc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+      <article class="card sent-bullish" data-sentiment="bullish" data-tickers="INTC PFE">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=0-e4irNlRhs" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/0-e4irNlRhs/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Everything Money</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=brYaqgsI1Tc" target="_blank" rel="noopener">Here's What Investors Need To Do Right Now | Paul Reacts Live</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">個別銘柄分析</span></div>
-  <p class="summary">Paulは視聴者と共に銘柄を分析し、投資について議論する。視聴者は、投資についての判断を下す前に、自身の投資目標、財務状況、ニーズ、個人的な状況を考慮し、必要に応じて専門家のアドバイスを求めるべきである。Everything Moneyは投資アドバイザーではなく、投資についてのアドバイスは提供していない。視聴者は、自身の責任において投資についての決定を下すべきである。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>投資についての判断を下す前に、自身の投資目標、財務状況、ニーズ、個人的な状況を考慮すること</li><li>必要に応じて専門家のアドバイスを求めること</li><li>Everything Moneyは投資アドバイザーではなく、投資についてのアドバイスは提供していない</li><li>視聴者は、自身の責任において投資についての決定を下すべきである</li><li>投資についての情報を入手する前に、Everything Moneyの免責事項を読むこと</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=0-e4irNlRhs" target="_blank" rel="noopener">Stocks Fall Hard as Memory Chip Bear Market Begins + Intel Drops 9.6% (Here's What to do)</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/INTC.html">INTC</a><a class="ticker" href="ticker/PFE.html">PFE</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span></div>
+  <p class="summary">動画では、<b>Intel</b> の株価が 9.6% 下落し、メモリチップのベアマーケットが始まったと報告している。また、<b>Pfizer</b> の株価が下落し、購入の好機かもしれないと分析している。下落する日は、実質的な投資機会が現れると述べている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>Intel</b> の株価が 9.6% 下落し、メモリチップのベアマーケットが始まった</li><li><b>Pfizer</b> の株価が下落し、購入の好機かもしれない</li><li>下落する日は、実質的な投資機会が現れる</li></ul></details>
   <div class="card-footer">
-    <time>2026-07-07 05:37 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=brYaqgsI1Tc" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-08 05:34 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=0-e4irNlRhs" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/MXYizIemOAE/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="WDC">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=WuartgOdDoY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/WuartgOdDoY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
-    <span class="channel-name">Everything Money</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="channel-name">Rick Orford</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener">Here's What Investors Need To Do Right Now | Paul Reacts Live</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">ポートフォリオ管理</span></div>
-  <p class="summary">Paulは投資家が現在行うべきことを説明しています。投資家は自分のポートフォリオを分析し、投資戦略について議論する必要があります。Everything Moneyは投資アドバイザーではなく、投資家は自身の投資決定について責任を負う必要があります。投資家は自身の投資目標、財務状況、ニーズを考慮して、投資決定を下す必要があります。Paulは<b>Paul</b>自身の投資戦略について話していますが、投資家は自身の状況に合わせて投資決定を下す必要があります。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>投資家は自身のポートフォリオを分析する必要があります</li><li>投資家は自身の投資目標、財務状況、ニーズを考慮する必要があります</li><li>投資家は自身の投資決定について責任を負う必要があります</li><li>Everything Moneyは投資アドバイザーではない</li><li>投資家は自身の状況に合わせて投資決定を下す必要があります</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=WuartgOdDoY" target="_blank" rel="noopener">Western Digital’s Powerful AI Toll Booth Is Hiding in Plain Sight</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/WDC.html">WDC</a><span class="topic">個別銘柄分析</span><span class="topic">AI</span></div>
+  <p class="summary">Western Digital (<b>WDC</b>) は、AI インフラストラクチャの重要な要素であるストレージ事業を通じて、強力な収益源を築いている可能性がある。AI の爆発的な成長により、データの保存需要が高まり、<b>WDC</b> のストレージ事業は重要性を増している。ただし、企業の評価が過大ではないかという懸念もある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>AI の成長により、データの保存需要が高まり、<b>WDC</b> のストレージ事業は重要性を増している</li><li><b>WDC</b> のストレージ事業は、AI インフラストラクチャの重要な要素である</li><li>企業の評価が過大ではないかという懸念もある</li></ul></details>
   <div class="card-footer">
-    <time>2026-07-07 05:36 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-08 01:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=WuartgOdDoY" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bullish" data-sentiment="bullish">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="ACN">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=j1Hv8PQPJGg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/j1Hv8PQPJGg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=j1Hv8PQPJGg" target="_blank" rel="noopener">Why Is Accenture Stock Crashing, and is it a Buying Opportunity?</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/ACN.html">ACN</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">Accenture Stock が下落している理由と、それが買い場となるかについて議論している。Accenture は、<b>Accenture</b> として知られ、ティッカーシンボルは <b>ACN</b> である。人工知能からの脅威に直面している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">2</span></summary><ul class="points"><li>Accenture Stock の下落は人工知能からの脅威によるもの</li><li>買い場となる可能性について議論</li></ul></details>
+  <div class="card-footer">
+    <time>2026-07-08 00:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=j1Hv8PQPJGg" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="VKTX LLY">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=JRumb282Ofw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/JRumb282Ofw/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Rick Orford</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=JRumb282Ofw" target="_blank" rel="noopener">Viking’s Explosive Buyout Case Just Got Stronger</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/VKTX.html">VKTX</a><a class="ticker" href="ticker/LLY.html">LLY</a><span class="topic">個別銘柄分析</span><span class="topic">バイオテック</span></div>
+  <p class="summary">Viking Therapeutics (<b>VKTX</b>) は魅力的なバイオテックストーリーとなりつつあり、特に肥満治療薬の開発が注目されている。メディケアのカタリストや買収の可能性が高まっており、データが良好であれば大幅な上昇が見込まれる。しかし、競争が激化する可能性や、現在の評価が高すぎる可能性もあるため、リスクも存在する。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>VKTX</b> は買収対象として魅力的なバイオテック企業である</li><li>メディケアのカタリストが肥満治療薬の需要に影響を与える可能性がある</li><li><b>LLY</b> の肥満治療薬が <b>VKTX</b> の上昇潜在を圧迫している可能性がある</li></ul></details>
+  <div class="card-footer">
+    <time>2026-07-07 23:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=JRumb282Ofw" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="IREN">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=j0oPwfUBTJE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/j0oPwfUBTJE/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Will Rich</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=j0oPwfUBTJE" target="_blank" rel="noopener">IREN Stock Rebounds 15% As AI Demand Holds Strong...</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/IREN.html">IREN</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">IREN Stock の株価が 15% 上昇したことについて言及している。AI 需要が強いことが要因のひとつであると考えられる。動画では <b>IREN</b> の株価の動向について分析している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">2</span></summary><ul class="points"><li>IREN Stock の株価が 15% 上昇した</li><li>AI 需要が強いことが要因のひとつである</li></ul></details>
+  <div class="card-footer">
+    <time>2026-07-07 09:52 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=j0oPwfUBTJE" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="AMD">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=8ogwurESP3U" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/8ogwurESP3U/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Everything Money</span>
-    <span class="badge-sent bullish">▲ bullish</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=8ogwurESP3U" target="_blank" rel="noopener">Stock Market Soars, AMD Jumps 8%, Micron Stock Rebounds — Should I Be Buying Right Now?</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/AMD.html">AMD</a><a class="ticker" href="ticker/MU.html">MU</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">動画では、<b>AMD</b> の株価が 8% 上昇したことについて分析し、購入するタイミングについて議論している。また、<b>Micron</b> の株価も反発したことについて触れている。動画では、<b>AMD</b> の株価を分析ツールで検証し、購入するかどうかの判断材料を提供している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>AMD</b> の株価は 8% 上昇した</li><li><b>Micron</b> の株価も反発した</li><li>購入するタイミングについて議論している</li><li>分析ツールで <b>AMD</b> の株価を検証している</li><li>購入するかどうかの判断材料を提供している</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/AMD.html">AMD</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span></div>
+  <p class="summary">動画では、<b>AMD</b> の株価が 8% 上昇したことについて分析し、購入するタイミングについて議論している。テクノロジー株が市場を牽引していることにも触れている。購入するかどうかについては、<b>AMD</b> の実際の価値を分析する必要があるとしている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>AMD</b> の株価が 8% 上昇した</li><li>テクノロジー株が市場を牽引している</li><li>購入するタイミングについては、<b>AMD</b> の実際の価値を分析する必要がある</li></ul></details>
   <div class="card-footer">
     <time>2026-07-07 04:27 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=8ogwurESP3U" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="GEV">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=eZ2Q4ycvabQ" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/eZ2Q4ycvabQ/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Rick Orford</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent neutral">● neutral</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=eZ2Q4ycvabQ" target="_blank" rel="noopener">GE Vernova’s Massive AI Power Advantage Is Getting Stronger</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/GEV.html">GEV</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">GE Vernovaの株は、AIインフラストラクチャーにおける大きな力を持っており、タービンの事業は将来数年間でほぼ確定しているため、価格設定力を持っている。しかし、将来のパイプラインの大部分は、許可、資金調達、燃料の確保、接続、建設が必要なデータセンターと電力プロジェクトに依存している。YouTuberは、<b>GEV</b> の株価がすでに多くの完璧さを価格に含んでいる可能性があると指摘している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>GEV</b> のタービン事業は将来数年間でほぼ確定している</li><li>タービンの希少性により、価格設定力が生まれる</li><li>バックログは収益を保証するものではない</li><li>将来のパイプラインの大部分はデータセンターと電力プロジェクトに依存している</li><li><b>GEV</b> の株価はすでに多くの完璧さを価格に含んでいる可能性がある</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/GEV.html">GEV</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary"><b>GEV</b> のタービン事業は数年先までほぼ確保されており、企業に希少な価格設定力を持たせている。ただし、将来のパイプラインの大部分は、許可、資金調達、燃料の確保、接続、実際の建設に依存しているため、リスクも存在する。動画では、<b>GEV</b> の株価、強力なAIパワーアドバンテージ、バックログリスク、そしてこの優れた事業がすでに多くの完璧さを価格に含んでいる可能性について論じている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>GEV</b> のタービン事業は数年先までほぼ確保されており、希少な価格設定力を持たせている</li><li>将来のパイプラインの大部分は、許可、資金調達、燃料の確保、接続、実際の建設に依存しているため、リスクも存在する</li><li><b>GEV</b> の株価はすでに多くの完璧さを価格に含んでいる可能性がある</li></ul></details>
   <div class="card-footer">
     <time>2026-07-07 01:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=eZ2Q4ycvabQ" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/UxNsEXjsNhM/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener">Upstart Stock Analysis: Buy or Sell This AI Stock? | UPST STock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/UPST.html">UPST</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>UPST</b> の株価分析を行い、購入するか売却するかを検討しています。動画では、<b>UPST</b> のビジネスモデルが有望であることを証明しています。また、動画作成者は、投資家向けの6ステップ投資フレームワークを紹介し、投資家が自信を持って情報に基づいた決定を下すためのロードマップを提供しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>UPST のビジネスモデルは有望である</li><li>投資家向けの6ステップ投資フレームワークが紹介されている</li><li>The Motley Fool Stock Advisor のパフォーマンスが紹介されている</li><li>投資家はリスクを管理し、ポートフォリオを構築するためにフレームワークを使用することができる</li><li>動画作成者は、投資家が情報に基づいた決定を下すためのロードマップを提供している</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-06 23:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="MRVL">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=MmcdX7aoBJY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/MmcdX7aoBJY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Brian Stoffel</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent neutral">● neutral</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=MmcdX7aoBJY" target="_blank" rel="noopener">Is Marvell Technology a Buy, Sell, or Hold at All-Time Highs (Full Deep Dive)</a></h3>
   <div class="tags"><a class="ticker" href="ticker/MRVL.html">MRVL</a><span class="topic">個別銘柄分析</span></div>
-  <p class="summary">この動画では、<b>MRVL</b> の株価が史上最高値に達したことを受けて、そのビジネスや株式について深く分析しています。動画では、<b>MRVL</b> の収益源、重要な製品、成長見通し、財務状況、評価などについて説明しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>MRVL</b> のビジネスモデルと収益源について</li><li><b>MRVL</b> の重要な製品と技術について</li><li><b>MRVL</b> の成長見通しと将来の展望について</li><li><b>MRVL</b> の財務状況と評価について</li><li><b>MRVL</b> の投資判断について</li></ul></details>
+  <p class="summary">Marvell Technology (<b>MRVL</b>) の株価が史上最高値に達したため、その投資価値について検討する。動画では、<b>MRVL</b> の事業、財務状況、成長見通し、バリュエーションについて分析する。実質的な投資テーゼは動画の詳細な分析に基づいて判断する必要がある。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>MRVL</b> の事業と収益構造の分析</li><li><b>MRVL</b> の成長見通しと財務状況の検討</li><li><b>MRVL</b> のバリュエーションと投資価値の評価</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 23:43 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=MmcdX7aoBJY" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bullish" data-sentiment="bullish">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="ACN">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=m3cOpsz2SzI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/m3cOpsz2SzI/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Sven Carlin</span>
-    <span class="badge-sent bullish">▲ bullish</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=m3cOpsz2SzI" target="_blank" rel="noopener">Accenture ACN Stock Has Been Fairly Punished! Good Dividend!</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/ACN.html">ACN</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
-  <p class="summary">この動画では、<b>ACN</b> の株価が相対的に低く、割安であると述べられています。動画では、<b>ACN</b> の株が買い入れられる機会である可能性について言及しています。また、動画内では、投資家向けのプラットフォームやコース、書籍についても紹介しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>ACN</b> の株価は相対的に低い</li><li>割安な株として買い入れられる機会である可能性</li><li>投資家向けのプラットフォームやコース、書籍の紹介</li><li>低手数料のブローカーについて言及</li><li>価値投資に関するガイドやリソースの提供</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/ACN.html">ACN</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">Accenture (<b>ACN</b>) の株価は相当な下落を見せており、割安と言える状況にあると言及されている。ディビデンドも良好であると述べられている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">2</span></summary><ul class="points"><li>Accenture (<b>ACN</b>) の株価は下落し、割安と見なされる状況にある</li><li>ディビデンドが良好であることが強みとして言及されている</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 23:14 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=m3cOpsz2SzI" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="AVGO NVDA">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=GGBDxwC50XY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/GGBDxwC50XY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Rick Orford</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=GGBDxwC50XY" target="_blank" rel="noopener">Broadcom’s Powerful OpenAI Chip Bet Could Pressure NVIDIA</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/AVGO.html">AVGO</a><a class="ticker" href="ticker/NVDA.html">NVDA</a><span class="topic">個別銘柄分析</span><span class="topic">テクノロジー</span></div>
-  <p class="summary">この動画では、<b>Broadcom</b>（<b>AVGO</b>）と<b>OpenAI</b>のパートナーシップについて説明しています。彼らは<b>NVIDIA</b>（<b>NVDA</b>）の価格設定力を脅かす可能性のあるAIチップを共同開発しています。このパートナーシップは、<b>Broadcom</b>の株価に影響を与える可能性があります。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>Broadcom</b>と<b>OpenAI</b>のパートナーシップはAIチップの開発を目的としています</li><li><b>NVIDIA</b>の価格設定力が脅かされる可能性があります</li><li><b>Broadcom</b>の株価に影響を与える可能性があります</li><li>このパートナーシップはAIインフラストラクチャーに影響を与える可能性があります</li><li>投資家はこのパートナーシップの潜在的なリスクと機会を考慮する必要があります</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/AVGO.html">AVGO</a><a class="ticker" href="ticker/NVDA.html">NVDA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
+  <p class="summary">この動画では、<b>Broadcom</b> と <b>OpenAI</b> のパートナーシップが <b>NVIDIA</b> の価格設定力を圧迫する可能性について論じられている。 <b>Broadcom</b> のカスタムAIチップは、<b>OpenAI</b> の長期的な計算コストを削減するのに役立つ可能性があり、<b>NVIDIA</b> が支配しているAIアクセラレータ市場に挑戦する。動画では、<b>Broadcom</b> の株価、バリュエーションリスク、投資家への影響についても分析している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li><b>Broadcom</b> と <b>OpenAI</b> のパートナーシップが <b>NVIDIA</b> の価格設定力を圧迫する可能性</li><li><b>Broadcom</b> のカスタムAIチップが <b>OpenAI</b> の長期的な計算コストを削減するのに役立つ可能性</li><li><b>Broadcom</b> の株価とバリュエーションリスクについての分析</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 23:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=GGBDxwC50XY" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="FVRR UPWK">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=0gVnlWvdBm0" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/0gVnlWvdBm0/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=0gVnlWvdBm0" target="_blank" rel="noopener">Fiverr Stock vs. Upwork Stock: Which is the Better Stock to Buy?</a></h3>
   <div class="tags"><a class="ticker" href="ticker/FVRR.html">FVRR</a><a class="ticker" href="ticker/UPWK.html">UPWK</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>Fiverr</b> と <b>Upwork</b> の株式を比較し、どちらがより良い投資先かを検討しています。両社は、人工知能のリスクにより安価な評価で取引されています。YouTuberは、投資家がこれらの企業を買うべきかどうかを判断するためのフレームワークを提供しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>人工知能のリスクにより、<b>Fiverr</b> と <b>Upwork</b> の株式が安価な評価で取引されている</li><li>YouTuberは、投資家がこれらの企業を買うべきかどうかを判断するためのフレームワークを提供しています</li><li>The Motley Fool Stock Advisorのパフォーマンスは、S&P 500よりも優れています</li><li>YouTuberの6ステップの投資フレームワークは、投資家が自信を持って情報に基づいた決定を下すのに役立ちます</li><li>Fiscal.aiは、YouTuberの投資研究の主なデータソースです</li></ul></details>
+  <p class="summary">Fiverr Stock と Upwork Stock の比較検討を行い、どちらがより良い投資先かを検討している。両社は人工知能のリスクにより安価な評価で取引されている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">2</span></summary><ul class="points"><li>Fiverr Stock と Upwork Stock は、人工知能のリスクにより安価な評価で取引されている</li><li>両社の評価が安いことは、投資機会となる可能性がある</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 22:45 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=0gVnlWvdBm0" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bullish" data-sentiment="bullish">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="SOFI">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=DwT2BeHInm8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/DwT2BeHInm8/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bullish">▲ bullish</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=DwT2BeHInm8" target="_blank" rel="noopener">Down 43%, Is SoFi Stock a Generational Buying Opportunity Right Now?</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/SOFI.html">SOFI</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">SoFi Stock の現在の状況について議論し、雇用データが予想以下となったことにより、金利上昇の可能性が低下したことを言及。YouTuber は、SoFi Stock を購入する機会について論じている。YouTuber には、投資家向けの書籍やコミュニティへの参加を促すリンクが含まれている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>雇用データが予想以下となり、金利上昇の可能性が低下した</li><li>SoFi Stock の現在の状況と将来の可能性について議論</li><li>YouTuber は、SoFi Stock を購入する機会について言及</li><li>投資家向けの書籍やコミュニティへの参加を促すリンクが含まれている</li><li>The Motley Fool とのスポンサー契約が存在</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/SOFI.html">SOFI</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">SoFi Stock の株価は 43% 下落しているが、購入機会かもしれない。雇用データが予想以下だったため、利上げの可能性が低くなった。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>SoFi Stock の株価は 43% 下落している</li><li>雇用データが予想以下だったため、利上げの可能性が低くなった</li><li>SoFi Stock は購入機会かもしれない</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 22:15 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=DwT2BeHInm8" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=rhLij6EYcNU" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/rhLij6EYcNU/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Felix & Friends</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-sent neutral">● neutral</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=rhLij6EYcNU" target="_blank" rel="noopener">Trump's New Fed Chair Just Crushed Gold, Silver, Bitcoin</a></h3>
-  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
-  <p class="summary">新しいFed議長の初動により、Gold、Silver、Bitcoinの価格が下落した。新議長のKevin Warshは、金融危機時のFedの対応を見てきた人物であり、初めての会合で金利を据え置きし、Wall Streetを驚かせた。Fedの政策転換により、Debasement tradeが逆転し、ドルが強化された。金利の上昇により、非利回り資産の機会費用が上昇し、Tariff panicも収まり、安全逃げの要因が減った。Bitcoinのレバレッジが10倍から20倍と高かったため、マージンコールが発生し、急落した。Goldは約20%下落し、SilverとBitcoinもそれ以上に下落した。しかし、回復の兆しも見られる。Fedの信頼性は、雇用データが弱くなっているため、金利上昇の期待が減っている。Silverの需要は、太陽パネルや半導体からの需要が構造的なものであるため、サイクルに左右されない。WarshはBitcoinをデジタルGoldと呼んだが、Altcoinについては懐疑的である。Free research report at http://felixfriends.org/crushでは、詳細な分析が行われている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>新しいFed議長の初動により、Gold、Silver、Bitcoinの価格が下落した</li><li>Fedの政策転換により、Debasement tradeが逆転し、ドルが強化された</li><li>金利の上昇により、非利回り資産の機会費用が上昇し、Tariff panicも収まり、安全逃げの要因が減った</li><li>Bitcoinのレバレッジが10倍から20倍と高かったため、マージンコールが発生し、急落した</li><li>Silverの需要は、太陽パネルや半導体からの需要が構造的なものであるため、サイクルに左右されない</li></ul></details>
+  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">投資戦略</span></div>
+  <p class="summary">新しいFed議長の最初の動きにより、<b>Gold</b>、<b>Silver</b>、<b>Bitcoin</b>が同時に下落した。デバースメント・トレードの逆転、金利上昇の期待による非利回り資産の機会費用の増加、関税パニックの緩和が要因となった。ただし、<b>Bitcoin</b>と<b>Silver</b>はすでに低値からの回復が始まっている。</p>
+  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>新しいFed議長の政策により、<b>Gold</b>、<b>Silver</b>、<b>Bitcoin</b>が下落した</li><li>デバースメント・トレードの逆転と金利上昇の期待が要因となった</li><li><b>Bitcoin</b>と<b>Silver</b>は低値からの回復が始まっている</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 22:00 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=rhLij6EYcNU" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/lycPExBWZQI/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener">Should You Buy Salesforce Stock Instead of Oracle Stock? | CRM Stock Analysis | ORCL Stock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/CRM.html">CRM</a><a class="ticker" href="ticker/ORCL.html">ORCL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>CRM</b> と <b>ORCL</b> の比較分析が行われ、どちらの株が現在の市場価格でより良い投資となるかを検討しています。動画では、投資家向けの情報や投資戦略に関する解説も行われています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>CRM と ORCL の比較分析</li><li>投資戦略の解説</li><li>The Motley Fool の特別オファー</li><li>6ステップの投資フレームワーク</li><li>Fiscal.ai による投資リサーチ</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-06 21:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-bullish" data-sentiment="bullish">
+<article class="card sent-bullish" data-sentiment="bullish" data-tickers="NOW PATH">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=KFrKQXKb_sw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/KFrKQXKb_sw/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bullish">▲ bullish</span>
+    <span class="card-badges"><span class="badge-sent bullish">▲ bullish</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=KFrKQXKb_sw" target="_blank" rel="noopener">Should You Buy ServiceNow Stock Instead of UiPath Stock? | NOW Stock Analysis | PATH Stock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/NOW.html">NOW</a><a class="ticker" href="ticker/PATH.html">PATH</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>ServiceNow</b> (NOW) と <b>UiPath</b> (PATH) の株式を比較検討する。両銘柄は現在低調な状態にあるが、魅力的である。YouTuberは、The Motley Fool Stock Advisorのパフォーマンスと自身の投資フレームワークについても言及する。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>NOWとPATHは現在低調な状態にあるが、魅力的である</li><li>The Motley Fool Stock Advisorのパフォーマンスは983%である</li><li>YouTuberは自身の投資フレームワークについて説明する</li><li>Fiscal.aiを使用して投資研究を行っている</li><li>YouTuberは会員制のコミュニティを提供している</li></ul></details>
+  <div class="tags"><a class="ticker" href="ticker/NOW.html">NOW</a><a class="ticker" href="ticker/PATH.html">PATH</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">この動画では、<b>ServiceNow</b> (NOW) と <b>UiPath</b> (PATH) の株価について分析している。両銘柄は現在低調な値動きを見せているが、魅力的であると言及されている。動画では、どちらの株が買い場かについて議論している。</p>
+  <details class="points-details"><summary>key points <span class="points-count">2</span></summary><ul class="points"><li>NOW と PATH は現在低調な値動きを見せている</li><li>両銘柄は魅力的であると言及されている</li></ul></details>
   <div class="card-footer">
     <time>2026-07-06 20:45 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=KFrKQXKb_sw" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bullish" data-sentiment="bullish">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=j5bUhWGCWMY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/j5bUhWGCWMY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="BMNR">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=Gd_V8gPDh0E" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Gd_V8gPDh0E/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
-    <span class="channel-name">Financial Education</span>
-    <span class="badge-sent bullish">▲ bullish</span>
+    <span class="channel-name">Wolf of Dubai</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=j5bUhWGCWMY" target="_blank" rel="noopener">The Market WARNING Signs Are Here‼️😳</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/META.html">META</a><a class="ticker" href="ticker/AMD.html">AMD</a><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、現在の市場状況と<b>Meta</b>のAI関連の支出が市場に与える影響について議論しています。また、<b>AMD</b>や<b>Elf</b>などの銘柄についても言及しています。ホストは、現在の市場状況が好調であることを強調し、特定の銘柄についての見通しを示しています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>現在の市場状況は好調である</li><li>大手テクノロジー企業の動向が市場に大きな影響を与える</li><li>特定の銘柄についての見通しと分析</li><li>投資家が勝者と敗者を区別する方法</li><li>成長株の評価方法</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=Gd_V8gPDh0E" target="_blank" rel="noopener">THE 2026 Bear Market: $BMNR TOM LEE SCREAMED About</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/BMNR.html">BMNR</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">動画では、<b>BMNR</b> について <b>TOM LEE</b> が言及したことが紹介されます。実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-06 01:17 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=j5bUhWGCWMY" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-08 07:25 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=Gd_V8gPDh0E" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=aIzjCVMVXk0" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/aIzjCVMVXk0/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=9EZzyjAZ-Zc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/9EZzyjAZ-Zc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
-    <span class="channel-name">Adriconomics</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="channel-name">Jeremy Lefebvre Makes Money</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=aIzjCVMVXk0" target="_blank" rel="noopener">I Tracked 30 Finance YouTubers... 18 Are Losing Money!</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
-  <p class="summary">この動画では、30 人の Finance YouTuber の 2026 年の半期の実際のリターンを追跡して、誰が市場の天才で誰が F-Tier に属するかを調べました。結果は、60% の YouTuber がインデックスを下回っており、最下位層は Saaspocalypse によって大きな損失を被ったことがわかりました。一方、リーダーは 6 か月で +101% のリターンを達成しました。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>60% の Finance YouTuber がインデックスを下回っている</li><li>最下位層は Saaspocalypse によって大きな損失を被った</li><li>リーダーは 6 か月で +101% のリターンを達成した</li><li>YouTuber の実際のリターンを追跡することで、市場の動向を理解することができる</li><li>投資家は、YouTuber のアドバイスに従う前に、実際のリターンを確認する必要がある</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=9EZzyjAZ-Zc" target="_blank" rel="noopener">INVESTORS are about to LOSE THEIR MIND‼️</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-06 01:08 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=aIzjCVMVXk0" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-08 07:01 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=9EZzyjAZ-Zc" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=xE_2E2jQlJs" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/xE_2E2jQlJs/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=DMS9WEhUuu8" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/DMS9WEhUuu8/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
-    <span class="channel-name">Rick Orford</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="channel-name">Will Rich</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=xE_2E2jQlJs" target="_blank" rel="noopener">TSMC’s Powerful AI Pricing Boom Could Change Everything</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/TSM.html">TSM</a><a class="ticker" href="ticker/AAPL.html">AAPL</a><a class="ticker" href="ticker/NVDA.html">NVDA</a><a class="ticker" href="ticker/AMD.html">AMD</a><a class="ticker" href="ticker/AVGO.html">AVGO</a><a class="ticker" href="ticker/QCOM.html">QCOM</a><span class="topic">個別銘柄分析</span><span class="topic">テクノロジー</span></div>
-  <p class="summary">この動画では、<b>TSMC</b> のAI関連の価格上昇が市場に与える影響について分析している。動画では、<b>TSMC</b> のチップ製造における支配的地位、価格上昇による将来の収益増加、評価リスク、法的リスクについて言及している。また、<b>Apple</b>, <b>Nvidia</b>, <b>AMD</b>, <b>Broadcom</b>, <b>Qualcomm</b> などの企業が<b>TSMC</b>に依存していることも紹介されている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>TSMC</b> のチップ製造における支配的地位</li><li>価格上昇による将来の収益増加</li><li>評価リスクの増大</li><li>法的リスクの存在</li><li>地政学的リスクの影響</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=DMS9WEhUuu8" target="_blank" rel="noopener">LESS Trades = MORE Profit? The Numbers Don't Lie...</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-06 01:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=xE_2E2jQlJs" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-07 23:19 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=DMS9WEhUuu8" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-bullish" data-sentiment="bullish">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=jmUbTAcAyas" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/jmUbTAcAyas/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent bullish">▲ bullish</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=jmUbTAcAyas" target="_blank" rel="noopener">Massive News for Tesla Stock Investors! | TSLA Stock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/TSLA.html">TSLA</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>Tesla</b> の最新の四半期における電気自動車 (EV) の出荷量の増加について報告している。YouTuber は、<b>TSLA</b> 株主にとっての大きなニュースについて分析している。また、YouTuber の投資フレームワークや、The Motley Fool とのスポンサーについても触れている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li><b>Tesla</b> の最新の四半期における EV の出荷量の増加について報告</li><li>YouTuber の投資フレームワークについて紹介</li><li>The Motley Fool とのスポンサーについて触れている</li><li>過去の投資成果について言及</li><li>投資家向けの書籍について紹介</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-05 23:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=jmUbTAcAyas" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=GcWu2l47iXo" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/GcWu2l47iXo/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Rick Orford</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=GcWu2l47iXo" target="_blank" rel="noopener">Cloudflare’s Powerful AI Toll Road Could Be Huge</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/NET.html">NET</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>Cloudflare</b> の株式 (<b>NET</b>) が AI 技術の分野で大きな機会を持っている可能性について論じられている。特に、AI エージェントのトラフィックを活用した新しいビジネスモデル「Pay Per Crawl」が注目されている。ただし、<b>Amazon</b> の参入や高額な評価がリスク要因となっている。動画では、<b>Cloudflare</b> の事業内容、AI エージェントの潜在的な影響、株式の評価について分析が行われている。</p>
-  <details class="points-details"><summary>key points <span class="points-count">4</span></summary><ul class="points"><li><b>Cloudflare</b> の AI エージェント トラフィックの可能性</li><li>Pay Per Crawl による新しい収益源</li><li><b>Amazon</b> の参入によるリスク</li><li>高額な評価が株式の価値に与える影響</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-05 23:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=GcWu2l47iXo" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=WWRJJ1vBsnw" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/WWRJJ1vBsnw/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
-  <div class="card-top">
-    <span class="channel-name">Felix & Friends</span>
-    <span class="badge-sent neutral">● neutral</span>
-  </div>
-  <h3><a href="https://www.youtube.com/watch?v=WWRJJ1vBsnw" target="_blank" rel="noopener">Gold's Bloodbath, the Dollar Reset, and What Happens Next</a></h3>
-  <div class="tags"><span class="topic">マクロ経済</span><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
-  <p class="summary">Goldの価格は13年間で最悪のクォーターを経験したが、FelixとClive Thompsonは慎重な楽観主義を見せている。GoldとSilverの価格動向、米国債の供給減少、ドル安の影響について議論している。また、個人投資家へのアドバイスとして、過度に投資しないこと、買い場で少しずつ増やしていくことの重要性を強調している。さらに、1987年のクラッシュの事例から、急激な下落後に強い反発が起こる可能性について言及している。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>GoldとSilverの価格動向は不確実だが、楽観的な見方もある</li><li>過度に投資しないこと、買い場で少しずつ増やしていくことが重要</li><li>米国債の供給減少は金利の低下につながる可能性がある</li><li>ドル安はGoldにプラスの影響を与える</li><li>個人投資家はリスク管理を意識する必要がある</li></ul></details>
-  <div class="card-footer">
-    <time>2026-07-05 22:00 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=WWRJJ1vBsnw" target="_blank" rel="noopener">watch ↗</a>
-  </div>
-</article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=37g4q_Wi1lk" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/37g4q_Wi1lk/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=Ar4DeHSRvLc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Ar4DeHSRvLc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=37g4q_Wi1lk" target="_blank" rel="noopener">Should Investors Buy Amazon Stock Instead of Walmart? | AMZN STock Analysis | WMT STock Analysis</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/AMZN.html">AMZN</a><a class="ticker" href="ticker/WMT.html">WMT</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>AMZN</b> と <b>WMT</b> の比較分析が行われています。過去12ヶ月の収益で <b>AMZN</b> が <b>WMT</b> を上回ったことが報告されています。YouTuberは、投資家がこれらの企業を分析する際に考慮すべき点について説明しています。また、YouTuberの投資フレームワークや書籍についても触れています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>過去12ヶ月の収益でAMZNがWMTを上回った</li><li>投資家は企業の財務状況と成長可能性を考慮する必要がある</li><li>YouTuberの投資フレームワークは、投資家が情報に基づいた決定を下すのに役立つ</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=Ar4DeHSRvLc" target="_blank" rel="noopener">Massive News for ALL Stock Market Investors!</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-05 21:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=37g4q_Wi1lk" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-07 22:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=Ar4DeHSRvLc" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=XKum9WcbE-M" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/XKum9WcbE-M/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="ADBE TTD">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=paWlV2tWfUY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/paWlV2tWfUY/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=XKum9WcbE-M" target="_blank" rel="noopener">Should Investors Buy Microsoft Stock Instead of Apple Stock? | MSFT Stock Analysis | AAPL Stock</a></h3>
-  <div class="tags"><a class="ticker" href="ticker/MSFT.html">MSFT</a><a class="ticker" href="ticker/AAPL.html">AAPL</a><span class="topic">個別銘柄分析</span><span class="topic">投資戦略</span></div>
-  <p class="summary">この動画では、<b>Microsoft</b> (<b>MSFT</b>) と <b>Apple</b> (<b>AAPL</b>) の比較分析が行われています。動画では、どちらの企業の株式を購入するかについて議論されています。さらに、The Motley Fool の特別オファーや、大学教授によって開発された投資フレームワークについても触れています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Microsoft と Apple の比較分析</li><li>The Motley Fool の投資アドバイス</li><li>個別の投資戦略の重要性</li><li>リスク管理の方法</li><li>ポートフォリオの構築</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=paWlV2tWfUY" target="_blank" rel="noopener">Best Undervalued Stock to Buy: Adobe Stock or The Trade Desk Stock? | ADBE STock vs. TTD Stock</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/ADBE.html">ADBE</a><a class="ticker" href="ticker/TTD.html">TTD</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">この動画では、<b>Adobe</b> (ADBE) と <b>The Trade Desk</b> (TTD) の二つの企業について、どちらが割安な銘柄であるかを比較検討しています。実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-05 20:45 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=XKum9WcbE-M" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-07 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=paWlV2tWfUY" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=rMjIikVISi4" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/rMjIikVISi4/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Sven Carlin</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=rMjIikVISi4" target="_blank" rel="noopener">When to Buy META Stock!</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
+  <div class="card-footer">
+    <time>2026-07-07 21:00 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=rMjIikVISi4" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=k7KTvfgxUPc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/k7KTvfgxUPc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=k7KTvfgxUPc" target="_blank" rel="noopener">My Forever Portfolio: 5 Undervalued Stocks to Buy Now and Hold Forever</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
+  <div class="card-footer">
+    <time>2026-07-07 20:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=k7KTvfgxUPc" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/Gxl8W8MUwtI/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Wolf of Dubai</span>
+    <span class="card-badges"><span class="badge-sent neutral">● neutral</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener">$BMNR: The 900% Recovery Nobody Sees Coming</a></h3>
+  
+  <p class="summary"><b>BMNR</b> の株価が 900% 上昇する可能性があると主張している。動画では、<b>BMNR</b> の将来的な潜在性について言及しているが、具体的な根拠や分析は示されていない。実質的な投資情報は限られている。
+  </p>
+  
+  <div class="card-footer">
+    <time>2026-07-07 08:11 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=Gxl8W8MUwtI" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/MXYizIemOAE/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Everything Money</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener">Here's What Investors Need To Do Right Now | Paul Reacts Live</a></h3>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
+  <div class="card-footer">
+    <time>2026-07-07 05:36 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=MXYizIemOAE" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="UPST">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/UxNsEXjsNhM/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+  <div class="card-top">
+    <span class="channel-name">Parkev's Picks</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
+  </div>
+  <h3><a href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener">Upstart Stock Analysis: Buy or Sell This AI Stock? | UPST STock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/UPST.html">UPST</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">UPST のビジネスモデルは収益性があることが証明されているが、実質的な投資情報なし</p>
+  
+  <div class="card-footer">
+    <time>2026-07-06 23:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=UxNsEXjsNhM" target="_blank" rel="noopener">watch ↗</a>
+  </div>
+</article>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="">
   <div class="card-thumb"><a href="https://www.youtube.com/watch?v=4SSr8lLONUg" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/4SSr8lLONUg/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Will Rich</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
   <h3><a href="https://www.youtube.com/watch?v=4SSr8lLONUg" target="_blank" rel="noopener">Top Stocks To Watch This Week</a></h3>
-  <div class="tags"><span class="topic">個別銘柄分析</span><span class="topic">市場見通し</span></div>
-  <p class="summary">この動画では、注目すべき銘柄について議論しています。動画のタイトルは「今週の注目銘柄」です。動画では、<b>Tesla</b> や <b>Nvidia</b> のような企業について言及していますが、具体的な銘柄については言及されていません。動画の概要欄には、YouTuberの公式サイトやソーシャルメディアへのリンクが記載されています。</p>
-  <details class="points-details"><summary>key points <span class="points-count">3</span></summary><ul class="points"><li>YouTuberは今週の注目銘柄について議論しています</li><li>動画では、市場の動向について分析しています</li><li>YouTuberは視聴者に投資についてのアドバイスを提供しています</li></ul></details>
+  
+  <p class="summary">実質的な投資情報なし</p>
+  
   <div class="card-footer">
     <time>2026-07-06 23:29 JST</time>
     <a class="watch-btn" href="https://www.youtube.com/watch?v=4SSr8lLONUg" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
-<article class="card sent-neutral" data-sentiment="neutral">
-  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=GXFFlItjnwc" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/GXFFlItjnwc/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
+<article class="card sent-neutral" data-sentiment="neutral" data-tickers="CRM ORCL">
+  <div class="card-thumb"><a href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/lycPExBWZQI/mqdefault.jpg" alt="" loading="lazy" onerror="this.closest('.card-thumb').style.display='none'"></a></div>
   <div class="card-top">
     <span class="channel-name">Parkev's Picks</span>
-    <span class="badge-sent neutral">● neutral</span>
+    <span class="card-badges"><span class="badge-promo">&#9888; promo-heavy</span><span class="badge-sent neutral">● neutral</span></span>
   </div>
-  <h3><a href="https://www.youtube.com/watch?v=GXFFlItjnwc" target="_blank" rel="noopener">Elon Musk Delivers Massive News for AI Stock Investors</a></h3>
-  <div class="tags"><span class="topic">投資戦略</span><span class="topic">市場見通し</span></div>
-  <p class="summary">Elon Musk は AI の支出を制限してコストを管理することを発表した。動画では、The Motley Fool による特別オファーと、大学教授と Chartered Financial Analyst (CFA) によって開発された 6 ステップの投資フレームワークについても言及されている。動画の内容は、<b>Elon Musk</b> の AI に関する決定と、投資家のためのさまざまなツールやリソースについてである。</p>
-  <details class="points-details"><summary>key points <span class="points-count">5</span></summary><ul class="points"><li>Elon Musk は AI の支出を制限してコストを管理することを発表した</li><li>The Motley Fool による特別オファーが紹介されている</li><li>6 ステップの投資フレームワークが提供されている</li><li>Fiscal.ai による投資研究ツールが紹介されている</li><li>動画では、投資家のためのさまざまなリソースが提供されている</li></ul></details>
+  <h3><a href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener">Should You Buy Salesforce Stock Instead of Oracle Stock? | CRM Stock Analysis | ORCL Stock Analysis</a></h3>
+  <div class="tags"><a class="ticker" href="ticker/CRM.html">CRM</a><a class="ticker" href="ticker/ORCL.html">ORCL</a><span class="topic">個別銘柄分析</span></div>
+  <p class="summary">動画では、<b>CRM</b> と <b>ORCL</b> の比較分析が行われており、どちらが現在の市場価格でより良い投資かについて議論されている。実質的な投資情報なし</p>
+  
   <div class="card-footer">
-    <time>2026-07-05 22:15 JST</time>
-    <a class="watch-btn" href="https://www.youtube.com/watch?v=GXFFlItjnwc" target="_blank" rel="noopener">watch ↗</a>
+    <time>2026-07-06 21:45 JST</time>
+    <a class="watch-btn" href="https://www.youtube.com/watch?v=lycPExBWZQI" target="_blank" rel="noopener">watch ↗</a>
   </div>
 </article>
       <div id="no-results">// no results matching filters</div>
     </div>
   </div>
 
-  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-07-07 08:15 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
+  <footer>// top investment voices, distilled &nbsp;·&nbsp; 2026-07-08 08:09 JST &nbsp;·&nbsp; powered by <a href="https://suno.com/@crazyzenmonk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);">CZM PROJECT</a></footer>
 
   <script>
     // IntersectionObserver card fade-in
@@ -828,13 +837,15 @@
 
     // Filters
     let activeSentiment = 'all';
+    let activeTicker = null;
     const allCards = document.querySelectorAll('.card');
 
     function applyFilters() {
       let visible = 0;
       allCards.forEach(c => {
         const matchS = activeSentiment === 'all' || c.dataset.sentiment === activeSentiment;
-        if (matchS) { c.classList.remove('hidden'); visible++; }
+        const matchT = !activeTicker || (c.dataset.tickers || '').split(' ').includes(activeTicker);
+        if (matchS && matchT) { c.classList.remove('hidden'); visible++; }
         else { c.classList.add('hidden'); }
       });
       document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
@@ -849,6 +860,20 @@
       });
     });
 
+    // Trending Tickers → 銘柄フィルタ（再クリックで解除）
+    document.querySelectorAll('.trend-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const t = chip.dataset.ticker;
+        activeTicker = (activeTicker === t) ? null : t;
+        document.querySelectorAll('.trend-chip').forEach(c2 =>
+          c2.classList.toggle('active', c2.dataset.ticker === activeTicker));
+        if (activeTicker) {
+          document.getElementById('grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        applyFilters();
+      });
+    });
+
     // bg canvas
     (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -857,7 +882,7 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const TICKERS = ["BMNR", "AMD", "MU", "GEV", "UPST", "MRVL", "ACN", "AVGO", "NVDA", "FVRR", "UPWK", "SOFI", "CRM", "ORCL", "NOW", "PATH", "META", "TSM", "AAPL", "QCOM", "TSLA", "NET", "AMZN", "WMT", "MSFT"];
+  const TICKERS = ["BMNR", "INTC", "PFE", "WDC", "ACN", "VKTX", "LLY", "ADBE", "TTD", "IREN", "AMD", "GEV", "UPST", "MRVL", "AVGO", "NVDA", "FVRR", "UPWK", "SOFI", "CRM", "ORCL", "NOW", "PATH"];
   const chars = (TICKERS.length ? TICKERS.join(' ') : 'ALPHADIGEST').split('');
 
   // 4x4 Bayer ordered dither
