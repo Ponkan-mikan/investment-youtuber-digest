@@ -24,6 +24,30 @@ DOCS_DIR = BASE_DIR / "docs"
 # 何時間以内の動画を対象にするか（デフォルト48h = 投稿漏れを防ぐため少し余裕を持たせる）
 LOOKBACK_HOURS = 48
 
+# RSS 取得のリトライ設定。YouTube はデータセンターIPからのアクセスを
+# ボット判定して 403 / 429 / 404 を返すことがあるため、待って再試行する。
+RSS_MAX_ATTEMPTS = 3
+RSS_RETRY_WAIT   = 5  # 秒（試行ごとに 5s, 10s と伸びる）
+
+# Groq 呼び出しの間隔（秒）。無料枠の gpt-oss-120b は 8,000 TPM で、
+# 1本あたり入力約2,000＋出力（推論込み）約1,000トークンを消費する。
+# 25秒間隔なら約2.4回/分 = 約7,200 TPM に収まる。
+GROQ_CALL_INTERVAL = 25
+
+# RSS 取得に失敗したチャンネルIDを記録する（終了時の品質ゲートで使用）
+RSS_FAILED_CHANNELS: list[str] = []
+
+# YouTube にボット判定されないようブラウザ相当のヘッダを付ける
+_RSS_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/atom+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
 # ---- チャンネルID解決 ---------------------------------------------------
 
 def get_channel_id_from_handle(handle: str) -> str | None:
@@ -90,12 +114,27 @@ def resolve_channel_ids(channels: list[dict]) -> list[dict]:
 def get_recent_videos(channel_id: str, hours: int = LOOKBACK_HOURS) -> list[dict]:
     """RSS フィードから直近 `hours` 時間以内の動画を取得する。"""
     rss_url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
-    try:
-        resp = requests.get(rss_url, timeout=20)
-        resp.raise_for_status()
-        feed = feedparser.parse(resp.content)
-    except Exception as e:
-        print(f"  [WARN] RSS取得失敗 (channel_id={channel_id}): {e}")
+    feed = None
+    for attempt in range(RSS_MAX_ATTEMPTS):
+        try:
+            resp = requests.get(rss_url, headers=_RSS_HEADERS, timeout=20)
+        except requests.exceptions.RequestException as e:
+            print(f"  [WARN] RSS接続エラー ({attempt+1}/{RSS_MAX_ATTEMPTS}): {e}")
+        else:
+            if resp.status_code == 200:
+                feed = feedparser.parse(resp.content)
+                break
+            # 403/429 = ボット判定・レート制限、404 = 一時的に返ることがある
+            print(f"  [WARN] RSS取得失敗 HTTP {resp.status_code} "
+                  f"({attempt+1}/{RSS_MAX_ATTEMPTS}, channel_id={channel_id})")
+        if attempt < RSS_MAX_ATTEMPTS - 1:
+            wait = RSS_RETRY_WAIT * (attempt + 1)
+            print(f"  → {wait}秒待機して再試行します")
+            time.sleep(wait)
+
+    if feed is None:
+        print(f"  [ERROR] RSS取得を{RSS_MAX_ATTEMPTS}回試行して失敗 (channel_id={channel_id})")
+        RSS_FAILED_CHANNELS.append(channel_id)
         return []
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     results = []
@@ -284,7 +323,8 @@ SUMMARY_PROMPT_TEMPLATE = """\
 
 
 _GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-_GROQ_MODEL = "llama-3.3-70b-versatile"
+# llama-3.3-70b-versatile は 2026-08-16 に Groq 側で廃止されたため gpt-oss へ移行
+_GROQ_MODEL = "openai/gpt-oss-120b"
 
 
 def summarize_video(
@@ -292,7 +332,7 @@ def summarize_video(
     title: str,
     description: str,
 ) -> dict:
-    """Groq API（Llama 3.3 70B）を使って動画の投資情報を要約する。"""
+    """Groq API（gpt-oss-120b）を使って動画の投資情報を要約する。"""
     prompt = SUMMARY_PROMPT_TEMPLATE.format(
         title=title,
         description=description[:2000],
@@ -304,7 +344,10 @@ def summarize_video(
     payload = {
         "model": _GROQ_MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 1024,
+        # gpt-oss は推論モデルで、推論トークンも max_tokens を消費する。
+        # 推論を最小にしたうえで、JSONが途中で切れないよう枠を広めに取る。
+        "reasoning_effort": "low",
+        "max_tokens": 2048,
         "temperature": 0.2,
     }
     # 最大3回リトライ（429 = レート制限時は待機）
@@ -1725,7 +1768,8 @@ def generate_executive_summary_text(
     payload = {
         "model": _GROQ_MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 512,
+        "reasoning_effort": "low",
+        "max_tokens": 1024,
         "temperature": 0.3,
     }
     for attempt in range(2):
@@ -2112,7 +2156,42 @@ def main() -> None:
                 "analysis":     analysis,
             })
 
-            time.sleep(2)  # Groq レート制限対策（30 RPM = 2秒間隔）
+            time.sleep(GROQ_CALL_INTERVAL)
+
+    # ---- 品質ゲート -------------------------------------------------------
+    # 中身のないページを gh-pages に公開してしまうと過去分を上書きしてしまうため、
+    # 収集・要約が全滅している場合はここで異常終了させ、デプロイステップに進ませない。
+    n_active_channels = sum(1 for ch in channels if ch.get("channel_id"))
+    if RSS_FAILED_CHANNELS:
+        print(f"[WARN] RSS取得に失敗したチャンネル: "
+              f"{len(RSS_FAILED_CHANNELS)}/{n_active_channels}")
+
+    if not all_results:
+        raise RuntimeError(
+            f"動画を1本も取得できませんでした（RSS失敗 {len(RSS_FAILED_CHANNELS)}"
+            f"/{n_active_channels} チャンネル）。"
+            "空のページを公開しないため中断します。"
+        )
+
+    if len(RSS_FAILED_CHANNELS) > n_active_channels / 2:
+        raise RuntimeError(
+            f"RSS取得が過半数のチャンネルで失敗しました "
+            f"({len(RSS_FAILED_CHANNELS)}/{n_active_channels})。"
+            "欠落したページを公開しないため中断します。"
+        )
+
+    n_summary_failed = sum(
+        1 for r in all_results
+        if r.get("analysis", {}).get("summary_ja", "").startswith("要約の")
+    )
+    if n_summary_failed == len(all_results):
+        raise RuntimeError(
+            f"{len(all_results)}本すべての要約に失敗しました"
+            "（Groq API のモデル廃止・キー失効・障害の可能性）。"
+            "中身のないページを公開しないため中断します。"
+        )
+    if n_summary_failed:
+        print(f"[WARN] 要約に失敗した動画: {n_summary_failed}/{len(all_results)}")
 
     # 当日言及されたティッカーの株価スナップショットを取得
     all_results.sort(key=lambda r: r.get("published", ""), reverse=True)
