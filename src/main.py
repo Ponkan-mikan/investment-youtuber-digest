@@ -1740,6 +1740,21 @@ def get_undervalued_picks(today_results: list) -> list:
     return items
 
 
+_JP_TEXT_RE = re.compile(r"[ぁ-んァ-ヶ一-龥]")
+
+
+def _is_japanese(text: str) -> bool:
+    """生成されたテキストが日本語で書かれているかを判定する。"""
+    return bool(_JP_TEXT_RE.search(text or ""))
+
+
+def _exec_summary_is_japanese(data: dict) -> bool:
+    """エグゼクティブサマリーの本文・キーポイントが日本語かどうかを判定する。"""
+    if not _is_japanese(data.get("overall_summary", "")):
+        return False
+    return all(_is_japanese(kp) for kp in data.get("key_points", []) if kp)
+
+
 def generate_executive_summary_text(
     api_key: str, results: list, n_bullish: int, n_bearish: int, n_neutral: int
 ) -> dict:
@@ -1758,21 +1773,38 @@ def generate_executive_summary_text(
 
 {combined}
 
+【出力言語 — 最重要】
+overall_summary と key_points の地の文は必ず日本語で書くこと。素材が英語であっても、
+英語の文章で回答してはならない。
+例外は企業名・銘柄名のみで、そこは英語のアルファベット表記（例: Tesla, Nvidia, Palantir）
+またはティッカーシンボル（TSLA, NVDA, PLTR）を使い、カタカナ表記は使用しない。
+この「英語表記」の指示は固有名詞にのみ適用されるものであり、文章全体を英語にする指示ではない。
+
 以下のJSON形式のみで回答してください（マークダウン不要、JSONオブジェクトのみ）:
 {{
-  "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的な日本語サマリー（3〜5文）。企業名・銘柄名は英語のアルファベット表記（例: Tesla, Nvidia, Palantir）またはティッカーシンボル（TSLA, NVDA, PLTR）のみ使用し、カタカナ表記は一切使用しない。",
-  "key_points": ["投資家が今日注目すべき重要なポイント（最大4つ、日本語で具体的・アクション性のある内容）。企業名は英語表記またはティッカーシンボルのみ使用し、カタカナ表記は一切使用しない。"]
+  "overall_summary": "本日の市場・投資テーマについて、個人投資家が把握すべき総合的なサマリーを日本語で3〜5文",
+  "key_points": ["投資家が今日注目すべき重要なポイントを日本語で。最大4つ、具体的・アクション性のある内容"]
 }}"""
 
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     payload = {
         "model": _GROQ_MODEL,
-        "messages": [{"role": "user", "content": prompt}],
+        "messages": [
+            {"role": "system", "content": (
+                "あなたは日本語で執筆する金融アナリストです。"
+                "与えられる資料が英語であっても、回答の文章は必ず日本語で書きます。"
+                "英語を使うのは企業名・銘柄名・ティッカーシンボルだけです。"
+            )},
+            {"role": "user", "content": prompt},
+        ],
         "reasoning_effort": "low",
         "max_tokens": 1024,
         "temperature": 0.3,
     }
-    for attempt in range(2):
+    # 英語で返ってくることがあるため、日本語で生成されるまで再試行する。
+    # 全て英語だった場合は最後の結果を捨てずにフォールバックとして返す。
+    fallback: dict | None = None
+    for attempt in range(3):
         try:
             if attempt > 0:
                 print("  [INFO] エグゼクティブサマリー再試行中 (5s待機)...")
@@ -1785,10 +1817,17 @@ def generate_executive_summary_text(
             text_clean = re.sub(r"\s*```", "", text_clean).strip()
             m = re.search(r"\{[\s\S]*\}", text_clean)
             if m:
-                return json.loads(m.group())
+                data = json.loads(m.group())
+                if _exec_summary_is_japanese(data):
+                    return data
+                print(f"  [WARN] 日本語で生成されませんでした (attempt {attempt+1})。再試行します")
+                fallback = fallback or data
         except Exception as e:
             print(f"  [WARN] エグゼクティブサマリー生成失敗 (attempt {attempt+1}): {e}")
             traceback.print_exc()
+    if fallback:
+        print("  [WARN] 日本語での生成に失敗したため、英語の結果をそのまま使用します")
+        return fallback
     return {"overall_summary": "", "key_points": []}
 
 
