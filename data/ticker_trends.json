@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06",
+  "generatedAt": "2026-09-07",
   "windowDays": 7,
   "tickers": {
     "RXRX": {
@@ -12,20 +12,21 @@
     },
     "MSFT": {
       "thisWeek": 11,
-      "prevWeek": 1,
+      "prevWeek": 2,
       "status": "spike",
-      "wowPct": 1000
+      "wowPct": 450
     },
     "META": {
+      "thisWeek": 6,
+      "prevWeek": 3,
+      "status": "spike",
+      "wowPct": 100
+    },
+    "GOOGL": {
       "thisWeek": 6,
       "prevWeek": 2,
       "status": "spike",
       "wowPct": 200
-    },
-    "GOOGL": {
-      "thisWeek": 7,
-      "prevWeek": 0,
-      "status": "new"
     },
     "UBER": {
       "thisWeek": 2,
@@ -37,7 +38,7 @@
       "prevWeek": 0
     },
     "SOFI": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "ASML": {
@@ -45,14 +46,12 @@
       "prevWeek": 0
     },
     "LRCX": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "MU": {
       "thisWeek": 3,
-      "prevWeek": 1,
-      "status": "spike",
-      "wowPct": 200
+      "prevWeek": 2
     },
     "Z": {
       "thisWeek": 0,
@@ -68,32 +67,33 @@
     },
     "TSLA": {
       "thisWeek": 14,
-      "prevWeek": 2,
+      "prevWeek": 3,
       "status": "spike",
-      "wowPct": 600
+      "wowPct": 367
     },
     "KO": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "NVDA": {
-      "thisWeek": 32,
-      "prevWeek": 2,
+      "thisWeek": 36,
+      "prevWeek": 4,
       "status": "spike",
-      "wowPct": 1500
+      "wowPct": 800
     },
     "PANW": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "GOOG": {
-      "thisWeek": 6,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 5,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 400
     },
     "RIVN": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "TSCO": {
       "thisWeek": 0,
@@ -112,14 +112,16 @@
       "prevWeek": 0
     },
     "PLTR": {
-      "thisWeek": 3,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 4,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 300
     },
     "RKLB": {
       "thisWeek": 6,
-      "prevWeek": 0,
-      "status": "new"
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 500
     },
     "APLD": {
       "thisWeek": 2,
@@ -127,8 +129,9 @@
       "status": "new"
     },
     "SMCI": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "NBIS": {
       "thisWeek": 1,
@@ -175,7 +178,7 @@
     },
     "NKE": {
       "thisWeek": 1,
-      "prevWeek": 1
+      "prevWeek": 2
     },
     "SOUN": {
       "thisWeek": 0,
@@ -225,9 +228,10 @@
       "prevWeek": 0
     },
     "ASTS": {
-      "thisWeek": 6,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 5,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 400
     },
     "MELI": {
       "thisWeek": 2,
@@ -261,7 +265,7 @@
       "status": "new"
     },
     "SNOW": {
-      "thisWeek": 2,
+      "thisWeek": 3,
       "prevWeek": 0,
       "status": "new"
     },
@@ -279,23 +283,25 @@
       "status": "new"
     },
     "MRVL": {
-      "thisWeek": 4,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 3,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 200
     },
     "TSMC": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "AVGO": {
-      "thisWeek": 9,
+      "thisWeek": 10,
       "prevWeek": 0,
       "status": "new"
     },
     "AMD": {
       "thisWeek": 8,
-      "prevWeek": 0,
-      "status": "new"
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 700
     },
     "DAL": {
       "thisWeek": 0,
@@ -324,9 +330,8 @@
       "prevWeek": 0
     },
     "OKLO": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "CVS": {
       "thisWeek": 0,
@@ -337,13 +342,13 @@
       "prevWeek": 0
     },
     "AMZN": {
-      "thisWeek": 5,
-      "prevWeek": 1,
+      "thisWeek": 4,
+      "prevWeek": 2,
       "status": "spike",
-      "wowPct": 400
+      "wowPct": 100
     },
     "FUBO": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "BBAI": {
@@ -379,10 +384,10 @@
       "prevWeek": 0
     },
     "AAPL": {
-      "thisWeek": 8,
-      "prevWeek": 1,
+      "thisWeek": 7,
+      "prevWeek": 2,
       "status": "spike",
-      "wowPct": 700
+      "wowPct": 250
     },
     "TTD": {
       "thisWeek": 0,
@@ -430,8 +435,8 @@
       "prevWeek": 0
     },
     "BA": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "JOBY": {
       "thisWeek": 2,
@@ -469,7 +474,7 @@
       "prevWeek": 0
     },
     "NFLX": {
-      "thisWeek": 2,
+      "thisWeek": 3,
       "prevWeek": 0,
       "status": "new"
     },
@@ -515,14 +520,12 @@
       "status": "new"
     },
     "NOC": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "RTX": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "IBM": {
       "thisWeek": 1,
@@ -568,9 +571,8 @@
       "prevWeek": 0
     },
     "BABA": {
-      "thisWeek": 3,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 2,
+      "prevWeek": 1
     },
     "PDD": {
       "thisWeek": 0,
@@ -597,8 +599,9 @@
       "prevWeek": 0
     },
     "LMT": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "DPZ": {
       "thisWeek": 0,
@@ -708,9 +711,8 @@
       "prevWeek": 0
     },
     "UPS": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "FDX": {
       "thisWeek": 2,
@@ -730,8 +732,9 @@
       "prevWeek": 0
     },
     "DIS": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "NVO": {
       "thisWeek": 0,
@@ -746,7 +749,7 @@
       "prevWeek": 0
     },
     "MCD": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "UPST": {
@@ -806,13 +809,12 @@
       "prevWeek": 0
     },
     "LCID": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "RDW": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "POET": {
       "thisWeek": 0,
@@ -881,9 +883,7 @@
     },
     "CRM": {
       "thisWeek": 3,
-      "prevWeek": 1,
-      "status": "spike",
-      "wowPct": 200
+      "prevWeek": 3
     },
     "CHTR": {
       "thisWeek": 0,
@@ -923,9 +923,8 @@
       "prevWeek": 0
     },
     "LUNR": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "BKSY": {
       "thisWeek": 0,
@@ -995,7 +994,7 @@
       "status": "new"
     },
     "NIO": {
-      "thisWeek": 3,
+      "thisWeek": 4,
       "prevWeek": 0,
       "status": "new"
     },
@@ -1247,8 +1246,8 @@
       "prevWeek": 0
     },
     "GLW": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "RSI": {
       "thisWeek": 0,
@@ -1299,8 +1298,9 @@
       "prevWeek": 0
     },
     "RBRK": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "GLBE": {
       "thisWeek": 0,
@@ -1459,8 +1459,8 @@
       "prevWeek": 0
     },
     "NTDOY": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "AMAT": {
       "thisWeek": 0,
@@ -1543,20 +1543,20 @@
       "prevWeek": 0
     },
     "EBAY": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "ETSY": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "DWAVE": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "CCL": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "DECK": {
       "thisWeek": 0,
@@ -1571,8 +1571,8 @@
       "prevWeek": 1
     },
     "SWCH": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "HSY": {
       "thisWeek": 2,
@@ -1632,6 +1632,14 @@
       "prevWeek": 0
     },
     "ADOBE": {
+      "thisWeek": 1,
+      "prevWeek": 0
+    },
+    "WYN": {
+      "thisWeek": 1,
+      "prevWeek": 0
+    },
+    "HOME": {
       "thisWeek": 1,
       "prevWeek": 0
     }
@@ -1737,7 +1745,8 @@
       "2026-09-03": 3,
       "2026-09-04": 2,
       "2026-09-05": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "META": {
       "2026-04-01": 4,
@@ -1823,7 +1832,8 @@
       "2026-08-31": 1,
       "2026-09-02": 1,
       "2026-09-03": 3,
-      "2026-09-04": 1
+      "2026-09-04": 1,
+      "2026-09-07": 1
     },
     "GOOGL": {
       "2026-04-01": 1,
@@ -1884,7 +1894,8 @@
       "2026-09-03": 1,
       "2026-09-04": 1,
       "2026-09-05": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "UBER": {
       "2026-04-01": 2,
@@ -1992,7 +2003,8 @@
       "2026-08-05": 2,
       "2026-08-12": 1,
       "2026-08-13": 1,
-      "2026-08-15": 1
+      "2026-08-15": 1,
+      "2026-09-07": 1
     },
     "ASML": {
       "2026-04-01": 1,
@@ -2106,7 +2118,8 @@
       "2026-08-30": 1,
       "2026-08-31": 1,
       "2026-09-01": 1,
-      "2026-09-02": 1
+      "2026-09-02": 1,
+      "2026-09-07": 1
     },
     "Z": {
       "2026-04-01": 1,
@@ -2215,7 +2228,8 @@
       "2026-09-03": 1,
       "2026-09-04": 3,
       "2026-09-05": 3,
-      "2026-09-06": 2
+      "2026-09-06": 2,
+      "2026-09-07": 1
     },
     "KO": {
       "2026-04-01": 1,
@@ -2357,7 +2371,8 @@
       "2026-09-03": 5,
       "2026-09-04": 7,
       "2026-09-05": 6,
-      "2026-09-06": 5
+      "2026-09-06": 5,
+      "2026-09-07": 6
     },
     "PANW": {
       "2026-04-01": 1,
@@ -2560,7 +2575,8 @@
       "2026-08-14": 1,
       "2026-08-31": 1,
       "2026-09-01": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 2
     },
     "RKLB": {
       "2026-04-01": 1,
@@ -2610,7 +2626,8 @@
       "2026-09-01": 2,
       "2026-09-02": 1,
       "2026-09-03": 1,
-      "2026-09-04": 1
+      "2026-09-04": 1,
+      "2026-09-07": 1
     },
     "APLD": {
       "2026-04-01": 1,
@@ -2662,7 +2679,8 @@
       "2026-08-14": 1,
       "2026-08-16": 1,
       "2026-08-17": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "NBIS": {
       "2026-04-01": 1,
@@ -2989,7 +3007,8 @@
       "2026-07-13": 1,
       "2026-07-14": 1,
       "2026-08-30": 1,
-      "2026-08-31": 1
+      "2026-08-31": 1,
+      "2026-09-07": 1
     },
     "SOUN": {
       "2026-04-03": 1,
@@ -3380,7 +3399,8 @@
       "2026-08-06": 1,
       "2026-08-07": 1,
       "2026-09-04": 1,
-      "2026-09-05": 1
+      "2026-09-05": 1,
+      "2026-09-07": 1
     },
     "PLUG": {
       "2026-04-08": 1,
@@ -3558,7 +3578,8 @@
       "2026-09-03": 2,
       "2026-09-04": 3,
       "2026-09-05": 2,
-      "2026-09-06": 2
+      "2026-09-06": 2,
+      "2026-09-07": 1
     },
     "AMD": {
       "2026-04-08": 1,
@@ -3645,7 +3666,8 @@
       "2026-09-01": 2,
       "2026-09-02": 2,
       "2026-09-03": 2,
-      "2026-09-04": 1
+      "2026-09-04": 1,
+      "2026-09-07": 1
     },
     "DAL": {
       "2026-04-09": 1,
@@ -3849,7 +3871,8 @@
     "FUBO": {
       "2026-04-10": 1,
       "2026-04-11": 1,
-      "2026-04-13": 1
+      "2026-04-13": 1,
+      "2026-09-07": 1
     },
     "BBAI": {
       "2026-04-10": 1,
@@ -4178,7 +4201,8 @@
       "2026-08-13": 1,
       "2026-08-17": 1,
       "2026-09-04": 1,
-      "2026-09-05": 1
+      "2026-09-05": 1,
+      "2026-09-07": 1
     },
     "MONDAY.COM": {
       "2026-04-15": 1
@@ -4400,7 +4424,8 @@
       "2026-04-21": 1,
       "2026-07-28": 1,
       "2026-07-29": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "DPZ": {
       "2026-04-21": 1,
@@ -4696,7 +4721,8 @@
       "2026-05-16": 1,
       "2026-08-06": 1,
       "2026-08-07": 1,
-      "2026-09-04": 1
+      "2026-09-04": 1,
+      "2026-09-07": 1
     },
     "NVO": {
       "2026-05-07": 1,
@@ -4735,7 +4761,8 @@
       "2026-05-18": 1,
       "2026-07-26": 1,
       "2026-08-09": 1,
-      "2026-08-10": 1
+      "2026-08-10": 1,
+      "2026-09-07": 1
     },
     "UPST": {
       "2026-05-10": 1,
@@ -5004,7 +5031,8 @@
       "2026-08-15": 1,
       "2026-08-30": 1,
       "2026-08-31": 2,
-      "2026-09-01": 1
+      "2026-09-01": 1,
+      "2026-09-07": 2
     },
     "CHTR": {
       "2026-05-22": 1,
@@ -5208,7 +5236,8 @@
       "2026-07-15": 1,
       "2026-09-02": 1,
       "2026-09-03": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "MSTR": {
       "2026-06-02": 1,
@@ -5553,7 +5582,8 @@
     "RBRK": {
       "2026-07-09": 1,
       "2026-07-10": 1,
-      "2026-09-06": 1
+      "2026-09-06": 1,
+      "2026-09-07": 1
     },
     "GLBE": {
       "2026-07-11": 1,
@@ -5867,6 +5897,12 @@
     },
     "ADOBE": {
       "2026-09-05": 1
+    },
+    "WYN": {
+      "2026-09-07": 1
+    },
+    "HOME": {
+      "2026-09-07": 1
     }
   }
 }
