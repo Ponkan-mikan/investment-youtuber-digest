@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23",
+  "generatedAt": "2026-09-24",
   "windowDays": 7,
   "tickers": {
     "RXRX": {
@@ -11,19 +11,19 @@
       "prevWeek": 0
     },
     "MSFT": {
-      "thisWeek": 3,
-      "prevWeek": 7
+      "thisWeek": 1,
+      "prevWeek": 8
     },
     "META": {
-      "thisWeek": 3,
+      "thisWeek": 4,
       "prevWeek": 6
     },
     "GOOGL": {
-      "thisWeek": 4,
-      "prevWeek": 7
+      "thisWeek": 2,
+      "prevWeek": 6
     },
     "UBER": {
-      "thisWeek": 1,
+      "thisWeek": 0,
       "prevWeek": 5
     },
     "RBK": {
@@ -31,11 +31,11 @@
       "prevWeek": 0
     },
     "SOFI": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "ASML": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "LRCX": {
@@ -43,7 +43,7 @@
       "prevWeek": 0
     },
     "MU": {
-      "thisWeek": 4,
+      "thisWeek": 3,
       "prevWeek": 12
     },
     "Z": {
@@ -55,21 +55,21 @@
       "prevWeek": 0
     },
     "COST": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "TSLA": {
-      "thisWeek": 5,
-      "prevWeek": 1,
+      "thisWeek": 4,
+      "prevWeek": 2,
       "status": "spike",
-      "wowPct": 400
+      "wowPct": 100
     },
     "KO": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "NVDA": {
-      "thisWeek": 16,
+      "thisWeek": 13,
       "prevWeek": 24
     },
     "PANW": {
@@ -81,9 +81,8 @@
       "prevWeek": 1
     },
     "RIVN": {
-      "thisWeek": 3,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 2,
+      "prevWeek": 1
     },
     "TSCO": {
       "thisWeek": 0,
@@ -102,19 +101,19 @@
       "prevWeek": 0
     },
     "PLTR": {
-      "thisWeek": 3,
-      "prevWeek": 13
+      "thisWeek": 0,
+      "prevWeek": 15
     },
     "RKLB": {
+      "thisWeek": 2,
+      "prevWeek": 2
+    },
+    "APLD": {
       "thisWeek": 1,
       "prevWeek": 3
     },
-    "APLD": {
-      "thisWeek": 0,
-      "prevWeek": 4
-    },
     "SMCI": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "NBIS": {
@@ -122,11 +121,11 @@
       "prevWeek": 0
     },
     "BMNR": {
-      "thisWeek": 6,
-      "prevWeek": 7
+      "thisWeek": 7,
+      "prevWeek": 6
     },
     "SPY": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "ETH": {
@@ -150,20 +149,18 @@
       "prevWeek": 0
     },
     "HIMS": {
-      "thisWeek": 3,
-      "prevWeek": 1,
-      "status": "spike",
-      "wowPct": 200
+      "thisWeek": 1,
+      "prevWeek": 3
     },
     "IONQ": {
       "thisWeek": 0,
-      "prevWeek": 2
+      "prevWeek": 1
     },
     "NKE": {
       "thisWeek": 10,
-      "prevWeek": 1,
+      "prevWeek": 2,
       "status": "spike",
-      "wowPct": 900
+      "wowPct": 400
     },
     "SOUN": {
       "thisWeek": 0,
@@ -182,7 +179,7 @@
       "prevWeek": 0
     },
     "LULU": {
-      "thisWeek": 1,
+      "thisWeek": 2,
       "prevWeek": 2
     },
     "VZ": {
@@ -210,7 +207,7 @@
       "prevWeek": 2
     },
     "ASTS": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "MELI": {
@@ -226,12 +223,12 @@
       "prevWeek": 0
     },
     "DUOL": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "MA": {
-      "thisWeek": 2,
-      "prevWeek": 1
+      "thisWeek": 1,
+      "prevWeek": 2
     },
     "BAM": {
       "thisWeek": 0,
@@ -274,11 +271,11 @@
     },
     "AMD": {
       "thisWeek": 14,
-      "prevWeek": 11
+      "prevWeek": 10
     },
     "DAL": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "CPRT": {
       "thisWeek": 0,
@@ -289,12 +286,13 @@
       "prevWeek": 0
     },
     "AXON": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "ORCL": {
-      "thisWeek": 2,
-      "prevWeek": 6
+      "thisWeek": 1,
+      "prevWeek": 7
     },
     "HOOD": {
       "thisWeek": 0,
@@ -314,7 +312,9 @@
     },
     "AMZN": {
       "thisWeek": 4,
-      "prevWeek": 6
+      "prevWeek": 2,
+      "status": "spike",
+      "wowPct": 100
     },
     "FUBO": {
       "thisWeek": 0,
@@ -333,7 +333,7 @@
       "prevWeek": 0
     },
     "GIS": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "ADYEN": {
@@ -353,8 +353,8 @@
       "prevWeek": 0
     },
     "AAPL": {
-      "thisWeek": 5,
-      "prevWeek": 9
+      "thisWeek": 4,
+      "prevWeek": 7
     },
     "TTD": {
       "thisWeek": 0,
@@ -426,7 +426,7 @@
     },
     "QCOM": {
       "thisWeek": 0,
-      "prevWeek": 2
+      "prevWeek": 1
     },
     "ARCHER AVIATION": {
       "thisWeek": 0,
@@ -490,7 +490,7 @@
     },
     "IBM": {
       "thisWeek": 1,
-      "prevWeek": 1
+      "prevWeek": 0
     },
     "QS": {
       "thisWeek": 0,
@@ -554,7 +554,7 @@
     },
     "VST": {
       "thisWeek": 0,
-      "prevWeek": 3
+      "prevWeek": 2
     },
     "LMT": {
       "thisWeek": 0,
@@ -589,17 +589,16 @@
       "prevWeek": 0
     },
     "GE": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "ADBE": {
       "thisWeek": 0,
       "prevWeek": 6
     },
     "FVRR": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "VERI": {
       "thisWeek": 0,
@@ -615,7 +614,7 @@
     },
     "WDC": {
       "thisWeek": 2,
-      "prevWeek": 1
+      "prevWeek": 2
     },
     "STX": {
       "thisWeek": 0,
@@ -642,8 +641,8 @@
       "prevWeek": 0
     },
     "SPOT": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "ABT": {
       "thisWeek": 0,
@@ -715,20 +714,19 @@
       "prevWeek": 0
     },
     "F": {
-      "thisWeek": 3,
-      "prevWeek": 2
+      "thisWeek": 2,
+      "prevWeek": 3
     },
     "DDOG": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "BROS": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "QQQ": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "FTNT": {
@@ -736,8 +734,9 @@
       "prevWeek": 0
     },
     "CSCO": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "APP": {
       "thisWeek": 0,
@@ -764,9 +763,10 @@
       "prevWeek": 0
     },
     "LCID": {
-      "thisWeek": 4,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 3,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 200
     },
     "RDW": {
       "thisWeek": 0,
@@ -946,9 +946,8 @@
       "prevWeek": 0
     },
     "NIO": {
-      "thisWeek": 4,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 2,
+      "prevWeek": 2
     },
     "MSTR": {
       "thisWeek": 0,
@@ -1047,14 +1046,14 @@
       "prevWeek": 0
     },
     "ETN": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "GM": {
-      "thisWeek": 4,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 3,
+      "prevWeek": 1,
+      "status": "spike",
+      "wowPct": 200
     },
     "UL": {
       "thisWeek": 0,
@@ -1209,9 +1208,8 @@
       "prevWeek": 0
     },
     "MP": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "NVIDIA": {
       "thisWeek": 0,
@@ -1262,8 +1260,8 @@
       "prevWeek": 0
     },
     "SGOV": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "USFR": {
       "thisWeek": 0,
@@ -1339,15 +1337,15 @@
       "prevWeek": 0
     },
     "SPCE": {
-      "thisWeek": 2,
-      "prevWeek": 2
+      "thisWeek": 1,
+      "prevWeek": 3
     },
     "MO": {
       "thisWeek": 0,
       "prevWeek": 0
     },
     "CTAS": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 0
     },
     "ISRG": {
@@ -1452,8 +1450,8 @@
       "prevWeek": 0
     },
     "VOO": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "SMH": {
       "thisWeek": 0,
@@ -1561,7 +1559,7 @@
     },
     "BRK.B": {
       "thisWeek": 1,
-      "prevWeek": 1
+      "prevWeek": 0
     },
     "MRO": {
       "thisWeek": 0,
@@ -1601,15 +1599,14 @@
     },
     "AMGN": {
       "thisWeek": 0,
-      "prevWeek": 1
+      "prevWeek": 0
     },
     "CVX": {
-      "thisWeek": 3,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 2,
+      "prevWeek": 1
     },
     "FICO": {
-      "thisWeek": 0,
+      "thisWeek": 1,
       "prevWeek": 2
     },
     "GLD": {
@@ -1618,11 +1615,12 @@
     },
     "MRNA": {
       "thisWeek": 2,
-      "prevWeek": 1
+      "prevWeek": 0,
+      "status": "new"
     },
     "CORE": {
       "thisWeek": 0,
-      "prevWeek": 1
+      "prevWeek": 0
     },
     "ALNY": {
       "thisWeek": 0,
@@ -1673,16 +1671,16 @@
       "prevWeek": 1
     },
     "FRVO": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "GRAB": {
       "thisWeek": 2,
-      "prevWeek": 1
+      "prevWeek": 2
     },
     "SCHO": {
-      "thisWeek": 1,
-      "prevWeek": 1
+      "thisWeek": 0,
+      "prevWeek": 2
     },
     "JETS": {
       "thisWeek": 0,
@@ -1693,46 +1691,40 @@
       "prevWeek": 1
     },
     "HUBB": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "TM": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "HMC": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "VWAGY": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "ABEV": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "XP": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "ENFN": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "USRA": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 0,
+      "prevWeek": 1
     },
     "CAVA": {
-      "thisWeek": 2,
-      "prevWeek": 0,
-      "status": "new"
+      "thisWeek": 1,
+      "prevWeek": 1
     },
     "CLARITY": {
       "thisWeek": 1,
@@ -1823,12 +1815,14 @@
       "prevWeek": 0
     },
     "NYT": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "ONH": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "ZI": {
       "thisWeek": 1,
@@ -1839,26 +1833,47 @@
       "prevWeek": 0
     },
     "FCX": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "SCCO": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "BHP": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "WM": {
-      "thisWeek": 1,
-      "prevWeek": 0
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
     },
     "KSPI": {
+      "thisWeek": 2,
+      "prevWeek": 0,
+      "status": "new"
+    },
+    "LEN": {
       "thisWeek": 1,
       "prevWeek": 0
     },
-    "LEN": {
+    "PAYX": {
+      "thisWeek": 1,
+      "prevWeek": 0
+    },
+    "ABCL": {
+      "thisWeek": 1,
+      "prevWeek": 0
+    },
+    "BFP": {
+      "thisWeek": 1,
+      "prevWeek": 0
+    },
+    "TME": {
       "thisWeek": 1,
       "prevWeek": 0
     }
@@ -2069,7 +2084,8 @@
       "2026-09-15": 1,
       "2026-09-21": 1,
       "2026-09-22": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "GOOGL": {
       "2026-04-01": 1,
@@ -2279,7 +2295,8 @@
       "2026-08-02": 1,
       "2026-08-03": 1,
       "2026-08-13": 1,
-      "2026-08-14": 1
+      "2026-08-14": 1,
+      "2026-09-24": 1
     },
     "LRCX": {
       "2026-04-01": 1,
@@ -2381,7 +2398,8 @@
       "2026-09-16": 2,
       "2026-09-17": 2,
       "2026-09-18": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "Z": {
       "2026-04-01": 1,
@@ -2410,7 +2428,8 @@
       "2026-06-05": 1,
       "2026-06-06": 1,
       "2026-07-13": 1,
-      "2026-07-14": 1
+      "2026-07-14": 1,
+      "2026-09-24": 1
     },
     "TSLA": {
       "2026-04-01": 2,
@@ -2932,7 +2951,8 @@
       "2026-09-10": 1,
       "2026-09-11": 1,
       "2026-09-12": 1,
-      "2026-09-18": 1
+      "2026-09-18": 1,
+      "2026-09-24": 1
     },
     "APLD": {
       "2026-04-01": 1,
@@ -2967,7 +2987,8 @@
       "2026-09-10": 1,
       "2026-09-11": 1,
       "2026-09-13": 1,
-      "2026-09-14": 1
+      "2026-09-14": 1,
+      "2026-09-24": 1
     },
     "SMCI": {
       "2026-04-01": 1,
@@ -2991,7 +3012,8 @@
       "2026-09-06": 1,
       "2026-09-07": 1,
       "2026-09-08": 1,
-      "2026-09-09": 1
+      "2026-09-09": 1,
+      "2026-09-24": 1
     },
     "NBIS": {
       "2026-04-01": 1,
@@ -3153,10 +3175,12 @@
       "2026-09-18": 2,
       "2026-09-20": 1,
       "2026-09-21": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 2
     },
     "SPY": {
-      "2026-04-01": 1
+      "2026-04-01": 1,
+      "2026-09-24": 1
     },
     "ETH": {
       "2026-04-01": 1,
@@ -3231,7 +3255,8 @@
       "2026-09-13": 2,
       "2026-09-17": 1,
       "2026-09-18": 2,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "RH": {
       "2026-04-03": 1,
@@ -3357,7 +3382,8 @@
       "2026-09-20": 2,
       "2026-09-21": 2,
       "2026-09-22": 2,
-      "2026-09-23": 2
+      "2026-09-23": 2,
+      "2026-09-24": 1
     },
     "SOUN": {
       "2026-04-03": 1,
@@ -3430,7 +3456,8 @@
       "2026-09-06": 2,
       "2026-09-11": 1,
       "2026-09-12": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "VZ": {
       "2026-04-05": 1
@@ -3572,7 +3599,8 @@
       "2026-09-01": 2,
       "2026-09-02": 1,
       "2026-09-03": 1,
-      "2026-09-04": 1
+      "2026-09-04": 1,
+      "2026-09-24": 1
     },
     "MELI": {
       "2026-04-08": 2,
@@ -4061,7 +4089,8 @@
       "2026-09-20": 3,
       "2026-09-21": 2,
       "2026-09-22": 2,
-      "2026-09-23": 4
+      "2026-09-23": 4,
+      "2026-09-24": 1
     },
     "DAL": {
       "2026-04-09": 1,
@@ -4097,7 +4126,8 @@
       "2026-06-21": 1,
       "2026-07-28": 1,
       "2026-07-29": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "ORCL": {
       "2026-04-09": 1,
@@ -4322,7 +4352,8 @@
       "2026-04-11": 1,
       "2026-04-12": 1,
       "2026-06-14": 1,
-      "2026-06-15": 1
+      "2026-06-15": 1,
+      "2026-09-24": 1
     },
     "ADYEN": {
       "2026-04-12": 1,
@@ -5027,7 +5058,8 @@
       "2026-08-01": 1,
       "2026-09-16": 1,
       "2026-09-17": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "STX": {
       "2026-04-26": 1,
@@ -5295,7 +5327,8 @@
       "2026-05-14": 1,
       "2026-05-15": 1,
       "2026-06-12": 1,
-      "2026-07-24": 1
+      "2026-07-24": 1,
+      "2026-09-24": 1
     },
     "FTNT": {
       "2026-05-14": 1,
@@ -5311,7 +5344,8 @@
       "2026-06-14": 1,
       "2026-08-14": 1,
       "2026-08-15": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "APP": {
       "2026-05-15": 1,
@@ -6214,7 +6248,8 @@
       "2026-07-18": 1
     },
     "CTAS": {
-      "2026-07-17": 1
+      "2026-07-17": 1,
+      "2026-09-24": 1
     },
     "ISRG": {
       "2026-07-18": 1,
@@ -6475,7 +6510,8 @@
     "FICO": {
       "2026-09-09": 1,
       "2026-09-14": 1,
-      "2026-09-15": 1
+      "2026-09-15": 1,
+      "2026-09-24": 1
     },
     "GLD": {
       "2026-09-09": 1,
@@ -6537,7 +6573,8 @@
     "GRAB": {
       "2026-09-16": 1,
       "2026-09-17": 1,
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "SCHO": {
       "2026-09-16": 1,
@@ -6650,10 +6687,12 @@
       "2026-09-22": 1
     },
     "NYT": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "ONH": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "ZI": {
       "2026-09-23": 1
@@ -6662,22 +6701,39 @@
       "2026-09-23": 1
     },
     "FCX": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "SCCO": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "BHP": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "WM": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "KSPI": {
-      "2026-09-23": 1
+      "2026-09-23": 1,
+      "2026-09-24": 1
     },
     "LEN": {
       "2026-09-23": 1
+    },
+    "PAYX": {
+      "2026-09-24": 1
+    },
+    "ABCL": {
+      "2026-09-24": 1
+    },
+    "BFP": {
+      "2026-09-24": 1
+    },
+    "TME": {
+      "2026-09-24": 1
     }
   }
 }
