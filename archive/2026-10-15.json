@@ -1,0 +1,1119 @@
+{
+  "date": "2026-10-15",
+  "results": [
+    {
+      "channel_name": "Everything Money",
+      "video_id": "yhPlV1QCcuQ",
+      "title": "Stocks CRASHED Today (What Just Broke?)",
+      "url": "https://www.youtube.com/watch?v=yhPlV1QCcuQ",
+      "published": "2026-10-14T21:06:53+00:00",
+      "analysis": {
+        "summary_ja": "<b>BAC</b> と <b>ASML</b> の決算が注目される中、CPI 報告書の影響で市場は下落傾向にあり、<b>CORE</b>（CoreWeave）は 15% 下落、<b>BEND</b>（Bending Spoons）は 45% 上昇した。全体的にリスクオフの雰囲気が強く、個別銘柄の急激な変動に注意が必要。",
+        "tickers": [
+          "BAC",
+          "ASML",
+          "CORE",
+          "BEND"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "CPI 報告書が市場全体に下押し圧力をかけている。",
+          "<b>CORE</b> は 15% の急落で弱気材料と見られる。",
+          "<b>BEND</b> は 45% の急伸で強気材料と評価される。",
+          "本日の決算は <b>BAC</b> と <b>ASML</b> が焦点となる。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "マクロ経済",
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 3,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Ticker Symbol: YOU",
+      "video_id": "kWY3xuZnBEk",
+      "title": "China’s Chip Boom Is Bigger Than You Think. I Saw It",
+      "url": "https://www.youtube.com/watch?v=kWY3xuZnBEk",
+      "published": "2026-10-14T16:56:01+00:00",
+      "analysis": {
+        "summary_ja": "中国のAIインフラ需要が急速に拡大しており、<b>SMIC</b>や<b>TSM</b>などの半導体メーカーが供給不足を解消できる余地が大きいと指摘。特に国内AIチップメーカーの成長余地が大きく、投資機会として注目すべきと結論付けている。",
+        "tickers": [
+          "SMIC",
+          "TSM"
+        ],
+        "undervalued_picks": [
+          "SMIC"
+        ],
+        "key_points": [
+          "中国のAIサーバー需要が2024年に急増し、半導体供給ギャップが顕在化している。",
+          "国内ファウンドリの拡張投資が加速しており、<b>SMIC</b>は政府支援と需要増で売上が大幅に伸びる可能性がある。",
+          "既存の大手ファウンドリである<b>TSM</b>も中国市場への供給拡大を計画しており、同地域でのシェア拡大が期待できる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "マクロ経済",
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "WallStreetZen",
+      "video_id": "k1Fgb5ERyxg",
+      "title": "Our Top 5 Stocks to Set It and Forget It Before 2027",
+      "url": "https://www.youtube.com/watch?v=k1Fgb5ERyxg",
+      "published": "2026-10-14T16:30:30+00:00",
+      "analysis": {
+        "summary_ja": "<b>IBM</b>は業績が回復基調にあり、割安感があるため長期保有に適すると評価。<b>PLTR</b>はスマートマネーが注目する小型株で、成長余地が大きく買い場と判断。<b>CAT</b>は電化インフラ需要拡大に伴う「picks‑and‑shovels」銘柄として安定的なキャッシュフローが期待できる。<b>NVDA</b>は連続的に市場予想を上回る決算を示し、AI・データセンター需要でさらなる上昇が見込まれる。<b>TSLA</b>は電気自動車市場のリーダーとして、2027年までの長期的なコンパウンド効果が期待できる。",
+        "tickers": [
+          "IBM",
+          "PLTR",
+          "CAT",
+          "NVDA",
+          "TSLA"
+        ],
+        "undervalued_picks": [
+          "IBM",
+          "PLTR"
+        ],
+        "key_points": [
+          "IBMは割安で業績回復が進んでおり、配当とキャッシュフローが堅実。",
+          "PLTRはスマートマネーが注目する小型株で、データ分析需要拡大が成長ドライバー。",
+          "CATは電化インフラ関連の資材需要増加に伴い、安定した利益成長が期待できる。",
+          "NVDAはAIとデータセンター向けの高成長市場で、連続的に予想を上回る決算を達成。",
+          "TSLAは電気自動車とエネルギー事業の拡大で、長期的なコンパウンド効果が見込まれる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "4L3_PxAqrik",
+      "title": "Why ServiceNow’s AI Execution Layer Could Be Its Biggest Win",
+      "url": "https://www.youtube.com/watch?v=4L3_PxAqrik",
+      "published": "2026-10-14T16:00:07+00:00",
+      "analysis": {
+        "summary_ja": "<b>ServiceNow</b>はAIエージェントの実行層として企業データ・ガバナンス・ワークフローを統合し、2023年にAI関連の年間契約額が10億ドルを超えたことから、持続的なサブスクリプション収益へ転換できると見込まれる。Microsoft、Salesforce、Oracleの競合が激化する中で、同社のAIベットが成功すれば2030年までに300億ドル超の売上を達成し、株価は大きく上昇する可能性がある。",
+        "tickers": [
+          "NOW"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "AIエージェントの実行層を提供することで、企業向けAI採用を高い継続収益に変換できる。",
+          "AI関連の年間契約額が1億ドルを超え、9か月でエージェント導入が9倍に増加した実績がある。",
+          "Microsoft、Salesforce、Oracleのプラットフォーム競争がリスクだが、実行層で差別化できれば大きな成長余地がある。",
+          "2030年までに300億ドル超のサブスクリプション売上を目指す目標が投資家にとって魅力的。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Brian Stoffel",
+      "video_id": "uDIV13v9iSY",
+      "title": "Nvidia Gets the Hype. This Company Controls AI",
+      "url": "https://www.youtube.com/watch?v=uDIV13v9iSY",
+      "published": "2026-10-14T14:47:08+00:00",
+      "analysis": {
+        "summary_ja": "<b>NVDA</b>は2026年第3四半期の決算で売上と利益が大幅に伸び、AI需要の急増が同社の成長エンジンとなっている。高い粗利益率と強固な技術的モートが競合優位性を支えており、サイクル性のあるシステム販売は長期的な収益基盤になると評価される。現在の株価は成長期待に対して割安感は薄いが、AI関連需要の持続が続けば上昇余地がある。",
+        "tickers": [
+          "NVDA"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Q3 2026の売上と純利益が前年同期比で大幅増、特にAI関連製品の売上が牽引。",
+          "粗利益率が70%超と高水準で、技術的モートが競合他社との差別化要因。",
+          "システム販売は景気循環に左右されるが、AI需要の長期的拡大で安定的な収益が見込める。",
+          "株価は高評価が続くが、AI需要の成長が続く限り上昇余地があると判断。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "AjpzxTTl2uk",
+      "title": "Nebius Stock’s Powerful Edge Against Falling AI Compute Prices",
+      "url": "https://www.youtube.com/watch?v=AjpzxTTl2uk",
+      "published": "2026-10-14T14:00:15+00:00",
+      "analysis": {
+        "summary_ja": "<b>NBIS</b>はAIクラウド需要は維持できても、コンピュート価格が下落した際に22か月の回収期間と長期契約・前払いがリスク緩和になると主張している。価格下落がコスト削減ペースを上回れば回収期間が伸び、資本集約型になる危険がある。現状の契約構造と高稼働率が防御策となり、株価は上昇余地があると評価している。",
+        "tickers": [
+          "NBIS",
+          "NVDA"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "AIコンピュート価格が下落しても需要は維持できるため、価格下落は必ずしも売上減少につながらない。",
+          "<b>NBIS</b>のコアAIクラウド契約は約22か月の回収期間で、長期契約や前払いがリスクヘッジになる。",
+          "供給過剰で価格が急速に下がり、コスト削減が追いつかない場合は回収期間が伸び、資本集約型ビジネスになる可能性がある。",
+          "高稼働率と顧客の前払いが利益率を支えるが、インフラ投資が膨らむと財務リスクが増大する。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "H_K3nyizeWE",
+      "title": "How Much JEPQ Do You Need For $1,000 A Month? $2,295 Month?",
+      "url": "https://www.youtube.com/watch?v=H_K3nyizeWE",
+      "published": "2026-10-14T13:04:31+00:00",
+      "analysis": {
+        "summary_ja": "<b>JEPQ</b>で月額1,000ドルの受動的収入を得るために必要な投資額と期待利回りを具体的に算出し、<b>NVDA</b>、<b>AAPL</b>、<b>MSFT</b>などの大型ナスダック株に対するカバードコール戦略で得られる月次配当を解説。<b>JEPQ</b>の利回りを高金利のT‑Billと比較し、相対的な魅力とリスク（市場の変動性による配当減少）を提示する。",
+        "tickers": [
+          "JEPQ",
+          "NVDA",
+          "AAPL",
+          "MSFT"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "月額1,000ドルの配当を得るには約10,000〜15,000ドルの<b>JEPQ</b>投資が必要と算出。",
+          "<b>JEPQ</b>はナスダック上位株へのカバードコールで月次配当を生成し、現在の利回りはT‑Billを上回る。",
+          "市場が不安定になるとオプションプレミアムが減少し、配当額が低下するリスクがある。",
+          "長期的なインカム投資として<b>JEPQ</b>は有望だが、ポートフォリオ全体のリスク管理が重要。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "投資戦略",
+          "個別銘柄分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "KouCMXzgByk",
+      "title": "Research Platform Sales Pitch - Great Buys Now!",
+      "url": "https://www.youtube.com/watch?v=KouCMXzgByk",
+      "published": "2026-10-14T12:00:08+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資情報なし",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [],
+        "importance": 1,
+        "has_thesis": false,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Brian Stoffel",
+      "video_id": "J0YixYhXwNU",
+      "title": "MELI vs. SE: Which eCommerce giant  Is The BETTER BUY Right Now?",
+      "url": "https://www.youtube.com/watch?v=J0YixYhXwNU",
+      "published": "2026-10-14T04:53:31+00:00",
+      "analysis": {
+        "summary_ja": "<b>MELI</b>はラテン米国で圧倒的なeコマースと決済プラットフォームのモートを持ち、売上成長率と利益率が高く、現在の株価は割安と評価されている。一方、<b>SE</b>は東南アジアで急速に拡大しているが、利益率が低く、評価が高めであるため、短期的な買い場とは言い難い。したがって、現時点では<b>MELI</b>がより魅力的な投資先である。",
+        "tickers": [
+          "MELI",
+          "SE"
+        ],
+        "undervalued_picks": [
+          "MELI"
+        ],
+        "key_points": [
+          "MELIは地域独占的な決済ネットワークと物流インフラで強固なモートを形成している。",
+          "MELIの売上成長率は30%以上で、利益率も業界平均を上回っている。",
+          "SEはユーザー基盤は拡大しているが、ゲーム事業中心で利益率が低く、バリュエーションが高め。",
+          "MELIの株価は同業他社と比較してPERが低く、割安感がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Everything Money",
+      "video_id": "h7Pe-_tllEw",
+      "title": "How I Would Buy Real Estate Today (If I Had To Start Over)",
+      "url": "https://www.youtube.com/watch?v=h7Pe-_tllEw",
+      "published": "2026-10-14T03:09:47+00:00",
+      "analysis": {
+        "summary_ja": "現在の金利環境と市場動向を踏まえ、<b>不動産</b>への投資は低リスクの長期保有が鍵とし、まずは自己資金で小規模な賃貸物件を取得し、キャッシュフローを確保することを推奨しています。地域選定は人口増加と雇用安定が見込めるエリアに限定し、過度なレバレッジは避けるべきと述べています。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "金利上昇局面でも、自己資金比率を高めた購入がリスク軽減につながる。",
+          "人口増加と雇用が安定している地域を優先的に選ぶ。",
+          "過度な借入はキャッシュフローを圧迫するため、保守的なレバレッジで運用する。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "不動産"
+        ],
+        "importance": 3,
+        "has_thesis": true,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "g5eXbxswVGk",
+      "title": "BREAKING: $BMNR Ai Datacenter might COME",
+      "url": "https://www.youtube.com/watch?v=g5eXbxswVGk",
+      "published": "2026-10-13T22:33:46+00:00",
+      "analysis": {
+        "summary_ja": "<b>BMNR</b> がAIデータセンター事業に参入する可能性が高く、同社の株価は未評価の上昇余地があると予測しています。AI需要の急増とデータセンター不足が追い風となり、株価は中期的に上昇トレンドに入ると見ています。",
+        "tickers": [
+          "BMNR"
+        ],
+        "undervalued_picks": [
+          "BMNR"
+        ],
+        "key_points": [
+          "AI関連のデータセンター需要が急速に拡大している。",
+          "現在の市場は <b>BMNR</b> のAIデータセンター計画を過小評価している。",
+          "同社は既存のマイニングインフラを活用できるため、資本効率が高い。",
+          "テクニカル的には株価が重要なサポートライン付近にあり、上抜けのブレイクアウトが期待できる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Everything Money",
+      "video_id": "dTdlKYSb8E0",
+      "title": "The Stock Market Just Flipped As Earnings Season Kicks Off",
+      "url": "https://www.youtube.com/watch?v=dTdlKYSb8E0",
+      "published": "2026-10-13T20:31:17+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資テーゼは提示されておらず、Bumble <b>BMBL</b> の株価がプライベート化噂で急騰したことや、既存住宅販売レポート、決算シーズン開始の情報が紹介されています。",
+        "tickers": [
+          "BMBL"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Bumble <b>BMBL</b> がプライベート化の噂で56%上昇した。",
+          "今朝発表された既存住宅販売レポートが市場に影響を与えている。",
+          "本日6社の決算が発表され、決算シーズンが本格的に始まった。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "決算分析"
+        ],
+        "importance": 2,
+        "has_thesis": false,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "U9yAHwZNrnA",
+      "title": "Bumble's Sudden Buyout: The Real Reason Behind the Deal",
+      "url": "https://www.youtube.com/watch?v=U9yAHwZNrnA",
+      "published": "2026-10-13T16:39:49+00:00",
+      "analysis": {
+        "summary_ja": "<b>BMBL</b> の買収提案が提示されたが、同社は当初の成長投資テーゼを満たさなくなったため、ポートフォリオから除外すべきと結論付けている。株価の急騰は一時的なボラティリティであり、長期的なKPIや戦略転換を見ると、買収後の価値創造は限定的と判断した。",
+        "tickers": [
+          "BMBL"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "買収条件とプレミアムが提示されたが、企業の根本的な成長ドライバーが失われている。",
+          "Bumble の主要KPI（ユーザー増加率や収益性）が期待に届かず、投資テーゼと乖離している。",
+          "株価の135%上昇は短期的な過熱であり、長期的なポートフォリオ適合性とは無関係。",
+          "株主は買収提案を受け入れ、ポジションを手放すことが推奨される。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "pZVp78rZwPo",
+      "title": "IBM Stock’s Big Q3 Rebound Test After the Historic Crash",
+      "url": "https://www.youtube.com/watch?v=pZVp78rZwPo",
+      "published": "2026-10-13T16:00:06+00:00",
+      "analysis": {
+        "summary_ja": "<b>IBM</b> の株価はQ2の25%急落後、Q3でソフトウェア売上とフリーキャッシュフローが回復すればリバウンドが期待できる。遅延した案件は失注ではなくタイミングの問題とし、Red Hat と Consulting の業績が改善すれば根本的な需要低下ではないと判断できる。逆にインフラ需要のAIシフトが進み、売上予想が下方修正され続ける場合は下落リスクが残る。",
+        "tickers": [
+          "IBM"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Q2の25%下落は主に大口案件の納期遅延であり、需要自体は失われていないと考えられる。",
+          "ソフトウェア部門の売上成長とフリーキャッシュフローの改善が、リバウンドの鍵となる。",
+          "Red Hat と Consulting の業績が予想を上回れば、企業全体の収益基盤が強固であることを示す。",
+          "AIインフラへの支出シフトとフルイヤー売上予想の下方修正は、長期的なリスク要因として注視すべき。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "WallStreetZen",
+      "video_id": "D3g3Kw7S1ds",
+      "title": "The Next Big Surge is Critical Minerals (4 Stocks to Watch Now)",
+      "url": "https://www.youtube.com/watch?v=D3g3Kw7S1ds",
+      "published": "2026-10-13T15:30:26+00:00",
+      "analysis": {
+        "summary_ja": "Steve Reitmeisterは、銅、アルミニウム、米国製鉄、金に焦点を当てた4銘柄が、供給逼迫と需要増加により大きな上昇余地を持つと指摘しています。<b>FCX</b>は成長が加速しているにも関わらず株価が最高値から約50%下落しており、割安感が強いと評価。<b>AA</b>は4,600銘柄中上位2%の評価指標でありながら低評価で、買い機会と見ています。<b>X</b>と<b>NEM</b>もそれぞれの市場ポジションと需給環境から注目すべき銘柄とされています。",
+        "tickers": [
+          "FCX",
+          "AA",
+          "X",
+          "NEM"
+        ],
+        "undervalued_picks": [
+          "FCX",
+          "AA"
+        ],
+        "key_points": [
+          "銅需要の拡大と供給制約により、<b>FCX</b>は株価が最高値から約50%下落しているが、成長率は加速しており割安と判断。",
+          "<b>AA</b>はバリュエーションが低く、4,600銘柄中上位2%のスコアを持つが市場で過小評価されている。",
+          "米国製鉄（<b>X</b>）は国内インフラ投資と鉄鋼需要の回復が期待でき、長期的な上昇余地がある。",
+          "金鉱山株の<b>NEM</b>はインフレヘッジ需要と供給側の制約が続く中で、価格上昇が期待できる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "JWiDZXCARbM",
+      "title": "The Bull Case for Palantir: Why Its 155% Rule of 40 Matters",
+      "url": "https://www.youtube.com/watch?v=JWiDZXCARbM",
+      "published": "2026-10-13T14:00:04+00:00",
+      "analysis": {
+        "summary_ja": "<b>PLTR</b>のRule of 40が155%に達したことは、93%の売上成長と62%の調整営業利益率によるもので、同社の強力な成長性と収益性を示すが、成長が70%、50%、30%に減速した場合のバリュエーションリスクも指摘している。GAAPマージンでも同様に高いスコアが算出できるが、Rule of 40は過大評価を招く可能性があるため注意が必要である。",
+        "tickers": [
+          "PLTR"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Rule of 40が155%に達した背景は、93%の売上成長と62%の調整営業利益率である。",
+          "GAAP営業利益率でもRule of 40は高水準であり、指標の計算方法により数値は変動する。",
+          "売上成長が70%、50%、30%に減速したシナリオをテストすると、現在のバリュエーションが過大評価になる可能性がある。",
+          "Rule of 40は有用だが、成長率の変化やマージンの実態を無視すると投資判断を誤らせるリスクがある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Antonio Linares",
+      "video_id": "rgZb_DOtowg",
+      "title": "if you missed palantir at $7... it’s happening again",
+      "url": "https://www.youtube.com/watch?v=rgZb_DOtowg",
+      "published": "2026-10-13T13:00:28+00:00",
+      "analysis": {
+        "summary_ja": "<b>Palantir</b>はAIモデルの進化に伴いほぼゼロコストで価値が上昇する「Singularity Scaler」であり、フリーキャッシュフローとリテンションが大幅改善しているため、次の大きな上昇局面が始まると予測される。<b>Amazon</b>と<b>Meta</b>の巨額のCAPEX増加がAIインフラを支え、同社の顧客はデータとコンピュートをレンタルするだけで利益を享受できる。さらに、同様のAIドライバーとして<b>Spotify</b>、<b>Duolingo</b>、<b>Hims</b>も投資対象として挙げられ、これらはAI活用で成長が期待できる。",
+        "tickers": [
+          "PLTR",
+          "AMZN",
+          "META",
+          "SPOT",
+          "DUOL",
+          "HIMS"
+        ],
+        "undervalued_picks": [
+          "PLTR"
+        ],
+        "key_points": [
+          "Palantirのフリーキャッシュフローは0.06ドルから0.47ドルへ急増し、リテンション率は157%に達している。",
+          "AmazonとMetaは2022年から2025年にかけてCAPEXを75億ドルから262億ドルに拡大し、AIインフラ投資を加速させている。",
+          "AIモデルの性能向上が直接Palantirの価値を高めるため、追加コストがほぼゼロのスケーラビリティがある。",
+          "Spotify、Duolingo、HimsはAI活用で収益拡大が見込めるため、同様の投資テーマとして推奨される。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "uP81GqA2rIw",
+      "title": "SEA Limited (NYSE: SE) & COUPANG (NYSE: CPNG) Stock Analyses",
+      "url": "https://www.youtube.com/watch?v=uP81GqA2rIw",
+      "published": "2026-10-13T12:00:32+00:00",
+      "analysis": {
+        "summary_ja": "<b>SEA</b> と <b>CPNG</b> は、東南アジアのデジタルエコシステムとeコマースの成長ドライバーとして長期的に高い成長率が期待でき、現在の株価は売上高成長率に対して割安感があるため買い推奨です。",
+        "tickers": [
+          "SE",
+          "CPNG"
+        ],
+        "undervalued_picks": [
+          "SE",
+          "CPNG"
+        ],
+        "key_points": [
+          "SEAはゲーム事業とデジタル決済が相乗効果を生み、利益率改善が見込まれる。",
+          "Coupangは物流ネットワークの拡大とロイヤリティ向上で売上高が年率30%以上で成長している。",
+          "両社とも米国市場での評価倍率が同業他社に比べ低く、割安感がある。",
+          "マクロ的に東南アジアのインターネット普及率が上昇し、デジタル消費が拡大することが成長の基盤になる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AA": NaN,
+        "AAPL": NaN,
+        "AMZN": NaN,
+        "ASML": NaN,
+        "BAC": NaN,
+        "BEND": null,
+        "BMBL": NaN,
+        "BMNR": NaN,
+        "CAT": NaN,
+        "CORE": null,
+        "CPNG": NaN,
+        "DUOL": NaN,
+        "FCX": NaN,
+        "HIMS": NaN,
+        "IBM": NaN,
+        "JEPQ": NaN,
+        "MELI": NaN,
+        "META": NaN,
+        "MSFT": NaN,
+        "NBIS": NaN,
+        "NEM": NaN,
+        "NOW": NaN,
+        "NVDA": NaN,
+        "PLTR": NaN,
+        "SE": NaN,
+        "SMIC": null,
+        "SPOT": NaN,
+        "TSLA": NaN,
+        "TSM": NaN,
+        "X": null
+      }
+    }
+  ]
+}
