@@ -1,0 +1,877 @@
+{
+  "date": "2026-10-19",
+  "results": [
+    {
+      "channel_name": "Adriconomics",
+      "video_id": "FDB3__AjoOI",
+      "title": "Why Finance YouTube Has Become Pure Clickbait!",
+      "url": "https://www.youtube.com/watch?v=FDB3__AjoOI",
+      "published": "2026-10-18T16:36:11+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資テーゼは提示されておらず、Finance YouTube におけるクリックベイト手法とそのリスクについて警告しているだけです。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "Finance YouTube では 10 倍予想や一生に一度のチャンスといった誇大広告が頻繁に使用されている。",
+          "クリックベイトは投資判断を誤らせる可能性があるため、情報源の信頼性を慎重に評価すべき。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 1,
+        "has_thesis": false,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "XOmt1qanNWc",
+      "title": "Interesting News for Netflix Stock Investors | NFLX STock Analysis",
+      "url": "https://www.youtube.com/watch?v=XOmt1qanNWc",
+      "published": "2026-10-18T15:45:06+00:00",
+      "analysis": {
+        "summary_ja": "<b>NFLX</b>のコスト削減は単なる削減ではなくリストラ的取り組みであり、今後の利益改善につながる可能性があると評価されている。",
+        "tickers": [
+          "NFLX"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "コスト削減は単なる支出削減ではなく、事業構造のリストラとして位置付けられている。",
+          "リストラ効果により利益率が向上し、株価にプラスの影響が期待できる。",
+          "投資家はこのリストラの進捗と財務指標の変化を注視すべき。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 3,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "WZIfLpuA3eo",
+      "title": "Hims Is Reaching 3 Million Member Milestone",
+      "url": "https://www.youtube.com/watch?v=WZIfLpuA3eo",
+      "published": "2026-10-18T14:45:15+00:00",
+      "analysis": {
+        "summary_ja": "<b>HIMS</b>は会員数が300万人に達したことから、ヘルスケア分野のデジタルサービス需要が拡大しており、同社の成長余地が大きいと判断できる。会員基盤の拡大は売上増加と顧客ロイヤルティ向上に直結し、長期的な収益性改善が期待できる。",
+        "tickers": [
+          "HIMS"
+        ],
+        "undervalued_picks": [
+          "HIMS"
+        ],
+        "key_points": [
+          "会員数が300万人に達したことは、サービスの市場受容度が高まっている証拠である。",
+          "デジタルヘルスケア市場は急速に拡大しており、<b>HIMS</b>はその中心的プレイヤーとして成長が見込まれる。",
+          "会員基盤の拡大はサブスクリプション収益の安定化と、クロスセル機会の増加をもたらす。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "sXss0MFCN9w",
+      "title": "NVIDIA Stock: $235 Billion Buyback Could Supercharge Per-Share Returns",
+      "url": "https://www.youtube.com/watch?v=sXss0MFCN9w",
+      "published": "2026-10-18T14:00:38+00:00",
+      "analysis": {
+        "summary_ja": "<b>NVDA</b>は2028年度までに総額2350億ドルの自社株買いを実施し、AI事業からの強力なキャッシュフローを活用して1株当たりリターンを加速させる可能性があると評価されている。株式報酬による希薄化を考慮すると実質的な株数減少は限定的であり、買い戻し価格が高騰時価に近いほど価値創造は限定的になる。したがって、買い戻しは企業の現金生成力への信頼シグナルと捉えられるが、過大評価リスクも伴う。",
+        "tickers": [
+          "NVDA"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "NVDAは2350億ドル規模の自社株買いを承認し、AI関連の高いキャッシュフローを活用している。",
+          "株式報酬による希薄化を考慮すると、実際の株数減少は期待ほど速くない。",
+          "買い戻し価格が高いほど、株主価値創造効果は限定的になるため、バリュエーションが重要。",
+          "買い戻しは将来の現金生成力への強い信号であるが、過大評価リスクも存在する。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Business with Brian",
+      "video_id": "k1xJbNAGmFg",
+      "title": "AI Stocks Are on Sale. It Won’t Last",
+      "url": "https://www.youtube.com/watch?v=k1xJbNAGmFg",
+      "published": "2026-10-18T13:00:11+00:00",
+      "analysis": {
+        "summary_ja": "金利上昇とインフレが株価に重くのしかかる中、<b>VRT</b>, <b>NVT</b>, <b>ONTO</b>, <b>FIX</b>, <b>INOD</b> の5銘柄は利益予想が15%以上上方修正されても株価が10%以上下落しており、割安感があると判断した。これらはPEG比が魅力的で、利益成長が続く見込みがあるため段階的に買い増しする価値があると結論付けている。",
+        "tickers": [
+          "VRT",
+          "NVT",
+          "ONTO",
+          "FIX",
+          "INOD"
+        ],
+        "undervalued_picks": [
+          "VRT",
+          "NVT",
+          "ONTO",
+          "FIX",
+          "INOD"
+        ],
+        "key_points": [
+          "金利上昇とインフレが株価の重力となり、AI関連株は売られやすい環境にある。",
+          "<b>VRT</b>, <b>NVT</b>, <b>ONTO</b>, <b>FIX</b>, <b>INOD</b> は来年15%以上の利益成長が予想されるが、過去週で9%以上下落している。",
+          "各銘柄のPEG比が市場平均を上回り、バリュエーション的に過小評価されていると判断。",
+          "利益予想の上方修正が続く中、テクニカル的な下落局面を利用して段階的にエントリーする戦略を推奨。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "r9qcO_Bv4Xk",
+      "title": "QFIN - It Doesn't Get Cheaper Than This...",
+      "url": "https://www.youtube.com/watch?v=r9qcO_Bv4Xk",
+      "published": "2026-10-18T12:00:32+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資情報がなく、主にチャンネルやサービスの宣伝が中心です。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略"
+        ],
+        "importance": 1,
+        "has_thesis": false,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "YNdllTBJmJ0",
+      "title": "Should You Buy Meta Stock Before the Huge Investor Update?",
+      "url": "https://www.youtube.com/watch?v=YNdllTBJmJ0",
+      "published": "2026-10-18T11:45:10+00:00",
+      "analysis": {
+        "summary_ja": "<b>META</b> の個人エージェント事業の早期成功が投資家の関心を呼んでおり、次回の大規模投資家向けアップデート前に株を買う価値があると主張している。売上成長とユーザーエンゲージメントの改善が期待でき、現在の株価は過小評価されていると評価。目標価格は $450 前後で、現在の価格帯がエントリーポイントとされている。",
+        "tickers": [
+          "META"
+        ],
+        "undervalued_picks": [
+          "META"
+        ],
+        "key_points": [
+          "個人エージェントの導入で広告収益が拡大し、売上成長が加速すると予測。",
+          "同社のAI投資とメタバース事業は長期的なマクロトレンドと合致し、リスクが低減。",
+          "現在の株価は過去の成長率と比較して割安で、投資家向けアップデート前の買い場と判断。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Will Rich",
+      "video_id": "e8CVHToFEW0",
+      "title": "IREN: Buy, Sell, or Hold After NVIDIA News?",
+      "url": "https://www.youtube.com/watch?v=e8CVHToFEW0",
+      "published": "2026-10-18T04:03:21+00:00",
+      "analysis": {
+        "summary_ja": "<b>IREN</b>はNVIDIAからExemplar Cloudステータスを獲得し、Horizon 1施設でのGB300導入が期待されるため、短期的な成長余地があると評価される。一方、データセンター全体はCoreWeaveの債務問題などで売り圧力が強まっており、セクターリスクが懸念材料となっている。投資家は<b>IREN</b>の個別のポジティブ要因とセクター全体の弱気シグナルを比較し、リスク管理を意識したポジション設定が求められる。",
+        "tickers": [
+          "IREN",
+          "NVDA"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "NVIDIAが<b>IREN</b>にExemplar Cloudステータスを付与し、Horizon 1でのGB300展開が期待できる。",
+          "データセンターセクター全体はCoreWeaveの債務問題などで売りが続いており、マクロ的な下押し圧力がある。",
+          "投資判断は<b>IREN</b>の個別成長要因とセクターリスクを天秤に掛け、適切なリスク管理が重要。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "lID8YfUBkZI",
+      "title": "Mercadolibre Stock Analysis: Buy, Hold, or Sell? | MELI Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=lID8YfUBkZI",
+      "published": "2026-10-17T16:45:17+00:00",
+      "analysis": {
+        "summary_ja": "<b>MELI</b>はラテン米国のeコマースとデジタル決済のリーダーであり、地域経済の成長とオンライン取引の拡大が同社の売上と利益を加速させると考えられる。現在のバリュエーションは同業他社に比べて割安で、長期的な市場シェア拡大余地が大きい。したがって、<b>MELI</b>は<strong>買い</strong>のポジションを推奨する。",
+        "tickers": [
+          "MELI"
+        ],
+        "undervalued_picks": [
+          "MELI"
+        ],
+        "key_points": [
+          "ラテン米国のGDP成長率が先進国を上回り、eコマース需要が急速に拡大している。",
+          "MELIの決済プラットフォームMercado Pagoの利用者数が年率30%以上増加し、取引手数料収入が伸びている。",
+          "同社の売上高成長率は過去5年で平均25%で、利益率も改善傾向にある。",
+          "相対的P/EやEV/EBITDAは北米の主要eコマース企業に比べて低く、割安感がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "決算分析"
+        ],
+        "importance": 5,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "TkobBIJzPk0",
+      "title": "Is it Too Late to Buy Shopify Stock Right Now? | SHOP Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=TkobBIJzPk0",
+      "published": "2026-10-17T15:45:09+00:00",
+      "analysis": {
+        "summary_ja": "<b>SHOP</b>はエージェントAIの普及により売上成長が加速すると考えられ、現在の株価は割安感があるため買いのタイミングと判断される。",
+        "tickers": [
+          "SHOP"
+        ],
+        "undervalued_picks": [
+          "SHOP"
+        ],
+        "key_points": [
+          "エージェントAI導入で中小企業のeコマース需要が増加し、<b>SHOP</b>のプラットフォーム利用が拡大する。",
+          "2024年度の売上高は前年同期比30%増で、利益率も改善傾向にある。",
+          "現在の株価は過去12か月の平均PERより低く、バリュエーション面で割安と評価できる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "gqNQ48XJGJA",
+      "title": "Costco is One of the Best Retailers on the Planet | COST Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=gqNQ48XJGJA",
+      "published": "2026-10-17T14:45:24+00:00",
+      "analysis": {
+        "summary_ja": "<b>COST</b> は圧倒的な会員ロイヤルティと高いリピート率に支えられ、売上と利益が安定的に成長しているため、長期的な買い推奨銘柄である。低い在庫回転日数と高い在庫回転率がキャッシュフローを強化し、景気後退局面でも防御的に機能する。現在の株価は同業他社に比べ割安で、今後の店舗拡大とeコマース成長がさらなる上昇余地を提供する。",
+        "tickers": [
+          "COST"
+        ],
+        "undervalued_picks": [
+          "COST"
+        ],
+        "key_points": [
+          "会員制ビジネスモデルが安定した収益基盤と高い顧客ロイヤルティを提供している。",
+          "在庫回転率が業界最高水準で、キャッシュフローが非常に強固。",
+          "店舗数とオンライン販売の両方で成長余地があり、売上拡大が期待できる。",
+          "現在の株価は同業他社と比較して割安で、バリュエーションが魅力的。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 5,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "ewDH7lYgHdw",
+      "title": "Lilly’s Powerful Growth Engine Could Still Have Room to Run",
+      "url": "https://www.youtube.com/watch?v=ewDH7lYgHdw",
+      "published": "2026-10-17T14:00:31+00:00",
+      "analysis": {
+        "summary_ja": "<b>LLY</b>は実現価格が下がっても製造コスト削減と製品ミックス改善で粗利益率が上昇しており、ボリューム増で価格圧力に耐えられると判断される。製造効率の向上がコスト優位性を支え、2027年以降の成長ドライバーとして <b>retatrutide</b> が期待できる。現在の株価は約30倍の利益倍率で、ガイダンスが保守的なため上昇余地があると見ている。",
+        "tickers": [
+          "LLY"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "実現価格低下にも関わらず粗利益率が改善している点が評価材料。",
+          "製造効率の向上がコスト優位性を強化し、価格圧力を相殺できる。",
+          "2027年以降の主要成長ドライバーとして <b>retatrutide</b> が期待できる。",
+          "現在の株価は約30倍の利益倍率で、保守的なガイダンスから上昇余地がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "KTvx615Z4LQ",
+      "title": "Unfortunate News for Rocket Lab Stock Investors | RKLB Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=KTvx615Z4LQ",
+      "published": "2026-10-17T13:45:01+00:00",
+      "analysis": {
+        "summary_ja": "<b>RKLB</b> のNeutronロケット打ち上げ遅延は、同社の収益見通しとキャッシュフローに大きなマイナス影響を与えると予想され、投資家にとって弱気のシグナルとなる。遅延に伴う追加コストと競合他社の進展が、現在のバリュエーションを過大評価させている可能性がある。",
+        "tickers": [
+          "RKLB"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Neutron打ち上げの遅延により、2025年度の売上予測が下方修正される可能性がある。",
+          "遅延による追加開発費用と資金繰りの悪化が、同社のキャッシュバランスに圧迫を与える。",
+          "SpaceXやBlue Originなどの競合が市場シェアを拡大する中、RKLBの競争力が相対的に低下するリスクがある。",
+          "現在の株価は将来の打ち上げスケジュールが不透明であることを十分に織り込んでおらず、過大評価の懸念がある。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Felix & Friends",
+      "video_id": "FDNoVCQeGls",
+      "title": "The Last Time THIS Happened the Global Stock Market RESET  | Felix Nikolas Prehn",
+      "url": "https://www.youtube.com/watch?v=FDNoVCQeGls",
+      "published": "2026-10-17T13:00:06+00:00",
+      "analysis": {
+        "summary_ja": "<b>CoreWeave</b> の共同創業者らが約33億ドル相当の株式を売却し、SEC Form 4 で数億ドル規模のエグゼクティブ清算が明らかになった。2032年満期の <b>CoreWeave</b> 高利回り債は価格が0.76ドルに下落し、クレジット・デフォルト・スワップ（CDS）のスプレッドも拡大していることから、同社の財務リスクが顕在化していると判断できる。これらの情報は、同社株式・債券に対して弱気の見方を支持する材料である。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "CoreWeave の共同創業者らが約33億ドル相当の株式を売却したことが、経営陣の信頼低下を示唆。",
+          "SEC Form 4 により、エグゼクティブが数億ドル規模の株式清算を実施した。",
+          "2032年満期の CoreWeave 高利回り債が0.76ドルまで下落し、価格下落が続いている。",
+          "クレジット・デフォルト・スワップ（CDS）のスプレッドが拡大し、信用リスクが上昇している。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "uTQXJ3kk49o",
+      "title": "Why Is Nebius Stock Falling, and is it a Buying Opportunity? | NBIS Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=uTQXJ3kk49o",
+      "published": "2026-10-17T12:45:17+00:00",
+      "analysis": {
+        "summary_ja": "<b>NBIS</b> の株価下落は短期的な売り圧力と市場の不確実性が原因とされるが、同社がAI分野で数十億ドル規模の投資を行う計画は長期的な成長ドライバーと評価され、現在は割安感があるため買い機会と捉えられる。",
+        "tickers": [
+          "NBIS"
+        ],
+        "undervalued_picks": [
+          "NBIS"
+        ],
+        "key_points": [
+          "AIへの大規模投資が必要であり、数十億ドル規模の資本投入が見込まれる。",
+          "現在の株価は売り過剰で割安と判断され、目標価格は現行価格の30%上昇を想定。",
+          "短期的な市場リスクはあるが、長期的な売上成長率は20%以上になる見込み。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "P2MrD-Hetcg",
+      "title": "Is TSMC A Buy After Posting Record Earnings?",
+      "url": "https://www.youtube.com/watch?v=P2MrD-Hetcg",
+      "published": "2026-10-17T12:20:02+00:00",
+      "analysis": {
+        "summary_ja": "<b>TSM</b>は記録的な売上と66.4%の粗利益率を達成し、先進ロジックプロセッサの独占的地位がメモリ過剰供給の懸念から切り離されているため、現在の株価は割安と判断できる。市場のパニック売りにも関わらず、ファンダメンタルに基づく公正価値は上昇しており、買いの機会と見ている。",
+        "tickers": [
+          "TSM"
+        ],
+        "undervalued_picks": [
+          "TSM"
+        ],
+        "key_points": [
+          "最新決算で売上が過去最高、粗利益率が66.4%と高水準を維持。",
+          "先進ロジックプロセッサ事業はメモリチップの供給過剰リスクと無関係。",
+          "市場のアルゴリズム売りで株価が下落したが、ファンダメンタル評価は上昇傾向。",
+          "独自の評価モデルで公正価値が上がり、買い場として推奨。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "PxP7IoagbtA",
+      "title": "Crash, Debt Crisis, AI Bubble Warnings or Just Stay Long?",
+      "url": "https://www.youtube.com/watch?v=PxP7IoagbtA",
+      "published": "2026-10-17T12:00:14+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資テーゼが提示されていないため、投資情報はありません。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略"
+        ],
+        "importance": 1,
+        "has_thesis": false,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "dDw6-dXGIh4",
+      "title": "Is Applied Digital Stock Stock an Undervalued AI Stock to Buy Right Now? | APLD Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=dDw6-dXGIh4",
+      "published": "2026-10-17T11:45:23+00:00",
+      "analysis": {
+        "summary_ja": "<b>APLD</b> はAI関連の受注増加と高い利益率が期待できるが、現金不足がリスクとなっている。現在の株価は売上成長率やAI市場の拡大を考慮すると割安と判断し、買いを推奨する。目標株価は約30ドルと設定し、現在の価格帯でエントリーすべきと結論付けている。",
+        "tickers": [
+          "APLD"
+        ],
+        "undervalued_picks": [
+          "APLD"
+        ],
+        "key_points": [
+          "AI関連の受注増加と高い営業利益率が今後の成長を支える。",
+          "大規模な現金需要が短期的なリスクだが、資金調達計画が明確である。",
+          "株価は売上成長率とAI市場の期待に対して割安で、30ドル前後が目標価格と見込まれる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "APLD": 18.05,
+        "COST": 989.11,
+        "FIX": 1439.07,
+        "HIMS": 28.07,
+        "INOD": 52.82,
+        "IREN": 26.99,
+        "LLY": 1257.03,
+        "MELI": 1834.0,
+        "META": 709.33,
+        "NBIS": 165.47,
+        "NFLX": 70.53,
+        "NVDA": 214.13,
+        "NVT": 142.03,
+        "ONTO": 220.7,
+        "RKLB": 50.84,
+        "SHOP": 169.52,
+        "TSM": 412.61,
+        "VRT": 206.42
+      }
+    }
+  ]
+}
