@@ -1,254 +1,131 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-25",
   "results": [
     {
-      "channel_name": "Asymmetric Investing",
-      "video_id": "dR8CQ1FJzyQ",
-      "title": "Why the AI Trade Is Crashing",
-      "url": "https://www.youtube.com/watch?v=dR8CQ1FJzyQ",
-      "published": "2026-10-23T16:46:50+00:00",
+      "channel_name": "Parkev's Picks",
+      "video_id": "9EjvFSLy_Eo",
+      "title": "Why Is DigitalOcean Stock Falling and is it a Buying Opportunity?",
+      "url": "https://www.youtube.com/watch?v=9EjvFSLy_Eo",
+      "published": "2026-10-24T16:45:00+00:00",
       "analysis": {
-        "summary_ja": "AI関連株の急落は、巨額のAI投資に対するリターンへの懐疑感が高まったことが主因とされ、<b>AAPL</b>や<b>WMT</b>といった少数の銘柄が唯一の上昇要因となっている。信用市場でも、<b>CoreWeave</b>の2031年債が約14.6%の利回りで取引されるなど、資金調達コストの上昇が顕在化している。さらに、Anthropicや<b>IBM</b>など複数のAI企業がフリーキャッシュフローのマイナスを抱え、2027年までROIへの厳しい検証が続くと予測される。",
+        "summary_ja": "<b>DigitalOcean (DOCN)</b> の株価下落は、売上成長は加速しているものの営業利益率が低下していることが主因とされ、利益率改善が見込めない限り短期的な買いはリスクが高いと結論付けている。",
         "tickers": [
-          "AAPL",
-          "WMT",
-          "IBM"
+          "DOCN"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "AI関連株は巨額投資に対するリターン懐疑から急落し、全体の半数以上が下落圧力にさらされている。",
-          "信用市場の警告サインとして、<b>CoreWeave</b>の高利回り債やNebiusのコンバーチブル債が価格低下を示し、ハイパースケーラーのCDSも上昇している。",
-          "Anthropicや<b>IBM</b>など主要AI企業はフリーキャッシュフローがマイナスで、継続的な資本投入が必要なためROIが不透明。",
-          "AI投資への疑念は2027年まで続くと見込まれ、テクノロジー全体へのリスク拡大が懸念される。"
+          "売上は前年同期比で高い成長率を示しているが、営業利益率は縮小している。",
+          "コスト構造の改善が見込めない限り、株価は現在の評価水準で割安とは言えない。",
+          "市場全体のクラウドインフラ需要は拡大しているが、競合他社との価格競争が利益圧迫要因となっている。"
         ],
         "sentiment": "bearish",
-        "topics": [
-          "市場見通し",
-          "個別銘柄分析",
-          "マクロ経済"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "R8zyCTNiP5c",
-      "title": "Interesting News for eBay Stock Investors",
-      "url": "https://www.youtube.com/watch?v=R8zyCTNiP5c",
-      "published": "2026-10-23T16:45:12+00:00",
-      "analysis": {
-        "summary_ja": "<b>eBay</b>は2026年に好調な業績と再編効果で株価が上昇余地があると評価。売上高の回復と利益率改善が続くことで、現在のバリュエーションは過小評価されていると判断。長期的な成長ドライバーとしてマーケットプレイスのシェア拡大と新規決済サービスの導入が期待できる。",
-        "tickers": [
-          "EBAY"
-        ],
-        "undervalued_picks": [
-          "EBAY"
-        ],
-        "key_points": [
-          "2025年度の売上高が前年同期比で約12%増加し、利益率が改善している。",
-          "コアマーケットプレイス事業のシェア拡大と、決済・物流サービスの統合が収益を押し上げる。",
-          "現在の株価は過去5年平均PERを下回っており、割安感がある。",
-          "マクロ的に米国消費者支出が堅調で、eBayのオンライン取引量は増加傾向にある。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "マクロ経済"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "GOeiq0K6kP4",
-      "title": "Cava Reported Revenue Increasing by 31%",
-      "url": "https://www.youtube.com/watch?v=GOeiq0K6kP4",
-      "published": "2026-10-23T15:45:13+00:00",
-      "analysis": {
-        "summary_ja": "<b>CAVA</b> の売上が前年同期比31%増加したことを受け、同社は成長軌道にあり今後も売上拡大が期待できると評価し、買いを推奨する。",
-        "tickers": [
-          "CAVA"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "売上が31%増と大幅に伸び、同社のビジネスモデルが市場で受け入れられている。",
-          "成長率が業界平均を上回り、今後の店舗拡大やメンバーシップ収益の増加が見込める。",
-          "財務指標は改善傾向にあり、利益率向上の余地がある。"
-        ],
-        "sentiment": "bullish",
         "topics": [
           "個別銘柄分析",
           "決算分析"
         ],
         "importance": 4,
         "has_thesis": true,
-        "promoLevel": "medium"
+        "promoLevel": "low"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     },
     {
-      "channel_name": "Rick Orford",
-      "video_id": "wtl012-ANos",
-      "title": "Rocket Lab Stock: Why Its Powerful Bull Case Could Survive a Neutron Delay",
-      "url": "https://www.youtube.com/watch?v=wtl012-ANos",
-      "published": "2026-10-23T14:00:11+00:00",
+      "channel_name": "Parkev's Picks",
+      "video_id": "jFBWQkDC_1o",
+      "title": "Macroeconomic Headwinds are Hitting Clorox From All Sides | CLX Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=jFBWQkDC_1o",
+      "published": "2026-10-24T15:45:18+00:00",
       "analysis": {
-        "summary_ja": "<b>Rocket Lab</b> (RKLB) の株価は売上高67.8倍という高評価だが、Neutronロケットの打ち上げ遅延が2027年にずれ込むと評価の大部分が失われる可能性がある。売上は急増しているものの粗利益率の低下とキャッシュ消費が続き、利益化はNeutronの成功に依存している。3つの打ち上げシナリオで希薄化リスクとキャッシュ残高をストレステストし、遅延でも衛星事業やIridium買収が支援材料になるかを検証する。",
+        "summary_ja": "<b>CLX</b> の売上が5%減少し、利益はさらに大幅に減少していることから、マクロ経済の逆風が同社を多方面から圧迫している。これにより、同社の株価は下落圧力が強く、短期的な投資は慎重になるべきである。",
         "tickers": [
-          "RKLB",
-          "IRDM"
+          "CLX"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "Neutronロケットの遅延は現在の高倍率評価（売上高67.8倍）を大幅に下方修正させるリスクがある。",
-          "売上は62％増の2億3400万ドルだが、粗利益率は低下傾向でキャッシュバーンが依然として高い。",
-          "3つのシナリオ（オンタイム、1年遅延、2年以上遅延）で希薄化とキャッシュ残高を試算し、遅延が長期化すると追加資金調達が必要になる可能性が高い。",
-          "衛星事業の受注残高2.36億ドルとIridium買収は、Neutron遅延時の収益基盤として評価できるが、即効的な利益貢献は限定的。"
+          "Clorox (CLX) の最新決算で純売上が5%減少、利益はそれ以上の割合で減少した。",
+          "インフレ、原材料コスト上昇、消費者支出の減退といったマクロ経済要因が同社の業績悪化に直結している。",
+          "現状の業績とマクロ環境を考慮すると、株価は下落トレンドが続く可能性が高く、買いは控えるべき。"
         ],
         "sentiment": "bearish",
         "topics": [
           "個別銘柄分析",
           "決算分析",
-          "バリュエーション"
+          "マクロ経済"
         ],
         "importance": 4,
         "has_thesis": true,
         "promoLevel": "medium"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     },
     {
       "channel_name": "Parkev's Picks",
-      "video_id": "ITH0wVU__UI",
-      "title": "I Read Every Page of the Netflix Investor Update. Here's What You Need to Know",
-      "url": "https://www.youtube.com/watch?v=ITH0wVU__UI",
-      "published": "2026-10-23T13:30:27+00:00",
+      "video_id": "O7T5j4MCaXA",
+      "title": "What's Going on With Meta Stock?",
+      "url": "https://www.youtube.com/watch?v=O7T5j4MCaXA",
+      "published": "2026-10-24T14:45:17+00:00",
       "analysis": {
-        "summary_ja": "<b>Netflix</b> の最新投資家向けアップデートを全ページ読んだ結果、成長率の鈍化と高いコンテンツコストが株価にマイナス要因と判断される。加入者数の伸びが予想を下回り、広告収入の増加も期待ほどではない。バリュエーションは依然として高く、短期的なリスクが大きいと結論付けた。",
+        "summary_ja": "<b>Meta</b>（META）の決算発表後、株価は一時的に上昇したものの、すぐに下落しました。売上成長が予想を下回り、広告収入の減速が続く点が懸念材料です。バリュエーションは依然として高く、短期的なリスクが大きいと判断されます。",
         "tickers": [
-          "NFLX"
+          "META"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "加入者数の四半期成長率が予想を下回り、今後の収益拡大が不透明。",
-          "コンテンツ制作費が増大し、利益率が圧迫されている。",
-          "広告付きプランの売上は伸びているが、全体の収益改善には至っていない。",
-          "現在の株価は高いPERで評価されており、割安感はない。"
+          "決算で広告収入の伸びが予想を下回り、売上成長が鈍化した。",
+          "株価は決算直後に上昇したが、数時間で下落し、投資家のセンチメントが弱い。",
+          "現在の株価は高PERで割安感がなく、短期的な下落リスクが高い。"
         ],
         "sentiment": "bearish",
         "topics": [
@@ -261,32 +138,597 @@
         "promoLevel": "low"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "SzeC3mutSG0",
+      "title": "How I'm Collecting $300 in Premium (And Why You Should Be Careful)",
+      "url": "https://www.youtube.com/watch?v=SzeC3mutSG0",
+      "published": "2026-10-24T14:00:10+00:00",
+      "analysis": {
+        "summary_ja": "動画では、<b>UPS</b>、<b>DIS</b>、<b>EL</b>のプットオプションを売って合計約300ドルのプレミアムを獲得する手法を紹介し、スクリーン条件やリスク（特に決算前の株価変動と割当リスク）を解説しています。プレミアムの大きさと必要担保、株価と行使価格のクッションの違いを比較し、リスク管理の重要性を強調しています。",
+        "tickers": [
+          "UPS",
+          "DIS",
+          "EL"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Option Samurai を使ったプットオプションスクリーナーの構築方法とフィルター条件（時価総額、IV Rank、取引量、30〜45日満期）",
+          "UPS、DIS、EL の3銘柄で約300ドルの総プレミアムを得られるが、必要担保は約27,800ドルである点を比較",
+          "全銘柄が決算前に位置しており、株価の急変や割当リスクがプレミアム以上の損失につながる可能性がある",
+          "80% の無価値確率は保証ではなく、ポジションは満期前にリスク管理（ロールオーバーやクローズ）を行うべき"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "個別銘柄分析"
+        ],
+        "importance": 3,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "LauJrBZP3xc",
+      "title": "Is SpaceX Stock a Buy After Reporting Spectacular Earnings Results?",
+      "url": "https://www.youtube.com/watch?v=LauJrBZP3xc",
+      "published": "2026-10-24T13:45:15+00:00",
+      "analysis": {
+        "summary_ja": "<b>SpaceX</b>の最新決算が予想を大きく上回り、受注残と成長見通しが強固であることから、同社は今後も高い収益拡大が期待できる。民間宇宙市場の需要増と政府契約の安定性が支援材料となり、投資家は長期的な買いポジションを検討すべきである。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "最新の決算結果が予想を大幅に上回り、売上と利益が急成長した。",
+          "政府契約と民間衛星打ち上げ需要の増加が継続的な収益源となる。",
+          "資金調達ラウンドでの評価額が上昇しており、将来のIPO期待が高まっている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "yxvy0vC5E1A",
+      "title": "5 Undervalued Growth Stocks & ETFs in the Steal Zone (Buy the Dip)",
+      "url": "https://www.youtube.com/watch?v=yxvy0vC5E1A",
+      "published": "2026-10-24T13:09:01+00:00",
+      "analysis": {
+        "summary_ja": "動画では、テクノロジーとAI分野の<strong>NVDA</strong>、<strong>AMD</strong>、<strong>PAL</strong>、<strong>ROKU</strong>、およびAI関連ETFの<strong>ARKK</strong>が、最近の市場下落で大幅に割安となっていると指摘し、これらを<strong>買い場（Buy the Dip）</strong>として推奨しています。各銘柄のファンバリュエーションと1年後の目標価格を示し、テクニカル的な「Steal Zone」でも取引されていると説明しています。",
+        "tickers": [
+          "NVDA",
+          "AMD",
+          "PAL",
+          "ROKU",
+          "ARKK"
+        ],
+        "undervalued_picks": [
+          "NVDA",
+          "AMD",
+          "PAL",
+          "ROKU",
+          "ARKK"
+        ],
+        "key_points": [
+          "AIブームの基盤となる<strong>NVDA</strong>は、売上成長率が高く、現在の株価はフェアバリューの約30%割安と評価。",
+          "<strong>AMD</strong>はデータセンター需要の拡大で利益率が改善し、テクニカル的に重要なサポートライン付近で取引されている。",
+          "<strong>PAL</strong>は政府契約と商業AIソリューションの拡大で売上が急増、現在は1年目標価格の約40%下回っている。",
+          "<strong>ROKU</strong>は広告収入の伸びとユーザー基盤の拡大により、EV/EBITDAが過去平均の半分程度で取引されている。",
+          "AI関連ETFの<strong>ARKK</strong>はポートフォリオ内の主要銘柄が割安化しており、ETF全体が過去平均の20%ディスカウントで取引されている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 5,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "TfT5BTLbB94",
+      "title": "$1,000,000 Portfolio Asset Allocation Final Take",
+      "url": "https://www.youtube.com/watch?v=TfT5BTLbB94",
+      "published": "2026-10-24T13:00:32+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資テーゼが提示されておらず、主にプラットフォームやコース、ブローカーの紹介が中心です。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略"
+        ],
+        "importance": 1,
+        "has_thesis": false,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "qHzoSWzT92I",
+      "title": "Should You Buy SoFi Stock Before the Huge Investor Update?",
+      "url": "https://www.youtube.com/watch?v=qHzoSWzT92I",
+      "published": "2026-10-24T11:45:33+00:00",
+      "analysis": {
+        "summary_ja": "<b>SOFI</b>は金利上昇により収益が圧迫されるため、投資家は慎重になるべきである。金利上昇は同社のローンポートフォリオの利ざやを縮小させ、成長見通しを下方修正するリスクがある。大型投資家のアップデート前に買い増しは推奨できない。",
+        "tickers": [
+          "SOFI"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "金利上昇は<b>SOFI</b>のローン利ざやを縮小させ、利益率を低下させる。",
+          "金利上昇環境下での収益見通しが弱まるため、株価は下落圧力にさらされる。",
+          "大型投資家のアップデート前はリスクが高く、買い増しは控えるべき。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Asymmetric Investing",
+      "video_id": "dR8CQ1FJzyQ",
+      "title": "Why the AI Trade Is Crashing",
+      "url": "https://www.youtube.com/watch?v=dR8CQ1FJzyQ",
+      "published": "2026-10-23T16:46:50+00:00",
+      "analysis": {
+        "summary_ja": "AI関連銘柄の急落は、巨額のAI投資に対するリターンへの懐疑感が高まったことが主因であり、<b>NVDA</b>や<b>MSFT</b>、<b>GOOGL</b>などS&P500の約半数が影響を受けている。クレジット市場のストレス（例: <b>CoreWeave</b>の2031年債利回り14.6%、<b>Nebius</b>の転換社債価格低下）や複数企業のフリーキャッシュフローのマイナスが投資家の不安を増幅させている。AI支出のROI疑念は2027年まで続くと予測され、投資家は慎重なポジショニングが必要である。",
+        "tickers": [
+          "NVDA",
+          "MSFT",
+          "GOOGL",
+          "AMZN",
+          "AAPL",
+          "WMT",
+          "IBM"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "AI関連株の下落は、巨額投資に対するリターン懐疑が主因であり、S&P500の約半数が影響を受けている。",
+          "クレジット市場の警告サインとして、<b>CoreWeave</b>の高利回り債や<b>Nebius</b>の転換社債価格低下が顕在化している。",
+          "複数AI企業がフリーキャッシュフローのマイナスを抱え、継続的な資本投入が必要な点がリスク要因となっている。",
+          "AI支出のROIへの疑念は2027年まで続くと予測され、投資家はポートフォリオのリスク管理を強化すべき。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "市場見通し",
+          "個別銘柄分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "R8zyCTNiP5c",
+      "title": "Interesting News for eBay Stock Investors",
+      "url": "https://www.youtube.com/watch?v=R8zyCTNiP5c",
+      "published": "2026-10-23T16:45:12+00:00",
+      "analysis": {
+        "summary_ja": "<b>EBAY</b>は2026年に好調な業績とキャッシュフローの改善が見られ、割安感が増しているため、買い増しの好機と考えられる。売上の回復とコスト削減策が利益率を押し上げ、相対的なバリュエーションは同業他社に比べて低い。長期的な成長ドライバーとしてマーケットプレイスの拡大と新規サービスの投入が期待できる。",
+        "tickers": [
+          "EBAY"
+        ],
+        "undervalued_picks": [
+          "EBAY"
+        ],
+        "key_points": [
+          "売上と営業利益が前年同期比で回復し、キャッシュフローが増加している。",
+          "コスト削減と事業再編により利益率が改善し、バリュエーションが割安になっている。",
+          "マーケットプレイス事業の拡大と新サービスが長期成長を支える。",
+          "同業他社と比較してPERが低く、相対的に過小評価されている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "GOeiq0K6kP4",
+      "title": "Cava Reported Revenue Increasing by 31%",
+      "url": "https://www.youtube.com/watch?v=GOeiq0K6kP4",
+      "published": "2026-10-23T15:45:13+00:00",
+      "analysis": {
+        "summary_ja": "<b>CAVA</b> の売上が前年同期比31%増加したことを受け、同社は高速成長中のレストランチェーンとして投資魅力が高まっていると評価する。売上伸長は同店のメンバーシップモデルとデジタル注文の拡大が主因で、今後も同様の成長が期待できる。バリュエーションは同業他社に比べ割安感があり、株価上昇余地が大きいと結論付けている。",
+        "tickers": [
+          "CAVA"
+        ],
+        "undervalued_picks": [
+          "CAVA"
+        ],
+        "key_points": [
+          "売上が31%増と高成長を示し、同社のビジネスモデルが市場で受け入れられている。",
+          "メンバーシップとデジタル注文の比率が上昇し、利益率改善が期待できる。",
+          "同業他社と比較してPERが低く、割安感があるため買い場と判断。",
+          "今後の店舗拡大計画と同時に、同社のブランド認知度が上昇する見込み。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "wtl012-ANos",
+      "title": "Rocket Lab Stock: Why Its Powerful Bull Case Could Survive a Neutron Delay",
+      "url": "https://www.youtube.com/watch?v=wtl012-ANos",
+      "published": "2026-10-23T14:00:11+00:00",
+      "analysis": {
+        "summary_ja": "<b>Rocket Lab</b> (RKLB) の株価は売上高67.8倍という高評価だが、Neutronロケットの打ち上げが2027年に遅延した場合でも、衛星事業やIridium買収などの既存事業が評価を支える可能性があると主張している。売上は急成長しているものの粗利益率低下とキャッシュ消費が懸念材料で、シナリオ別の資金調達リスクと希薄化効果をストレステストしている。結論として、Neutron遅延リスクを織り込んだ上で、現在のバリュエーションが過大である可能性が高いと判断している。",
+        "tickers": [
+          "RKLB"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Neutronロケットの打ち上げ遅延は、売上成長の加速と利益転換のタイミングを後ろ倒しにし、バリュエーションの大幅な下落リスクを生む。",
+          "売上は62%増の2億3400万ドルだが、粗利益率は低下傾向でキャッシュバーンが高く、資金調達が必要になるシナリオが複数存在する。",
+          "衛星事業の受注残高2.36億ドルやIridium買収計画は、Neutron遅延時の収益基盤として評価を支える要因と見ている。",
+          "3つの打ち上げシナリオ（2025年、2026年、2027年）で希薄化率と株価目標を比較し、遅延が長期化すれば株価は現在の水準を大きく下回る可能性がある。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "ITH0wVU__UI",
+      "title": "I Read Every Page of the Netflix Investor Update. Here's What You Need to Know",
+      "url": "https://www.youtube.com/watch?v=ITH0wVU__UI",
+      "published": "2026-10-23T13:30:27+00:00",
+      "analysis": {
+        "summary_ja": "<b>Netflix</b> の最新投資家向けアップデートを全ページ読み解いた結果、成長率の鈍化と高いコンテンツコストが株価の下押し要因と判断され、現在の株価は過大評価と見られる。広告収入の伸びは期待ほどではなく、ユーザー獲得コストも上昇しているため、短期的なリスクが高い。したがって、投資家はポジションの見直しや利益確定を検討すべきである。",
+        "tickers": [
+          "NFLX"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "2024年度第2四半期の売上成長率は前年同期比で約5%にとどまり、過去数年の二桁成長から大幅に減速した。",
+          "コンテンツ制作費が増大し、フリーキャッシュフローが減少。特にオリジナル作品への投資が利益率を圧迫している。",
+          "広告収入は期待されたほど伸びず、全体収益への寄与が限定的。",
+          "ユーザー獲得コストが上昇し、加入者増加ペースが鈍化。解約率（チャーンレート）もやや上昇傾向にある。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     },
     {
@@ -296,57 +738,56 @@
       "url": "https://www.youtube.com/watch?v=1UekQcI23G8",
       "published": "2026-10-23T13:00:37+00:00",
       "analysis": {
-        "summary_ja": "AI関連株の過熱感が崩れ、<b>NASDAQ 100</b>が大幅下落したことから、テクノロジーセクター全体に弱気の見通しが示された。<b>TSLA</b>の設備投資削減、<b>META</b>のクレジットデフォルトスワップコスト上昇、<b>LRCX</b>のガイダンス不振がリスク要因として指摘された。一方で、資金は消費財・公益・ヘルスケア・金融へとローテーションし、これらのセクターは相対的に強気と見られる。",
+        "summary_ja": "AI取引の評価下落がNasdaq 100で約1.2兆ドルの消失を引き起こし、<b>TSLA</b>の設備投資削減や<b>META</b>のクレジットデフォルトスワップ上昇、<b>LRCX</b>のガイダンス不振がリスク要因となっている。ヘッジファンドは5年高値近くでテック株をショートし、ショートレバレッジは5年スパンで99パーセンタイルに達しているため、ショートスクイーズの懸念もある。米ドルプロジェクトファイナンスのデータセンター・チップ向け借入が急増し、信用リスクが拡大している中、投資家は消費財・公益・ヘルスケア・金融へ資金をシフトしている。",
         "tickers": [
           "TSLA",
           "META",
-          "LRCX"
+          "LRCX",
+          "SLV"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "AI取引の評価が下がり、<b>NASDAQ 100</b>が2.9%下落した。",
-          "<b>TSLA</b>は設備投資を削減し、成長見通しが弱まった。",
-          "<b>META</b>のCDSスプレッドが史上最高水準に達し、信用リスクが増大した。",
-          "<b>LRCX</b>の業績予想が市場期待を下回り、株価下落要因となった。",
-          "資金は消費財、公益、ヘルスケア、金融へとシフトし、これらのセクターは相対的に上昇した。"
+          "AI関連株の評価が急落し、Nasdaq 100が2.9%下落したことはテックセクター全体のリスク上昇を示す。",
+          "ヘッジファンドのショートポジションが過去10年で最大規模となり、ショートスクイーズの可能性が高まっている。",
+          "データセンターや半導体向けのプロジェクトファイナンスが約1,050億ドルに達し、低格付け信用が「嵐の目」となる。",
+          "資金は消費財、公益、ヘルスケア、金融といった防御的セクターへ流入している。"
         ],
         "sentiment": "bearish",
         "topics": [
           "マクロ経済",
           "市場見通し",
-          "セクターローテーション"
+          "投資戦略"
         ],
         "importance": 4,
         "has_thesis": true,
         "promoLevel": "medium"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     },
     {
@@ -356,13 +797,12 @@
       "url": "https://www.youtube.com/watch?v=G0Afs9XUQ2k",
       "published": "2026-10-23T12:00:15+00:00",
       "analysis": {
-        "summary_ja": "実質的な投資テーゼがなく、AIブームと住宅市場の下落についてのマクロ的見解が中心です。投資対象の具体的な銘柄やエントリーポイントは提示されていません。",
+        "summary_ja": "実質的な投資テーゼは提示されておらず、AIブームと住宅市場の下落というマクロテーマの比較に留まっている。",
         "tickers": [],
         "undervalued_picks": [],
         "key_points": [
-          "AI関連産業は急速な成長が期待されるが、過熱感がある。",
-          "住宅市場は金利上昇と需要減少で下落局面にある。",
-          "投資家はAIブームと住宅バストのリスク・リターンを比較し、ポートフォリオのバランスを再検討すべき。"
+          "AI関連企業は成長期待が高く、過熱感があるが、実体経済との乖離に注意が必要。",
+          "住宅市場は金利上昇と需要減少で価格下落が続く可能性が高く、リスク資産としての評価が低下している。"
         ],
         "sentiment": "neutral",
         "topics": [
@@ -374,32 +814,31 @@
         "promoLevel": "medium"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     },
     {
@@ -409,15 +848,15 @@
       "url": "https://www.youtube.com/watch?v=uXWXsaBWMgU",
       "published": "2026-10-23T11:30:06+00:00",
       "analysis": {
-        "summary_ja": "<b>AMZN</b>の投資テーゼは、次回の大型投資家向けアップデート前に株を買うべきかを検討することである。特に、<b>AMZN</b>のAWS部門の成長が最重要指標とされ、売上・利益の加速が続くことが買いの根拠となっている。アップデートでの指針やガイダンスが市場期待を上回れば、株価は上昇余地が大きいと判断している。",
+        "summary_ja": "<b>AMZN</b> の株式を大型投資家向けアップデート前に購入すべきかを検討する。主な注目点は AWS 部門の成長率で、売上と利益の拡大が続くと判断すれば株価は上昇余地があると結論付けている。投資家はアップデート前の価格調整を利用し、長期的な成長ドライバーとしてのクラウド事業に焦点を当てるべきだと提案している。",
         "tickers": [
           "AMZN"
         ],
         "undervalued_picks": [],
         "key_points": [
-          "AWSの売上成長率と利益率の改善が継続している点を注視すべき。",
-          "次回の投資家向けアップデートでのガイダンスが市場期待を上回る可能性が高く、株価上昇のトリガーになる。",
-          "現在の株価は長期的な成長見通しに対して割安感は薄いが、短期的な調整局面でエントリーの機会がある。"
+          "AWS の売上成長率が過去数四半期で加速しており、今後も高い利益率が期待できる。",
+          "大型投資家向けのアップデート前に株価が一時的に下落する可能性があるため、エントリーポイントとして魅力的。",
+          "全体的なマクロ環境はインフレ圧力が続くが、クラウド需要は堅調であり、AMZN の長期的な競争優位性を支える。"
         ],
         "sentiment": "bullish",
         "topics": [
@@ -429,1016 +868,31 @@
         "promoLevel": "medium"
       },
       "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Conor Kenny Stocks",
-      "video_id": "kF_H-G9GFf0",
-      "title": "Stock Market is CRASHING!!!",
-      "url": "https://www.youtube.com/watch?v=kF_H-G9GFf0",
-      "published": "2026-10-23T08:22:22+00:00",
-      "analysis": {
-        "summary_ja": "実質的な投資情報なし",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [],
-        "importance": 1,
-        "has_thesis": false,
-        "promoLevel": "high"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Will Rich",
-      "video_id": "_pZE3Jsewjo",
-      "title": "How To Utilize AI For Long Term Investing And Short Term Trading",
-      "url": "https://www.youtube.com/watch?v=_pZE3Jsewjo",
-      "published": "2026-10-23T01:33:05+00:00",
-      "analysis": {
-        "summary_ja": "AIツールを活用して、長期投資では<b>NVDA</b>や<b>MSFT</b>のようなAIリーダー企業を選定し、バリュエーションと成長率を重視することが推奨される。一方、短期トレーディングでは<b>AMD</b>や<b>TSLA</b>のようなボラティリティが高い銘柄を、AIが生成するテクニカルシグナルとニュース感情スコアでエントリータイミングを測ると効果的とされる。",
-        "tickers": [
-          "NVDA",
-          "MSFT",
-          "AMD",
-          "TSLA"
-        ],
-        "undervalued_picks": [
-          "NVDA",
-          "MSFT"
-        ],
-        "key_points": [
-          "AIモデルが過去の財務データと市場トレンドを分析し、<b>NVDA</b>と<b>MSFT</b>は長期的に過小評価されていると判断。",
-          "短期取引では、AIがリアルタイムのニュース感情と価格パターンを組み合わせ、<b>AMD</b>と<b>TSLA</b>のエントリーポイントを特定。",
-          "ポートフォリオ全体のリスク管理として、AIが提案するポジションサイズとヘッジ戦略を採用することが重要。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "投資戦略",
-          "個別銘柄分析",
-          "テクニカル分析"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Wolf of Dubai",
-      "video_id": "dz_xKFkmi58",
-      "title": "$BMNR Crash  7% MASSIVE OVERREACTION",
-      "url": "https://www.youtube.com/watch?v=dz_xKFkmi58",
-      "published": "2026-10-22T22:34:28+00:00",
-      "analysis": {
-        "summary_ja": "<b>BMNR</b> が7%急落したが、過剰反応であり、さらなる下落リスクがあると指摘。短期的なテクニカル指標と取引量の減少が弱気材料とされている。",
-        "tickers": [
-          "BMNR"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "急落後の価格はテクニカル的にサポートラインを下回っており、下値余地が大きい。",
-          "取引量の急減は売り圧力が続く可能性を示唆している。",
-          "市場全体のリスクオフムードが同銘柄の下落を加速させている。"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "個別銘柄分析",
-          "テクニカル分析"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Will Rich",
-      "video_id": "Z-Ln92GlYj0",
-      "title": "RedWire Stock Crashes To $8 Despite Government Contracts… Next Target....",
-      "url": "https://www.youtube.com/watch?v=Z-Ln92GlYj0",
-      "published": "2026-10-22T22:20:17+00:00",
-      "analysis": {
-        "summary_ja": "<b>REDW</b> の株価が $8 まで急落したが、政府契約は継続している点を踏まえても、売り圧力が続くと見ている。テクニカル的にはサポートが $6 付近で、そこを割ると更なる下落が予想され、次の目標は $5 前後と予測している。ファンダメンタル面では政府契約の規模が限定的で、収益拡大の見通しが弱いため、現状は過大評価と判断している。",
-        "tickers": [
-          "REDW"
-        ],
-        "undervalued_picks": [],
-        "key_points": [
-          "株価は $8 で取引されているが、主要サポートは $6 前後にあり、ブレイクすれば $5 付近まで下落する可能性が高い。",
-          "政府契約はあるものの規模が小さく、売上へのインパクトが限定的であるため、ファンダメンタルは弱い。",
-          "現在のバリュエーションは過大評価と見られ、短期的なリスクが高いと判断される。"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "個別銘柄分析",
-          "テクニカル分析",
-          "ファンダメンタル分析"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Everything Money",
-      "video_id": "4l9IQVEQQP0",
-      "title": "The Stock Market is Crashing Again!",
-      "url": "https://www.youtube.com/watch?v=4l9IQVEQQP0",
-      "published": "2026-10-22T18:13:28+00:00",
-      "analysis": {
-        "summary_ja": "<b>LUV</b>は現在の売り急落で割安となっており、長期的な需要と財務健全性から買いのチャンスと判断する。一方、<b>LRCX</b>、<b>SPOT</b>、<b>LMT</b>は市場全体の下落に伴うリスクが残るが、ファンダメンタルは依然として堅調である。",
-        "tickers": [
-          "LRCX",
-          "SPOT",
-          "LMT",
-          "LUV"
-        ],
-        "undervalued_picks": [
-          "LUV"
-        ],
-        "key_points": [
-          "市場全体が下落している中で、<b>LUV</b>の株価は過小評価されており、買い場と見ている。",
-          "<b>LRCX</b>は半導体装置需要の回復期待があるが、短期的なボラティリティが高い。",
-          "<b>SPOT>は広告収入減と音楽ストリーミング競争の激化で弱気材料がある。",
-          "<b>LMT</b>は防衛支出の増加がプラス要因だが、地政学的リスクに左右されやすい。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "市場見通し"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Business with Brian",
-      "video_id": "8aRHUhVcSqQ",
-      "title": "Every Midterm Since 1946 Ended the Same Way",
-      "url": "https://www.youtube.com/watch?v=8aRHUhVcSqQ",
-      "published": "2026-10-22T17:45:06+00:00",
-      "analysis": {
-        "summary_ja": "米国の中間選挙は過去20回すべて株式市場に下落圧力をもたらし、19回中13回で<b>SP500</b>が10%以上下落した。選挙後も下落が続くことが多く、議会が変わるとさらに下落リスクが高まる。<b>Nasdaq</b>のハイテク銘柄は中間選挙年に相対的に弱くなる傾向がある。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [
-          "過去の中間選挙はすべて株式市場が下落し、13回で<b>SP500</b>が10%以上下落した。",
-          "選挙後も市場は弱含みが続きやすく、議会が変わると下落がさらに拡大するケースが多い。",
-          "<b>Nasdaq</b>のテクノロジー株は中間選挙年に相対的にパフォーマンスが低下する傾向がある。"
-        ],
-        "sentiment": "bearish",
-        "topics": [
-          "マクロ経済",
-          "市場見通し",
-          "投資戦略"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Tom Nash",
-      "video_id": "TL12Nu84Lic",
-      "title": "Tom Nash Investing Masterclass [Live, Saturday, October 24]",
-      "url": "https://www.youtube.com/watch?v=TL12Nu84Lic",
-      "published": "2026-10-22T17:41:19+00:00",
-      "analysis": {
-        "summary_ja": "実質的な投資情報なし",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [],
-        "importance": 1,
-        "has_thesis": false,
-        "promoLevel": "high"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "n2uLj3gmL4I",
-      "title": "Why Is BigBear.ai Stock Crashing, and is it a Buying Opportunity? | BBAI Stock Analysis",
-      "url": "https://www.youtube.com/watch?v=n2uLj3gmL4I",
-      "published": "2026-10-22T15:45:22+00:00",
-      "analysis": {
-        "summary_ja": "<b>BigBear.ai</b> の株価が2026年に60%以上下落した主因は、最新の四半期決算で売上と受注が市場予想を大きく下回ったことと、AI関連支出の減速によるマクロリスクです。一方で、同社は政府契約のポートフォリオが依然として堅調で、長期的なキャッシュフローは改善傾向にあるため、現在の株価は過小評価されている可能性があります。著者は、株価が大幅に下落した今が <b>BBAI</b> の買い場であり、目標価格は$12と設定しています。",
-        "tickers": [
-          "BBAI"
-        ],
-        "undervalued_picks": [
-          "BBAI"
-        ],
-        "key_points": [
-          "最新四半期の売上と受注が市場予想を大幅に下回り、株価急落の直接要因となった。",
-          "政府関連の長期契約が依然として高い比率を占め、安定したキャッシュフローが期待できる。",
-          "AI支出の減速とマクロ経済の不透明感が短期的なリスク要因。",
-          "現在の株価は過去12か月の平均EV/EBITDAと比較して割安で、目標価格は$12と見ている。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "マクロ経済"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Will Rich",
-      "video_id": "ybkanM4fT3Q",
-      "title": "SpaceX Revenue Jumps As Space Stocks Drop 28%...",
-      "url": "https://www.youtube.com/watch?v=ybkanM4fT3Q",
-      "published": "2026-10-22T14:52:19+00:00",
-      "analysis": {
-        "summary_ja": "<b>SpaceX</b>の最新収益が予想を20億ドル上回り、特にStarlink事業の拡大が牽引しています。この成長は民間宇宙企業の評価基準を引き上げ、同セクター全体の投資魅力を高めると考えられます。また、AST SpaceMobileによる宇宙ベースのセルラーブロードバンドや、Terafabのチップ供給能力が今後のインフラ需要を支えると見込まれます。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [
-          "SpaceXの収益が予想を20億ドル上回り、成長が加速している。",
-          "Starlinkが主要な収益源となり、民間宇宙企業の評価を押し上げている。",
-          "AST SpaceMobileの宇宙セルラーブロードバンド構想が新たな市場機会を提供する可能性がある。",
-          "Terafabがチップ生産と将来の需要増に対応できる体制を整えている。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "セクター分析",
-          "市場見通し"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Rick Orford",
-      "video_id": "QaEIUzzbGD8",
-      "title": "Micron Stock: The Powerful Defense Behind Its $38.15 Quarterly EPS Guidance",
-      "url": "https://www.youtube.com/watch?v=QaEIUzzbGD8",
-      "published": "2026-10-22T14:00:24+00:00",
-      "analysis": {
-        "summary_ja": "<b>MU</b>は2024年第2四半期に$38.15のEPSを予想し、株価は割安と評価できるが、メモリーチップはサイクル性が高く価格下落リスクがある。$150億の顧客契約と豊富な現金が下落局面を緩和できる可能性がある。価格が10%、25%、40%下落したシナリオでも利益は一定程度維持できるが、単一四半期の実績を年率化すべきではない。",
-        "tickers": [
-          "MU"
-        ],
-        "undervalued_picks": [
-          "MU"
-        ],
-        "key_points": [
-          "Guidanceの$38.15 EPSは過去最高で、現在の株価水準から見ると割安感がある。",
-          "メモリ価格が大幅に下落しても、$150億規模の長期契約と現金保有が利益を支える。",
-          "DRAM・NANDの価格サイクルは続く可能性が高く、将来のEPSはシナリオ次第で変動する。",
-          "単一四半期の異常利益を年率化して評価するのはリスクがある。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "市場見通し"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "WallStreetZen",
-      "video_id": "9NuW2tw5zkY",
-      "title": "Japan’s $21B Chip Deal: Don’t Buy the Wrong Stock (3 Better Picks)",
-      "url": "https://www.youtube.com/watch?v=9NuW2tw5zkY",
-      "published": "2026-10-22T14:00:18+00:00",
-      "analysis": {
-        "summary_ja": "Japanの210億ドル規模の半導体取引が投資機会を生むが、最も目立つ銘柄は必ずしも最適ではない。Jacob Wadeは、アナリストが約160%の上昇余地を予測する装置サプライヤー、業界トップだがカバレッジがほとんどない企業、そして自社で1000億ドル規模のチップ工場を建設中で割安評価されている企業の3銘柄を推奨している。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [
-          "日本の210億ドル半導体取引は米国のチップ製造ブームとAI需要拡大を後押しし、投資機会を提供する。",
-          "最も顕著な銘柄は過大評価の可能性があるため、代替の3銘柄に注目すべき。",
-          "装置サプライヤーはWall Streetアナリストが約160%の上昇余地を示しており、割安と評価されている。",
-          "業界トップでありながら市場カバレッジが少ない企業は、過小評価されている可能性が高い。",
-          "自社で1000億ドル規模のチップ工場を建設中の企業は、低評価ながら長期的な成長が期待できる。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "マクロ経済",
-          "投資戦略"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "LVPcoXodNNA",
-      "title": "Massive News for Salesforce Stock Investors | CRM Stock Analysis",
-      "url": "https://www.youtube.com/watch?v=LVPcoXodNNA",
-      "published": "2026-10-22T13:45:25+00:00",
-      "analysis": {
-        "summary_ja": "<b>CRM</b> が新たな買収を発表し、同社の成長ドライバーが強化されると評価。買収対象は既存のクラウドポートフォリオとシナジーが見込め、売上拡大と利益率改善が期待できる。現在の株価は買収プレミアムを織り込んでいないため、短期的な上昇余地があると判断。",
-        "tickers": [
-          "CRM"
-        ],
-        "undervalued_picks": [
-          "CRM"
-        ],
-        "key_points": [
-          "新規買収がCRMの製品ラインと顧客基盤を拡大し、クロスセル機会を創出する。",
-          "買収によるシナジー効果で営業利益率が向上し、長期的なキャッシュフローが改善する見込み。",
-          "現在の株価は買収プレミアムを完全に織り込んでおらず、割安感が残る。",
-          "マクロ環境ではクラウドサービス需要が堅調で、CRMの市場シェア拡大が期待できる。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "市場見通し"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Financial Education",
-      "video_id": "5siFv-aNu5g",
-      "title": "How To Escape 9 To 5 Under 10 Years.",
-      "url": "https://www.youtube.com/watch?v=5siFv-aNu5g",
-      "published": "2026-10-22T13:17:16+00:00",
-      "analysis": {
-        "summary_ja": "実質的な投資情報なし。動画は主に個人投資家向けのプロモーションと自己紹介が中心です。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [
-          "投資戦略"
-        ],
-        "importance": 1,
-        "has_thesis": false,
-        "promoLevel": "high"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Antonio Linares",
-      "video_id": "JSdFJ53vgwE",
-      "title": "is nautilus biotechnology the next ASML?",
-      "url": "https://www.youtube.com/watch?v=JSdFJ53vgwE",
-      "published": "2026-10-22T12:31:38+00:00",
-      "analysis": {
-        "summary_ja": "<b>NAUT</b>は単一分子レベルでプロテオームを測定できるプラットフォームを構築中で、将来的にバイオロジー全体の基盤装置となり得ると考えられる。ASMLが極紫外リソグラフィで市場を独占したように、<b>NAUT</b>もツールメーカーとしての独占的ポジションを獲得すれば、半導体業界と同様に高い参入障壁と持続的な収益を実現できる。現在は長期的な資本集約型開発段階で市場から過小評価されているため、早期投資が大きなリターンを生む可能性がある。",
-        "tickers": [
-          "NAUT"
-        ],
-        "undervalued_picks": [
-          "NAUT"
-        ],
-        "key_points": [
-          "Nautilusは単一分子スケールのプロテオミクス測定装置を開発しており、バイオテクノロジー全体の基盤ツールになる可能性がある。",
-          "ASMLが極紫外リソグラフィで市場を独占した例と類似したビジネスモデルで、長期的な参入障壁と高い利益率が期待できる。",
-          "現在は開発段階で資本集約的であるため市場は過小評価しており、早期投資が大きな上昇余地を提供する。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "投資戦略"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "low"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Sven Carlin",
-      "video_id": "6p3TQ0KZhYg",
-      "title": "The Value Investing Handbook Is Out!!!",
-      "url": "https://www.youtube.com/watch?v=6p3TQ0KZhYg",
-      "published": "2026-10-22T12:00:38+00:00",
-      "analysis": {
-        "summary_ja": "実質的な投資情報がなく、主に書籍やリサーチプラットフォーム、ブローカーの紹介が中心です。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [
-          "投資戦略"
-        ],
-        "importance": 1,
-        "has_thesis": false,
-        "promoLevel": "high"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Jerry Romine",
-      "video_id": "2HL_gogN0Lw",
-      "title": "The Unthinkable Is About To Happen To SPACEX",
-      "url": "https://www.youtube.com/watch?v=2HL_gogN0Lw",
-      "published": "2026-10-22T11:58:38+00:00",
-      "analysis": {
-        "summary_ja": "<b>SpaceX</b>は今四半期で初の黒字を達成し、売上とロケットブースター回収で市場の期待を上回ったが、同時に1.3億株のロックアップ解除が本日実施されるため、株価下落リスクが顕在化している。投資家はこの供給ショックを考慮し、現在の株価が企業価値に対して割安かどうかを慎重に評価すべきである。",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [
-          "決算で黒字化と売上増を達成したが、ロックアップ解除で大量株式が市場に流入するリスクがある。",
-          "同社はAIデータセンター事業への転換を進めており、長期的な成長余地が期待できる。",
-          "現在の株価が公正価値を下回っているかどうかを評価し、過度な買いは避けるべき。"
-        ],
-        "sentiment": "neutral",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "市場見通し"
-        ],
-        "importance": 3,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Parkev's Picks",
-      "video_id": "X4iwiPHULtQ",
-      "title": "Should You Buy Alphabet Stock Before the Huge Investor Update? | GOOG Stock Analysis",
-      "url": "https://www.youtube.com/watch?v=X4iwiPHULtQ",
-      "published": "2026-10-22T11:45:24+00:00",
-      "analysis": {
-        "summary_ja": "<b>Alphabet</b> のAI事業が急成長しており、長期的な成長ドライバーと見て買いを推奨する。一方で検索事業の減速リスクは残っているが、投資家アップデート前に株価が割安感を示す可能性がある。",
-        "tickers": [
-          "GOOG",
-          "GOOGL"
-        ],
-        "undervalued_picks": [
-          "GOOG",
-          "GOOGL"
-        ],
-        "key_points": [
-          "AI関連収益が急増し、広告以外の売上比率が上昇している。",
-          "検索事業の成長は鈍化しているが、AI統合で改善余地がある。",
-          "投資家アップデート前に市場が過小評価している可能性がある。",
-          "バリュエーションは同業他社に比べて割安水準に近づいている。"
-        ],
-        "sentiment": "bullish",
-        "topics": [
-          "個別銘柄分析",
-          "決算分析",
-          "市場見通し"
-        ],
-        "importance": 4,
-        "has_thesis": true,
-        "promoLevel": "medium"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
-      }
-    },
-    {
-      "channel_name": "Conor Kenny Stocks",
-      "video_id": "Ge-uWNNPWxI",
-      "title": "Is the Stock Market About to CRASH?",
-      "url": "https://www.youtube.com/watch?v=Ge-uWNNPWxI",
-      "published": "2026-10-22T10:10:19+00:00",
-      "analysis": {
-        "summary_ja": "実質的な投資情報なし",
-        "tickers": [],
-        "undervalued_picks": [],
-        "key_points": [],
-        "sentiment": "neutral",
-        "topics": [
-          "市場見通し"
-        ],
-        "importance": 1,
-        "has_thesis": false,
-        "promoLevel": "high"
-      },
-      "price_snapshot": {
-        "AAPL": NaN,
-        "AMD": NaN,
-        "AMZN": NaN,
-        "BBAI": NaN,
-        "BMNR": NaN,
-        "CAVA": NaN,
-        "CRM": NaN,
-        "EBAY": NaN,
-        "GOOG": NaN,
-        "GOOGL": NaN,
-        "IBM": NaN,
-        "IRDM": NaN,
-        "LMT": NaN,
-        "LRCX": NaN,
-        "LUV": NaN,
-        "META": NaN,
-        "MSFT": NaN,
-        "MU": NaN,
-        "NAUT": NaN,
-        "NFLX": NaN,
-        "NVDA": NaN,
-        "REDW": 185.01,
-        "RKLB": NaN,
-        "SPOT": NaN,
-        "TSLA": NaN,
-        "WMT": NaN
+        "AAPL": 347.73,
+        "AMD": 516.79,
+        "AMZN": 248.0,
+        "ARKK": 81.99,
+        "CAVA": 53.48,
+        "CLX": 86.4,
+        "DIS": 112.52,
+        "DOCN": 93.22,
+        "EBAY": 121.41,
+        "EL": 108.67,
+        "GOOGL": 320.21,
+        "IBM": 253.56,
+        "LRCX": 230.1,
+        "META": 642.62,
+        "MSFT": 524.51,
+        "NFLX": 65.85,
+        "NVDA": 210.96,
+        "PAL": 2.71,
+        "RKLB": 52.6,
+        "ROKU": 158.58,
+        "SLV": 48.72,
+        "SOFI": 14.61,
+        "TSLA": 372.22,
+        "UPS": 101.06,
+        "WMT": 119.89
       }
     }
   ]
