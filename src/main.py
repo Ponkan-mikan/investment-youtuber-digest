@@ -34,8 +34,17 @@ RSS_RETRY_WAIT   = 5  # 秒（試行ごとに 5s, 10s と伸びる）
 # 25秒間隔なら約2.4回/分 = 約7,200 TPM に収まる。
 GROQ_CALL_INTERVAL = 25
 
-# RSS 取得に失敗したチャンネルIDを記録する（終了時の品質ゲートで使用）
-RSS_FAILED_CHANNELS: list[str] = []
+# 動画一覧の取得に失敗したチャンネルIDを記録する（終了時の品質ゲートで使用）
+FETCH_FAILED_CHANNELS: list[str] = []
+
+# YouTube Data API v3。GitHub Actions のランナー（データセンターIP）からは
+# RSS がボット判定で恒常的にブロックされるため、APIキーがあれば公式APIを優先する。
+# 消費量は 1チャンネルあたり 1〜2ユニットで、無料枠（10,000ユニット/日）に十分収まる。
+_YT_API_BASE = "https://www.googleapis.com/youtube/v3"
+
+# APIキー自体の問題（無効・クォータ超過・API未有効化）を検知したら、
+# 以降のチャンネルでは API を呼ばずに RSS へ回す
+_yt_api_disabled = False
 
 # YouTube にボット判定されないようブラウザ相当のヘッダを付ける
 _RSS_HEADERS = {
@@ -89,13 +98,31 @@ def save_channels(channels: list[dict]) -> None:
         json.dump(channels, f, indent=2, ensure_ascii=False)
 
 
-def resolve_channel_ids(channels: list[dict]) -> list[dict]:
+def get_channel_id_from_handle_api(handle: str, api_key: str) -> str | None:
+    """YouTube Data API v3 で @ハンドルからチャンネルIDを取得する。"""
+    try:
+        resp = requests.get(f"{_YT_API_BASE}/channels", params={
+            "part": "id", "forHandle": f"@{handle}", "key": api_key,
+        }, timeout=15)
+        resp.raise_for_status()
+        items = resp.json().get("items", [])
+        return items[0]["id"] if items else None
+    except Exception as e:
+        print(f"  [WARN] チャンネルID取得失敗 (API) @{handle}: {e}")
+        return None
+
+
+def resolve_channel_ids(channels: list[dict], youtube_api_key: str | None = None) -> list[dict]:
     """channel_id が null のチャンネルを解決してキャッシュする。"""
     updated = False
     for ch in channels:
         if not ch.get("channel_id"):
             print(f"チャンネルID解決中: {ch['name']} (@{ch['handle']}) ...")
-            cid = get_channel_id_from_handle(ch["handle"])
+            cid = None
+            if youtube_api_key:
+                cid = get_channel_id_from_handle_api(ch["handle"], youtube_api_key)
+            if not cid:
+                cid = get_channel_id_from_handle(ch["handle"])
             if cid:
                 print(f"  → {cid}")
                 ch["channel_id"] = cid
@@ -134,7 +161,7 @@ def get_recent_videos(channel_id: str, hours: int = LOOKBACK_HOURS) -> list[dict
 
     if feed is None:
         print(f"  [ERROR] RSS取得を{RSS_MAX_ATTEMPTS}回試行して失敗 (channel_id={channel_id})")
-        RSS_FAILED_CHANNELS.append(channel_id)
+        FETCH_FAILED_CHANNELS.append(channel_id)
         return []
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
     results = []
@@ -160,6 +187,114 @@ def get_recent_videos(channel_id: str, hours: int = LOOKBACK_HOURS) -> list[dict
                 "duration_seconds": duration,
             })
     return results
+
+
+# ---- YouTube Data API v3 -------------------------------------------------
+
+_ISO_DURATION_RE = re.compile(r"P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?")
+
+
+def _parse_iso8601_duration(s: str) -> int:
+    """PT1H2M3S 形式の再生時間を秒に変換する。解釈できなければ 0。"""
+    m = _ISO_DURATION_RE.fullmatch(s or "")
+    if not m:
+        return 0
+    d, h, mi, sec = (int(x or 0) for x in m.groups())
+    return ((d * 24 + h) * 60 + mi) * 60 + sec
+
+
+def _yt_api_error_reason(resp: requests.Response) -> str:
+    """YouTube API のエラーレスポンスから reason を取り出す。"""
+    try:
+        return resp.json()["error"]["errors"][0]["reason"]
+    except Exception:
+        return resp.text[:200]
+
+
+def get_recent_videos_api(
+    channel_id: str, api_key: str, hours: int = LOOKBACK_HOURS
+) -> list[dict] | None:
+    """YouTube Data API v3 で直近 `hours` 時間以内の動画を取得する。
+
+    API が使えなかった場合は None を返し、呼び出し側で RSS にフォールバックさせる。
+    """
+    global _yt_api_disabled
+
+    # チャンネルの「アップロード動画」プレイリストIDは、UC... の先頭2文字を UU に替えたもの
+    playlist_id = "UU" + channel_id[2:]
+    try:
+        resp = requests.get(f"{_YT_API_BASE}/playlistItems", params={
+            "part": "snippet,contentDetails",
+            "playlistId": playlist_id,
+            "maxResults": 15,
+            "key": api_key,
+        }, timeout=20)
+    except requests.exceptions.RequestException as e:
+        print(f"  [WARN] YouTube API 接続エラー: {e}")
+        return None
+
+    if resp.status_code != 200:
+        reason = _yt_api_error_reason(resp)
+        print(f"  [WARN] YouTube API playlistItems HTTP {resp.status_code}: {reason}")
+        # 400/403 はキー無効・クォータ超過・API未有効化など、キー自体の問題
+        if resp.status_code in (400, 403):
+            print("  [ERROR] YOUTUBE_API_KEY が使えないため、以降は RSS で取得します")
+            _yt_api_disabled = True
+        return None
+
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    results = []
+    for item in resp.json().get("items", []):
+        snippet = item.get("snippet", {})
+        details = item.get("contentDetails", {})
+        video_id = details.get("videoId") or snippet.get("resourceId", {}).get("videoId")
+        published_str = details.get("videoPublishedAt") or snippet.get("publishedAt")
+        if not video_id or not published_str:
+            continue
+        published = datetime.fromisoformat(published_str.replace("Z", "+00:00"))
+        if published < cutoff:
+            continue
+        results.append({
+            "video_id":         video_id,
+            "title":            snippet.get("title", ""),
+            "url":              f"https://www.youtube.com/watch?v={video_id}",
+            "published":        published.isoformat(),
+            "description":      snippet.get("description", ""),
+            "duration_seconds": 0,
+        })
+
+    if not results:
+        return results
+
+    # 再生時間（ショート判定用）を videos.list でまとめて取得する。
+    # 取れなくてもタイトル・概要欄の #shorts でショート判定できるので続行する。
+    try:
+        resp = requests.get(f"{_YT_API_BASE}/videos", params={
+            "part": "contentDetails",
+            "id": ",".join(v["video_id"] for v in results),
+            "key": api_key,
+        }, timeout=20)
+        resp.raise_for_status()
+        durations = {
+            it["id"]: _parse_iso8601_duration(it.get("contentDetails", {}).get("duration", ""))
+            for it in resp.json().get("items", [])
+        }
+        for v in results:
+            v["duration_seconds"] = durations.get(v["video_id"], 0)
+    except Exception as e:
+        print(f"  [WARN] 再生時間の取得に失敗（ショート判定は概要欄のみで行う）: {e}")
+
+    return results
+
+
+def fetch_recent_videos(channel_id: str, youtube_api_key: str | None) -> list[dict]:
+    """APIキーがあれば YouTube Data API v3、なければ（または失敗時は）RSS で取得する。"""
+    if youtube_api_key and not _yt_api_disabled:
+        videos = get_recent_videos_api(channel_id, youtube_api_key)
+        if videos is not None:
+            return videos
+        print("  → RSS にフォールバックします")
+    return get_recent_videos(channel_id)
 
 
 # ---- ショート判定 -------------------------------------------------------
@@ -2142,9 +2277,16 @@ def main() -> None:
 
     client = api_key  # REST API キーをそのまま渡す
 
+    youtube_api_key = os.environ.get("YOUTUBE_API_KEY")
+    if youtube_api_key:
+        print("動画一覧の取得: YouTube Data API v3（失敗時は RSS にフォールバック）")
+    else:
+        print("[WARN] YOUTUBE_API_KEY が未設定のため RSS で取得します。"
+              "GitHub Actions からは RSS がブロックされやすいため設定を推奨します。")
+
     # 1. チャンネルリストの読み込み & チャンネルID解決
     channels = load_channels()
-    channels = resolve_channel_ids(channels)
+    channels = resolve_channel_ids(channels, youtube_api_key)
 
     today = datetime.now(JST).strftime("%Y-%m-%d")
     all_results: list[dict] = []
@@ -2156,7 +2298,7 @@ def main() -> None:
             continue
 
         print(f"\n[{ch['name']}] 新着動画を取得中...")
-        videos = dedupe_videos(get_recent_videos(ch["channel_id"]))
+        videos = dedupe_videos(fetch_recent_videos(ch["channel_id"], youtube_api_key))
 
         if not videos:
             print("  → 新着なし")
@@ -2201,21 +2343,21 @@ def main() -> None:
     # 中身のないページを gh-pages に公開してしまうと過去分を上書きしてしまうため、
     # 収集・要約が全滅している場合はここで異常終了させ、デプロイステップに進ませない。
     n_active_channels = sum(1 for ch in channels if ch.get("channel_id"))
-    if RSS_FAILED_CHANNELS:
-        print(f"[WARN] RSS取得に失敗したチャンネル: "
-              f"{len(RSS_FAILED_CHANNELS)}/{n_active_channels}")
+    if FETCH_FAILED_CHANNELS:
+        print(f"[WARN] 動画一覧の取得に失敗したチャンネル: "
+              f"{len(FETCH_FAILED_CHANNELS)}/{n_active_channels}")
 
     if not all_results:
         raise RuntimeError(
-            f"動画を1本も取得できませんでした（RSS失敗 {len(RSS_FAILED_CHANNELS)}"
+            f"動画を1本も取得できませんでした（取得失敗 {len(FETCH_FAILED_CHANNELS)}"
             f"/{n_active_channels} チャンネル）。"
             "空のページを公開しないため中断します。"
         )
 
-    if len(RSS_FAILED_CHANNELS) > n_active_channels / 2:
+    if len(FETCH_FAILED_CHANNELS) > n_active_channels / 2:
         raise RuntimeError(
-            f"RSS取得が過半数のチャンネルで失敗しました "
-            f"({len(RSS_FAILED_CHANNELS)}/{n_active_channels})。"
+            f"動画一覧の取得が過半数のチャンネルで失敗しました "
+            f"({len(FETCH_FAILED_CHANNELS)}/{n_active_channels})。"
             "欠落したページを公開しないため中断します。"
         )
 
