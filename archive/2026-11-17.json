@@ -1,0 +1,1456 @@
+{
+  "date": "2026-11-17",
+  "results": [
+    {
+      "channel_name": "Everything Money",
+      "video_id": "qQy9IlX-uyE",
+      "title": "The Unthinkable is Happening To The Stock Market",
+      "url": "https://www.youtube.com/watch?v=qQy9IlX-uyE",
+      "published": "2026-11-16T21:00:12+00:00",
+      "analysis": {
+        "summary_ja": "<b>NVDA</b>のファンダメンタルズは依然として堅調で、現在の株価は過小評価されていると評価される。一方、<b>AMD</b>は合併発表後も株価が下落しており、短期的なリスクが残る。<b>BTC</b>の急落はレバレッジド・ストラテジーを持つ<b>MSTR</b>に大きな影響を与えており、注意が必要である。さらに、<b>TSLA</b>とSpaceXの合併可能性が60%に上昇しており、これが実現すれば<b>TSLA</b>株にプラス材料となる。",
+        "tickers": [
+          "NVDA",
+          "AMD",
+          "MSTR",
+          "TSLA"
+        ],
+        "undervalued_picks": [
+          "NVDA"
+        ],
+        "key_points": [
+          "NVDAは業績とバリュエーションから割安と判断され、買い推奨。",
+          "AMDは合併ニュース後も株価が下落しており、短期的な下落リスクがある。",
+          "ビットコインの大幅下落がMSTRのレバレッジド戦略にマイナス影響を与える。",
+          "TSLAとSpaceXの合併確率が60%に上昇し、TSLA株価の上昇材料となる可能性。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "LVYP79tnpSU",
+      "title": "Should You Buy Palo Alto Stock Before the Huge Investor Update? | PANW Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=LVYP79tnpSU",
+      "published": "2026-11-16T17:45:17+00:00",
+      "analysis": {
+        "summary_ja": "<b>PANW</b> の売上は加速しているが、利益率の改善が見られない点を懸念し、投資家向けアップデート前に買いを検討するのはリスクが高いと結論付けている。",
+        "tickers": [
+          "PANW"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "売上は年率で増加しているが、営業利益率は横ばいまたは低下傾向にある。",
+          "大口投資家の最新の持株報告が出る前に市場が過熱する可能性があるが、マージン圧迫が続くと株価は下落リスクが高い。",
+          "バリュエーションは同業他社と比較して割高で、PERやEV/EBITDA が高止まりしている。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "JG_PandtoUU",
+      "title": "Bloom Energy Stock Down 41%: Dip or Policy Trap?",
+      "url": "https://www.youtube.com/watch?v=JG_PandtoUU",
+      "published": "2026-11-16T17:00:35+00:00",
+      "analysis": {
+        "summary_ja": "<b>BE</b>は記録的な売上とNTT DATAとの大規模契約にも関わらず、株価が41%下落した。2026年の中間選挙によるデータセンター許認可規制の不透明感と、64倍の先行PERが投資家の警戒感を高めている。フリーキャッシュフローがマイナスである点から、成長が即座に現金創出に転換できない限り、株価は過大評価されたまま下落リスクが残る。",
+        "tickers": [
+          "BE"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "記録的な第3四半期売上と138%の成長率にも関わらず、株価は41%下落した。",
+          "NTT DATAとの900MW契約は将来の出荷増加を示すが、2026年中間選挙後のデータセンター許認可規制がリスク要因となる。",
+          "先行PERが約64倍と高く、フリーキャッシュフローは-181百万ドルであり、バリュエーションと現金流のギャップが投資家の不安を招いている。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Will Rich",
+      "video_id": "sfpiT7VhTkI",
+      "title": "Sunday Stock Talk: Top Stocks To Watch Right Now",
+      "url": "https://www.youtube.com/watch?v=sfpiT7VhTkI",
+      "published": "2026-11-16T16:05:48+00:00",
+      "analysis": {
+        "summary_ja": "本動画では、<b>AAPL</b> と <b>NVDA</b> が強気の見通しで取り上げられ、特に <b>AAPL</b> はサービス部門の成長と安定したキャッシュフロー、<b>NVDA</b> はAI関連需要の拡大と高い利益率が根拠とされています。一方、<b>TSLA</b> は過熱感と競争激化を理由に弱気と評価され、短期的な調整が予想されています。",
+        "tickers": [
+          "AAPL",
+          "NVDA",
+          "TSLA"
+        ],
+        "undervalued_picks": [
+          "AAPL",
+          "NVDA"
+        ],
+        "key_points": [
+          "サービス部門の伸びと高い利益率が期待できる <b>AAPL</b> は、2024年度の売上予想を上回る見通しで買い推奨。",
+          "<b>NVDA</b> はAIチップ需要の急増に伴い、売上成長率が30%以上になると予測され、割安感がある。",
+          "<b>TSLA</b> は価格競争と供給チェーンリスクが顕在化し、株価は過大評価と判断され、売りのポジションが推奨される。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "9oY2_5rATIs",
+      "title": "If You're a CoreWeave Stock Investor, You Need to Know This | CRWV Stock",
+      "url": "https://www.youtube.com/watch?v=9oY2_5rATIs",
+      "published": "2026-11-16T15:45:32+00:00",
+      "analysis": {
+        "summary_ja": "<b>CRWV</b> はAIインフラ需要の急増と新たな大口顧客獲得により、売上と利益が大幅に拡大すると予測され、現在の株価は過小評価されていると評価される。財務指標は改善傾向にあり、キャッシュフローの増加と資本効率の向上が見込まれる。したがって、長期的な成長ドライバーとして<b>CRWV</b> を買い増しすることが推奨される。",
+        "tickers": [
+          "CRWV"
+        ],
+        "undervalued_picks": [
+          "CRWV"
+        ],
+        "key_points": [
+          "AIトレーニングと推論向けのGPUクラウドサービス需要が急速に拡大し、<b>CRWV</b> の売上が前年同期比で150%以上増加。",
+          "新規顧客として大手テック企業との契約が締結され、収益の安定化と高いマージンが期待できる。",
+          "財務面でのキャッシュフロー改善と負債削減が進んでおり、バリュエーションは同業他社に比べて割安。",
+          "短期的な市場変動はあるものの、長期的な成長見通しはポジティブであり、株価上昇余地が大きい。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 5,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "qv9x8Bm1g6k",
+      "title": "Duolingo Stock Jumped 26%: Is the AI Threat Over?",
+      "url": "https://www.youtube.com/watch?v=qv9x8Bm1g6k",
+      "published": "2026-11-16T15:00:05+00:00",
+      "analysis": {
+        "summary_ja": "<b>DUOL</b>の2026年第3四半期決算でDAUが29%増の6490万人に達したが、課金ユーザーは14%増に留まり、営業利益は減少した。AI機能のコスト削減とチェスユーザーの拡大が今後の課金転換を促すと期待され、株価はアナリスト平均目標$140を上回っていることから、同社はAI脅威を乗り越えつつあると判断できる。",
+        "tickers": [
+          "DUOL"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "DAUが29%増の6490万人に達し、将来の課金収益拡大の余地が大きい。",
+          "課金ユーザーは14%増にとどまる一方で、営業利益が減少している点がリスク。",
+          "AI機能のコスト削減により利益率改善が期待でき、チェスユーザーの増加が新たな収益源になる。",
+          "株価はアナリスト平均目標$140を上回っており、現在の上昇が過熱かどうかは次期決算で検証が必要。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "rClnvnl88J0",
+      "title": "Interesting Update for Intel Stock Investors | INTC Stock Deep Dive Part 3",
+      "url": "https://www.youtube.com/watch?v=rClnvnl88J0",
+      "published": "2026-11-16T14:45:08+00:00",
+      "analysis": {
+        "summary_ja": "<b>INTC</b>はエージェント型AIの普及により大幅な売上拡大が見込めるとし、同社の新しいGPUとCPUの統合ロードマップが競争優位をもたらすと主張しています。現在の株価は成長期待に対して割安であり、2025年末までに株価が30%上昇する可能性があると予測しています。",
+        "tickers": [
+          "INTC"
+        ],
+        "undervalued_picks": [
+          "INTC"
+        ],
+        "key_points": [
+          "エージェント型AI需要の急増が <b>INTC</b> のデータセンター向け製品売上を押し上げる。",
+          "新世代GPU（Xe‑HPC）とCPU（Alder Lake以降）の統合が競合他社に対する技術的優位性を提供。",
+          "現在の株価は予想PERと将来キャッシュフローに対して割安で、30%の上昇余地があると評価。",
+          "マクロ的に見て米国の半導体支出が増加傾向にあり、政府のCHIPS法支援が <b>INTC</b> の資本投資を後押しする。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "WallStreetZen",
+      "video_id": "V_tqCUJPcUU",
+      "title": "Democrats Just Swept Congress: 3 AI Stocks to Buy on the Dip",
+      "url": "https://www.youtube.com/watch?v=V_tqCUJPcUU",
+      "published": "2026-11-16T14:30:16+00:00",
+      "analysis": {
+        "summary_ja": "2026年中間選挙後のAI株売りが続く中、WallStreetZenのJacob Wadeは、業績成長と評価が魅力的な3銘柄を紹介し、特にインフラ系企業は最高値から50%以上下落しており買い場と主張している。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "AI関連企業は政治的不透明感とデータセンター拡大の鈍化懸念で売り込まれている。",
+          "売り込まれた銘柄は依然として強固な売上・利益成長を示しており、割安感がある。",
+          "特にAIインフラ企業は最高値から50%以上下落しており、上昇余地が大きいと評価されている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Felix & Friends",
+      "video_id": "mhaLcRIkJiI",
+      "title": "The FEDs UNTHINKABLE Interest Rate RESET",
+      "url": "https://www.youtube.com/watch?v=mhaLcRIkJiI",
+      "published": "2026-11-16T14:00:38+00:00",
+      "analysis": {
+        "summary_ja": "Fedが2027年までに金利を高止まりさせると、短期現金・マネーマーケット・<b>XLF</b>など銀行株が相対的に有利になる。一方、長期債、成長株、レバレッジド不動産、<b>XLE</b>などエネルギー銘柄は下落リスクが高まる。金価格は実質金利上昇で短期的に下押しされる。",
+        "tickers": [
+          "XLF",
+          "XLE"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "Fedが2027年までに4.25‑4.50%のターミナルレートを維持し、金利引き下げは2027年12月以降になる見通し。",
+          "短期金利上昇で長期債の価格が下落し、調整型住宅ローンの支払いが約24%増加する。",
+          "高金利環境下では短期現金・マネーマーケット・銀行株（<b>XLF</b>）がパフォーマンスの勝者となる。",
+          "長期債、成長株、レバレッジド不動産、エネルギー株（<b>XLE</b>）は下落圧力を受ける。",
+          "実質金利上昇により金は短期的にヘッドウインドを受ける。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "マクロ経済",
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "NPbz95mgKBk",
+      "title": "Why Is SoundhoundAI Stock Crashing, and is it a Buying Opportunity? | SOUN Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=NPbz95mgKBk",
+      "published": "2026-11-16T13:45:03+00:00",
+      "analysis": {
+        "summary_ja": "<b>SOUN</b> の株価が急落しているが、売上は伸びているものの利益は拡大せず赤字が増大している。業績の悪化と資金繰りリスクが懸念材料で、現時点での買いは推奨できない。",
+        "tickers": [
+          "SOUN"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "売上は増加しているが、純利益は減少し赤字が拡大している。",
+          "株価は急落しており、投資家の信頼が低下している。",
+          "資金繰りやキャッシュフローの悪化がリスク要因となっている。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "s8QtoerBbD8",
+      "title": "FIS, GPN, International Paper, IP, SW, PKG, Bunge, BG and more -  S&P 500 419 tp 396...",
+      "url": "https://www.youtube.com/watch?v=s8QtoerBbD8",
+      "published": "2026-11-16T13:00:02+00:00",
+      "analysis": {
+        "summary_ja": "本動画では、<b>FIS</b>、<b>GPN</b>、<b>International Paper</b>（<b>IP</b>）、<b>SW</b>、<b>PKG</b>、<b>Bunge</b>（<b>BG</b>）など複数銘柄を取り上げ、S&P 500が419から396へ下落する中でのリスクと見通しを解説している。特に<b>FIS</b>と<b>GPN</b>は業績の減速とバリュエーションの割高感から弱気とし、<b>IP</b>は原材料コスト上昇が利益を圧迫すると指摘している。一方で<b>SW</b>は防衛的な配当銘柄として相対的に魅力的と評価している。",
+        "tickers": [
+          "FIS",
+          "GPN",
+          "IP",
+          "SW",
+          "PKG",
+          "BG"
+        ],
+        "undervalued_picks": [
+          "SW"
+        ],
+        "key_points": [
+          "S&P 500の下落局面で<b>FIS</b>は売上成長が鈍化し、PERが市場平均を上回っているため弱気。",
+          "金融テクノロジー企業<b>GPN</b>は金利上昇局面で利益率が低下し、割高感が指摘される。",
+          "紙・パルプ大手<b>IP</b>は原材料コスト上昇と需要減少で利益が圧迫される見通し。",
+          "公益事業株<b>SW</b>は安定配当と低ボラティリティで防衛的ポジションとして買い推奨。",
+          "農業・食品関連の<b>BG</b>はコモディティ価格の変動リスクが大きく、慎重な姿勢が必要。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "KJ0MBImxwus",
+      "title": "Why Is Everyone Talking About Bloom Energy Stock? | BE STock Analysis",
+      "url": "https://www.youtube.com/watch?v=KJ0MBImxwus",
+      "published": "2026-11-16T12:45:20+00:00",
+      "analysis": {
+        "summary_ja": "<b>BE</b> の需要予測が過小評価されていると指摘し、実際の市場需要は大幅に上回る可能性があるため、株価は上昇余地が大きいと結論付けている。",
+        "tickers": [
+          "BE"
+        ],
+        "undervalued_picks": [
+          "BE"
+        ],
+        "key_points": [
+          "経営陣が製品・サービスの需要を過小評価していると指摘。",
+          "実際の需要拡大が期待でき、売上と利益の成長余地が大きい。",
+          "現在の株価は需要成長を織り込んでおらず、割安感がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Wolf of Dubai",
+      "video_id": "ygp9njVyC60",
+      "title": "The UNTHINKABLE is About to Happen to $BMNR (Emergency CRASH Update)",
+      "url": "https://www.youtube.com/watch?v=ygp9njVyC60",
+      "published": "2026-11-15T20:49:38+00:00",
+      "analysis": {
+        "summary_ja": "<b>BMNR</b> が現在大幅な下落局面にあり、過剰に売られた状態であると指摘。マイニング収益の回復とビットコイン価格の上昇が同時に進むことで、株価が急速に反転し、短期的に大きなリバウンドが起きる可能性が高いと主張。目標価格は $5 前後とし、現在の $1.20 程度がエントリーポイントとされる。",
+        "tickers": [
+          "BMNR"
+        ],
+        "undervalued_picks": [
+          "BMNR"
+        ],
+        "key_points": [
+          "ビットコイン価格が $30,000 を超えると、マイニング収益が大幅に改善し、<b>BMNR</b> の財務状況が好転する。",
+          "同社は過去数ヶ月で過剰に売られ、株価は本来の価値の 20% 以下にまで下落している。",
+          "テクニカル的にはサポートラインが $1.10 前後にあり、そこからの反発が期待できる。",
+          "目標株価は $5 と設定し、リスク・リワード比は約 4:1 と見込んでいる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "o_J7mnQ3NX4",
+      "title": "Plug Power Stock Has Taken Investors on a Roller Coaster Ride in 2026",
+      "url": "https://www.youtube.com/watch?v=o_J7mnQ3NX4",
+      "published": "2026-11-15T18:15:26+00:00",
+      "analysis": {
+        "summary_ja": "<b>PLUG</b>は2026年に経営陣が事業基盤を強化したことで、株価が大きく変動したが、現在は長期的な成長余地があると評価されている。売上高の回復と新規大型受注が期待でき、バリュエーションは同業他社に比べて割安感がある。したがって、投資家は現在の価格帯で買い増しを検討すべきである。",
+        "tickers": [
+          "PLUG"
+        ],
+        "undervalued_picks": [
+          "PLUG"
+        ],
+        "key_points": [
+          "経営陣の刷新により事業基盤が改善され、収益性が向上する見込み。",
+          "新規大型受注と政府支援プログラムが売上拡大を後押しする。",
+          "同業他社と比較してPERやEV/EBITDAが低く、割安感がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "bGDRdYG3RBE",
+      "title": "Should You Buy Home Depot Stock Before the Huge Investor Update? | HD Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=bGDRdYG3RBE",
+      "published": "2026-11-15T17:45:07+00:00",
+      "analysis": {
+        "summary_ja": "<b>HD</b>は業績の堅調さと住宅市場の需要拡大を背景に、投資家向けアップデート前に買い増しすべきと主張している。売上成長率が安定し、利益率が改善傾向にある点と、在庫回転の効率化が評価されている。テクニカル的にも上昇トレンドが続いており、短期的な押し目でエントリーするのが有利と結論付けている。",
+        "tickers": [
+          "HD"
+        ],
+        "undervalued_picks": [
+          "HD"
+        ],
+        "key_points": [
+          "住宅リフォーム需要の増加と低金利環境が <b>HD</b> の売上を押し上げている。",
+          "同社は在庫管理とサプライチェーンの改善で利益率を向上させ、過去数四半期でEPSが予想を上回っている。",
+          "株価は長期上昇トレンドにあり、現在は短期的な調整局面でエントリーポイントが形成されている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "テクニカル分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "RgnRgxpsq90",
+      "title": "Super Micro Stock Fell 38% in a Month After a $19.9B Quarter. Why?",
+      "url": "https://www.youtube.com/watch?v=RgnRgxpsq90",
+      "published": "2026-11-15T17:00:27+00:00",
+      "analysis": {
+        "summary_ja": "<b>SMCI</b>は記録的な$19.9B売上を達成したが、売上の44%が単一顧客に依存し、非GAAP粗利益率は12.8%と低く、フリーキャッシュフローは-481Mドルとマイナスであるため、株価は38%下落している。売上急増がキャッシュ生成に結びついていない点と、過度な顧客集中リスクが投資家の警戒感を高めている。現在の約7倍PERは割安感を示すものの、財務改善のマイルストーンが不透明なため慎重な姿勢が求められる。",
+        "tickers": [
+          "SMCI"
+        ],
+        "undervalued_picks": [],
+        "key_points": [
+          "四半期売上の44%が単一顧客に依存しており、顧客集中リスクが高い。",
+          "非GAAP粗利益率が12.8%と低く、利益率改善が課題。",
+          "フリーキャッシュフローが-481百万ドルで、売上増が現金創出に結びついていない。",
+          "年間売上予測は$72B-$82Bだが、株価は約7倍PERで取引されており、バリュエーションは割安感があるものの不確実性が残る。"
+        ],
+        "sentiment": "bearish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "6PgHbdHQ59I",
+      "title": "1 Relatively Safe and Undervalued Dividend Stock to Buy Right Now in November",
+      "url": "https://www.youtube.com/watch?v=6PgHbdHQ59I",
+      "published": "2026-11-15T16:45:32+00:00",
+      "analysis": {
+        "summary_ja": "<b>AT&T</b> は現在割安であり、安定した配当利回りと堅実なキャッシュフローが期待できるため、長期的なパッシブインカム投資に適した銘柄です。業績は減速傾向にあるものの、事業ポートフォリオの再編と高配当政策が株価の下支えとなっています。現在の株価は過去数年の平均P/Eを大きく下回っており、割安感が強いと評価されます。",
+        "tickers": [
+          "T"
+        ],
+        "undervalued_picks": [
+          "T"
+        ],
+        "key_points": [
+          "配当利回りが6%以上と高く、安定したキャッシュフローで配当支払いが持続可能。",
+          "P/E が業界平均の約15倍に対し、現在は約9倍で割安。",
+          "事業再編により高利益率の事業に集中し、長期的な収益性向上が見込まれる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "配当投資",
+          "バリュエーション"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "zSLixL-Yydw",
+      "title": "What's Going on With Bloom Energy Stock? | BE Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=zSLixL-Yydw",
+      "published": "2026-11-15T15:45:07+00:00",
+      "analysis": {
+        "summary_ja": "<b>Bloom Energy</b>（BE）の株価は、データセンター向けのクリーンエネルギー需要拡大と同社の新しい固体酸化物燃料電池（SOFC）技術の商業化進展により、長期的に上昇余地があると評価されている。現在の売上成長率と受注残が市場期待を上回っており、バリュエーションは同業他社に比べて割安水準にある。目標株価は< 2027 年までに <b>BE</b> を $30 前後に上昇させることを想定している。",
+        "tickers": [
+          "BE"
+        ],
+        "undervalued_picks": [
+          "BE"
+        ],
+        "key_points": [
+          "データセンターの電力需要が急増しており、従来の電力供給では対応しきれないため、<b>Bloom Energy</b> のSOFCが代替ソリューションとして注目されている。",
+          "同社は2024年度に受注残が前年同期比で150%増加し、売上高成長率も30%以上と高い伸びを示している。",
+          "EV/EBITDA と P/E が同業のクリーンエネルギー企業よりも低く、割安感があると判断される。",
+          "短期的な株価は市場全体のリスクオフ局面で変動するが、長期的には技術成熟と顧客基盤拡大で株価上昇が期待できる。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "決算分析"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Tom Nash",
+      "video_id": "BhfrDbWz9xY",
+      "title": "A Once in a 100 Year Investment Opportunity Just Started (What and Where I'm Buying)",
+      "url": "https://www.youtube.com/watch?v=BhfrDbWz9xY",
+      "published": "2026-11-15T15:22:32+00:00",
+      "analysis": {
+        "summary_ja": "<b>NVDA</b> が現在の市場サイクルで前例のない成長機会を迎えており、AIとデータセンター需要の急増が評価ギャップを生んでいるため、長期的に買い増しすべきと主張している。<b>TSLA</b> も同様に電池技術と自動運転ソフトウェアの進展が評価されていないとし、現在の価格は割安と評価している。",
+        "tickers": [
+          "NVDA",
+          "TSLA"
+        ],
+        "undervalued_picks": [
+          "NVDA",
+          "TSLA"
+        ],
+        "key_points": [
+          "AIとデータセンター需要の拡大が <b>NVDA</b> の売上を大幅に押し上げると予測。",
+          "現在の株価は過去10年平均P/Eに対して割安であり、成長率が上回る期待がある。",
+          " <b>TSLA</b> の新世代電池と自動運転ソフトウェアが市場で過小評価されている。",
+          "マクロ的に金利低下と政府のインフラ投資がテクノロジー株全体を支える。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Rick Orford",
+      "video_id": "oFjVaf0AVSY",
+      "title": "AMD Stock: Data Center Up 97%, So Why Did Shares Drop 17%?",
+      "url": "https://www.youtube.com/watch?v=oFjVaf0AVSY",
+      "published": "2026-11-15T15:00:10+00:00",
+      "analysis": {
+        "summary_ja": "<b>AMD</b>は史上最高の売上とデータセンターの伸びを示したにも関わらず、株価が17%下落した。投資家はゲーム部門の売上減少、粗利益率の縮小、在庫増加、将来的な株式希薄化リスクを懸念している。一方で、AI向けMI455XチップやHeliosサーバーの需要拡大、2027年に80%以上の成長目標、$17億の第4四半期予想は長期的な上昇余地を示唆している。現在の株価は高いPER（約74倍）で織り込まれているため、リスクとリターンを慎重に評価する必要がある。",
+        "tickers": [
+          "AMD"
+        ],
+        "undervalued_picks": [
+          "AMD"
+        ],
+        "key_points": [
+          "第3四半期の売上は45%増の134億ドル、データセンター売上は97%増と記録的だが、ゲーム部門の売上減と粗利益率低下が株価下落の要因。",
+          "AIチップ（MI455X）とHeliosサーバーへの需要が2027年までに80%以上の成長を支えると予測されている。",
+          "在庫増加と潜在的な株式希薄化（追加株発行リスク）が投資家の不安材料となっている。",
+          "株価は過去高から約38%下落し、Forward P/Eは約74倍であり、バリュエーションが過大評価されている可能性がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "テクノロジー・AI"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "low"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Jerry Romine",
+      "video_id": "6HrOorhQi3k",
+      "title": "Why Nvidia’s Earnings Will Crush the Scandal Panic (Emergency Update)",
+      "url": "https://www.youtube.com/watch?v=6HrOorhQi3k",
+      "published": "2026-11-15T14:58:41+00:00",
+      "analysis": {
+        "summary_ja": "<b>NVDA</b>の今期決算は市場のパニックを覆す可能性が高く、供給側の2800億ドル規模のモートと新しい暫定CEOが投資家に好材料と評価される。テクニカル的な下落は過剰反応であり、現在の価格は買い場と見られる。",
+        "tickers": [
+          "NVDA"
+        ],
+        "undervalued_picks": [
+          "NVDA"
+        ],
+        "key_points": [
+          "企業リスクは3つのバケットに分けられ、決算期はヘッドラインから切り離されているため実績は堅調。",
+          "供給側のモートは約2790億ドルと評価され、競合が参入しにくい構造。",
+          "新任暫定CEOはWall Streetが期待するリーダーシップを示し、投資家心理を改善する可能性がある。",
+          "決算で特定の財務レバー（例：営業利益率の改善）が実現すれば、ベアリッシュな見方が一夜にして転換される。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "PMW3UhgWlHw",
+      "title": "Should You Buy Alibaba Stock Before the Huge Investor Update? | BABA Stock Analysis",
+      "url": "https://www.youtube.com/watch?v=PMW3UhgWlHw",
+      "published": "2026-11-15T14:45:07+00:00",
+      "analysis": {
+        "summary_ja": "<b>Alibaba</b> (BABA) は中国のeコマースとクラウドでリーダーシップを維持しており、次回の大口投資家アップデート前に株価が割安感を帯びている。売上成長は依然として堅調で、特にクラウド部門の利益率改善が期待できる。マクロ面では中国政府の規制緩和兆候と米中関係の安定化がプラス材料と考えられるため、投資家は現在の水準で買いを検討すべきである。",
+        "tickers": [
+          "BABA"
+        ],
+        "undervalued_picks": [
+          "BABA"
+        ],
+        "key_points": [
+          "Alibabaの売上は過去12ヵ月で年率10%増で、特にクラウドサービスが高成長。",
+          "中国政府の規制が緩和されつつあり、テクノロジー企業への圧力が減少。",
+          "次回の大口投資家アップデートで資本配分や新規事業の進捗が明らかになる可能性が高く、株価は先行して織り込まれる可能性がある。",
+          "バリュエーションはEV/EBITDAが業界平均を下回っており、割安感がある。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "決算分析",
+          "マクロ経済"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Business with Brian",
+      "video_id": "uc81ZM85WMc",
+      "title": "The AI Panic Started. Here’s What 16 YouTubers Are Buying",
+      "url": "https://www.youtube.com/watch?v=uc81ZM85WMc",
+      "published": "2026-11-15T14:00:33+00:00",
+      "analysis": {
+        "summary_ja": "AIブームへの過熱感が高まる中、<b>GHVNF</b> をはじめとする16人のYouTuberが注目する銘柄を紹介し、AI関連の成長期待と低評価の割安感を根拠に買いを推奨している。",
+        "tickers": [
+          "GHVNF"
+        ],
+        "undervalued_picks": [
+          "GHVNF"
+        ],
+        "key_points": [
+          "AI関連の需要拡大が鉱業・資源企業の長期成長を後押しすると主張。",
+          "現在の株価は市場で過小評価されており、割安感があると評価。",
+          "YouTuberたちは<b>GHVNF</b> をポートフォリオに組み入れることを推奨。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "マクロ経済",
+          "投資戦略"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Sven Carlin",
+      "video_id": "NOris_KDbE8",
+      "title": "How difficult it is to be prudent when others aren’t!",
+      "url": "https://www.youtube.com/watch?v=NOris_KDbE8",
+      "published": "2026-11-15T13:00:18+00:00",
+      "analysis": {
+        "summary_ja": "実質的な投資テーゼがなく、主に投資に対する心構えや他者の非合理的な行動への対処法について語られている。",
+        "tickers": [],
+        "undervalued_picks": [],
+        "key_points": [
+          "市場参加者が非合理的に行動することが多く、感情に流されずに慎重さを保つ必要がある。",
+          "他者の過熱や過小評価に合わせて自分のリスク管理基準を崩さないことが長期的成功につながる。"
+        ],
+        "sentiment": "neutral",
+        "topics": [
+          "投資戦略",
+          "市場見通し"
+        ],
+        "importance": 2,
+        "has_thesis": false,
+        "promoLevel": "high"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    },
+    {
+      "channel_name": "Parkev's Picks",
+      "video_id": "fbpEekpmboE",
+      "title": "Now That Jensen Huang is Out, Should Investors Buy AMD Stock Instead of Nvidia Stock? | AMD vs. NVDA",
+      "url": "https://www.youtube.com/watch?v=fbpEekpmboE",
+      "published": "2026-11-15T12:45:38+00:00",
+      "analysis": {
+        "summary_ja": "<b>AMD</b>はJensen Huangの退任によりリーダーシップ面で<b>NVDA</b>を上回ると考えられ、同社のAIチップロードマップとコスト効率が投資魅力を高めている。<b>NVDA</b>は創業者不在で戦略的不透明感が増し、短期的な株価下落リスクがある。したがって、投資家は<b>AMD</b>を買い、<b>NVDA</b>は回避またはヘッジすべきと結論付けている。",
+        "tickers": [
+          "AMD",
+          "NVDA"
+        ],
+        "undervalued_picks": [
+          "AMD"
+        ],
+        "key_points": [
+          "Jensen Huangの退任で<b>NVDA</b>のリーダーシップが弱体化し、競争優位が失われる可能性がある。",
+          "<b>AMD</b>はAI向けGPUとCPUの統合ロードマップが進行中で、コストパフォーマンスが高く市場シェア拡大が期待できる。",
+          "現在の株価評価を見ると、<b>AMD</b>は相対的に割安であり、成長期待に対してプレミアムが過小評価されている。"
+        ],
+        "sentiment": "bullish",
+        "topics": [
+          "個別銘柄分析",
+          "市場見通し"
+        ],
+        "importance": 4,
+        "has_thesis": true,
+        "promoLevel": "medium"
+      },
+      "price_snapshot": {
+        "AAPL": 352.78,
+        "AMD": 504.28,
+        "BABA": 90.62,
+        "BE": 177.28,
+        "BG": 99.02,
+        "BMNR": 16.26,
+        "CRWV": 49.88,
+        "DUOL": 168.75,
+        "FIS": 28.3,
+        "GHVNF": 0.11,
+        "GPN": 89.82,
+        "HD": 347.51,
+        "INTC": 55.47,
+        "IP": 33.22,
+        "MSTR": 103.03,
+        "NVDA": 156.14,
+        "PANW": 316.09,
+        "PKG": 250.47,
+        "PLUG": 1.07,
+        "SMCI": 25.03,
+        "SOUN": 3.23,
+        "SW": 41.91,
+        "T": 22.36,
+        "TSLA": 379.74,
+        "XLE": 63.69,
+        "XLF": 58.18
+      }
+    }
+  ]
+}
